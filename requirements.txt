@@ -1,0 +1,5 @@
+django
+gunicorn
+django-heroku
+requests
+mailru-im-bot
