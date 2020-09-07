@@ -487,6 +487,11 @@ def bot(request):
 
                 response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
 
+                soup = BeautifulSoup(page.text, "html.parser")
+
+                response = tg.sendMessage(chat_id, soup.title)
+
+                '''
                 new_news = []
                 news = []
 
@@ -500,7 +505,7 @@ def bot(request):
 
                 for i in range(len(new_news)):
                     response = tg.sendMessage(chat_id, new_news[i])
-
+                '''
 
                 '''
                 try:
