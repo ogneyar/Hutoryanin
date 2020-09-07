@@ -29,7 +29,10 @@ def start(request):
     soup = BeautifulSoup(page.text, "lxml")
 
 
-    return HttpResponse(repr(soup.body.prettify()))
+    return HttpResponse(repr(soup.find(div, id="description"))
+    
+    #return HttpResponse(repr(soup.body.prettify())
+
 
 
     #response = tg.sendMessage(chat_id, soup.title)
