@@ -492,44 +492,44 @@ def bot(request):
                     pass
 
 
-            elif text == "t2":
+            elif text == "э":
                 db_url = os.getenv("DATABASE_URL")
                 
-                response = tg.sendMessage(chat_id, "db_url/n/n"+db_url)
+                response = tg.sendMessage(chat_id, "db_url\n\n"+db_url)
 
                 num = db_url.find("://")
                 base = db_url[:num]
-                db_url.replase(base+"://", "")
+                db_url.replace(base+"://", "")
                 
-                response = tg.sendMessage(chat_id, "base/n/n"+base)
+                response = tg.sendMessage(chat_id, "base\n\n"+base)
                 
                 num = db_url.find(":")
                 user = db_url[:num]
-                db_url.replase(user+":", "")
+                db_url.replace(user+":", "")
                 
-                response = tg.sendMessage(chat_id, "user/n/n"+user)
+                response = tg.sendMessage(chat_id, "user\n\n"+user)
                 
                 num = db_url.find("@")
                 passw = db_url[:num]
-                db_url.replase(passw+"@", "")
+                db_url.replace(passw+"@", "")
                 
-                response = tg.sendMessage(chat_id, "passw/n/n"+passw)
+                response = tg.sendMessage(chat_id, "passw\n\n"+passw)
                 
                 num = db_url.find(":")
                 host = db_url[:num]
-                db_url.replase(host+":", "")
+                db_url.replace(host+":", "")
                 
-                response = tg.sendMessage(chat_id, "host/n/n"+host)
+                response = tg.sendMessage(chat_id, "host\n\n"+host)
                 
                 num = db_url.find("/")
                 port = db_url[:num]
-                db_url.replase(port+"/", "")
+                db_url.replace(port+"/", "")
                 
-                response = tg.sendMessage(chat_id, "port/n/n"+port)
+                response = tg.sendMessage(chat_id, "port\n\n"+port)
                 
                 name = db_url
                 
-                response = tg.sendMessage(chat_id, "name/n/n"+name)
+                response = tg.sendMessage(chat_id, "name\n\n"+name)
 
 
             elif text == "":
