@@ -483,7 +483,7 @@ def bot(request):
 
                 url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
 
-                page = requests.get(url, headers=headers)
+                page = requests.get(url, headers=headers, timeout=(1, 3))
 
                 #, max_retries=5, dely_between_retries=3
 
