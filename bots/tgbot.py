@@ -497,8 +497,10 @@ def bot(request):
                     soup = BeautifulSoup(page.text, "html.parser")
 
                     response = tg.sendMessage(chat_id, soup.title)
+                    
+                    response = tg.sendMessage(chat_id, soup.body.find(id="description").span[0].text)
 
-                    response = tg.sendMessage(chat_id, str(soup.find(id="description")))
+                    #response = tg.sendMessage(chat_id, str(soup.find(id="description")))
 
                 '''
                 new_news = []
