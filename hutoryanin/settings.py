@@ -81,19 +81,42 @@ WSGI_APPLICATION = 'hutoryanin.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+db_url = os.getenv("DATABASE_URL")
+                
+num = db_url.find("://")
+base = db_url[:num]
+db_url = db_url.replace(base+"://", "")
+
+num = db_url.find(":")
+user = db_url[:num]
+db_url = db_url.replace(user+":", "")
+
+num = db_url.find("@")
+passw = db_url[:num]
+db_url = db_url.replace(passw+"@", "")
+                
+num = db_url.find(":")
+host = db_url[:num]
+db_url = db_url.replace(host+":", "")
+
+num = db_url.find("/")
+port = db_url[:num]
+db_url = db_url.replace(port+"/", "")
+
+name = db_url
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    'postgresql': {
+    base: {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dcfjk6lm9acdo2',
-        'USER': 'mkkkvlbuncdczv',
-        'PASSWORD': 'fe6572b3e2b687169710a1eda33c048f39823b2e414ac967ee8d9bb73fa7f44d',
-        'HOST': 'ec2-54-144-177-189.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': name,
+        'USER': user,
+        'PASSWORD': passw,
+        'HOST': host,
+        'PORT': port,
     }
 }
 
