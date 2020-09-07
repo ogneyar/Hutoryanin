@@ -111,7 +111,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     },
     base: {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {'sslmode': 'require'},
         'NAME': name,
         'USER': user,
         'PASSWORD': passw,
