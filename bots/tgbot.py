@@ -499,35 +499,35 @@ def bot(request):
 
                 num = db_url.find("://")
                 base = db_url[:num]
-                db_url.replace(base+"://", "")
+                db_url.replace(base+"://", " ")
                 
                 response = tg.sendMessage(chat_id, "base\n\n"+base)
                 
                 num = db_url.find(":")
-                user = db_url[:num]
-                db_url.replace(user+":", "")
+                user = db_url[1:num]
+                db_url.replace(" "+user+":", " ")
                 
                 response = tg.sendMessage(chat_id, "user\n\n"+user)
                 
                 num = db_url.find("@")
-                passw = db_url[:num]
-                db_url.replace(passw+"@", "")
+                passw = db_url[1:num]
+                db_url.replace(" "+passw+"@", " ")
                 
                 response = tg.sendMessage(chat_id, "passw\n\n"+passw)
                 
                 num = db_url.find(":")
-                host = db_url[:num]
-                db_url.replace(host+":", "")
+                host = db_url[1:num]
+                db_url.replace(" "+host+":", " ")
                 
                 response = tg.sendMessage(chat_id, "host\n\n"+host)
                 
                 num = db_url.find("/")
-                port = db_url[:num]
-                db_url.replace(port+"/", "")
+                port = db_url[1:num]
+                db_url.replace(" "+port+"/", " ")
                 
                 response = tg.sendMessage(chat_id, "port\n\n"+port)
                 
-                name = db_url
+                name = db_url[1:]
                 
                 response = tg.sendMessage(chat_id, "name\n\n"+name)
 
