@@ -490,7 +490,7 @@ def bot(request):
                 response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
                 
                 if page.status_code != 200:
-                    response = tg.sendMessage(chat_id, "Headers: \n\n" + page.headers)
+                    response = tg.sendMessage(chat_id, "Headers: \n\n" + str(page.headers))
                     
                 else:
 
