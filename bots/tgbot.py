@@ -498,7 +498,11 @@ def bot(request):
 
                     response = tg.sendMessage(chat_id, soup.title)
 
-                    response = tg.sendMessage(chat_id, soup.body.find(id="description").span)
+                    h1_class_title = soup.findAll('h1', class_='title style-scope ytd-video-primary-info-renderer')
+
+                    response = tg.sendMessage(chat_id, repr(h1_class_title))
+
+                    #response = tg.sendMessage(chat_id, soup.body.find(id="description").span)
 
                     #response = tg.sendMessage(chat_id, str(soup.find(id="description")))
 
