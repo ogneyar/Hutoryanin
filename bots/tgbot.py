@@ -12,8 +12,8 @@ from classes.tg.types.chatPermissions import ChatPermissions
 
 # получение информации об апдейтах
 global debug
-debug = True
-#debug = False
+#debug = True
+debug = False
 
 def bot(request):
     try:
