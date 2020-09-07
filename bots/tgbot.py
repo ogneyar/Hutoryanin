@@ -483,7 +483,9 @@ def bot(request):
 
                 url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
 
-                page = requests.get(url, headers=headers, max_retries=5, dely_between_retries=3)
+                page = requests.get(url, headers=headers)
+
+                #, max_retries=5, dely_between_retries=3
 
                 response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
 
