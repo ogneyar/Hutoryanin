@@ -76,7 +76,7 @@ def bot(request):
             else:
                 from_id = 0
                 from_first_name = "unknown"
-                from_is_bot = None
+                from_is_bot = True
 
             chat = message.getChat()
             chat_id = chat.getId()
@@ -421,6 +421,8 @@ def bot(request):
 
 
             elif chat_id == groupHutor and from_is_bot != True and new_chat_members != []: # method kickChatMember
+
+                response = tg.sendMessage(chat_id, from_is_bot)
 
                 response = tg.sendMessage(chat_id, "Новый пользователь "+ new_chat_members[0].getFirstName() +" удалён из группы.")
                 response = tg.kickChatMember(chat_id, new_chat_members[0].getId())
