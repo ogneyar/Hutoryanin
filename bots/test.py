@@ -9,12 +9,17 @@ from bs4 import BeautifulSoup
 
 
 def start(request):
-
+    '''
     headers = {
         'User-Agent': "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 OPR/70.0.3728.106",
         'x-youtube-client-name': '1',
         'x-youtube-client-version': '2.20200529.02.01'
     }
+    '''
+    headers = {
+        'User-Agent': "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 OPR/70.0.3728.106"
+    }
+    
 
     #response = requests.get("https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be", headers=headers)
 
