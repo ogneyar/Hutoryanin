@@ -20,7 +20,7 @@ def start(request):
 
     #url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
     
-    url = "https://www.youtube.com"
+    url = "https://www.prizmarket.ru"
 
     page = requests.get(url, headers=headers, timeout=(1, 3))
 
