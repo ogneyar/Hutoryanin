@@ -487,21 +487,20 @@ def bot(request):
 
                 response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
 
-                '''
                 new_news = []
                 news = []
 
                 soup = BeautifulSoup(page.text, "html.parser")
 
-                news = soup.findAll('a', class_='lenta')
+                news = soup.findAll('div', class_='style-scope ytd-video-secondary-info-renderer')
 
                 for i in range(len(news)):
-                    if news[i].find('span', class_='time2 time3') is not None:
+                    if news[i].find('span', class_='style-scope yt-formatted-string') is not None:
                         new_news.append(news[i].text)
 
                 for i in range(len(new_news)):
-                    print(new_news[i])
-                '''
+                    response = tg.sendMessage(chat_id, new_news[i])
+
 
                 '''
                 try:
