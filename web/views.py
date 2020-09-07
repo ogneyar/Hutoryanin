@@ -21,11 +21,6 @@ def support(request):
     return render(request, "support.html")
 
 
-def test(request):
-
-    return render(request, "test.html")
-
-
 def db(request):
 
     greeting = Greeting()

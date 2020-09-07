@@ -11,6 +11,7 @@ admin.autodiscover()
 import web.views
 import bots.tgbot
 import bots.icqbot
+import bots.test
 
 # Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
 
@@ -18,7 +19,7 @@ urlpatterns = [
     path("", web.views.index, name="index"),
     path("shop/", web.views.shop, name="shop"),
     path("support/", web.views.support, name="support"),
-    path("test/", web.views.test, name="test"),
+    path("test/", bots.test.start, name="test"),
     path("db/", web.views.db, name="db"),
 
     path("tgbot/", bots.tgbot.bot, name="bot"),
