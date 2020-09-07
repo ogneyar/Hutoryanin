@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+
+  <h1 class="display-4">Акции от Хуторянина!</h1>
+  
+  <p class="lead">С 1.11.2020 после празднования дня рождения Хуторянина стартует акция которая продлится неделю. За эту неделю будет разыгран один нож и три ложки для мёда. Подробности акции чуть позже, следите за обновлениями в новостной ленте телеграм канала ХуторянинЪ.</p>
+  
+</div>
+
+{% endblock %}
+
+{% block content %}
+ 
+<div class="card-deck mb-3 text-center">
+  
+    <div class="card mb-4 shadow-sm">      
+      <div class="card-body">
+	  
+        <img class="mb-2" src="{% static 'logo2.png'%}" alt="" width="100%">
+		
+      </div>
+	  <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Акция /<br> Promo</h4>
+      </div>
+    </div>
+	
+    
+	
+</div>
+
+{% endblock %}
