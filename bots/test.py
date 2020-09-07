@@ -1,9 +1,10 @@
-﻿from django.http import HttpResponse
+from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 
 import requests
 import json
 import os
+
 from bs4 import BeautifulSoup
 
 
@@ -21,20 +22,18 @@ def start(request):
 
     page = requests.get(url, headers=headers, timeout=(1, 3))
 
-    response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
+    #response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
 
     soup = BeautifulSoup(page.text, "html.parser")
 
     return HttpResponse(soup.prettify())
 
 
-    response = tg.sendMessage(chat_id, soup.title)
+    #response = tg.sendMessage(chat_id, soup.title)
 
     div = soup.find(id="guide-button")
 
-    response = tg.sendMessage(chat_id, repr(div))
-
-    #return HttpResponse('<br><br><br><br><br><center>O da!</center>')
+    return HttpResponse(repr(div))
 
 
 
