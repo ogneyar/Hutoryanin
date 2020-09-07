@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 
@@ -31,11 +33,16 @@ def start(request):
 
     #response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
 
-    soup = BeautifulSoup(page.text, "html.parser")
+    #soup = BeautifulSoup(page.text, "html.parser")
     
-    #soup = BeautifulSoup(page.text, "lxml")
+    soup = BeautifulSoup(page.text, "lxml")
     
-    return HttpResponse(str(page.status_code)+"<br><br><!--"+str(soup.prettify())+"-->")
+    
+    return HttpResponse(
+        str(soup.title)+"<br><br>"+str(soup.title.text)+"<br><br>"+str(soup.title.parent)
+        )
+    
+    #return HttpResponse(str(page.status_code)+"<br><br><!--"+str(soup.prettify())+"-->")
 
 
     #return HttpResponse(repr(soup.find_all("div", id="description")))
