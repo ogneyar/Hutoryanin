@@ -18,7 +18,9 @@ def start(request):
 
     #response = requests.get("https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be", headers=headers)
 
-    url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
+    #url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
+    
+    url = "https://www.youtube.com/index.html"
 
     page = requests.get(url, headers=headers, timeout=(1, 3))
 
