@@ -483,13 +483,15 @@ def bot(request):
 
                 url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
 
-                page = requests.get(url, headers=headers)
+                page = requests.get(url, headers=headers, max_retries=5, dely_between_retries=3)
 
                 response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
 
                 soup = BeautifulSoup(page.text, "html.parser")
 
                 response = tg.sendMessage(chat_id, soup.title)
+
+                response = tg.sendMessage(chat_id, soup.find(id="description"))
 
                 '''
                 new_news = []
