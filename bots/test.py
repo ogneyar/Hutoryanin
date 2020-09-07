@@ -39,7 +39,7 @@ def start(request):
     
     
     return HttpResponse(
-        str(soup.title)+"<br><br>"+str(soup.title.text)+"<br><br>"+str(soup.title.parent)
+        str(soup.title.text)+"<br><br>"+str(soup.header.text)
         )
     
     #return HttpResponse(str(page.status_code)+"<br><br><!--"+str(soup.prettify())+"-->")
