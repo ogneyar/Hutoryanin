@@ -10,10 +10,6 @@ from classes.tg.botApi import Bot
 from classes.tg.types.replyKeyboardMarkup import ReplyKeyboardMarkup
 from classes.tg.types.chatPermissions import ChatPermissions
 
-# получение информации об апдейтах
-global debug
-#debug = True
-debug = False
 
 def bot(request):
     try:
@@ -21,6 +17,7 @@ def bot(request):
 
             token = os.getenv("TOKEN")
             master = int(os.getenv("MASTER"))
+            debug = os.getenv("DEBUG")
 
             groupHutor = -464572634 # group
             groupHutor2 = -1001471520704 # supergroup
@@ -31,14 +28,14 @@ def bot(request):
             # инициализация телеграм бота
             tg = Bot(token)
 
-            if (debug):
+            if (debug == "Да"):
                 response = tg.sendMessage(master, request.body, disable_web_page_preview=True)
                 #return HttpResponse("ok")
 
             update = None
             update = tg.start(request)
 
-            if (debug):
+            if (debug == "Да"):
                 response = tg.sendMessage(master, update.getStr(), disable_web_page_preview=True)
 
             message = update.getMessage()
