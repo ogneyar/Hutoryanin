@@ -25,7 +25,7 @@ def bot(request):
             groupHutor = -464572634 # group
             groupHutor2 = -1001471520704 # supergroup
             groupHutor3 = -1001393395949 # supergroup
-            channelTestPodrobno = -1001444633822 # channel
+
             testerBotoff = 351009636
 
             # инициализация телеграм бота
@@ -72,9 +72,11 @@ def bot(request):
             if message_from is not None:
                 from_id = message_from.getId()
                 from_first_name = message_from.getFirstName()
+                from_is_bot = message_from.getIsBot()
             else:
                 from_id = 0
                 from_first_name = "unknown"
+                from_is_bot = None
 
             chat = message.getChat()
             chat_id = chat.getId()
@@ -374,7 +376,6 @@ def bot(request):
                 #response = tg.sendDice(chat_id, "\ud83c\udfc0")
 
 
-
             elif (text == "/sendChatAction"):
 
                 response = tg.sendMessage(chat_id, "В заголовке, под именем бота должна появиться надпись 'печатает...'")
@@ -419,7 +420,7 @@ def bot(request):
                 response = tg.sendMessage(chat_id, "Перейди по ссылке в группу бота\n\nhttps://t.me/joinchat/Pezt-Buw0NqhYOXVVBbUxA")
 
 
-            elif chat_id == groupHutor and new_chat_members != []: # method kickChatMember
+            elif chat_id == groupHutor and from_is_bot != True and new_chat_members != []: # method kickChatMember
 
                 response = tg.sendMessage(chat_id, "Новый пользователь "+ new_chat_members[0].getFirstName() +" удалён из группы.")
                 response = tg.kickChatMember(chat_id, new_chat_members[0].getId())
@@ -430,7 +431,7 @@ def bot(request):
                 response = tg.sendMessage(chat_id, "Перейди по ссылке:\n\nhttps://t.me/hutorTest2")
 
 
-            elif chat_id == groupHutor2 and new_chat_members != []: # method unbanChatMember
+            elif chat_id == groupHutor2 and from_is_bot != True and new_chat_members != []: # method unbanChatMember
 
                 response = tg.sendMessage(chat_id, "Новый пользователь "+ new_chat_members[0].getFirstName() +" удалён из группы.")
                 response = tg.sendMessage(chat_id, "C пользователя "+ new_chat_members[0].getFirstName() +" БАН снят.")
@@ -445,7 +446,7 @@ def bot(request):
                 response = tg.sendMessage(chat_id, "Перейди по ссылке:\n\nhttps://t.me/hutorTest3")
 
 
-            elif chat_id == groupHutor3 and new_chat_members != []: # method restrictChatMember
+            elif chat_id == groupHutor3 and from_is_bot != True and new_chat_members != []: # method restrictChatMember
 
                 response = tg.sendMessage(chat_id, "Welcome!")
 
