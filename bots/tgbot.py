@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 import requests
 import json
 import os
+from bs4 import BeautifulSoup
 
 from classes.tg.botApi import Bot
 from classes.tg.types.replyKeyboardMarkup import ReplyKeyboardMarkup
@@ -468,67 +469,102 @@ def bot(request):
             elif (text == "т"):
 
                 #response = requests.get("https://youtu.be/dGRJU_QlMf4")
-                response = requests.get("https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be")
 
+                headers = {
+                    'User-Agent': "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 OPR/70.0.3728.106",
+                    'x-youtube-client-name': '1',
+                    'x-youtube-client-version': '2.20200529.02.01'
+                }
+
+                #response = requests.get("https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be", headers=headers)
+
+
+                url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
+
+                page = requests.get(url, headers=headers)
+
+                response = tg.sendMessage(chat_id, "Статус код: \n\n" + page.status_code)
+
+                '''
+                new_news = []
+                news = []
+
+                soup = BeautifulSoup(page.text, "html.parser")
+
+                news = soup.findAll('a', class_='lenta')
+
+                for i in range(len(news)):
+                    if news[i].find('span', class_='time2 time3') is not None:
+                        new_news.append(news[i].text)
+
+                for i in range(len(new_news)):
+                    print(new_news[i])
+                '''
+
+                '''
                 try:
                     response = tg.sendMessage(chat_id, "content \n\n" + str(response.content))
                 except:
                     pass
-                try:
-                    response = tg.sendMessage(chat_id, "headers \n\n" + str(response.headers))
-                except:
-                    pass
-                try:
-                    response = tg.sendMessage(chat_id, "json \n\n" + str(response.json))
-                except:
-                    pass
-                try:
-                    response = tg.sendMessage(chat_id, "body \n\n" + str(response.body))
-                except:
-                    pass
-                try:
-                    response = tg.sendMessage(chat_id, "text \n\n" + str(response.text))
-                except:
-                    pass
-
+                finally:
+                    try:
+                        response = tg.sendMessage(chat_id, "headers \n\n" + str(response.headers))
+                    except:
+                        pass
+                    finally:
+                        try:
+                            response = tg.sendMessage(chat_id, "json \n\n" + str(response.json()))
+                        except:
+                            pass
+                        finally:
+                            try:
+                                response = tg.sendMessage(chat_id, "body \n\n" + str(response.body))
+                            except:
+                                pass
+                            finally:
+                                try:
+                                    response = tg.sendMessage(chat_id, "text \n\n" + str(response.text.split(" ", 1)))
+                                except:
+                                    pass
+                '''
 
             elif text == "э":
                 db_url = os.getenv("DATABASE_URL")
-                
+
                 response = tg.sendMessage(chat_id, "db_url\n\n"+db_url)
 
                 num = db_url.find("://")
                 base = db_url[:num]
                 db_url = db_url.replace(base+"://", "")
-                
+
                 response = tg.sendMessage(chat_id, "base\n\n"+base)
-                
+
                 num = db_url.find(":")
                 user = db_url[:num]
                 db_url = db_url.replace(user+":", "")
-                
+
                 response = tg.sendMessage(chat_id, "user\n\n"+user)
-                
+
                 num = db_url.find("@")
                 passw = db_url[:num]
                 db_url = db_url.replace(passw+"@", "")
-                
+
                 response = tg.sendMessage(chat_id, "passw\n\n"+passw)
-                
+
                 num = db_url.find(":")
                 host = db_url[:num]
                 db_url = db_url.replace(host+":", "")
-                
+
                 response = tg.sendMessage(chat_id, "host\n\n"+host)
-                
+
                 num = db_url.find("/")
                 port = db_url[:num]
                 db_url = db_url.replace(port+"/", "")
-                
+
                 response = tg.sendMessage(chat_id, "port\n\n"+port)
-                
+
                 name = db_url
-                
+
                 response = tg.sendMessage(chat_id, "name\n\n"+name)
 
 
