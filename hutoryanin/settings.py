@@ -81,8 +81,8 @@ WSGI_APPLICATION = 'hutoryanin.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-db_url = os.getenv("DATABASE_URL")
-                
+db_url = str(os.getenv("DATABASE_URL"))
+
 num = db_url.find("://")
 base = db_url[:num]
 db_url = db_url.replace(base+"://", "")
@@ -94,7 +94,7 @@ db_url = db_url.replace(user+":", "")
 num = db_url.find("@")
 passw = db_url[:num]
 db_url = db_url.replace(passw+"@", "")
-                
+
 num = db_url.find(":")
 host = db_url[:num]
 db_url = db_url.replace(host+":", "")
