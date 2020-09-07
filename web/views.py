@@ -31,6 +31,11 @@ def support(request):
     return render(request, "support.html")
 
 
+def lk(request):
+
+    return render(request, "lk.html")
+
+
 def db(request):
 
     greeting = Greeting()
