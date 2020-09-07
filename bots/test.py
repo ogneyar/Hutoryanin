@@ -26,7 +26,7 @@ def start(request):
 
     soup = BeautifulSoup(page.text, "html.parser")
 
-    return HttpResponse(soup.prettify())
+    return HttpResponse(repr(soup.prettify()))
 
 
     #response = tg.sendMessage(chat_id, soup.title)
