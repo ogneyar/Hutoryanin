@@ -67,7 +67,7 @@ def bot(request):
             if new_chat_members is not None:
                 new_chat_members_from_is_bot = new_chat_members.getIsBot()
             else:
-                new_chat_members_from_is_bot = None
+                new_chat_members_from_is_bot = False
             message_id = message.getMessageId()
             text = message.getText()
             #video_note = message.getVideoNote()
@@ -80,7 +80,7 @@ def bot(request):
             else:
                 from_id = 0
                 from_first_name = "unknown"
-                from_is_bot = None
+                from_is_bot = False
 
             chat = message.getChat()
             chat_id = chat.getId()
