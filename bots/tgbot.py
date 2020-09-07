@@ -488,12 +488,17 @@ def bot(request):
                 #, max_retries=5, dely_between_retries=3
 
                 response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
+                
+                if page.status_code != 200:
+                    response = tg.sendMessage(chat_id, "Headers: \n\n" + page.headers)
+                    
+                else:
 
-                soup = BeautifulSoup(page.text, "html.parser")
+                    soup = BeautifulSoup(page.text, "html.parser")
 
-                response = tg.sendMessage(chat_id, soup.title)
+                    response = tg.sendMessage(chat_id, soup.title)
 
-                response = tg.sendMessage(chat_id, soup.find(id="description"))
+                    response = tg.sendMessage(chat_id, str(soup.find(id="description")))
 
                 '''
                 new_news = []
