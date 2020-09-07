@@ -500,7 +500,12 @@ def bot(request):
 
                     h1_class_title = soup.findAll('h1', class_='title style-scope ytd-video-primary-info-renderer')
 
-                    response = tg.sendMessage(chat_id, repr(h1_class_title))
+                    i = 0
+
+                    for i in range(len(h1_class_title)):
+
+                        response = tg.sendMessage(chat_id, repr(h1_class_title[i]))
+
 
                     #response = tg.sendMessage(chat_id, soup.body.find(id="description").span)
 
