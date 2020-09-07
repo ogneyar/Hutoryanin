@@ -498,7 +498,7 @@ def bot(request):
 
                     response = tg.sendMessage(chat_id, soup.title)
 
-                    div = soup.body.findAll('paper-tooltip', class_='style-scope ytd-masthead')
+                    div = soup.findAll('paper-tooltip', class_='ytd-masthead')
 
                     response = tg.sendMessage(chat_id, repr(div))
 
