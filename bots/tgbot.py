@@ -488,17 +488,17 @@ def bot(request):
                 #, max_retries=5, dely_between_retries=3
 
                 response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
-                
+
                 if page.status_code != 200:
                     response = tg.sendMessage(chat_id, "Headers: \n\n" + str(page.headers))
-                    
+
                 else:
 
                     soup = BeautifulSoup(page.text, "html.parser")
 
                     response = tg.sendMessage(chat_id, soup.title)
-                    
-                    response = tg.sendMessage(chat_id, soup.body.find(id="description").span[0].text)
+
+                    response = tg.sendMessage(chat_id, soup.body.find(id="description").span)
 
                     #response = tg.sendMessage(chat_id, str(soup.find(id="description")))
 
@@ -516,33 +516,6 @@ def bot(request):
 
                 for i in range(len(new_news)):
                     response = tg.sendMessage(chat_id, new_news[i])
-                '''
-
-                '''
-                try:
-                    response = tg.sendMessage(chat_id, "content \n\n" + str(response.content))
-                except:
-                    pass
-                finally:
-                    try:
-                        response = tg.sendMessage(chat_id, "headers \n\n" + str(response.headers))
-                    except:
-                        pass
-                    finally:
-                        try:
-                            response = tg.sendMessage(chat_id, "json \n\n" + str(response.json()))
-                        except:
-                            pass
-                        finally:
-                            try:
-                                response = tg.sendMessage(chat_id, "body \n\n" + str(response.body))
-                            except:
-                                pass
-                            finally:
-                                try:
-                                    response = tg.sendMessage(chat_id, "text \n\n" + str(response.text.split(" ", 1)))
-                                except:
-                                    pass
                 '''
 
 
