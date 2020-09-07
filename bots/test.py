@@ -20,7 +20,7 @@ def start(request):
 
     #url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
     
-    url = "https://www.youtube.com/index.html"
+    url = "https://www.youtube.com"
 
     page = requests.get(url, headers=headers, timeout=(1, 3))
 
@@ -30,7 +30,7 @@ def start(request):
     
     soup = BeautifulSoup(page.text, "lxml")
     
-    return HttpResponse(repr(soup.html))
+    return HttpResponse(str(page.status_code)+"<br><br>"+repr(soup.html))
 
 
     #return HttpResponse(repr(soup.find_all("div", id="description")))
