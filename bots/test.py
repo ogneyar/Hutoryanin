@@ -6,10 +6,6 @@ import json
 import os
 from bs4 import BeautifulSoup
 
-from classes.tg.botApi import Bot
-from classes.tg.types.replyKeyboardMarkup import ReplyKeyboardMarkup
-from classes.tg.types.chatPermissions import ChatPermissions
-
 
 def start(request):
 
