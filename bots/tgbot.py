@@ -480,37 +480,29 @@ def bot(request):
 
                 #response = requests.get("https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be", headers=headers)
 
-
                 url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
 
                 page = requests.get(url, headers=headers, timeout=(1, 3))
 
-                #, max_retries=5, dely_between_retries=3
-
                 response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
 
-                if page.status_code != 200:
-                    response = tg.sendMessage(chat_id, "Headers: \n\n" + str(page.headers))
+                soup = BeautifulSoup(page.text, "html.parser")
 
-                else:
+                response = tg.sendMessage(chat_id, soup.title)
 
-                    soup = BeautifulSoup(page.text, "html.parser")
+                div = soup.find(id="guide-button")
 
-                    response = tg.sendMessage(chat_id, soup.title)
+                response = tg.sendMessage(chat_id, repr(div))
 
-                    div = soup.find(id="back-button-tooltip")
+                '''
+                h1_class_title = soup.findAll('h1', class_='title style-scope ytd-video-primary-info-renderer')
 
-                    response = tg.sendMessage(chat_id, repr(div))
+                response = tg.sendMessage(chat_id, repr(h1_class_title))
+                '''
 
-                    '''
-                    h1_class_title = soup.findAll('h1', class_='title style-scope ytd-video-primary-info-renderer')
+                #response = tg.sendMessage(chat_id, soup.body.find(id="description").span)
 
-                    response = tg.sendMessage(chat_id, repr(h1_class_title))
-                    '''
-
-                    #response = tg.sendMessage(chat_id, soup.body.find(id="description").span)
-
-                    #response = tg.sendMessage(chat_id, str(soup.find(id="description")))
+                #response = tg.sendMessage(chat_id, str(soup.find(id="description")))
 
                 '''
                 new_news = []
@@ -527,7 +519,6 @@ def bot(request):
                 for i in range(len(new_news)):
                     response = tg.sendMessage(chat_id, new_news[i])
                 '''
-
 
 
             elif text == "":
