@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 
 
 def start(request):
-    '''
+
     headers = {
         'User-Agent': "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 OPR/70.0.3728.106",
         'x-youtube-client-name': '1',
@@ -21,42 +21,36 @@ def start(request):
     headers = {
         'User-Agent': "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 OPR/70.0.3728.106"
     }
-    
+    '''
 
     #response = requests.get("https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be", headers=headers)
 
     #url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
-    
+
     url = "https://www.prizmarket.ru"
 
-    page = requests.get(url, headers=headers, timeout=(1, 3))
+    page = requests.get(url, headers=headers)
+
+    #soup = BeautifulSoup(page.text, "html.parser")
+    soup = BeautifulSoup(page.text, "lxml")
+
+    #return HttpResponse( str(page.status_code)+"<br><br>"+str(soup.find(id="tooltip").string) )
+    return HttpResponse( str(page.status_code)+"<br><br>"+str(soup.body.get_text()) )
+
+
+
+    #div = soup.find(id="guide-button")
 
     #response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
 
-    #soup = BeautifulSoup(page.text, "html.parser")
-    
-    soup = BeautifulSoup(page.text, "lxml")
-    
-    
-    return HttpResponse(
-        str(soup.title.text)+"<br><br>"+str(soup.header.text)
-        )
-    
+
+    #return HttpResponse( str(page.status_code)+"<br><br>"+str(soup.title.text)+"<br><br>"+str(soup.header.text) )
+
     #return HttpResponse(str(page.status_code)+"<br><br><!--"+str(soup.prettify())+"-->")
-
-
     #return HttpResponse(repr(soup.find_all("div", id="description")))
-    
     #return HttpResponse(repr(soup.body.prettify())
 
-
-
     #response = tg.sendMessage(chat_id, soup.title)
-
-    div = soup.find(id="guide-button")
-
-    return HttpResponse(repr(div))
-
 
 
     '''
