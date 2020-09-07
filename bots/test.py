@@ -30,7 +30,7 @@ def start(request):
     
     soup = BeautifulSoup(page.text, "lxml")
     
-    return HttpResponse(repr(soup.h1))
+    return HttpResponse(repr(soup.html))
 
 
     #return HttpResponse(repr(soup.find_all("div", id="description")))
