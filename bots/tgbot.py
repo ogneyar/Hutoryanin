@@ -64,8 +64,8 @@ def bot(request):
                 return HttpResponse("ok")
 
             new_chat_members = message.getNewChatMembers()
-            if new_chat_members is not None:
-                new_chat_members_from_is_bot = new_chat_members.getIsBot()
+            if new_chat_members != []:
+                new_chat_members_from_is_bot = new_chat_members[0].getIsBot()
             else:
                 new_chat_members_from_is_bot = False
             message_id = message.getMessageId()
