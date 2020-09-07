@@ -18,7 +18,10 @@ import bots.test
 urlpatterns = [
     path("", web.views.index, name="index"),
     path("shop/", web.views.shop, name="shop"),
+    path("promo/", web.views.promo, name="promo"),
+    path("about/", web.views.about, name="about"),
     path("support/", web.views.support, name="support"),
+
     path("test/", bots.test.start, name="test"),
     path("db/", web.views.db, name="db"),
 
