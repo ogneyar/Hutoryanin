@@ -31,7 +31,7 @@ def bot(request):
 
             if (debug == "Да"):
                 response = tg.sendMessage(master, request.body, disable_web_page_preview=True)
-                return HttpResponse("ok")
+                #return HttpResponse("ok")
 
             update = None
             update = tg.start(request)
@@ -536,8 +536,8 @@ def bot(request):
                 if "session" in request.session:
                     response = tg.sendMessage(chat_id, request.session["session"])
                 else:
-                    request.session.set_expiry(60)
-                    request.session["session"] = "too reel"
+                    #request.session.set_expiry(60)
+                    #request.session["session"] = "too reel"
                     
                     response = tg.sendMessage(chat_id, "Сохранил.")
 
