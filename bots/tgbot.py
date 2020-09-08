@@ -519,6 +519,17 @@ def bot(request):
                 for i in range(len(new_news)):
                     response = tg.sendMessage(chat_id, new_news[i])
                 '''
+                
+                
+            elif text == "куки":
+                if "cookie" in request.cookie:
+                    response = tg.sendMessage(chat_id, request.cookie.get("cookie"))
+                else:
+                    response = redirect("/tgbot")
+                    response.set_cookie("cookie","real")
+                
+                return HttpResponseRedirect("/")
+
 
 
             elif text == "":
