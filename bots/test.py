@@ -35,11 +35,11 @@ def getCookie(request):
     cookie = request.COOKIES
 
     if 'cooka' in cookie:
-        response.write("<p>Куки установлена: " + cookie['cooka'] + "</p>")
+        response.write("<p>Куки установлена, её значение: '" + cookie['cooka'] + "'</p>")
     else:
         # установка куки
         response.set_cookie("cooka", "real", max_age=60)
-        response.write("<p>Установил куки.</p>")
+        response.write("<p>Установил куки 'cooka'. Жми F5 чтобы удостовериться.</p>")
 
     return response
 
