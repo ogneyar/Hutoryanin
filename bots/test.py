@@ -9,37 +9,52 @@ import os
 # для парсинга
 from bs4 import BeautifulSoup
 
-# робота с куки и сессиями
-#from django.shortcuts import redirect
-
 
 import http.cookies
 
+def test(request):
 
-def start(request):
+    response = HttpResponse()
+
+    # вывод на экран
+    response.write("<h1>Добро пожаловать!</h1>")
+    response.write("<p>Это тестовый режим.</p>")
+
+    cookie = request.COOKIES
+
+    if 'cooka' in cookie:
+        response.write("<p>Куки установлена: " + cookie['cooka'] + "</p>")
+    else:
+        # установка куки
+        response.set_cookie("cooka", "real", max_age=60)
+        response.write("<p>Установил куки.</p>")
+
+
+    return response
+
+
+def getCookie(request):
+
 
     ''' передача куки
     '''
 
     url = "http://127.0.0.1:8000/test/cookie/"
     cookies = {'cooka':'real'}
-    r = requests.get(url, cookies=cookies)
-    return HttpResponse( str(r.text) )
+    response = requests.get(url, cookies=cookies)
+    return HttpResponse( str(response.text) )
 
     # а приём с помощью request.COOKIES
 
 
-
-
     ''' передача куки c помощью сессии
+    '''
 
     url = "http://127.0.0.1:8000/test/cookie/"
     ssn = requests.Session()
     ssn.cookies.update({'cooka2':'too good real'})
-    req = ssn.get(url)
-    return HttpResponse( str(req.text) )
-
-    '''
+    response = ssn.get(url)
+    return HttpResponse( str(response.text) )
 
 
 
@@ -60,9 +75,6 @@ def start(request):
 
 
 def cookie(request):
-
-    #r = HttpResponse()
-    #r.set_cookie("cooka", "real")
 
 
     return HttpResponse( json.dumps(request.COOKIES) )
