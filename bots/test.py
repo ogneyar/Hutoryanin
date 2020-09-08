@@ -12,13 +12,25 @@ from bs4 import BeautifulSoup
 
 import http.cookies
 
+
 def test(request):
 
-    response = HttpResponse()
+    response = header()
 
-    # вывод на экран
-    response.write("<h1>Добро пожаловать!</h1>")
-    response.write("<p>Это тестовый режим.</p>")
+    response.write("<p>Это тестовый режим. (request.META)</p>")
+
+    response.write( request.META )
+
+    return response
+
+
+def getCookie(request):
+
+    ''' Сохранение куки методом HttpResponse().set_cookie
+    '''
+    response = header()
+
+    response.write("<p>Это тестовый режим. (Сохранение куки HttpResponse().set_cookie('cooka', 'real', max_age=60))</p>")
 
     cookie = request.COOKIES
 
@@ -29,33 +41,33 @@ def test(request):
         response.set_cookie("cooka", "real", max_age=60)
         response.write("<p>Установил куки.</p>")
 
-
     return response
 
 
-def getCookie(request):
 
-
-    ''' передача куки
+    ''' передача куки методом requests.get(url, cookies=cookies)
     '''
-
-    url = "http://127.0.0.1:8000/test/cookie/"
+    response = HttpResponse()
+    url = "http://"+request.META['HTTP_HOST']+"/test/cookie/"
     cookies = {'cooka':'real'}
-    response = requests.get(url, cookies=cookies)
-    return HttpResponse( str(response.text) )
+    req = requests.get(url, cookies=cookies)
 
+    response.write( str(req.text) )
+    return response
     # а приём с помощью request.COOKIES
+
 
 
     ''' передача куки c помощью сессии
     '''
-
-    url = "http://127.0.0.1:8000/test/cookie/"
+    response = HttpResponse()
+    url = "http://"+request.META['HTTP_HOST']+"/test/cookie/"
     ssn = requests.Session()
     ssn.cookies.update({'cooka2':'too good real'})
-    response = ssn.get(url)
-    return HttpResponse( str(response.text) )
+    req = ssn.get(url)
 
+    response.write( str(req.text) )
+    return response
 
 
     ''' НЕ РАБОТАЕТ установка куки при помощи RequestsCookieJar
@@ -76,36 +88,39 @@ def getCookie(request):
 
 def cookie(request):
 
+    response = header()
 
-    return HttpResponse( json.dumps(request.COOKIES) )
+    # вывод информации об имеющихся куки
+    response.write( json.dumps(request.COOKIES) )
+
+    return response
 
 
 
 def session(request):
 
+    response = header()
+
     ''' сохранение сессии на 60 секунд
     '''
-
     if "session" in request.session:
-
-        return HttpResponse( "Значение сессии 'session': " + str(request.session["session"]) )
-
+        response.write( "Значение сессии 'session': " + str(request.session["session"]) )
     else:
-
         request.session.set_expiry(60)
         request.session["session"] = "too reel"
+        response.write( "Сохранил сессию: {'session': 'too reel'}" )
 
-
-        return HttpResponse( "Сохранил сессию: {'session': 'tooreel'}" )
+    return response
 
 
 
 
 def parser(request):
 
+    response = header()
+
     ''' работающая версия парсинга сайта
     '''
-
     headers = {
         'User-Agent': "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 OPR/70.0.3728.106",
         'x-youtube-client-name': '1',
@@ -121,9 +136,27 @@ def parser(request):
     #soup = BeautifulSoup(page.text, "html.parser")
     soup = BeautifulSoup(page.text, "lxml")
 
-    return HttpResponse( str(page.status_code)+"<br><br>"+str(soup.body.get_text()) )
+    response.write( str(page.status_code)+"<br><br>"+str(soup.body.get_text()) )
+
+    return response
 
 
+
+# функция вывода заголовка на экран тестовых страниц
+def header():
+
+    response = HttpResponse()
+
+    # вывод на экран
+    response.write("<h1>Добро пожаловать!</h1>")
+
+    response.write("<a href='/test/getcookie'>getCokie</a>  |  ")
+    response.write("<a href='/test/cookie'>cokie</a>  |  ")
+    response.write("<a href='/test/session'>session</a>  |  ")
+    response.write("<a href='/test/parser'>parser</a>  |  ")
+    response.write("<a href='/test'>назад</a>  |  <br><br>")
+
+    return response
 
 
 
