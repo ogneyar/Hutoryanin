@@ -23,7 +23,8 @@ urlpatterns = [
     path("support/", web.views.support, name="support"),
     path("lk/", web.views.lk, name="lk"),
 
-    path("test/", bots.test.start, name="test"),
+    path("test/", bots.test.test, name="test"),
+    path("test/getcookie/", bots.test.getCookie, name="getCookie"),
     path("test/cookie/", bots.test.cookie, name="cookie"),
     path("test/session/", bots.test.session, name="session"),
     path("test/parser/", bots.test.parser, name="parser"),
