@@ -10,8 +10,10 @@ import os
 from bs4 import BeautifulSoup
 
 # робота с куки и сессиями
-#from django.shortcuts import redirect
+from django.shortcuts import redirect
 
+
+import http.cookies
 
 
 def start(request):
@@ -36,7 +38,7 @@ def start(request):
         '''
 
 
-        '''
+        ''' установка куки
 
         jar = requests.cookies.RequestsCookieJar()
         jar.set('first_cookie', 'first', domain='httpbin.org', path='/cookies')
@@ -61,38 +63,44 @@ def start(request):
         return HttpResponse( "Установил cookie." + str(reqOne.text) )
 
 
-def cookies(request):
+def cookie(request):
 
-    return HttpResponse( "ok" )
+    return HttpResponse( "Куки" )
 
 
+def session(request):
+
+    ''' сохранение сессии на 60 секунд
     '''
+
+    if "session" in request.session:
+
+        return HttpResponse( "Значение сессии 'session': " + str(request.session["session"]) )
+
+    else:
+
+        request.session.set_expiry(60)
+        request.session["session"] = "too reel"
+
+
+        return HttpResponse( "Сохранил сессию: {'session': 'tooreel'}" )
+
+
+
+
+    ''' понял как передавать GET параметры
+
     query = {'q': 'Forest', 'order': 'popular', 'min_width': '800', 'min_height': '600'}
     req = requests.get('https://pixabay.com/en/photos/', params=query)
 
     req.url
     # returns 'https://pixabay.com/en/photos/?order=popular&min_height=600&q=Forest&min_width=800'
-    '''
-
-
-
 
     '''
-    if "session" in request.session:
-        response = tg.sendMessage(chat_id, request.session["session"])
-    else:
-        #request.session.set_expiry(60)
-        #request.session["session"] = "too reel"
-
-        response = tg.sendMessage(chat_id, "Сохранил.")
-    '''
-
-
 
 
 
     ''' работающая версия парсинга сайта
-
 
     headers = {
         'User-Agent': "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 OPR/70.0.3728.106",
@@ -111,51 +119,7 @@ def cookies(request):
 
     return HttpResponse( str(page.status_code)+"<br><br>"+str(soup.body.get_text()) )
 
-
-
     '''
 
 
 
-
-
-
-    #div = soup.find(id="guide-button")
-
-    #response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
-
-
-    #return HttpResponse( str(page.status_code)+"<br><br>"+str(soup.title.text)+"<br><br>"+str(soup.header.text) )
-
-    #return HttpResponse(str(page.status_code)+"<br><br><!--"+str(soup.prettify())+"-->")
-    #return HttpResponse(repr(soup.find_all("div", id="description")))
-    #return HttpResponse(repr(soup.body.prettify())
-
-    #response = tg.sendMessage(chat_id, soup.title)
-
-
-    '''
-    h1_class_title = soup.findAll('h1', class_='title style-scope ytd-video-primary-info-renderer')
-
-    response = tg.sendMessage(chat_id, repr(h1_class_title))
-    '''
-
-    #response = tg.sendMessage(chat_id, soup.body.find(id="description").span)
-
-    #response = tg.sendMessage(chat_id, str(soup.find(id="description")))
-
-    '''
-    new_news = []
-    news = []
-
-    soup = BeautifulSoup(page.text, "html.parser")
-
-    news = soup.findAll('div', class_='style-scope ytd-video-secondary-info-renderer')
-
-    for i in range(len(news)):
-        if news[i].find('span', class_='style-scope yt-formatted-string') is not None:
-            new_news.append(news[i].text)
-
-    for i in range(len(new_news)):
-        response = tg.sendMessage(chat_id, new_news[i])
-    '''
