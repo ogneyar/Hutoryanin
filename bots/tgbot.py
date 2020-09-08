@@ -523,23 +523,23 @@ def bot(request):
                 
                 
             elif text == "куки":
-                if "cookie" in request.COOKIE:
-                    response = tg.sendMessage(chat_id, request.COOKIE.get("cookie"))
+                if "cookie" in request.cookie:
+                    response = tg.sendMessage(chat_id, request.cookie.get("cookie"))
                 else:
                     response = redirect("/")
                     response.set_cookie("cookie","real")
                 
-                    response = tg.sendMessage(chat_id, "Сохранил."
+                    response = tg.sendMessage(chat_id, "Сохранил.")
                 
                 
             elif text == "сеси":
                 if "session" in request.session:
-                    response = tg.sendMessage(chat_id, request.session["session"]
+                    response = tg.sendMessage(chat_id, request.session["session"])
                 else:
                     request.session.set_expiry(60)
                     request.session["session"] = "too reel"
                     
-                    response = tg.sendMessage(chat_id, "Сохранил."
+                    response = tg.sendMessage(chat_id, "Сохранил.")
 
 
 
