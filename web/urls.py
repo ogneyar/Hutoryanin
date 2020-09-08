@@ -11,7 +11,7 @@ admin.autodiscover()
 import web.views
 import bots.tgbot
 import bots.icqbot
-import bots.test
+import bots.urls
 
 # Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
 
@@ -22,14 +22,10 @@ urlpatterns = [
     path("about/", web.views.about, name="about"),
     path("support/", web.views.support, name="support"),
     path("lk/", web.views.lk, name="lk"),
-
-    path("test/", bots.test.test, name="test"),
-    path("test/getcookie/", bots.test.getCookie, name="getCookie"),
-    path("test/cookie/", bots.test.cookie, name="cookie"),
-    path("test/session/", bots.test.session, name="session"),
-    path("test/parser/", bots.test.parser, name="parser"),
     path("db/", web.views.db, name="db"),
 
     path("tgbot/", bots.tgbot.bot, name="bot"),
     path("icqbot/", bots.icqbot.message_cb, name="message_cb"),
+
+    path("test/", include("bots.urls")),
 ]
