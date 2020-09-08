@@ -163,10 +163,10 @@ def bot(request):
                 cookie = request.COOKIES
 
                 if 'cooka' in cookie:
-                    response = tg.sendMessage(chat_id, "<p>Куки установлена: " + cookie['cooka'] + "</p>", 'html')
+                    response = tg.sendMessage(chat_id, "Куки установлена: " + cookie['cooka'])
 
                 else:
-                    response = tg.sendMessage(chat_id, "<p>Нет куки.</p>", 'html')
+                    response = tg.sendMessage(chat_id, "Нет куки.")
 
 
 
