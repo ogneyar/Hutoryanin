@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 
 import requests
 import json
@@ -522,13 +523,13 @@ def bot(request):
                 
                 
             elif text == "куки":
-                if "cookie" in request.cookie:
-                    response = tg.sendMessage(chat_id, request.cookie.get("cookie"))
+                if "cookie" in request.COOKIE:
+                    response = tg.sendMessage(chat_id, request.COOKIE.get("cookie"))
                 else:
                     response = redirect("/tgbot")
                     response.set_cookie("cookie","real")
                 
-                return HttpResponseRedirect("/")
+                    response = tg.sendMessage(chat_id, "Сохранил."
 
 
 
