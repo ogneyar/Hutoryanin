@@ -24,6 +24,7 @@ urlpatterns = [
     path("lk/", web.views.lk, name="lk"),
 
     path("test/", bots.test.start, name="test"),
+    path("test/cookies/", bots.test.cookies, name="cookies"),
     path("db/", web.views.db, name="db"),
 
     path("tgbot/", bots.tgbot.bot, name="bot"),
