@@ -166,7 +166,7 @@ def bot(request):
                     response = tg.sendMessage(chat_id, "Куки установлена: " + cookie['cooka'])
 
                 else:
-                    response = tg.sendMessage(chat_id, "Нет куки.")
+                    response = tg.sendMessage(chat_id, "Нет куки 'cooka'. \n\n"+ str(json.dumps(request.COOKIES)))
 
 
 
