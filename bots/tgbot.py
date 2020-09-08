@@ -31,7 +31,7 @@ def bot(request):
 
             if (debug == "Да"):
                 response = tg.sendMessage(master, request.body, disable_web_page_preview=True)
-                #return HttpResponse("ok")
+                return HttpResponse("ok")
 
             update = None
             update = tg.start(request)
@@ -158,9 +158,11 @@ def bot(request):
                 return response
                 '''
 
+                '''
                 request.session.set_expiry(60)
                 request.session["public"] = "wait"
                 response = tg.sendMessage(chat_id, "Сохранил сессию: {'public': 'wait'}" )
+                '''
 
 
 
