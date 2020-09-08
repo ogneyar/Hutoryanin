@@ -151,6 +151,24 @@ def bot(request):
 
                 response = tg.sendMessage(chat_id, "Введи ссылку новой публикации.")
 
+                response = HttpResponse()
+                response.write("ok")
+                response.set_cookie("cooka", "real", max_age=60)
+
+                return response
+
+
+            elif (text == "ы" and chat_id == master):
+
+                cookie = request.COOKIES
+
+                if 'cooka' in cookie:
+                    response = tg.sendMessage(chat_id, "<p>Куки установлена: " + cookie['cooka'] + "</p>", 'html')
+
+                else:
+                    response = tg.sendMessage(chat_id, "<p>Нет куки.</p>", 'html')
+
+
 
             elif (text == "/help"):
 
@@ -520,25 +538,25 @@ def bot(request):
                 for i in range(len(new_news)):
                     response = tg.sendMessage(chat_id, new_news[i])
                 '''
-                
-                
+
+
             elif text == "куки":
                 if "cookie" in request.cookie:
                     response = tg.sendMessage(chat_id, request.cookie.get("cookie"))
                 else:
                     response = redirect("/")
                     response.set_cookie("cookie","real")
-                
+
                     response = tg.sendMessage(chat_id, "Сохранил.")
-                
-                
+
+
             elif text == "сеси":
                 if "session" in request.session:
                     response = tg.sendMessage(chat_id, request.session["session"])
                 else:
                     #request.session.set_expiry(60)
                     #request.session["session"] = "too reel"
-                    
+
                     response = tg.sendMessage(chat_id, "Сохранил.")
 
 
