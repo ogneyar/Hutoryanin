@@ -149,16 +149,16 @@ def bot(request):
 
             elif (text == "Публикация" and chat_id == master):
 
-                #response = tg.sendMessage(chat_id, "Введи ссылку новой публикации.")
+                response = tg.sendMessage(chat_id, "Введи ссылку новой публикации.")
 
-                '''
+                ''' куки не работают в телеге
                 response = HttpResponse()
                 response.write("ok")
                 response.set_cookie("cooka", "real", max_age=60)
                 return response
                 '''
 
-                '''
+                '''  сессии джанго выдают ошибки
                 request.session.set_expiry(60)
                 request.session["public"] = "wait"
                 response = tg.sendMessage(chat_id, "Сохранил сессию: {'public': 'wait'}" )
@@ -168,6 +168,8 @@ def bot(request):
 
             elif (text == "ы" and chat_id == master):
 
+                response = tg.sendMessage(chat_id, "Проверка связи.")
+
                 ''' куки не работают в телеге
                 cookie = request.COOKIES
                 if 'cooka' in cookie:
@@ -176,11 +178,12 @@ def bot(request):
                     response = tg.sendMessage(chat_id, "Нет куки 'cooka'. \n\n"+ str(json.dumps(request.COOKIES)))
                 '''
 
+                ''' сессии джанго выдают ошибки
                 if "public" in request.session:
                     response = tg.sendMessage(chat_id, "Значение сессии 'public': " + str(request.session["public"]) )
                 else:
                     response = tg.sendMessage(chat_id, "Сессия 'public' не найдена.")
-
+                '''
 
 
             elif (text == "/help"):
