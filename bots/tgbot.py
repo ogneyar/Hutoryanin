@@ -1,16 +1,12 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.urls import include
-from django.shortcuts import render
 
-import requests
-import json
-import os
+import requests, json, os, bmemcached
 from bs4 import BeautifulSoup
-import bmemcached
 
-import bots.templates.public
+from bots.templates.public import Public
 
 from classes.tg.botApi import Bot
 from classes.tg.types.replyKeyboardMarkup import ReplyKeyboardMarkup
@@ -148,7 +144,7 @@ def bot(request):
 
             if (mc.get("wait") is not None) and (chat_id == master):
                 response = tg.sendMessage(chat_id, "Подключил файл")
-                return render(request, "public.py")
+                return Public(request)
 
 
             if (text == "/start"):
