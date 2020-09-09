@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import include
 
-import requests, json, os, bmemcached
+import requests, json, os, bmemcached, emoji
 from bs4 import BeautifulSoup
 
 from bots.public import Public
@@ -168,9 +168,9 @@ def bot(request):
 
             elif (text == "Публикация" and chat_id == master):
 
-                response = tg.sendMessage(chat_id, "Введи ссылку новой публикации.")
+                response = tg.sendMessage(chat_id, "Пришли фото новой публикации.")
 
-                mc.set("wait", "url")
+                mc.set("wait", "photo")
 
 
             elif (text == "Cсылкодел" and chat_id == master):

@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 
-import os, bmemcached
+import os, bmemcached, emoji
 
 from classes.tg.botApi import Bot
 
@@ -48,44 +48,61 @@ class Public:
                 response = tg.sendMessage(master, "Готово.")
 
 
-            elif mc.get("wait") == "url":
-
-                response = tg.sendMessage(master, text, reply_markup=inline_keyboard_markup)
-                mc.set("wait", "photo")
-                mc.set("url", text)
-                response = tg.sendMessage(master, "Пришли фото.")
-
-
             elif mc.get("wait") == "photo":
                 if photo != []:
                     file_id = photo[2].getFileId()
                     response = tg.sendPhoto(master, file_id, mc.get("url"), reply_markup=inline_keyboard_markup)
-                    mc.set("wait", "description")
+                    mc.set("wait", "url")
                     mc.set("file_id", file_id)
-                    response = tg.sendMessage(master, "Пришли описание.")
+                    response = tg.sendMessage(master, "Пришли ссылку на видео.")
                 else:
                     response = tg.sendMessage(master, "Нужно фото, в формате .jpg")
 
 
+            elif mc.get("wait") == "url":
+
+                caption = "Здравствуйте все! "+emoji.emojize(':hand:')+"\n\n"
+                caption += "В этом видео я раскажу о своём состоянии сидя на кето-диете уже три месяца, четвёртый пошёл.\n\n"
+                caption += "Смотрите, комментируйте, ставьте лайки, подписывайтесь на канал.\n*Приятного просмотра!*"+emoji.emojize(':wink:')+"\n"
+
+                text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + text + ")"
+                text_url = text_url * 3
+
+                response = tg.sendPhoto(master, mc.get("file_id"), caption + text_url, "markdown", reply_markup=inline_keyboard_markup)
+
+                #response = tg.sendMessage(master, text, reply_markup=inline_keyboard_markup)
+                #mc.set("wait", "description")
+                #mc.set("url", text)
+                #response = tg.sendMessage(master, "Пришли фото.")
+                response = tg.sendMessage(master, "Всё.")
+                mc.delete("wait")
+                #mc.delete("url")
+                mc.delete("file_id")
+
+
             elif mc.get("wait") == "description":
+                pass
+                '''
                 url = mc.get("url")
-                text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + url + ")" * 3
+                text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + url + ")"
+                text_url = text_url * 3
                 response = tg.sendPhoto(master, mc.get("file_id"), text + "\n" + text_url, "markdown", reply_markup=inline_keyboard_markup)
                 mc.delete("wait")
                 mc.delete("url")
                 mc.delete("file_id")
                 response = tg.sendMessage(master, "Всё.")
+                '''
 
             else:
                 response = tg.sendMessage(master, "Произошла ошибка!")
                 mc.delete("wait")
-                mc.delete("url")
+                #mc.delete("url")
                 mc.delete("file_id")
 
         except:
 
             mc.delete("wait")
-            mc.delete("url")
+            #mc.delete("url")
             mc.delete("file_id")
 
             return HttpResponse("ok")
