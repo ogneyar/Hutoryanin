@@ -29,7 +29,7 @@ class Public:
                     #    {'text':'Сайт ХуторянинЪ','url':'https://hutoryanin.herokuapp.com'}
                     #],
                     [
-                        {'text':'Ссылка на соц.сети','url':'https://t.me/hutoryanin_chat/267'}
+                        {'text':'Ссылка на соц.сети','url':'https://t.me/hutoryanin_chat/269'}
                     ]
                 ]
             }
