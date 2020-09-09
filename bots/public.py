@@ -41,13 +41,15 @@ class Public:
 
                 response = tg.sendMessage(master, text, reply_markup=inline_keyboard_markup)
                 mc.delete("wait")
-                #mc.set("wait") = "photo"
+                mc.set("wait") = "photo"
                 #mc.set("url") = text
                 response = tg.sendMessage(master, "Пришли фото.")
 
 
             elif mc.get("wait") == "photo":
-                pass
+                mc.delete("wait")
+                response = tg.sendMessage(master, "Хорошо.")
+
                 '''
                 if photo != []:
                     file_id = photo[2].getFileId()
