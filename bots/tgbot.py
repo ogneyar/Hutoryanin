@@ -6,7 +6,7 @@ from django.urls import include
 import requests, json, os, bmemcached
 from bs4 import BeautifulSoup
 
-from bots.templates.public import Public
+from bots.public import Public
 
 from classes.tg.botApi import Bot
 from classes.tg.types.replyKeyboardMarkup import ReplyKeyboardMarkup
