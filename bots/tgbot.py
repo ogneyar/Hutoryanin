@@ -6,10 +6,19 @@ import requests
 import json
 import os
 from bs4 import BeautifulSoup
+import bmemcached
 
 from classes.tg.botApi import Bot
 from classes.tg.types.replyKeyboardMarkup import ReplyKeyboardMarkup
 from classes.tg.types.chatPermissions import ChatPermissions
+
+
+mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
+mc_user = os.environ.get('MEMCACHIER_USERNAME', '')
+mc_passw = os.environ.get('MEMCACHIER_PASSWORD', '')
+
+mc = bmemcached.Client(mc_servers, username=mc_user, password=mc_passw)
+mc.enable_retry_delay(True)
 
 
 def bot(request):
@@ -151,6 +160,9 @@ def bot(request):
 
                 response = tg.sendMessage(chat_id, "Введи ссылку новой публикации.")
 
+                mc.set("public", "wait")
+
+
                 ''' куки не работают в телеге
                 response = HttpResponse()
                 response.write("ok")
@@ -158,7 +170,7 @@ def bot(request):
                 return response
                 '''
 
-                '''  сессии джанго выдают ошибки
+                '''  сессии, heroku выдаёт ошибки
                 request.session.set_expiry(60)
                 request.session["public"] = "wait"
                 response = tg.sendMessage(chat_id, "Сохранил сессию: {'public': 'wait'}" )
@@ -168,7 +180,15 @@ def bot(request):
 
             elif (text == "ы" and chat_id == master):
 
-                response = tg.sendMessage(chat_id, "Проверка связи.")
+                if mc.get("public") is not None:
+                    if mc.get("public") == "wait":
+                        response = tg.sendMessage(chat_id, "Принял 'ы'.")
+                        mc.delete("public")
+
+                else:
+                    response = tg.sendMessage(chat_id, "Чего?")
+
+
 
                 ''' куки не работают в телеге
                 cookie = request.COOKIES
@@ -178,7 +198,7 @@ def bot(request):
                     response = tg.sendMessage(chat_id, "Нет куки 'cooka'. \n\n"+ str(json.dumps(request.COOKIES)))
                 '''
 
-                ''' сессии джанго выдают ошибки
+                '''  сессии, heroku выдаёт ошибки
                 if "public" in request.session:
                     response = tg.sendMessage(chat_id, "Значение сессии 'public': " + str(request.session["public"]) )
                 else:

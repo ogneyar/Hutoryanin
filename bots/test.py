@@ -55,7 +55,7 @@ def test(request):
                 response.write( "И сразу удалил foo." )
 
 
-        response.write("<p>Это тестовый режим. (request.META)</p>")
+        response.write("<br><br><p>Это тестовый режим. (request.META)</p>")
         response.write( request.META )
 
 
