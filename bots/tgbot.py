@@ -147,7 +147,8 @@ def bot(request):
 
 
             if (mc.get("wait") is not None) and (chat_id == master):
-                return render(request, "public")
+                response = tg.sendMessage(chat_id, "Подключил файл")
+                return render(request, "public.py")
 
 
             if (text == "/start"):
