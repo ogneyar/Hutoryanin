@@ -22,9 +22,16 @@ def test(request):
 
     try:
 
-        if request.META['HTTP_HOST'] == 'http://127.0.0.1:8000':
+        if request.META['HTTP_HOST'] == '127.0.0.1:8000':
 
-            response.write( "Пока тут пусто." )
+            cookie = request.COOKIES
+
+            if 'foo' in cookie:
+                response.write( "<p>Записана кука 'foo': "  + cookie['foo'] + '</p>' )
+
+            else:
+                response.set_cookie("foo", "bar", max_age=60)
+                response.write( '<p>Записал куки {"foo":"bar"}</p>' )
 
         else:
 
@@ -40,14 +47,14 @@ def test(request):
             if mc.get("foo") is None:
 
                 mc.set("foo", "bar")
-                response.write( 'Записал {"foo":"bar"}' )
+                response.write( '<p>Записал {"foo":"bar"}</p>' )
 
             else:
 
-                #response.write( mc.get("foo") )
+                response.write( "<p>Записана в мемкеш 'foo': " + mc.get("foo") + '</p>' )
 
                 mc.delete("foo")
-                response.write( "Удалил foo" )
+                response.write( "И сразу удалил foo." )
 
 
         #response.write("<p>Это тестовый режим. (request.META)</p>")
@@ -59,6 +66,7 @@ def test(request):
         response.write("<p>Exception</p>")
 
     return response
+
 
 
 def getCookie(request):
