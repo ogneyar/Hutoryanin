@@ -53,9 +53,12 @@ class Public:
                     mc.set("wait", "description")
                     mc.set("file_id", file_id)
                     response = tg.sendMessage(master, "Пришли описание.")
+                else:
+                    response = tg.sendMessage(master, "Нужно фото, в формате .jpg")
+
 
             elif mc.get("wait") == "description":
-                response = tg.sendPhoto(master, mc.get("file_id"), text + "/n/n" + mc.get("url"), reply_markup=inline_keyboard_markup)
+                response = tg.sendPhoto(master, mc.get("file_id"), text + "\n\n" + mc.get("url") + " \ud83d\udc48\ud83c\udffb", reply_markup=inline_keyboard_markup)
                 mc.delete("wait")
                 mc.delete("url")
                 mc.delete("file_id")
