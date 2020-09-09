@@ -5,24 +5,29 @@ from django.http import HttpResponseRedirect
 import requests
 import json
 import os
-
-# для парсинга
+import bmemcached
 from bs4 import BeautifulSoup
 
 import http.cookies
 
-import bmemcached
+
+mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
+mc_user = os.environ.get('MEMCACHIER_USERNAME', '')
+mc_passw = os.environ.get('MEMCACHIER_PASSWORD', '')
+
+mc = bmemcached.Client(mc_servers, username=mc_user, password=mc_passw)
+mc.enable_retry_delay(True)  # Enabled by default. Sets retry delay to 5s.
 
 
 def test(request):
 
     response = header()
 
-    response.write("<p>Это тестовый режим. (addons Heroku Memcash)</p>")
-
     try:
 
         if request.META['HTTP_HOST'] == '127.0.0.1:8000':
+
+            response.write("<p>Это тестовый режим. (addons Heroku Memcash, но на локальной машине используется куки.)</p>")
 
             cookie = request.COOKIES
 
@@ -35,14 +40,7 @@ def test(request):
 
         else:
 
-            servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
-            user = os.environ.get('MEMCACHIER_USERNAME', '')
-            passw = os.environ.get('MEMCACHIER_PASSWORD', '')
-
-            mc = bmemcached.Client(servers, username=user, password=passw)
-
-            mc.enable_retry_delay(True)  # Enabled by default. Sets retry delay to 5s.
-
+            response.write("<p>Это тестовый режим. (addons Heroku Memcash)</p>")
 
             if mc.get("foo") is None:
 
@@ -57,8 +55,8 @@ def test(request):
                 response.write( "И сразу удалил foo." )
 
 
-        #response.write("<p>Это тестовый режим. (request.META)</p>")
-        #response.write( request.META )
+        response.write("<p>Это тестовый режим. (request.META)</p>")
+        response.write( request.META )
 
 
     except:
