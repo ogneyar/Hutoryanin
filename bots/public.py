@@ -25,9 +25,9 @@ class Public:
             photo= message.getPhoto()
             inline_keyboard_markup = {
                 'inline_keyboard':[
-                    [
-                        {'text':'Сайт ХуторянинЪ','url':'https://hutoryanin.herokuapp.com'}
-                    ],
+                    #[
+                    #    {'text':'Сайт ХуторянинЪ','url':'https://hutoryanin.herokuapp.com'}
+                    #],
                     [
                         {'text':'Ссылка на соц.сети','url':'https://t.me/hutoryanin_chat/267'}
                     ]
@@ -42,7 +42,7 @@ class Public:
 
             if mc.get("wait") == "markdown":
 
-                response = tg.sendMessage(master, text, "markdown")
+                response = tg.sendMessage(master, text, "markdown", True)
                 mc.delete("wait")
 
                 response = tg.sendMessage(master, "Готово.")
@@ -68,7 +68,9 @@ class Public:
 
 
             elif mc.get("wait") == "description":
-                response = tg.sendPhoto(master, mc.get("file_id"), text + "\n\n[СМОТРЕТЬ ВИДЕО](" + mc.get("url") + ")", "markdown", reply_markup=inline_keyboard_markup)
+                url = mc.get("url")
+                text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + url + ")" * 3
+                response = tg.sendPhoto(master, mc.get("file_id"), text + "\n" + text_url, "markdown", reply_markup=inline_keyboard_markup)
                 mc.delete("wait")
                 mc.delete("url")
                 mc.delete("file_id")
