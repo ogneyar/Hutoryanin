@@ -24,24 +24,8 @@ class Public:
     tg = Bot(token)
 
 
-    def __init__(self, request):
+    def __init__(self, message):
         try:
-
-            update = None
-            update = self.tg.start(request)
-
-            message = update.getMessage()
-            if message is None:
-                editedMessage = update.getEditedMessage()
-                message = editedMessage
-
-            if message is None:
-                channelPost = update.getChannelPost()
-                message = channelPost
-
-            if message is None:
-                editedChannelPost = update.getEditedChannelPost()
-                message = editedChannelPost
 
             message_id = message.getMessageId()
             text = message.getText()
