@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
+from django.urls import include
+from django.shortcuts import render
 
 import requests
 import json
@@ -12,6 +14,7 @@ from classes.tg.botApi import Bot
 from classes.tg.types.replyKeyboardMarkup import ReplyKeyboardMarkup
 from classes.tg.types.chatPermissions import ChatPermissions
 
+#include("bots.var")
 
 mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
 mc_user = os.environ.get('MEMCACHIER_USERNAME', '')
@@ -140,6 +143,11 @@ def bot(request):
 
             help = "Выбери один из списков методов Telegram API:\n\n/methods_one\n\n/methods_two"
 
+
+            if (mc.get("wait") is not None) and (chat_id == master):
+                return render(request, "public.py")
+
+
             if (text == "/start"):
                 if chat_id == master:
                     reply_keyboard_markup = {
@@ -160,50 +168,19 @@ def bot(request):
 
                 response = tg.sendMessage(chat_id, "Введи ссылку новой публикации.")
 
-                mc.set("public", "wait")
-
-
-                ''' куки не работают в телеге
-                response = HttpResponse()
-                response.write("ok")
-                response.set_cookie("cooka", "real", max_age=60)
-                return response
-                '''
-
-                '''  сессии, heroku выдаёт ошибки
-                request.session.set_expiry(60)
-                request.session["public"] = "wait"
-                response = tg.sendMessage(chat_id, "Сохранил сессию: {'public': 'wait'}" )
-                '''
-
+                mc.set("wait", "url")
 
 
             elif (text == "ы" and chat_id == master):
 
-                if mc.get("public") is not None:
-                    if mc.get("public") == "wait":
+                if mc.get("wait") is not None:
+                    if mc.get("wait") == "test":
                         response = tg.sendMessage(chat_id, "Принял 'ы'.")
-                        mc.delete("public")
+                        mc.delete("wait")
 
                 else:
                     response = tg.sendMessage(chat_id, "Чего?")
 
-
-
-                ''' куки не работают в телеге
-                cookie = request.COOKIES
-                if 'cooka' in cookie:
-                    response = tg.sendMessage(chat_id, "Куки установлена: " + cookie['cooka'])
-                else:
-                    response = tg.sendMessage(chat_id, "Нет куки 'cooka'. \n\n"+ str(json.dumps(request.COOKIES)))
-                '''
-
-                '''  сессии, heroku выдаёт ошибки
-                if "public" in request.session:
-                    response = tg.sendMessage(chat_id, "Значение сессии 'public': " + str(request.session["public"]) )
-                else:
-                    response = tg.sendMessage(chat_id, "Сессия 'public' не найдена.")
-                '''
 
 
             elif (text == "/help"):
