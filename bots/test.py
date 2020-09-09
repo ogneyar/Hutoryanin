@@ -25,7 +25,8 @@ def test(request):
 
     try:
 
-        if request.META['HTTP_HOST'] == '127.0.0.1:8000':
+        #if request.META['HTTP_HOST'] == '127.0.0.1:8000':
+        if request.get_host() == '127.0.0.1:8000':
 
             response.write("<p>Это тестовый режим. (addons Heroku Memcash, но на локальной машине используется куки.)</p>")
 
