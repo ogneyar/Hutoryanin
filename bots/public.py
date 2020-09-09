@@ -26,7 +26,10 @@ class Public:
             inline_keyboard_markup = {
                 'inline_keyboard':[
                     [
-                        {'text':'ХуторянинЪ','url':'https://hutoryanin.herokuapp.com'}
+                        {'text':'Сайт ХуторянинЪ','url':'https://hutoryanin.herokuapp.com'}
+                    ],
+                    [
+                        {'text':'Ссылка на соц.сети','url':'https://t.me/hutoryanin_chat/267'}
                     ]
                 ]
             }
@@ -39,7 +42,7 @@ class Public:
 
             if mc.get("wait") == "url":
 
-                response = tg.sendMessage(master, text, reply_markup=inline_keyboard_markup)
+                response = tg.sendMessage(master, text, "markdown", reply_markup=inline_keyboard_markup)
                 #mc.delete("wait")
                 mc.set("wait", "photo")
                 mc.set("url", text)
@@ -58,7 +61,7 @@ class Public:
 
 
             elif mc.get("wait") == "description":
-                response = tg.sendPhoto(master, mc.get("file_id"), text + "\n\n[СМОТРЕТЬ ВИДЕО](" + mc.get("url") + ") U+1F448", "markdown", reply_markup=inline_keyboard_markup)
+                response = tg.sendPhoto(master, mc.get("file_id"), text + "\n\n[СМОТРЕТЬ ВИДЕО](" + mc.get("url") + ")", "markdown", reply_markup=inline_keyboard_markup)
                 mc.delete("wait")
                 mc.delete("url")
                 mc.delete("file_id")
