@@ -20,36 +20,43 @@ def test(request):
 
     response.write("<p>Это тестовый режим. (addons Heroku Memcash)</p>")
 
-    if request.META['HTTP_HOST'] == 'http://127.0.0.1:8000':
+    try:
 
-        response.write( "Пока тут пусто." )
+        if request.META['HTTP_HOST'] == 'http://127.0.0.1:8000':
 
-    else:
-
-        servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
-        user = os.environ.get('MEMCACHIER_USERNAME', '')
-        passw = os.environ.get('MEMCACHIER_PASSWORD', '')
-
-        mc = bmemcached.Client(servers, username=user, password=passw)
-
-        mc.enable_retry_delay(True)  # Enabled by default. Sets retry delay to 5s.
-
-
-        if mc.get("foo") is None:
-
-            mc.set("foo", "bar")
-            response.write( 'Записал {"foo":"bar"}' )
+            response.write( "Пока тут пусто." )
 
         else:
 
-            #response.write( mc.get("foo") )
+            servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
+            user = os.environ.get('MEMCACHIER_USERNAME', '')
+            passw = os.environ.get('MEMCACHIER_PASSWORD', '')
 
-            mc.delete("foo")
-            response.write( "Удалил foo" )
+            mc = bmemcached.Client(servers, username=user, password=passw)
+
+            mc.enable_retry_delay(True)  # Enabled by default. Sets retry delay to 5s.
 
 
-    #response.write("<p>Это тестовый режим. (request.META)</p>")
-    #response.write( request.META )
+            if mc.get("foo") is None:
+
+                mc.set("foo", "bar")
+                response.write( 'Записал {"foo":"bar"}' )
+
+            else:
+
+                #response.write( mc.get("foo") )
+
+                mc.delete("foo")
+                response.write( "Удалил foo" )
+
+
+        #response.write("<p>Это тестовый режим. (request.META)</p>")
+        #response.write( request.META )
+
+
+    except:
+
+        response.write("<p>Exception</p>")
 
     return response
 
@@ -131,16 +138,23 @@ def session(request):
 
     response = header()
 
-    ''' сохранение сессии на 60 секунд
-    '''
-    if "session" in request.session:
-        response.write( "Значение сессии 'session': " + str(request.session["session"]) )
-    else:
-        request.session.set_expiry(60)
-        request.session["session"] = "too reel"
-        response.write( "Сохранил сессию: {'session': 'too reel'}" )
+    try:
+
+        ''' сохранение сессии на 60 секунд
+        '''
+        if "session" in request.session:
+            response.write( "Значение сессии 'session': " + str(request.session["session"]) )
+        else:
+            request.session.set_expiry(60)
+            request.session["session"] = "too reel"
+            response.write( "Сохранил сессию: {'session': 'too reel'}" )
+
+    except:
+
+        response.write("<p>Exception</p>")
 
     return response
+
 
 
 
