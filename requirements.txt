@@ -6,3 +6,4 @@ mailru-im-bot
 bs4
 lxml
 python-binary-memcached
+django-bmemcached
