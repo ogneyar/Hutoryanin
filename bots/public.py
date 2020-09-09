@@ -41,45 +41,37 @@ class Public:
 
                 response = tg.sendMessage(master, text, reply_markup=inline_keyboard_markup)
                 #mc.delete("wait")
-                mc.set("wait") = "photo"
-                #mc.set("url") = text
+                mc.set("wait", "photo")
+                mc.set("url", text)
                 response = tg.sendMessage(master, "Пришли фото.")
 
 
             elif mc.get("wait") == "photo":
-                mc.delete("wait")
-                response = tg.sendMessage(master, "Хорошо.")
-
-                '''
                 if photo != []:
                     file_id = photo[2].getFileId()
                     response = tg.sendPhoto(master, file_id, mc.get("url"), reply_markup=inline_keyboard_markup)
-                    mc.set("wait") = "description"
-                    mc.set("file_id") = file_id
+                    mc.set("wait", "description")
+                    mc.set("file_id", file_id)
                     response = tg.sendMessage(master, "Пришли описание.")
-                '''
 
             elif mc.get("wait") == "description":
-                pass
-                '''
                 response = tg.sendPhoto(master, mc.get("file_id"), text + "/n/n" + mc.get("url"), reply_markup=inline_keyboard_markup)
                 mc.delete("wait")
                 mc.delete("url")
                 mc.delete("file_id")
                 response = tg.sendMessage(master, "Всё.")
-                '''
 
             else:
                 response = tg.sendMessage(master, "Произошла ошибка!")
                 mc.delete("wait")
-                #mc.delete("url")
-                #mc.delete("file_id")
+                mc.delete("url")
+                mc.delete("file_id")
 
         except:
 
             mc.delete("wait")
-            #mc.delete("url")
-            #mc.delete("file_id")
+            mc.delete("url")
+            mc.delete("file_id")
 
             return HttpResponse("ok")
 
