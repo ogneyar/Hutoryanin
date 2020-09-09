@@ -10,6 +10,8 @@ import os
 from bs4 import BeautifulSoup
 import bmemcached
 
+import bots.templates.public
+
 from classes.tg.botApi import Bot
 from classes.tg.types.replyKeyboardMarkup import ReplyKeyboardMarkup
 from classes.tg.types.chatPermissions import ChatPermissions
@@ -145,7 +147,7 @@ def bot(request):
 
 
             if (mc.get("wait") is not None) and (chat_id == master):
-                return render(request, "public.py")
+                return render(request, "public")
 
 
             if (text == "/start"):
