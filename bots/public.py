@@ -1,3 +1,5 @@
+from django.http import HttpResponse
+
 import os, bmemcached
 
 from classes.tg.botApi import Bot
