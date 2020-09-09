@@ -9,17 +9,37 @@ import os
 # для парсинга
 from bs4 import BeautifulSoup
 
-
 import http.cookies
+
+import bmemcached
 
 
 def test(request):
 
     response = header()
 
-    response.write("<p>Это тестовый режим. (request.META)</p>")
+    response.write("<p>Это тестовый режим. (addons Heroku Memcash)</p>")
 
-    response.write( request.META )
+    servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
+    user = os.environ.get('MEMCACHIER_USERNAME', '')
+    passw = os.environ.get('MEMCACHIER_PASSWORD', '')
+
+    mc = bmemcached.Client(servers, username=user, password=passw)
+
+    mc.enable_retry_delay(True)  # Enabled by default. Sets retry delay to 5s.
+
+
+    if mc.get("foo") is None:
+
+        mc.set("foo", "bar")
+
+    else:
+
+        response.write( mc.get("foo") )
+
+
+    #response.write("<p>Это тестовый режим. (request.META)</p>")
+    #response.write( request.META )
 
     return response
 
