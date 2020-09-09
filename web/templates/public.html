@@ -1,0 +1,99 @@
+﻿{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+
+  <h1 class="display-4">Публикации</h1>
+  
+  <p class="lead">Смотрите видео с ютуб-канала ХуторянинЪ.</p>
+  
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="card-deck mb-3 text-center">
+  
+	<div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Кето-диета. <br> 3 месяца</h4>
+      </div>
+      <div class="card-body">
+	  
+        <!--<img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">-->
+		<video width="100%" controls="controls" poster="{% static 'Ogneyar.jpg' %}" controlsList="nodownload">
+			<source src="https://youtu.be/dGRJU_QlMf4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+			Тег video не поддерживается вашим браузером. 
+		</video>
+		
+      </div>
+    </div>
+	
+	<div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Вакууматор. <br> тестирование</h4>
+      </div>
+      <div class="card-body">
+	  
+        <!--<img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">-->
+		<video width="100%" controls="controls" poster="{% static 'degasser.jpg' %}" controlsList="nodownload">
+			<source src="https://youtu.be/bepK5ehIwic" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+			Тег video не поддерживается вашим браузером. 
+		</video>
+		
+      </div>
+    </div>
+	
+	<div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Ковка. <br> хвастовство</h4>
+      </div>
+      <div class="card-body">
+	  
+        <!--<img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">-->
+		<video width="100%" controls="controls" poster="{% static 'forging.jpg' %}" controlsList="nodownload">
+			<source src="https://youtu.be/waeIXUoOtO0" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+			Тег video не поддерживается вашим браузером. 
+		</video>
+		
+      </div>
+    </div>
+	
+	<div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Кето-диета. <br> 2 месяца</h4>
+      </div>
+      <div class="card-body">
+	  
+        <!--<img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">-->
+		<video width="100%" controls="controls" poster="{% static 'Ogneyar2.jpg' %}" controlsList="nodownload">
+			<source src="https://youtu.be/ZAdtWyRppSs" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+			Тег video не поддерживается вашим браузером. 
+		</video>
+		
+      </div>
+    </div>
+		
+	<div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Ножи. <br> хвастовство</h4>
+      </div>
+      <div class="card-body">
+	  
+        <!--<img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">-->
+		<video width="100%" controls="controls" poster="{% static 'knifes.jpg' %}" controlsList="nodownload">
+			<source src="https://youtu.be/8u-HGyBwuPU" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+			Тег video не поддерживается вашим браузером. 
+		</video>
+		
+      </div>
+    </div>
+	
+</div>
+  
+{% endblock %}
+
+
