@@ -58,7 +58,7 @@ class Public:
 
 
             elif mc.get("wait") == "description":
-                response = tg.sendPhoto(master, mc.get("file_id"), text + "\n\n" + mc.get("url") + " \xF0\x9F\x91\x88", reply_markup=inline_keyboard_markup)
+                response = tg.sendPhoto(master, mc.get("file_id"), text + "\n\n" + mc.get("url") + " \xF0\x9F\x91\x88", "markdown", reply_markup=inline_keyboard_markup)
                 mc.delete("wait")
                 mc.delete("url")
                 mc.delete("file_id")
