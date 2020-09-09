@@ -17,6 +17,7 @@ import bots.urls
 
 urlpatterns = [
     path("", web.views.index, name="index"),
+    path("public/", web.views.public, name="public"),
     path("shop/", web.views.shop, name="shop"),
     path("promo/", web.views.promo, name="promo"),
     path("about/", web.views.about, name="about"),
