@@ -40,10 +40,17 @@ class Public:
             # инициализация телеграм бота
             tg = Bot(token)
 
-            if mc.get("wait") == "url":
+            if mc.get("wait") == "markdown":
 
-                response = tg.sendMessage(master, text, "markdown", reply_markup=inline_keyboard_markup)
-                #mc.delete("wait")
+                response = tg.sendMessage(master, text, "markdown")
+                mc.delete("wait")
+
+                response = tg.sendMessage(master, "Готово.")
+
+
+            elif mc.get("wait") == "url":
+
+                response = tg.sendMessage(master, text, reply_markup=inline_keyboard_markup)
                 mc.set("wait", "photo")
                 mc.set("url", text)
                 response = tg.sendMessage(master, "Пришли фото.")

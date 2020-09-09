@@ -153,6 +153,9 @@ def bot(request):
                         'keyboard':[
                             [
                                 {'text':'Публикация'},
+                                {'text':'Cсылкодел'}
+                            ],
+                            [
                                 {'text':'Скрыть'}
                             ]
                         ],
@@ -168,6 +171,13 @@ def bot(request):
                 response = tg.sendMessage(chat_id, "Введи ссылку новой публикации.")
 
                 mc.set("wait", "url")
+
+
+            elif (text == "Cсылкодел" and chat_id == master):
+
+                response = tg.sendMessage(chat_id, "Пришли текст в стиле markdown.")
+
+                mc.set("wait", "markdown")
 
 
             elif (text == "ы" and chat_id == master):
