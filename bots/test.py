@@ -32,10 +32,14 @@ def test(request):
     if mc.get("foo") is None:
 
         mc.set("foo", "bar")
+        response.write( 'Записал {"foo":"bar"}' )
 
     else:
 
-        response.write( mc.get("foo") )
+        #response.write( mc.get("foo") )
+
+        mc.delete("foo")
+        response.write( "Удалил foo" )
 
 
     #response.write("<p>Это тестовый режим. (request.META)</p>")
