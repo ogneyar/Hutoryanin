@@ -40,7 +40,7 @@ class Public:
             if mc.get("wait") == "url":
 
                 response = tg.sendMessage(master, text, reply_markup=inline_keyboard_markup)
-                mc.delete("wait")
+                #mc.delete("wait")
                 mc.set("wait") = "photo"
                 #mc.set("url") = text
                 response = tg.sendMessage(master, "Пришли фото.")
