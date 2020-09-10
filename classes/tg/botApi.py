@@ -1080,6 +1080,108 @@ class Bot:
 
 
 
+    # method answerInlineQuery
+    def answerInlineQuery(self, inline_query_id, results, #results - JSON-serialized array of InlineQueryResult
+            cache_time = 0,
+            is_personal = False,
+            next_offset = "",
+            switch_pm_text = "",
+            switch_pm_parameter = ""):
+
+        data = {'inline_query_id':inline_query_id, 'results':results}
+
+        if cache_time != 0:
+            data.update({'cache_time':cache_time})
+        if is_personal != False:
+            data.update({'is_personal':is_personal})
+        if next_offset != "":
+            data.update({'next_offset':next_offset})
+        if switch_pm_text != "":
+            data.update({'switch_pm_text':switch_pm_text})
+        if switch_pm_parameter != "":
+            data.update({'switch_pm_parameter':switch_pm_parameter})
+
+        response = self.call("answerInlineQuery", data)
+        return response
+
+
+
+    '''
+    ----------------
+    |   PAYMENTS   |
+    ----------------
+    '''
+
+    # method sendInvoice
+    def sendInvoice(self, chat_id, title, description, payload, provider_token, start_parameter, currency, prices,
+            provider_data = "",
+            photo_url = "",
+            photo_size = 0,
+            photo_width = 0,
+            photo_height = 0,
+            need_name = False,
+            need_phone_number = False,
+            need_email =False,
+            need_shipping_address = False,
+            send_phone_number_to_provider = False,
+            send_email_to_provider = False,
+            is_flexible = False,
+            disable_notification = False,
+            reply_to_message_id = 0,
+            reply_markup = None):
+
+        data = {
+            'chat_id':chat_id,
+            'title':title,
+            'description':description,
+            'payload':payload,
+            'provider_token':provider_token,
+            'start_parameter':start_parameter,
+            'currency':currency,
+            'prices':prices
+        }
+
+        if provider_data != "":
+            data.update({'provider_data':provider_data})
+        if photo_url != "":
+            data.update({'photo_url':photo_url})
+        if photo_size != 0:
+            data.update({'photo_size':photo_size})
+        if photo_width != 0:
+            data.update({'photo_width':photo_width})
+        if photo_height != 0:
+            data.update({'photo_height':photo_height})
+        if need_name != False:
+            data.update({'need_name':need_name})
+        if need_phone_number != False:
+            data.update({'need_phone_number':need_phone_number})
+        if need_email != False:
+            data.update({'need_email':need_email})
+        if need_shipping_address != False:
+            data.update({'need_shipping_address':need_shipping_address})
+        if send_phone_number_to_provider != False:
+            data.update({'send_phone_number_to_provider':send_phone_number_to_provider})
+        if send_email_to_provider != False:
+            data.update({'send_email_to_provider':send_email_to_provider})
+        if is_flexible != False:
+            data.update({'is_flexible':is_flexible})
+        if disable_notification != False:
+            data.update({'disable_notification':disable_notification})
+        if reply_to_message_id != 0:
+            data.update({'reply_to_message_id':reply_to_message_id})
+        if reply_markup is not None:
+            data.update({'reply_markup':json.dumps(reply_markup)})
+            #data['reply_markup'] = json.dumps(reply_markup)
+
+        response = self.call("sendInvoice", data)
+        return response
+
+
+
+
+
+
+
 
 
 
