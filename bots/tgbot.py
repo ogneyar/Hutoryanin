@@ -132,6 +132,8 @@ def bot(request):
             help_list2 += "/kickChatMember - удаление пользователя из группы(канала)\n\n"
             help_list2 += "/unbanChatMember - снятие БАНа с пользователя\n\n"
             help_list2 += "/restrictChatMember - установка разрешений пользователя\n\n"
+            help_list2 += "\n\nWhere /promoteChatMember???\n\n"
+
 
             help_list2 += "------------\n\n"
             help_list2 += "/methods_one\n\n"
