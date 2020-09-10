@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import include
 
-import requests, json, os, bmemcached, emoji
+import requests, json, os, bmemcached
 from bs4 import BeautifulSoup
 
 from bots.public import Public
