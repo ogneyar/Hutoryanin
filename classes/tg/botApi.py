@@ -1177,6 +1177,34 @@ class Bot:
         return response
 
 
+    # method answerShippingQuery
+    def answerShippingQuery(self, shipping_query_id, ok,
+            shipping_options = [],
+            error_message = ""):
+
+        data = { 'shipping_query_id':shipping_query_id, 'ok':ok }
+
+        if shipping_options != []:
+            data.update({'shipping_options':shipping_options})
+        if error_message != "":
+            data.update({'error_message':error_message})
+
+        response = self.call("answerShippingQuery", data)
+        return response
+
+
+
+    # method answerPreCheckoutQuery
+    def answerPreCheckoutQuery(self, pre_checkout_query_id, ok,
+            error_message = ""):
+
+        data = { 'shipping_query_id':shipping_query_id, 'ok':ok }
+
+        if error_message != "":
+            data.update({'error_message':error_message})
+
+        response = self.call("answerPreCheckoutQuery", data)
+        return response
 
 
 
