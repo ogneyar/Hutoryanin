@@ -1207,6 +1207,12 @@ class Bot:
         return response
 
 
+    '''
+    -------------------------
+    |   TELEGRAM PASSPORT   |
+    -------------------------
+    '''
+
 
 
 
