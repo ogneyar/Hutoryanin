@@ -3,7 +3,7 @@ from classes.tg.types.inlineQuery import InlineQuery
 from classes.tg.types.chosenInlineResult import ChosenInlineResult
 from classes.tg.types.callbackQuery import CallbackQuery
 from classes.tg.types.shippingQuery import ShippingQuery
-#from classes.tg.types.preCheckoutQuery import PreCheckoutQuery
+from classes.tg.types.preCheckoutQuery import PreCheckoutQuery
 from classes.tg.types.poll import Poll
 from classes.tg.types.pollAnswer import PollAnswer
 
