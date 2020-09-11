@@ -26,8 +26,10 @@ class PreCheckoutQuery:
         self.setCurrency(obj['currency'])
         self.setTotalAmount(obj['total_amount'])
         self.setInvoicePayload(obj['invoice_payload'])
-        self.setShippingOptionId(obj['shipping_option_id'])
-        self.setOrderInfo(obj['order_info'])
+        if 'shipping_option_id' in obj:
+            self.setShippingOptionId(obj['shipping_option_id'])
+        if 'order_info' in obj:
+            self.setOrderInfo(obj['order_info'])
 
 
     # запись
