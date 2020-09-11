@@ -15,10 +15,14 @@ class OrderInfo:
 
 
     def __init__(self, obj):
-        self.setName(obj['name'])
-        self.setPhoneNumber(obj['phone_number'])
-        self.setEmail(obj['email'])
-        self.setShippingAddress(obj['shipping_address'])
+        if 'name' in obj:
+            self.setName(obj['name'])
+        if 'phone_number' in obj:
+            self.setPhoneNumber(obj['phone_number'])
+        if 'email' in obj:
+            self.setEmail(obj['email'])
+        if 'shipping_address' in obj:
+            self.setShippingAddress(obj['shipping_address'])
 
 
     # запись
