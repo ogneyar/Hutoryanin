@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Greeting
+from .models import Greeting, Url
 
 import requests
 
@@ -13,7 +13,9 @@ def index(request):
 
 def public(request):
 
-    return render(request, "public.html")
+    all_url = Url.objects.all()
+
+    return render(request, "public.html", {'all_url':all_url})
 
 
 def shop(request):
