@@ -30,6 +30,8 @@ SECRET_KEY = 'secretsecretkeY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 debug = os.getenv("DEBUG")
+if debug is None:
+    debug = "Да"
 if debug == "Да":
     DEBUG = True
 else:
