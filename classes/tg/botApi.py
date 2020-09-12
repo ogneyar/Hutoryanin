@@ -823,6 +823,14 @@ class Bot:
         return self.call("getMyCommands")
 
 
+
+    '''
+    -----------------------------
+    |     UPDATING MESSAGES     |
+    -----------------------------
+    '''
+
+
     # method editMessageText
     def editMessageText(self,
             chat_id = None,
@@ -1212,6 +1220,21 @@ class Bot:
     |   TELEGRAM PASSPORT   |
     -------------------------
     '''
+
+
+
+
+
+
+    '''
+    -------------
+    |   GAMES   |
+    -------------
+    '''
+
+
+
+
 
 
 
