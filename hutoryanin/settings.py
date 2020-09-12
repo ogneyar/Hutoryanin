@@ -119,7 +119,7 @@ DATABASES = {
     },
     base: {
         'ENGINE': 'django.db.backends.postgresql',
-        #'OPTIONS': {'sslmode': 'require'},
+        'OPTIONS': {'sslmode': 'require'},
         'NAME': name,
         'USER': user,
         'PASSWORD': passw,
