@@ -13,7 +13,7 @@ def index(request):
 
 def public(request):
 
-    all_url = Url.objects.all()
+    all_url = Url.objects.order_by('-id')
 
     return render(request, "public.html", {'all_url':all_url})
 
