@@ -179,6 +179,7 @@ def parser(request):
     }
 
     #url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
+    #url = "https://youtu.be/8u-HGyBwuPU"
 
     url = "https://www.prizmarket.ru"
 
@@ -187,7 +188,17 @@ def parser(request):
     #soup = BeautifulSoup(page.text, "html.parser")
     soup = BeautifulSoup(page.text, "lxml")
 
+    #response.write( str(page.status_code)+"<br><br>"+str(soup.title.get_text()) )
+
     response.write( str(page.status_code)+"<br><br>"+str(soup.body.get_text()) )
+
+    # для titel с ютуба
+    '''
+    full_title = str(soup.title.get_text())
+    num = full_title.find(" - YouTube")
+    title = full_title[:num]
+    response.write( str(page.status_code)+"<br><br>"+title )
+    '''
 
     return response
 

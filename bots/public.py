@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 
-import os, bmemcached
+import os, bmemcached, requests
+from bs4 import BeautifulSoup
 
 from classes.tg.botApi import Bot
 
@@ -61,8 +62,24 @@ class Public:
 
             elif mc.get("wait") == "url":
 
+                headers = {
+                    'User-Agent': "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 OPR/70.0.3728.106",
+                    'x-youtube-client-name': '1',
+                    'x-youtube-client-version': '2.20200529.02.01'
+                }
+
+                url = text
+
+                page = requests.get(url, headers=headers)
+
+                soup = BeautifulSoup(page.text, "lxml")
+
+                full_title = str(soup.title.get_text())
+                num = full_title.find(" - YouTube")
+                title = full_title[:num]
+
                 caption = "Здравствуйте все! 🤚\n\n"
-                caption += "В этом видео я раскажу о своём состоянии сидя на кето-диете уже три месяца, четвёртый пошёл.\n\n"
+                caption += "Вышло новое видео *"+title+"* на ютуб-канале [ХуторянинЪ](https://www.youtube.com/c/ХуторянинЪ).\n\n"
                 caption += "Смотрите, комментируйте, ставьте лайки, подписывайтесь на канал.\n*Приятного просмотра!* 😉\n"
 
                 text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + text + ")"
@@ -70,39 +87,25 @@ class Public:
 
                 response = tg.sendPhoto(master, mc.get("file_id"), caption + text_url, "markdown", reply_markup=inline_keyboard_markup)
 
-                #response = tg.sendMessage(master, text, reply_markup=inline_keyboard_markup)
-                #mc.set("wait", "description")
-                #mc.set("url", text)
-                #response = tg.sendMessage(master, "Пришли фото.")
+
                 response = tg.sendMessage(master, "Всё.")
                 mc.delete("wait")
-                #mc.delete("url")
+
                 mc.delete("file_id")
 
 
             elif mc.get("wait") == "description":
                 pass
-                '''
-                url = mc.get("url")
-                text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + url + ")"
-                text_url = text_url * 3
-                response = tg.sendPhoto(master, mc.get("file_id"), text + "\n" + text_url, "markdown", reply_markup=inline_keyboard_markup)
-                mc.delete("wait")
-                mc.delete("url")
-                mc.delete("file_id")
-                response = tg.sendMessage(master, "Всё.")
-                '''
+
 
             else:
                 response = tg.sendMessage(master, "Произошла ошибка!")
                 mc.delete("wait")
-                #mc.delete("url")
                 mc.delete("file_id")
 
         except:
 
             mc.delete("wait")
-            #mc.delete("url")
             mc.delete("file_id")
 
             return HttpResponse("ok")
