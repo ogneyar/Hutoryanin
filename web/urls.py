@@ -9,6 +9,7 @@ from django.urls import path, include
 admin.autodiscover()
 
 import web.views
+import web.sendmail
 import bots.tgbot
 import bots.icqbot
 import bots.urls
@@ -24,6 +25,7 @@ urlpatterns = [
     path("support/", web.views.support, name="support"),
     path("lk/", web.views.lk, name="lk"),
     path("db/", web.views.db, name="db"),
+    path("sendmail/", web.sendmail.send, name="send"),
 
     path("tgbot/", bots.tgbot.bot, name="bot"),
     path("icqbot/", bots.icqbot.message_cb, name="message_cb"),
