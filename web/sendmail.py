@@ -6,6 +6,6 @@ from django.http import HttpResponseRedirect
 
 def send(request):
 
-   HttpResponse("<h1>Добро пожаловать!</h1>")
+   return HttpResponse("<h1>Добро пожаловать!</h1>")
 
 
