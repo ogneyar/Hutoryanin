@@ -22,7 +22,7 @@
         <h4 class="my-0 font-weight-normal">Напишите</h4>
       </div>
       <div class="card-body">
-        <form method="post">
+        <form method="get" action="/sendmail">
 			<input type="hidden" name="login" id="login" value="test">
 			
 			<label>Ваш Email:</label><br>
@@ -34,7 +34,7 @@
 			</div>
 			<br>
 			
-			<button type="button" class="btn btn-lg btn-block btn-outline-primary">Отправить</button>
+			<button type="submit" class="btn btn-lg btn-block btn-outline-primary">Отправить</button>
 		</form>
       </div>
     </div>
