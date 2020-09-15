@@ -8,3 +8,4 @@ lxml
 python-binary-memcached
 django-bmemcached
 psycopg2-binary
+secure-smtplib
