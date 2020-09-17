@@ -23,7 +23,7 @@ def send(request):
         smtp_port = 25
         smtp_server = "smtp.sibnet.ru"
 
-        token = "1224906863:AAHYalxznzb4XwcP-7olgPu8BQjNJ0LrKXY"
+        token = "Y"
         master = 1038937592
 
     else:
@@ -49,6 +49,7 @@ def send(request):
             cookie = request.COOKIES
 
             if 'repeat' in cookie:
+                r = tg.sendMessage(master, "real cookie worked")
                 return HttpResponse("ok")
             else:
 
