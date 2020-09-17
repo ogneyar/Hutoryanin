@@ -35,10 +35,16 @@ def send(request):
     response = HttpResponse()
 
     tg = Bot(token)
-
+    
+    '''
     if request.GET["email"] != "":
         if request.GET["message"] != "":
             r = tg.sendMessage(master, request.GET["email"] + "\n\n" +request.GET["message"])
+    '''
+    
+    if request.POST["email"] != "":
+        if request.POST["message"] != "":
+            r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
             response.write("<br><br><br><center><h1>Письмо отправленно!</h1></center><br><br>")
             response.write("<center><a href='/'>Вернуться на главную страницу</a></center>")
         else:
