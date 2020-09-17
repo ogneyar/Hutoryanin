@@ -53,7 +53,7 @@ def send(request):
         response += "Необходимо указать Ваш email!"
         response += "<br><br><a class='btn btn-success' href='/support'>Вернуться назад</a>"
 
-    return render("sendmail.html", {'response':response})
+    return render(request, "sendmail.html", {'response':response})
 
 
 
