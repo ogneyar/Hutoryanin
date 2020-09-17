@@ -13,8 +13,12 @@ from classes.tg.botApi import Bot
 
 def send(request):
 
+
     if request.method != "POST" or "email" not in request.POST or "message" not in request.POST:
-        return HttpResponseRedirect("/")
+        if request.method == "GET" and "cookie" in request.GET:
+            return HttpResponse("ok")
+        else:
+            return HttpResponseRedirect("/")
 
     if request.get_host() == '127.0.0.1:8000':
 
@@ -23,7 +27,7 @@ def send(request):
         smtp_port = 25
         smtp_server = "smtp.sibnet.ru"
 
-        token = "Y"
+        token = "1224906863:AAHYalxznzb4XwcP-7olgPu8BQjNJ0LrKXY"
         master = 1038937592
 
     else:
@@ -53,7 +57,7 @@ def send(request):
                 return HttpResponse("ok")
             else:
 
-                url = "http://"+request.META['HTTP_HOST']+"/sendmail/"
+                url = "http://"+request.META['HTTP_HOST']+"/sendmail/?cookie=yes"
                 cookies = {'repeat':'yes'}
                 req = requests.get(url, cookies=cookies)
 
