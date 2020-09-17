@@ -11,6 +11,11 @@ from classes.tg.botApi import Bot
 
 
 def send(request):
+    
+    if request.POST:
+        return HttpResponse("Post: "+str(request.POST))
+    else:
+        return HttpResponseRedirect("/")
 
     if request.get_host() == '127.0.0.1:8000':
 
@@ -36,11 +41,6 @@ def send(request):
 
     tg = Bot(token)
     
-    '''
-    if request.GET["email"] != "":
-        if request.GET["message"] != "":
-            r = tg.sendMessage(master, request.GET["email"] + "\n\n" +request.GET["message"])
-    '''
     
     if request.POST["email"] != "":
         if request.POST["message"] != "":
