@@ -12,9 +12,7 @@ from classes.tg.botApi import Bot
 
 def send(request):
     
-    if request.POST:
-        return HttpResponse("Post: "+str(request.POST))
-    else:
+    if request.POST is None:
         return HttpResponseRedirect("/")
 
     if request.get_host() == '127.0.0.1:8000':
