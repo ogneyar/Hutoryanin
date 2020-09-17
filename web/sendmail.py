@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-import os, smtplib
+import os, smtplib, requests
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -12,7 +12,7 @@ from classes.tg.botApi import Bot
 
 
 def send(request):
-    
+
     if request.method != "POST" or "email" not in request.POST or "message" not in request.POST:
         return HttpResponseRedirect("/")
 
@@ -23,7 +23,7 @@ def send(request):
         smtp_port = 25
         smtp_server = "smtp.sibnet.ru"
 
-        token = "***"
+        token = "1224906863:AAHYalxznzb4XwcP-7olgPu8BQjNJ0LrKXY"
         master = 1038937592
 
     else:
@@ -36,19 +36,32 @@ def send(request):
         token = os.getenv("TOKEN")
         master = int(os.getenv("MASTER"))
 
-    #response = HttpResponse()
+
+    #resp = HttpResponse()
+
     response = ""
 
     tg = Bot(token)
-    
+
     if request.POST["email"] != "":
         if request.POST["message"] != "":
+
+            cookie = request.COOKIES
+
+            if 'repeat' in cookie:
+                return HttpResponse("ok")
+            else:
+
+                url = "http://"+request.META['HTTP_HOST']+"/sendmail/"
+                cookies = {'repeat':'yes'}
+                req = requests.get(url, cookies=cookies)
+
             r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
             response += "Письмо отправленно!"
-            
+
         else:
             response += "Необходимо описать суть вопроса или предложения!"
-    
+
     else:
         response += "Необходимо указать Ваш email!"
 
