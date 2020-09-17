@@ -12,8 +12,7 @@ from classes.tg.botApi import Bot
 
 def send(request):
     
-    if request.POST is None:
-    #if request.method != "POST":
+    if request.method != "POST" or "email" not in request.POST or "message" not in request.POST:
         return HttpResponseRedirect("/")
 
     if request.get_host() == '127.0.0.1:8000':
@@ -41,7 +40,7 @@ def send(request):
     tg = Bot(token)
     
     
-    if request.POST["email"].get():
+    if request.POST["email"] != "":
         if request.POST["message"] != "":
             r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
             response.write("<br><br><br><center><h1>Письмо отправленно!</h1></center><br><br>")
