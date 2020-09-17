@@ -2,6 +2,7 @@
 
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 import os, smtplib
 from email.mime.multipart import MIMEMultipart
@@ -35,29 +36,24 @@ def send(request):
         token = os.getenv("TOKEN")
         master = int(os.getenv("MASTER"))
 
-    response = HttpResponse()
-    
-    # часть базового шаблона
-    response.write('{% extends "base.html" %}{% load static %}{% block header %}<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"><h2 class="display-4">Отправка сообщения</h2><p class="lead">')
+    #response = HttpResponse()
+    response = ""
 
     tg = Bot(token)
-    
     
     if request.POST["email"] != "":
         if request.POST["message"] != "":
             r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
-            response.write("Письмо отправленно!")
-            response.write("<br><br><a class='btn btn-success' href='/'>Вернуться на главную страницу</a>")
+            response += "Письмо отправленно!"
+            response +="<br><br><a class='btn btn-success' href='/'>Вернуться на главную страницу</a>"
         else:
-            response.write("Необходимо описать суть вопроса или предложения!")
-            response.write("<br><br><a class='btn btn-success' href='/support'>Вернуться назад</a>")
+            response += "Необходимо описать суть вопроса или предложения!"
+            response += "<br><br><a class='btn btn-success' href='/support'>Вернуться назад</a>"
     else:
-        response.write("Необходимо указать Ваш email!")
-        response.write("<br><br><a class='btn btn-success' href='/support'>Вернуться назад</a>")
+        response += "Необходимо указать Ваш email!"
+        response += "<br><br><a class='btn btn-success' href='/support'>Вернуться назад</a>"
 
-    response.write('</p></div>{% endblock %}')
-
-    return response
+    return render("sendmail.html", {'response':response})
 
 
 
