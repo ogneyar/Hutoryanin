@@ -45,13 +45,12 @@ def send(request):
         if request.POST["message"] != "":
             r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
             response += "Письмо отправленно!"
-            response +="<br><br><a class='btn btn-success' href='/'>Вернуться на главную страницу</a>"
+            
         else:
             response += "Необходимо описать суть вопроса или предложения!"
-            response += "<br><br><a class='btn btn-success' href='/support'>Вернуться назад</a>"
+    
     else:
         response += "Необходимо указать Ваш email!"
-        response += "<br><br><a class='btn btn-success' href='/support'>Вернуться назад</a>"
 
     return render(request, "sendmail.html", {'response':response})
 
