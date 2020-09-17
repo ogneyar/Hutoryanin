@@ -36,6 +36,9 @@ def send(request):
         master = int(os.getenv("MASTER"))
 
     response = HttpResponse()
+    
+    # часть базового шаблона
+    response.write('{% extends "base.html" %}{% load static %}{% block header %}<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"><h2 class="display-4">Отправка сообщения</h2><p class="lead">')
 
     tg = Bot(token)
     
@@ -43,15 +46,16 @@ def send(request):
     if request.POST["email"] != "":
         if request.POST["message"] != "":
             r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
-            response.write("<br><br><br><center><h1>Письмо отправленно!</h1></center><br><br>")
-            response.write("<center><a href='/'>Вернуться на главную страницу</a></center>")
+            response.write("Письмо отправленно!")
+            response.write("<br><br><a class='btn btn-success' href='/'>Вернуться на главную страницу</a>")
         else:
-            response.write("<br><br><br><center><h3>Необходимо описать суть вопроса!</h3></center><br><br>")
-            response.write("<center><a href='/support'>Вернуться назад</a></center>")
+            response.write("Необходимо описать суть вопроса или предложения!")
+            response.write("<br><br><a class='btn btn-success' href='/support'>Вернуться назад</a>")
     else:
-        response.write("<br><br><br><center><h3>Необходимо указать Ваш email!</h3></center><br><br>")
-        response.write("<center><a href='/support'>Вернуться назад</a></center>")
+        response.write("Необходимо указать Ваш email!")
+        response.write("<br><br><a class='btn btn-success' href='/support'>Вернуться назад</a>")
 
+    response.write('</p></div>{% endblock %}')
 
     return response
 
