@@ -8,7 +8,7 @@ import os
 import bmemcached
 from bs4 import BeautifulSoup
 
-import http.cookies
+#import http.cookies
 
 
 mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
