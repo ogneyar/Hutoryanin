@@ -4,17 +4,26 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-import os, smtplib, requests, json
+import os, smtplib, requests, json, bmemcached
+
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 from classes.tg.botApi import Bot
 
 
+mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
+mc_user = os.environ.get('MEMCACHIER_USERNAME', '')
+mc_passw = os.environ.get('MEMCACHIER_PASSWORD', '')
+
+mc = bmemcached.Client(mc_servers, username=mc_user, password=mc_passw)
+mc.enable_retry_delay(True)
+
+
 def send(request):
     
-    if request.method == "GET":
-        return HttpResponse("ok")
+    #if request.method == "GET":
+    #   return HttpResponse("ok")
 
     if request.method != "POST" or "email" not in request.POST or "message" not in request.POST:
             return HttpResponseRedirect("/")
@@ -48,7 +57,18 @@ def send(request):
 
     if request.POST["email"] != "":
         if request.POST["message"] != "":
+            
+            if mc.get("repeat") is None:
 
+                mc.set("repeat", "yes")
+                
+                r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
+                
+            response += "Письмо отправленно!"
+            
+            
+            
+            '''
             cookie = request.COOKIES
 
             if 'repeat' in cookie:
@@ -58,21 +78,17 @@ def send(request):
             else:
                 #resp.set_cookie("repeat","yes",max_age=10)
                 
-                
                 url = "http://"+request.get_host()+"/sendmail/"
                 ssn = requests.Session()
                 ssn.cookies.update({'repeat':'yes'})
                 req = ssn.get(url)
                 
-                '''
-                cookies = {'repeat':'yes'}
-                req = requests.get(url, cookies=cookies)
-                '''
-
-            r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
-            response += "Письмо отправленно!"
+                #cookies = {'repeat':'yes'}
+                #req = requests.get(url, cookies=cookies)
+            '''
             
-            return HttpResponse( json.dumps(request.COOKIES) )
+            
+            #return HttpResponse( json.dumps(request.COOKIES) )
 
         else:
             response += "Необходимо описать суть вопроса или предложения!"
@@ -80,9 +96,9 @@ def send(request):
     else:
         response += "Необходимо указать Ваш email!"
 
-    #return render(request, "sendmail.html", {'response':response})
+    return render(request, "sendmail.html", {'response':response})
     
-    return HttpResponse("Отправил")
+    #return HttpResponse("Отправил")
 
 
 
