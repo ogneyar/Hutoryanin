@@ -35,7 +35,7 @@ class Bot:
         if (text['ok']):
             return text['result']
         else:
-            return "Ошибка! " + text['error_code'] + " " + text['description']
+            return "Ошибка! " + str(text['error_code']) + " " + text['description']
 
 
     # method getUpdates
