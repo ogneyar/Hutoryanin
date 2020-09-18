@@ -27,12 +27,19 @@ def send(request):
 
     if request.get_host() == '127.0.0.1:8000':
 
+        '''
         smtp_login = "hutor_yanin@sibnet.ru"
-        smtp_pass = "Qwrtui_13)"
+        smtp_pass = ""
         smtp_port = 25
         smtp_server = "smtp.sibnet.ru"
+        '''
 
-        token = "1224906863:AAHYalxznzb4XwcP-7olgPu8BQjNJ0LrKXY"
+        smtp_login = "prizmarket@mail.ru"
+        smtp_pass = ""
+        smtp_port = 465
+        smtp_server = "smtp.mail.ru"
+
+        token = ""
         master = 1038937592
 
     else:
@@ -90,11 +97,35 @@ def send(request):
 
                     response += "Exception: SESSION_ENGINE необходимо закоментировать в settings.py"
 
+
+            ''' отправка письма
+
+            import email_to
+
+            server = email_to.EmailServer(smtp_server, smtp_port, smtp_login, smtp_pass)
+
+            message = server.message()
+            message.add('# Oh boy, something went wrong!')
+            message.add('- The server had a hiccup')
+            message.add('- The power went out')
+            message.add('- Blame it on a rogue backhoe')
+            message.style = 'h1 { color: red}'
+
+            message.send('ya13th@mail.ru', 'Things did not occur as expected')
+
+            #server.quick_email('ya13th@mail.ru', 'Test',
+            #    ['# A Heading', 'Something else in the body'],
+            #    style='h1 {color: blue}')
+            '''
+
+
         else:
             response += "Необходимо описать суть вопроса или предложения!"
 
     else:
         response += "Необходимо указать Ваш email!"
+
+
 
     return render(request, "sendmail.html", {'response':response})
 
@@ -122,14 +153,7 @@ def send(request):
     '''
 
 
-    '''
-    import email_to
 
-    server = email_to.EmailServer(smtp_server, smtp_port, smtp_login, smtp_pass)
-    server.quick_email('ya13th@mail.ru', 'Test',
-        ['# A Heading', 'Something else in the body'],
-        style='h1 {color: blue}')
-    '''
 
 
 
