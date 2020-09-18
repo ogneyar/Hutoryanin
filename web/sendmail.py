@@ -15,9 +15,6 @@ def send(request):
 
 
     if request.method != "POST" or "email" not in request.POST or "message" not in request.POST:
-        if request.method == "GET" and "cookie" in request.GET:
-            return HttpResponse("ok")
-        else:
             return HttpResponseRedirect("/")
 
     if request.get_host() == '127.0.0.1:8000':
@@ -57,7 +54,7 @@ def send(request):
                 return HttpResponse("ok")
             else:
 
-                url = "https://"+request.META['HTTP_HOST']+"/sendmail/?cookie=yes"
+                url = "http://"+request.META['HTTP_HOST']
                 cookies = {'repeat':'yes'}
                 req = requests.get(url, cookies=cookies)
 
