@@ -60,9 +60,14 @@ def send(request):
                 
                 
                 url = "http://"+request.get_host()+"/sendmail/"
+                ssn = requests.Session()
+                ssn.cookies.update({'repeat':'yes'})
+                req = ssn.get(url)
+                
+                '''
                 cookies = {'repeat':'yes'}
                 req = requests.get(url, cookies=cookies)
-                
+                '''
 
             r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
             response += "Письмо отправленно!"
