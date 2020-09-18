@@ -53,7 +53,7 @@ def send(request):
                 r = tg.sendMessage(master, "real cookie worked")
                 return resp.write("ok")
             else:
-                resp.set_cookies("repeat","yes",max_age=10)
+                resp.set_cookie("repeat","yes",max_age=10)
                 
                 '''
                 url = "http://"+request.META['HTTP_HOST']
