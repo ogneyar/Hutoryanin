@@ -38,7 +38,7 @@ def send(request):
         master = int(os.getenv("MASTER"))
 
 
-    #resp = HttpResponse()
+    resp = HttpResponse()
 
     response = ""
 
@@ -51,12 +51,15 @@ def send(request):
 
             if 'repeat' in cookie:
                 r = tg.sendMessage(master, "real cookie worked")
-                return HttpResponse("ok")
+                return resp.write("ok")
             else:
-
+                resp.set_cookies("repeat","yes",max_age=10)
+                
+                '''
                 url = "http://"+request.META['HTTP_HOST']
                 cookies = {'repeat':'yes'}
                 req = requests.get(url, cookies=cookies)
+                '''
 
             r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
             response += "Письмо отправленно!"
@@ -67,7 +70,9 @@ def send(request):
     else:
         response += "Необходимо указать Ваш email!"
 
-    return render(request, "sendmail.html", {'response':response})
+    #return render(request, "sendmail.html", {'response':response})
+    
+    return resp
 
 
 
