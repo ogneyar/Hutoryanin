@@ -27,7 +27,7 @@ def send(request):
         smtp_port = 25
         smtp_server = "smtp.sibnet.ru"
 
-        token = "1224906863:AAHYalxznzb4XwcP-7olgPu8BQjNJ0LrKXY"
+        token = "Y"
         master = 1038937592
 
     else:
@@ -57,7 +57,7 @@ def send(request):
                 return HttpResponse("ok")
             else:
 
-                url = "http://"+request.META['HTTP_HOST']+"/sendmail/?cookie=yes"
+                url = "https://"+request.META['HTTP_HOST']+"/sendmail/?cookie=yes"
                 cookies = {'repeat':'yes'}
                 req = requests.get(url, cookies=cookies)
 
