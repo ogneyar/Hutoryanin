@@ -71,6 +71,8 @@ def send(request):
 
             r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
             response += "Письмо отправленно!"
+            
+            return HttpResponse( json.dumps(request.COOKIES) )
 
         else:
             response += "Необходимо описать суть вопроса или предложения!"
