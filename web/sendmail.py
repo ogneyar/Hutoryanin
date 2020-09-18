@@ -21,9 +21,6 @@ mc.enable_retry_delay(True)
 
 
 def send(request):
-    
-    #if request.method == "GET":
-    #   return HttpResponse("ok")
 
     if request.method != "POST" or "email" not in request.POST or "message" not in request.POST:
             return HttpResponseRedirect("/")
@@ -58,38 +55,30 @@ def send(request):
     if request.POST["email"] != "":
         if request.POST["message"] != "":
             
-            if mc.get("repeat") is None:
+            if request.get_host() != '127.0.0.1:8000':
+            
+                if mc.get("repeat") is None:
+    
+                    mc.set("repeat", "yes")
+                    
+                    r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
+                    
+                #response += "Письмо отправленно!"
+            else:
+            
+                cookie = request.COOKIES
 
-                mc.set("repeat", "yes")
+                if 'repeat' not in cookie:
                 
-                r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
-                
+                    url = "http://"+request.get_host()+"/sendmail/"
+                    cookies = {'repeat':'yes'}
+                    req = requests.get(url, cookies=cookies)
+                    
+                    r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
+            
+            
             response += "Письмо отправленно!"
             
-            
-            
-            '''
-            cookie = request.COOKIES
-
-            if 'repeat' in cookie:
-                r = tg.sendMessage(master, "real cookie worked")
-                
-                return HttpResponse("ok")
-            else:
-                #resp.set_cookie("repeat","yes",max_age=10)
-                
-                url = "http://"+request.get_host()+"/sendmail/"
-                ssn = requests.Session()
-                ssn.cookies.update({'repeat':'yes'})
-                req = ssn.get(url)
-                
-                #cookies = {'repeat':'yes'}
-                #req = requests.get(url, cookies=cookies)
-            '''
-            
-            
-            #return HttpResponse( json.dumps(request.COOKIES) )
-
         else:
             response += "Необходимо описать суть вопроса или предложения!"
 
@@ -98,9 +87,10 @@ def send(request):
 
     return render(request, "sendmail.html", {'response':response})
     
+    
+    
     #return HttpResponse("Отправил")
-
-
+    
 
     '''
     message = MIMEMultipart()
