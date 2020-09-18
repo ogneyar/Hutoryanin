@@ -12,7 +12,9 @@ from classes.tg.botApi import Bot
 
 
 def send(request):
-
+    
+    if request.method == "GET":
+        return HttpResponse("ok")
 
     if request.method != "POST" or "email" not in request.POST or "message" not in request.POST:
             return HttpResponseRedirect("/")
@@ -38,7 +40,7 @@ def send(request):
         master = int(os.getenv("MASTER"))
 
 
-    resp = HttpResponse()
+    #resp = HttpResponse()
 
     response = ""
 
@@ -51,16 +53,16 @@ def send(request):
 
             if 'repeat' in cookie:
                 r = tg.sendMessage(master, "real cookie worked")
-                resp.write("ok")
-                return resp
-            else:
-                resp.set_cookie("repeat","yes",max_age=10)
                 
-                '''
-                url = "http://"+request.META['HTTP_HOST']
+                return HttpResponse("ok")
+            else:
+                #resp.set_cookie("repeat","yes",max_age=10)
+                
+                
+                url = "http://"+request.get_host()+"/sendmail/"
                 cookies = {'repeat':'yes'}
                 req = requests.get(url, cookies=cookies)
-                '''
+                
 
             r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
             response += "Письмо отправленно!"
@@ -73,7 +75,7 @@ def send(request):
 
     #return render(request, "sendmail.html", {'response':response})
     
-    return resp
+    return HttpResponse("Отправил")
 
 
 
