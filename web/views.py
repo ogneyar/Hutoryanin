@@ -34,18 +34,23 @@ def about(request):
 
 
 def support(request):
-    
+
     if request.get_host() != '127.0.0.1:8000':
-            
+
         mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
         mc_user = os.environ.get('MEMCACHIER_USERNAME', '')
         mc_passw = os.environ.get('MEMCACHIER_PASSWORD', '')
-        
+
         mc = bmemcached.Client(mc_servers, username=mc_user, password=mc_passw)
         mc.enable_retry_delay(True)
-        
+
         if mc.get("repeat") is not None:
             mc.delete("repeat")
+    else:
+
+        if "repeat" in request.session:
+
+           del request.session["repeat"]
 
 
     return render(request, "support.html")
