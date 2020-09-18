@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-import os, smtplib, requests
+import os, smtplib, requests, json
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
