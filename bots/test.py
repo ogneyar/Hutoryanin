@@ -89,7 +89,8 @@ def getCookie(request):
 
 
 
-    ''' передача куки методом requests.get(url, cookies=cookies)
+
+    ''' передача куки методом requests.get(url, cookies=cookies) Не работает(
     '''
     response = HttpResponse()
     url = "http://"+request.META['HTTP_HOST']+"/test/cookie/"
@@ -97,12 +98,15 @@ def getCookie(request):
     req = requests.get(url, cookies=cookies)
 
     response.write( str(req.text) )
+    response.write( "<br><br>" )
+    response.write( json.dumps(request.COOKIES) )
     return response
     # а приём с помощью request.COOKIES
 
 
 
-    ''' передача куки c помощью сессии
+
+    ''' передача куки c помощью сессии Не работает(
     '''
     response = HttpResponse()
     url = "http://"+request.META['HTTP_HOST']+"/test/cookie/"
@@ -111,6 +115,8 @@ def getCookie(request):
     req = ssn.get(url)
 
     response.write( str(req.text) )
+    response.write( "<br><br>" )
+    response.write( json.dumps(request.COOKIES) )
     return response
 
 
@@ -158,7 +164,7 @@ def session(request):
 
     except:
 
-        response.write("<p>Exception</p>")
+        response.write("<p>Exception: SESSION_ENGINE необходимо закоментировать в settings.py</p>")
 
     return response
 
