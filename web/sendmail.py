@@ -51,7 +51,8 @@ def send(request):
 
             if 'repeat' in cookie:
                 r = tg.sendMessage(master, "real cookie worked")
-                return resp.write("ok")
+                resp.write("ok")
+                return resp
             else:
                 resp.set_cookie("repeat","yes",max_age=10)
                 
