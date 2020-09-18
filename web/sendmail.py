@@ -28,11 +28,11 @@ def send(request):
     if request.get_host() == '127.0.0.1:8000':
 
         smtp_login = "hutor_yanin@sibnet.ru"
-        smtp_pass = "***"
+        smtp_pass = "Qwrtui_13)"
         smtp_port = 25
         smtp_server = "smtp.sibnet.ru"
 
-        token = "Y"
+        token = "1224906863:AAHYalxznzb4XwcP-7olgPu8BQjNJ0LrKXY"
         master = 1038937592
 
     else:
@@ -54,31 +54,42 @@ def send(request):
 
     if request.POST["email"] != "":
         if request.POST["message"] != "":
-            
-            if request.get_host() != '127.0.0.1:8000':
-            
-                if mc.get("repeat") is None:
-    
-                    mc.set("repeat", "yes")
-                    
-                    r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
-                    
-                #response += "Письмо отправленно!"
-            else:
-            
-                cookie = request.COOKIES
 
-                if 'repeat' not in cookie:
-                
-                    url = "http://"+request.get_host()+"/sendmail/"
-                    cookies = {'repeat':'yes'}
-                    req = requests.get(url, cookies=cookies)
-                    
+            if request.get_host() != '127.0.0.1:8000':
+
+                if mc.get("repeat") is None:
+
+                    mc.set("repeat", "yes")
+
                     r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
-            
-            
-            response += "Письмо отправленно!"
-            
+
+                    response += "Письмо отправленно!"
+
+                else:
+
+                    response += "Письмо уже отправленно!"
+
+            else:
+
+                try:
+                    # сохранение сессии
+                    if "repeat" not in request.session:
+                        # удаление через 60 секунд
+                        #request.session.set_expiry(60)
+                        request.session["repeat"] = "yes"
+
+                        r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
+
+                        response += "Письмо отправленно!"
+
+                    else:
+
+                        response += "Письмо уже отправленно!"
+
+                except:
+
+                    response += "Exception: SESSION_ENGINE необходимо закоментировать в settings.py"
+
         else:
             response += "Необходимо описать суть вопроса или предложения!"
 
@@ -86,11 +97,11 @@ def send(request):
         response += "Необходимо указать Ваш email!"
 
     return render(request, "sendmail.html", {'response':response})
-    
-    
-    
+
+
+
     #return HttpResponse("Отправил")
-    
+
 
     '''
     message = MIMEMultipart()
