@@ -1,3 +1,5 @@
+from django.http import Http404
+
 import requests
 import json
 
@@ -35,7 +37,7 @@ class Bot:
         if (text['ok']):
             return text['result']
         else:
-            return "Ошибка! " + str(text['error_code']) + " " + text['description']
+            raise Http404("Ошибка! " + str(text['error_code']) + " " + text['description'])
 
 
     # method getUpdates
