@@ -68,7 +68,7 @@ class Public:
             elif mc.get("wait") == "photo":
                 if photo != []:
                     file_id = photo[2].getFileId()
-                    tg.sendPhoto(master, file_id, mc.get("url"), reply_markup=inline_keyboard_markup_finish)
+                    tg.sendPhoto(master, file_id, reply_markup=inline_keyboard_markup_finish)
                     mc.set("wait", "url")
                     mc.set("file_id", file_id)
                     tg.sendMessage(master, "Пришли ссылку на видео.")
