@@ -122,18 +122,18 @@
 		{% for i in quan_page %}	
 			{% if i > 0 %}
 				{% if i == page_id %}
-				<button type="button" class="btn btn-outline-success" disabled>{{ i }}</button>
+				<button type="button" class="btn btn-outline-dark" disabled><b>{{ i }}</b></button>
 				{% else %}
-				<a class="btn btn-success" href="/public/{{ i }}">{{ i }}</a>
+				<a class="btn btn-outline-success" href="/public/{{ i }}">{{ i }}</a>
 				{% endif %}
 			{% endif %}			
 		{% endfor %}
       </div>  	  
 	  <div class="card-body"> 		
 		{% if page_id == 0 %}		
-		<button type="button" class="btn btn-outline-success" disabled>Показать все</button>
+		<button type="button" class="btn btn-outline-dark" disabled><b>Показать все</b></button>
 		{% else %}
-		<a class="btn btn-success" href="/public">Показать все</a>
+		<a class="btn btn-outline-primary" href="/public">Показать все</a>
 		{% endif %}
       </div>  	  
     </div>	
