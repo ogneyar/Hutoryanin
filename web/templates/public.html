@@ -27,6 +27,41 @@
       <div class="card-body"> 
 		
 		<iframe width="100%" height="100%" src="{{ urls.url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		
+      </div>  
+	  
+    </div>	
+
+	{% endfor %}
+</div>	
+
+	
+<div class="card-deck mb-3 text-center">
+	<div class="card mb-4 shadow-sm">      
+      <div class="card-body">		
+		{% for i in quan_page %}	
+			{% if i > 0 %}
+				{% if i == page_id %}
+				<button type="button" class="btn btn-outline-dark" disabled><b>{{ i }}</b></button>
+				{% else %}
+				<a class="btn btn-outline-success" href="/public/{{ i }}">{{ i }}</a>
+				{% endif %}
+			{% endif %}			
+		{% endfor %}
+      </div>  	  
+	  <div class="card-body"> 		
+		{% if page_id == 0 %}		
+		<button type="button" class="btn btn-outline-dark" disabled><b>Показать все</b></button>
+		{% else %}
+		<a class="btn btn-outline-primary" href="/public">Показать все</a>
+		{% endif %}
+      </div>  	  
+    </div>	
+</div>
+
+  
+{% endblock %}
+
 
 		<!--https://www.youtube.com/embed/YWgFCe5tUso--><!--Подставка для ножа-->	
 		<!--https://www.youtube.com/embed/dRTze2IpB-Y--><!--Ореховая пешка-->
@@ -67,79 +102,71 @@
 		<!--https://youtube.com/embed/FNXuN27RV0U--><!--Реальный замес-->		
 		<!--https://youtube.com/embed/iZgcBbXqBso--><!--Устроил перекус-->		
 		<!--https://youtube.com/embed/FWcYiGgpDXc--><!--Пикап из классики-->		
-		<!--https://youtube.com/embed/WP7BhKtDNVQ--><!--Изготовление шахматной фигуры-->		
+		<!--https://youtube.com/embed/WP7BhKtDNVQ--><!--Изготовление шахматной фигуры-->	
 		<!--https://youtube.com/embed/fnNP79DBU-E--><!--Концерт ко дню России 2018-->		
 		<!--https://youtube.com/embed/lB_sOf5SBY0--><!--Изготовление полосатой рукояти-->
 		<!--https://youtube.com/embed/XopLSDtUtBc--><!--Обзор рейера-->
 		<!--https://youtube.com/embed/WptBo_vyI-E--><!--Изготовление ложки для мёда-->		
-		<!--https://youtube.com/embed/iG78Y2fvZOE--><!--Изготовление полосатой рукояти 2-->		
+		<!--https://youtube.com/embed/iG78Y2fvZOE--><!--Изготовление полосатой рукояти 2-->	
 		<!--https://youtube.com/embed/rbLbj7Rhtko--><!--"Время" - Плохие Братья-->		
-		<!--https://youtube.com/embed/xc1BOIzC1ZE--><!--Изготовление джинсовой микарты-->		
-		<!--https://youtube.com/embed/m3y5CzaK3yI--><!--Изготовление рукояти из микарты-->		
-		<!--https://youtube.com/embed/PpRw8fv5YmA--><!--Изготовление полосатой рукояти 3-->		
+		<!--https://youtube.com/embed/xc1BOIzC1ZE--><!--Изготовление джинсовой микарты-->	
+		<!--https://youtube.com/embed/m3y5CzaK3yI--><!--Изготовление рукояти из микарты-->	
+		<!--https://youtube.com/embed/PpRw8fv5YmA--><!--Изготовление полосатой рукояти 3-->	
 		<!--https://youtube.com/embed/DjUsUk0e40I--><!--Прощание с Викой-->		
 		<!--https://youtube.com/embed/NzEr3AKzwcg--><!--Изготовление навеса-->		
-		<!--https://youtube.com/embed/xMpcVXmjUkA--><!--Изготовление полосатой рукояти 4-->		
+		<!--https://youtube.com/embed/xMpcVXmjUkA--><!--Изготовление полосатой рукояти 4-->	
 		<!--https://youtube.com/embed/d48OIHriZTg--><!--Эталон №13-->		
 		<!--https://youtube.com/embed/hwUjldtprJ4--><!--Модернизация ножей-->		
 		<!--https://youtube.com/embed/FIwue2BF8qI--><!--Хуторянин стал старше-->		
-		<!--https://youtube.com/embed/d44BtFu2BRQ--><!--Изготовление ножен из микарты-->		
+		<!--https://youtube.com/embed/d44BtFu2BRQ--><!--Изготовление ножен из микарты-->	
 		<!--https://youtube.com/embed/LOB57yL9gD4--><!--Эталон №14-->		
 		<!--https://youtube.com/embed/Mh2ptS7EHFU--><!--Опыты с бурой-->		
-		<!--https://youtube.com/embed/4U-r_P1E59c--><!--Изготовление наборной рукояти-->		
+		<!--https://youtube.com/embed/4U-r_P1E59c--><!--Изготовление наборной рукояти-->	
 		<!--https://youtube.com/embed/vLujKMQpo4o--><!--Эталон №15-->		
 		<!--https://youtube.com/embed/78Uk-41dWvg--><!--Распаковка посылки-->		
 		<!--https://youtube.com/embed/jgyN--sG7KI--><!--Клапана. Хвастовство-->		
 		<!--https://youtube.com/embed/RO2Ixeu07IE--><!--Снежная Королева-->		
-		<!--https://youtube.com/embed/HWAlFaOdnQM--><!--"Новогодняя сказка" в Западном-->		
+		<!--https://youtube.com/embed/HWAlFaOdnQM--><!--"Новогодняя сказка" в Западном-->	
 		<!--https://youtube.com/embed/GC8sep7CURo--><!--Пешки для племяшки-->		
-		<!--https://youtube.com/embed/WDmhbrnClU8--><!--Изготовление ножей из клапанов-->
-		
-		
-		
-
-
+		<!--https://youtube.com/embed/WDmhbrnClU8--><!--Изготовление ножей из клапанов-->	
+		<!--https://youtube.com/embed/DkRM4hxlslY--><!--Концерт к 23 февраля 2019-->		
+		<!--https://youtube.com/embed/YclAqKxweGE--><!--Блогер Тобиас-->		
+		<!--https://youtube.com/embed/CuM2icAxfws--><!--Часовые механизмы. Распаковка-->	
+		<!--https://youtube.com/embed/9rU6mFK9yMw--><!--Фестиваль Казачьей культуры-->		
+		<!--https://youtube.com/embed/G5qDJC8XtiE--><!--АКЦИЯ на канале ХуторянинЪ-->		
+		<!--https://youtube.com/embed/4ywoXr44abo--><!--Борьба за тотем. Большая игра-->	
+		<!--https://youtube.com/embed/bLJLBDT3W5s--><!--Каяльские чтения 2019-->		
+		<!--https://youtube.com/embed/GdKAbSGZdz8--><!--Концерт ко дню России 2019-->		
+		<!--https://youtube.com/embed/5nbu3ZxuJdQ--><!--Первая тысяча подписчиков-->		
+		<!--https://youtube.com/embed/95oofFYrpfo--><!--Изготовление катушек для ниток-->	
+		<!--https://youtube.com/embed/9kdrp82S65s--><!--Концерт ко дню Семьи 2019-->		
+		<!--https://youtube.com/embed/cK5iwXtOPFQ--><!--Сделал НаноНож. Хвастовство-->		
+		<!--https://youtube.com/embed/LShiFgiELWE--><!--Мой рекорд поковок. Хвастовство-->	
+		<!--https://youtube.com/embed/mL345vZqVOU--><!--Сделал восемь ножей. Хвастовство-->	
+		<!--https://youtube.com/embed/1vK7L3F-qDM--><!--Изготовление кожаных ножен-->		
+		<!--https://youtube.com/embed/Mn4DvC1jYtg--><!--Тестирование продукции Weicon-->
+		<!--https://youtube.com/embed/3TmlG3DxDMU--><!--Ремонт керамического ножа-->		
+		<!--https://youtube.com/embed/uCX2mbXqqHs--><!--Как рассчитать себестоимость-->		
+		<!--https://youtube.com/embed/bdH0xH6W4pg--><!--Крым. Новый Свет. 2019-->		
+		<!--https://youtube.com/embed/NExKFxuICeE--><!--Как отремонтировать печь-->			
+		<!--https://youtube.com/embed/_osLY_y9GWw--><!--Концерт ко дню Урожая 2019-->		
+		<!--https://youtube.com/embed/hzBzcC46Dlw--><!--Как сделать часы-->			
+		<!--https://youtube.com/embed/WlQE0gR9-dk--><!--Как сделать ручки-->		
+		<!--https://youtube.com/embed/AXloKgvd-UY--><!--Концерт ко дню Матери 2019-->		
+		<!--https://youtube.com/embed/YjbDiVdMs2c--><!--Изготовление ложек для МБУК-->		
+		<!--https://youtube.com/embed/Cz792awBX5c--><!--Изготовление ножа из стали 95х18-->	
+		<!--https://youtube.com/embed/iCHAf2bN-08--><!--Концерт к Новому Году 2020-->		
+		<!--https://youtube.com/embed/FFx5jnOz0VQ--><!--Ремонт поломок-->			
+		<!--https://youtube.com/embed/1mMzEIjz9uY--><!--Концерт к Масленице 2020-->			
+		<!--https://youtube.com/embed/wQzh3a-gOtk--><!--Как сделать подсвечник-->			
+		<!--https://youtube.com/embed/aaSAkzmdCmI--><!--Очередные поковки. Хвастовство-->		
 		<!--https://www.youtube.com/embed/SszezOHLCCY--><!--Реставрация ножа-->		
 		<!--https://www.youtube.com/embed/QS2P92El7Zg--><!--Трипод. Хвастовство-->		
 		<!--https://www.youtube.com/embed/HiC4CCsR_oU--><!--Кето-диета. Начало-->		
 		<!--https://www.youtube.com/embed/XvZBVwniSPg--><!--Кето-диета. 1 месяц-->		
-		<!--https://www.youtube.com/embed/8u-HGyBwuPU--><!--Ножи. Хвастовство-->		
+		<!--https://www.youtube.com/embed/8u-HGyBwuPU--><!--Новые ножи. Хвастовство-->		
 		<!--https://www.youtube.com/embed/ZAdtWyRppSs--><!--Кето-диета. 2 месяца-->		
-		<!--https://www.youtube.com/embed/waeIXUoOtO0--><!--Ковка. Хвастовство-->		
-		<!--https://www.youtube.com/embed/bepK5ehIwic--><!--Вакууматор. Тестирование-->
+		<!--https://www.youtube.com/embed/waeIXUoOtO0--><!--Новые поковки. Хвастовство-->	
+		<!--https://www.youtube.com/embed/bepK5ehIwic--><!--Тестирование вакууматора. Часть 1-->
 		<!--https://www.youtube.com/embed/dGRJU_QlMf4--><!--Кето-диета. 3 месяца-->		
-      </div>  
-	  
-    </div>	
-
-	{% endfor %}
-</div>	
-
-	
-<div class="card-deck mb-3 text-center">
-	<div class="card mb-4 shadow-sm">      
-      <div class="card-body">		
-		{% for i in quan_page %}	
-			{% if i > 0 %}
-				{% if i == page_id %}
-				<button type="button" class="btn btn-outline-dark" disabled><b>{{ i }}</b></button>
-				{% else %}
-				<a class="btn btn-outline-success" href="/public/{{ i }}">{{ i }}</a>
-				{% endif %}
-			{% endif %}			
-		{% endfor %}
-      </div>  	  
-	  <div class="card-body"> 		
-		{% if page_id == 0 %}		
-		<button type="button" class="btn btn-outline-dark" disabled><b>Показать все</b></button>
-		{% else %}
-		<a class="btn btn-outline-primary" href="/public">Показать все</a>
-		{% endif %}
-      </div>  	  
-    </div>	
-</div>
-
-  
-{% endblock %}
-
 
