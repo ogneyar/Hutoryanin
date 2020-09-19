@@ -22,11 +22,13 @@ def public(request):
         length = length - remains
         quantity = length / 9 + 1
 
-    return render(request, "public.html", {
+    parameters = {
         'all_url':all_url,
         'quan_page':range(int(quantity)+1),
         'page_id':0
-    })
+    }
+
+    return render(request, "public.html", parameters)
 
 
 def public_page(request, page_id):
@@ -49,16 +51,23 @@ def public_page(request, page_id):
     else:
         all_url = all_url[((page_id-1)*9):(page_id*9)]
 
-    return render(request, "public.html", {
+    parameters = {
         'all_url':all_url,
         'quan_page':range(int(quantity)+1),
         'page_id':page_id
-    })
+    }
+
+    return render(request, "public.html", parameters)
 
 
 def shop(request):
 
-    return render(request, "shop.html")
+    return render(request, "products/shop.html")
+
+
+def creating_an_order(request, product):
+
+    return render(request, "products/creating_an_order.html", {'product':product})
 
 
 def promo(request):
@@ -90,8 +99,7 @@ def support(request):
 
            del request.session["repeat"]
 
-
-    return render(request, "support.html")
+    return render(request, "support/support.html")
 
 
 def lk(request):
