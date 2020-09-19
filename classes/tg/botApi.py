@@ -37,7 +37,7 @@ class Bot:
         if (text['ok']):
             return text['result']
         else:
-            raise Http404("Ошибка! " + str(text['error_code']) + " " + text['description'])
+            raise Http404("Ошибка метода call() в botApi.py! " + str(text['error_code']) + " " + text['description'])
 
 
     # method getUpdates
