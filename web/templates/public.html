@@ -108,11 +108,35 @@
 		<!--https://www.youtube.com/embed/waeIXUoOtO0--><!--Ковка. Хвастовство-->		
 		<!--https://www.youtube.com/embed/bepK5ehIwic--><!--Вакууматор. Тестирование-->
 		<!--https://www.youtube.com/embed/dGRJU_QlMf4--><!--Кето-диета. 3 месяца-->		
-      </div>
+      </div>  
+	  
     </div>	
 
 	{% endfor %}
+</div>	
+
 	
+<div class="card-deck mb-3 text-center">
+	<div class="card mb-4 shadow-sm">      
+      <div class="card-body">		
+		{% for i in quan_page %}	
+			{% if i > 0 %}
+				{% if i == page_id %}
+				<button type="button" class="btn btn-outline-success" disabled>{{ i }}</button>
+				{% else %}
+				<a class="btn btn-success" href="/public/{{ i }}">{{ i }}</a>
+				{% endif %}
+			{% endif %}			
+		{% endfor %}
+      </div>  	  
+	  <div class="card-body"> 		
+		{% if page_id == 0 %}		
+		<button type="button" class="btn btn-outline-success" disabled>Показать все</button>
+		{% else %}
+		<a class="btn btn-success" href="/public">Показать все</a>
+		{% endif %}
+      </div>  	  
+    </div>	
 </div>
 
   
