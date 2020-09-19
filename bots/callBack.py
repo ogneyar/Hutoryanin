@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 
+from web.models import Url
+
 import os, bmemcached, requests
 from bs4 import BeautifulSoup
 
