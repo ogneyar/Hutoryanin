@@ -23,61 +23,41 @@ mc.enable_retry_delay(True)
 def send(request):
 
     if request.method != "POST" or "email" not in request.POST or "message" not in request.POST:
-            return HttpResponseRedirect("/")
+        return HttpResponseRedirect("/")
+
+    global tg, master, smtp_login, smtp_pass, smtp_port, smtp_server
 
     if request.get_host() == '127.0.0.1:8000':
-
-        '''
-        smtp_login = "hutor_yanin@sibnet.ru"
-        smtp_pass = ""
-        smtp_port = 25
-        smtp_server = "smtp.sibnet.ru"
-        '''
-
-        smtp_login = "prizmarket@mail.ru"
-        smtp_pass = ""
-        smtp_port = 465
-        smtp_server = "smtp.mail.ru"
-
         token = "1224906863:AAHYalxznzb4XwcP-7olgPu8BQjNJ0LrKXY"
         master = 1038937592
-
+        smtp_login = "hutoryanin_test@mail.ru"
+        smtp_pass = "Polkmn_11"
+        smtp_port = 465
+        smtp_server = "smtp.mail.ru"
     else:
-
+        token = os.getenv("TOKEN")
+        master = int(os.getenv("MASTER"))
         smtp_login = str(os.getenv("SMTP_LOGIN"))
         smtp_pass = str(os.getenv("SMTP_PASSWORD"))
         smtp_port = int(os.getenv("SMTP_PORT"))
         smtp_server = str(os.getenv("SMTP_SERVER"))
 
-        token = os.getenv("TOKEN")
-        master = int(os.getenv("MASTER"))
-
-
-    #resp = HttpResponse()
+    tg = Bot(token)
 
     response = ""
-
-    tg = Bot(token)
 
     if request.POST["email"] != "":
         if request.POST["message"] != "":
 
             if request.get_host() != '127.0.0.1:8000':
-
                 if mc.get("repeat") is None:
-
                     mc.set("repeat", "yes")
 
-                    r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
-
-                    response += "Письмо отправленно!"
+                    response += mailing(request.POST["email"], request.POST["message"])
 
                 else:
-
                     response += "Письмо уже отправленно!"
-
             else:
-
                 # сохранение сессии
                 # для localhost SESSION_ENGINE необходимо закоментировать в settings.py
                 if "repeat" not in request.session:
@@ -85,70 +65,52 @@ def send(request):
                     #request.session.set_expiry(60)
                     request.session["repeat"] = "yes"
 
-                    r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
-
-                    response += "Письмо отправленно!"
+                    response += mailing(request.POST["email"], request.POST["message"])
 
                 else:
-
                     response += "Письмо уже отправленно!"
-
-
-            ''' отправка письма
-
-            import email_to
-
-            server = email_to.EmailServer(smtp_server, smtp_port, smtp_login, smtp_pass)
-
-            message = server.message()
-            message.add('# Oh boy, something went wrong!')
-            message.add('- The server had a hiccup')
-            message.add('- The power went out')
-            message.add('- Blame it on a rogue backhoe')
-            message.style = 'h1 { color: red}'
-
-            message.send('ya13th@mail.ru', 'Things did not occur as expected')
-
-            #server.quick_email('ya13th@mail.ru', 'Test',
-            #    ['# A Heading', 'Something else in the body'],
-            #    style='h1 {color: blue}')
-            '''
-
-
         else:
             response += "Необходимо описать суть вопроса или предложения!"
-
     else:
         response += "Необходимо указать Ваш email!"
-
-
 
     return render(request, "support/sendmail.html", {'response':response})
 
 
+''' отправка письма '''
+def sendMailTo(to_whom, body):
 
-    #return HttpResponse("Отправил")
+    try:
+        message = MIMEMultipart()
+        message['Subject'] = "Клиент " + to_whom +" c сайта hutoryanin.ru"
+        message['From'] = smtp_login
+        #message['To'] = 'someone@else.com'
+        message.attach(MIMEText(to_whom + "\n\n" + body, 'plain'))
+        #message.attach(MIMEText('<h1 style="color: blue">A Heading</a><p>Something else in the body</p>', 'html'))
+        server = smtplib.SMTP_SSL(smtp_server, smtp_port)
+        #server.starttls()
+        server.login(smtp_login, smtp_pass)
+
+        #server.sendmail(smtp_login, to_whom, message.as_string())
+        server.sendmail(smtp_login, smtp_login, message.as_string())
+
+        server.quit()
+
+        return "Письмо отправленно!"
+    except:
+        return "Ошибка! Указан не верный email!"
 
 
-    '''
-    message = MIMEMultipart()
+''' рассылка письма, в телеграм и на почту '''
+def mailing(email, message):
 
-    message['Subject'] = 'Test'
-    message['From'] = 'user@gmail.com'
-    message['To'] = 'someone@else.com'
+    try:
+        tg.sendMessage(master, email + "\n\n" + message)
 
+        return sendMailTo(email, message)#return "Письмо отправленно!"#
 
-    message.attach(MIMEText('# A Heading\nSomething else in the body', 'plain'))
-    #message.attach(MIMEText('<h1 style="color: blue">A Heading</a><p>Something else in the body</p>', 'html'))
-
-    server = smtplib.SMTP(smtp_server, smtp_port)
-    server.starttls()
-    server.login(smtp_login, smtp_pass)
-    server.sendmail(smtp_login, 'ya13th@mail.ru', message.as_string())
-    server.quit()
-    '''
-
-
+    except:
+        return "Ошибка! Не смог отправить сообщение!"
 
 
 
