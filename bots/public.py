@@ -67,7 +67,8 @@ class Public:
 
             elif mc.get("wait") == "photo":
                 if photo != []:
-                    file_id = photo[2].getFileId()
+                    length = len(photo)
+                    file_id = photo[length-1].getFileId()
                     tg.sendPhoto(master, file_id, reply_markup=inline_keyboard_markup_finish)
                     mc.set("wait", "url")
                     mc.set("file_id", file_id)
