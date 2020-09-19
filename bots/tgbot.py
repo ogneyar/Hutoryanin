@@ -7,12 +7,12 @@ import requests, json, os, bmemcached
 from bs4 import BeautifulSoup
 
 from bots.public import Public
+from bots.callBack import CallBack
 
 from classes.tg.botApi import Bot
 from classes.tg.types.replyKeyboardMarkup import ReplyKeyboardMarkup
 from classes.tg.types.chatPermissions import ChatPermissions
 
-#include("bots.var")
 
 mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
 mc_user = os.environ.get('MEMCACHIER_USERNAME', '')
@@ -21,33 +21,33 @@ mc_passw = os.environ.get('MEMCACHIER_PASSWORD', '')
 mc = bmemcached.Client(mc_servers, username=mc_user, password=mc_passw)
 mc.enable_retry_delay(True)
 
+token = os.getenv("TOKEN")
+master = int(os.getenv("MASTER"))
+debug = os.getenv("DEBUG")
+
+groupHutor = -464572634 # group
+groupHutor2 = -1001471520704 # supergroup
+groupHutor3 = -1001393395949 # supergroup
+
+testerBotoff = 351009636
+
+# инициализация телеграм бота
+tg = Bot(token)
+
 
 def bot(request):
     try:
         if (request.method == "POST"):
 
-            token = os.getenv("TOKEN")
-            master = int(os.getenv("MASTER"))
-            debug = os.getenv("DEBUG")
-
-            groupHutor = -464572634 # group
-            groupHutor2 = -1001471520704 # supergroup
-            groupHutor3 = -1001393395949 # supergroup
-
-            testerBotoff = 351009636
-
-            # инициализация телеграм бота
-            tg = Bot(token)
-
             if (debug == "Да"):
-                response = tg.sendMessage(master, request.body, disable_web_page_preview=True)
+                tg.sendMessage(master, request.body, disable_web_page_preview=True)
                 #return HttpResponse("ok")
 
             update = None
             update = tg.start(request)
 
             if (debug == "Да"):
-                response = tg.sendMessage(master, update.getStr(), disable_web_page_preview=True)
+                tg.sendMessage(master, update.getStr(), disable_web_page_preview=True)
 
             message = update.getMessage()
             if message is None:
@@ -63,11 +63,18 @@ def bot(request):
                 message = editedChannelPost
 
             if message is None:
-                poll = update.getPoll()
-                if poll is None:
-                    response = tg.sendMessage(master, "message,  channelPost and Poll is None")
+                callback_query = update.getCallbackQuery()
+
+                if callback_query is None:
+
+                    poll = update.getPoll()
+                    if poll is None:
+                        tg.sendMessage(master, "message,  channelPost and Poll is None")
+                    else:
+                        tg.sendMessage(master, "This update is Poll")
+
                 else:
-                    response = tg.sendMessage(master, "This update is Poll")
+                    CallBack(callback_query)
 
                 return HttpResponse("ok")
 
@@ -145,7 +152,7 @@ def bot(request):
 
 
             if (mc.get("wait") is not None) and (chat_id == master):
-                #response = tg.sendMessage(chat_id, "Подключил файл")
+                #tg.sendMessage(chat_id, "Подключил файл")
                 return Public(message)
 
 
@@ -163,83 +170,83 @@ def bot(request):
                         ],
                         'resize_keyboard':True
                     }
-                    response = tg.sendMessage(chat_id, "Здравствуй *Мастер*!\n\nЖми /help, если надо.", "markdown", reply_markup=reply_keyboard_markup)
+                    tg.sendMessage(chat_id, "Здравствуй *Мастер*!\n\nЖми /help, если надо.", "markdown", reply_markup=reply_keyboard_markup)
                 else:
-                    response = tg.sendMessage(chat_id, "Здравствуй *" + from_first_name + "*!\n\nЖми /help", "markdown")
+                    tg.sendMessage(chat_id, "Здравствуй *" + from_first_name + "*!\n\nЖми /help", "markdown")
 
 
             elif (text == "Публикация" and chat_id == master):
 
-                response = tg.sendMessage(chat_id, "Пришли фото новой публикации.")
+                tg.sendMessage(chat_id, "Пришли фото новой публикации.")
 
                 mc.set("wait", "photo")
 
 
             elif (text == "Cсылкодел" and chat_id == master):
 
-                response = tg.sendMessage(chat_id, "Пришли текст в стиле markdown.")
+                tg.sendMessage(chat_id, "Пришли текст в стиле markdown.")
 
                 mc.set("wait", "markdown")
-
-
-            elif (text == "ы" and chat_id == master):
-
-                if mc.get("wait") is not None:
-                    if mc.get("wait") == "test":
-                        response = tg.sendMessage(chat_id, "Принял 'ы'.")
-                        mc.delete("wait")
-
-                else:
-                    response = tg.sendMessage(chat_id, "Чего?")
-
-
-
-            elif (text == "/help"):
-
-                response = tg.sendMessage(chat_id, help)
-
-
-            elif (text == "/methods_one"):
-
-                response = tg.sendMessage(chat_id, help_list)
-
-
-            elif (text == "/methods_two"):
-
-                response = tg.sendMessage(chat_id, help_list2)
-
-
-            elif (text == "/sendMessage"):
-
-                response = tg.sendMessage(chat_id, "Обычное сообщение.")
-
-
-            elif (text == "/forwardMessage"):
-
-                response = tg.forwardMessage(chat_id, chat_id, message_id)
-                response = tg.sendMessage(chat_id, "Сообщение переслано.")
-
-
-            elif (text == "/editMessageText"):
-
-                response1 = tg.sendMessage(chat_id, "Смотри на этот текст")
-                response2 = tg.sendMessage(chat_id, "Смотри на этот текст")
-                response3 = tg.sendMessage(chat_id, "Смотри на этот текст")
-
-                result = tg.editMessageText(chat_id, response1['message_id'], "Видишь?")
-                response = tg.sendMessage(chat_id, "Сообщение изменено.")
-
-
-            elif (text == "/deleteMessage"):
-
-                response = tg.deleteMessage(chat_id, message_id)
-                response = tg.sendMessage(chat_id, "Сообщение удалено.")
 
 
             elif (text == "тест"):
 
                 yourArray = givMeArray([[1,2,3],[4,5,6],[7,8,9]])
-                response = tg.sendMessage(chat_id, "Вот: " + str(yourArray))
+                tg.sendMessage(chat_id, "Вот: " + str(yourArray))
+
+                '''
+            elif (text == "ы" and chat_id == master):
+
+                if mc.get("wait") is not None:
+                    if mc.get("wait") == "test":
+                        tg.sendMessage(chat_id, "Принял 'ы'.")
+                        mc.delete("wait")
+
+                else:
+                    tg.sendMessage(chat_id, "Чего?")
+                '''
+
+
+            elif (text == "/help"):
+
+                tg.sendMessage(chat_id, help)
+
+
+            elif (text == "/methods_one"):
+
+                tg.sendMessage(chat_id, help_list)
+
+
+            elif (text == "/methods_two"):
+
+                tg.sendMessage(chat_id, help_list2)
+
+
+            elif (text == "/sendMessage"):
+
+                tg.sendMessage(chat_id, "Обычное сообщение.")
+
+
+            elif (text == "/forwardMessage"):
+
+                tg.forwardMessage(chat_id, chat_id, message_id)
+                tg.sendMessage(chat_id, "Сообщение переслано.")
+
+
+            elif (text == "/editMessageText"):
+
+                response = tg.sendMessage(chat_id, "Смотри на этот текст")
+                tg.sendMessage(chat_id, "Смотри на этот текст")
+                tg.sendMessage(chat_id, "Смотри на этот текст")
+
+                result = tg.editMessageText(chat_id, response['message_id'], "Видишь?")
+                response = tg.sendMessage(chat_id, "Сообщение изменено.")
+
+
+            elif (text == "/deleteMessage"):
+
+                tg.deleteMessage(chat_id, message_id)
+                tg.sendMessage(chat_id, "Сообщение удалено.")
 
 
             elif (text == "/reply_keyboard_markup"):
@@ -272,13 +279,13 @@ def bot(request):
                 reply_keyboard_markup.update({'keyboard':keyboard_markup})
                 reply_keyboard_markup.update({'resize_keyboard':True})
 
-                response = tg.sendMessage(chat_id, "Кнопки добавленны.", "markdown", True, None, 0, reply_keyboard_markup)
+                tg.sendMessage(chat_id, "Кнопки добавленны.", "markdown", True, None, 0, reply_keyboard_markup)
 
 
             elif (text == "/reply_keyboard_remove" or text == "Скрыть"):
 
                 reply_keyboard_remove = {'remove_keyboard':True}
-                response = tg.sendMessage(chat_id, "Кнопки удалены.", reply_markup=reply_keyboard_remove)
+                tg.sendMessage(chat_id, "Кнопки удалены.", reply_markup=reply_keyboard_remove)
 
 
             elif (text == "/inline_keyboard_markup"):
@@ -309,7 +316,7 @@ def bot(request):
                 inline_keyboard_markup = {}
                 inline_keyboard_markup.update({'inline_keyboard':keyboard_markup})
 
-                response = tg.sendMessage(chat_id, "Кнопки, прикреплённые к сообщению.", reply_markup=inline_keyboard_markup)
+                tg.sendMessage(chat_id, "Кнопки, прикреплённые к сообщению.", reply_markup=inline_keyboard_markup)
 
 
             elif (text == "/sendPhoto"):
@@ -322,7 +329,7 @@ def bot(request):
                 inline_keyboard_markup = {}
                 inline_keyboard_markup.update({'inline_keyboard':keyboard_markup})
 
-                response = tg.sendPhoto(chat_id, "http://f0430377.xsph.ru/test/logo.jpg", "Место для описания фото.", reply_markup=inline_keyboard_markup)
+                tg.sendPhoto(chat_id, "http://f0430377.xsph.ru/test/logo.jpg", "Место для описания фото.", reply_markup=inline_keyboard_markup)
 
 
             elif (text == "/sendAudio"):
@@ -330,22 +337,22 @@ def bot(request):
                 keyboard = [[{'text':'Ссылка на звук', 'url':'http://f0430377.xsph.ru/test/feil.mp3'}]]
                 markup = {'inline_keyboard':keyboard}
 
-                response = tg.sendAudio(chat_id, "http://f0430377.xsph.ru/test/feil.mp3", reply_markup=markup)
+                tg.sendAudio(chat_id, "http://f0430377.xsph.ru/test/feil.mp3", reply_markup=markup)
 
 
             elif (text == "/sendDocument"):
 
-                response = tg.sendDocument(chat_id, "BQACAgIAAxkBAAIF8V9Lx6HhcT8lQSHLIupsB6Dkuq6xAAI0BgACUjRgSr_rlzM-LZIgGwQ", reply_markup=markup)
+                tg.sendDocument(chat_id, "BQACAgIAAxkBAAIF8V9Lx6HhcT8lQSHLIupsB6Dkuq6xAAI0BgACUjRgSr_rlzM-LZIgGwQ", reply_markup=markup)
 
 
             elif (text == "/sendVideo"):
 
-                response = tg.sendVideo(chat_id, "BAACAgIAAxkBAAIGBl9LzC3mUpoG825Ojn1_C18VZxdyAAI8BgACUjRgSt60Ojt9_vE_GwQ", reply_markup=markup)
+                tg.sendVideo(chat_id, "BAACAgIAAxkBAAIGBl9LzC3mUpoG825Ojn1_C18VZxdyAAI8BgACUjRgSt60Ojt9_vE_GwQ", reply_markup=markup)
 
 
             elif (text == "/sendAnimation"):
 
-                response = tg.sendAnimation(chat_id, "CAACAgIAAxkBAAIGQF9L1eYgXiDE7fdAMNbF4DPGKavhAAIaAAP3AsgPry8JaXKONssbBA", reply_markup=markup)
+                tg.sendAnimation(chat_id, "CAACAgIAAxkBAAIGQF9L1eYgXiDE7fdAMNbF4DPGKavhAAIaAAP3AsgPry8JaXKONssbBA", reply_markup=markup)
 
 
             elif (text == "/sendVoice"):
@@ -353,12 +360,12 @@ def bot(request):
                 keyboard = [[{'text':'Ссылка на звук', 'url':'http://f0430377.xsph.ru/test/Golos.ogg'}]]
                 markup = {'inline_keyboard':keyboard}
 
-                response = tg.sendVoice(chat_id, "http://f0430377.xsph.ru/test/Golos.ogg", reply_markup=markup)
+                tg.sendVoice(chat_id, "http://f0430377.xsph.ru/test/Golos.ogg", reply_markup=markup)
 
 
             elif (text == "/sendVideoNote"):
 
-                response = tg.sendVideoNote(chat_id, "DQACAgIAAxkBAAIGlV9Mak9_ncBeg09fqHfWF20KhgGmAALEBgACUjRgShoykT2AQuj_GwQ", reply_markup=markup)
+                tg.sendVideoNote(chat_id, "DQACAgIAAxkBAAIGlV9Mak9_ncBeg09fqHfWF20KhgGmAALEBgACUjRgShoykT2AQuj_GwQ", reply_markup=markup)
 
 
             elif (text == "/sendMediaGroup"):
@@ -366,63 +373,55 @@ def bot(request):
                 inputMedia = [{'type':'photo', 'media':'AgACAgIAAxkBAAIGqV9McYDHPPhFOUJs7q3nrUmaIOARAALBrTEbUjRgSjcmazkxR4UJ_ZZJli4AAwEAAwIAA3gAA1luAQABGwQ'},{'type':'photo', 'media':'http://f0430377.xsph.ru/test/logo.jpg', 'caption':'кэпшин *пуст*', 'parse_mode':'markdown'}]
                 inputMediaPhoto = json.dumps(inputMedia)
 
-                response = tg.sendMediaGroup(chat_id, inputMediaPhoto)
+                tg.sendMediaGroup(chat_id, inputMediaPhoto)
 
 
             elif (text == "/sendLocation"):
 
-                response = tg.sendLocation(chat_id, 48.18585, 40.77424)
+                tg.sendLocation(chat_id, 48.18585, 40.77424)
 
 
             elif (text == "/editMessageLiveLocation"):
 
                 response = tg.sendLocation(chat_id, 48.18585, 40.77424, 60)
-                response1 = tg.sendLocation(chat_id, 48.18585, 40.77424)
+                tg.sendLocation(chat_id, 48.18585, 40.77424)
 
-                response = tg.editMessageLiveLocation(chat_id, response['message_id'], 47.949728, 40.989386)
-                response = tg.sendMessage(chat_id, "Первая локация после публикации изменена.")
+                tg.editMessageLiveLocation(chat_id, response['message_id'], 47.949728, 40.989386)
+                tg.sendMessage(chat_id, "Первая локация после публикации изменена.")
 
 
             elif (text == "/stopMessageLiveLocation"):
 
                 response = tg.sendLocation(chat_id, 48.18585, 40.77424, 60)
-                response1 = tg.editMessageLiveLocation(chat_id, response['message_id'], 47.949728, 40.989386)
-                response2 = tg.sendMessage(chat_id, "Включён запрет на изменение локации.")
+                tg.editMessageLiveLocation(chat_id, response['message_id'], 47.949728, 40.989386)
+                tg.sendMessage(chat_id, "Включён запрет на изменение локации.")
 
-                response = tg.stopMessageLiveLocation(chat_id, response['message_id'])
+                tg.stopMessageLiveLocation(chat_id, response['message_id'])
 
 
             elif (text == "/sendVenue"):
 
-                response = tg.sendVenue(chat_id, 48.18585, 40.77424, "Заголовок", "Адрес")
+                tg.sendVenue(chat_id, 48.18585, 40.77424, "Заголовок", "Адрес")
 
 
             elif (text == "/sendContact"):
 
-                response = tg.sendContact(chat_id, "+7 999 777 88", "Имя")
-
-
-            elif (text == "ма"):
-
-                response = tg.sendContact(chat_id, "+7 928 757 53 80", "Мама", reply_markup=markup)
+                tg.sendContact(chat_id, "+7 999 777 88", "Имя")
 
 
             elif (text == "/sendPoll"):
 
-                response = tg.sendPoll(chat_id, "Вопрос", json.dumps(["Ответ1","Ответ2","Ответ3"]))
+                tg.sendPoll(chat_id, "Вопрос", json.dumps(["Ответ1","Ответ2","Ответ3"]))
 
 
             elif (text == "/sendDice"):
 
-                response = tg.sendDice(chat_id)
-
-                #response = tg.sendMessage(chat_id, "чего-то не работает...")
-                #response = tg.sendDice(chat_id, "\ud83c\udfc0")
+                tg.sendDice(chat_id)
 
 
             elif (text == "/sendChatAction"):
 
-                response = tg.sendMessage(chat_id, "В заголовке, под именем бота должна появиться надпись 'печатает...'")
+                tg.sendMessage(chat_id, "В заголовке, под именем бота должна появиться надпись 'печатает...'")
 
                 # Type of action to broadcast. Choose one, depending on what
                 # the user is about to receive:
@@ -439,151 +438,69 @@ def bot(request):
 
             elif (text == "/getUserProfilePhotos"):
 
-                #response = tg.sendMessage(chat_id, "чего-то не работает...")
-
                 response = tg.getUserProfilePhotos(from_id)
-
-                response = tg.sendPhoto(chat_id, response['photos'][0][2]['file_id'])
-
-                #response = tg.sendMessage(chat_id, "Возвращает объект UserProfilePhotos:\n\n" + json.dumps(response))
+                tg.sendPhoto(chat_id, response['photos'][0][2]['file_id'])
 
 
             elif (text == "/getFile"):
 
-                response = tg.sendPhoto(chat_id, "AgACAgIAAxkBAAIGqV9McYDHPPhFOUJs7q3nrUmaIOARAALBrTEbUjRgSjcmazkxR4UJ_ZZJli4AAwEAAwIAA3gAA1luAQABGwQ")
+                tg.sendPhoto(chat_id, "AgACAgIAAxkBAAIGqV9McYDHPPhFOUJs7q3nrUmaIOARAALBrTEbUjRgSjcmazkxR4UJ_ZZJli4AAwEAAwIAA3gAA1luAQABGwQ")
 
                 # возвращает объект типа File
                 # ссылка для скачивания файла - https://api.telegram.org/file/bot<token>/<file_path>
                 response = tg.getFile("AgACAgIAAxkBAAIGqV9McYDHPPhFOUJs7q3nrUmaIOARAALBrTEbUjRgSjcmazkxR4UJ_ZZJli4AAwEAAwIAA3gAA1luAQABGwQ")
 
-                response = tg.sendMessage(chat_id, "https://api.telegram.org/file/bot{0}/{1}".format(tg.token, response['file_path']))
+                tg.sendMessage(chat_id, "https://api.telegram.org/file/bot{0}/{1}".format(tg.token, response['file_path']))
 
 
             elif (text == "/kickChatMember"):
 
-                response = tg.sendMessage(chat_id, "Перейди по ссылке в группу бота\n\nhttps://t.me/joinchat/Pezt-Buw0NqhYOXVVBbUxA")
+                tg.sendMessage(chat_id, "Перейди по ссылке в группу бота\n\nhttps://t.me/joinchat/Pezt-Buw0NqhYOXVVBbUxA")
 
 
             elif chat_id == groupHutor and new_chat_members_from_is_bot != True and new_chat_members != []: # method kickChatMember
 
-                response = tg.sendMessage(chat_id, "Новый пользователь "+ new_chat_members[0].getFirstName() +" удалён из группы.")
-                response = tg.kickChatMember(chat_id, new_chat_members[0].getId())
+                tg.sendMessage(chat_id, "Новый пользователь "+ new_chat_members[0].getFirstName() +" удалён из группы.")
+                tg.kickChatMember(chat_id, new_chat_members[0].getId())
 
 
             elif (text == "/unbanChatMember"):
 
-                response = tg.sendMessage(chat_id, "Перейди по ссылке:\n\nhttps://t.me/hutorTest2")
+                tg.sendMessage(chat_id, "Перейди по ссылке:\n\nhttps://t.me/hutorTest2")
 
 
             elif chat_id == groupHutor2 and new_chat_members_from_is_bot != True and new_chat_members != []: # method unbanChatMember
 
-                response = tg.sendMessage(chat_id, "Новый пользователь "+ new_chat_members[0].getFirstName() +" удалён из группы.")
-                response = tg.sendMessage(chat_id, "C пользователя "+ new_chat_members[0].getFirstName() +" БАН снят.")
+                tg.sendMessage(chat_id, "Новый пользователь "+ new_chat_members[0].getFirstName() +" удалён из группы.")
+                tg.sendMessage(chat_id, "C пользователя "+ new_chat_members[0].getFirstName() +" БАН снят.")
 
-                response = tg.kickChatMember(chat_id, new_chat_members[0].getId())
+                tg.kickChatMember(chat_id, new_chat_members[0].getId())
 
-                response = tg.unbanChatMember(chat_id, new_chat_members[0].getId())
+                tg.unbanChatMember(chat_id, new_chat_members[0].getId())
 
 
             elif (text == "/restrictChatMember"):
 
-                response = tg.sendMessage(chat_id, "Перейди по ссылке:\n\nhttps://t.me/hutorTest3")
+                tg.sendMessage(chat_id, "Перейди по ссылке:\n\nhttps://t.me/hutorTest3")
 
 
             elif chat_id == groupHutor3 and new_chat_members_from_is_bot != True and new_chat_members != []: # method restrictChatMember
 
-                response = tg.sendMessage(chat_id, "Welcome!")
+                tg.sendMessage(chat_id, "Welcome!")
 
                 permissions = ChatPermissions()
-
                 #permissions = ChatPermissions(None, True, True, True, True, True, True, True, True)
                 #permissions.set(False,False,False,False,False,False,True,False)
                 permissions.set(can_invite_users=True)
 
-                response = tg.restrictChatMember(chat_id, new_chat_members[0].getId(), permissions.get())
-                response = tg.sendMessage(chat_id, "Для нового пользователя установлены разрешения: всё запрещено, кроме приглашения новых участников.")
-
+                tg.restrictChatMember(chat_id, new_chat_members[0].getId(), permissions.get())
+                tg.sendMessage(chat_id, "Для нового пользователя установлены разрешения: всё запрещено, кроме приглашения новых участников.")
 
 
             elif text == "/getChat":
-                response = tg.sendMessage(chat_id, "Просто")
+                tg.sendMessage(chat_id, "Просто")
                 response = tg.getChat(groupHutor3)
-                response = tg.sendMessage(chat_id, str(response.get()))
-
-
-            elif (text == "т"):
-
-                #response = requests.get("https://youtu.be/dGRJU_QlMf4")
-
-                headers = {
-                    'User-Agent': "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 OPR/70.0.3728.106",
-                    'x-youtube-client-name': '1',
-                    'x-youtube-client-version': '2.20200529.02.01'
-                }
-
-                #response = requests.get("https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be", headers=headers)
-
-                url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
-
-                page = requests.get(url, headers=headers, timeout=(1, 3))
-
-                response = tg.sendMessage(chat_id, "Статус код: \n\n" + str(page.status_code))
-
-                soup = BeautifulSoup(page.text, "html.parser")
-
-                response = tg.sendMessage(chat_id, soup.title)
-
-                div = soup.find(id="guide-button")
-
-                response = tg.sendMessage(chat_id, repr(div))
-
-                '''
-                h1_class_title = soup.findAll('h1', class_='title style-scope ytd-video-primary-info-renderer')
-
-                response = tg.sendMessage(chat_id, repr(h1_class_title))
-                '''
-
-                #response = tg.sendMessage(chat_id, soup.body.find(id="description").span)
-
-                #response = tg.sendMessage(chat_id, str(soup.find(id="description")))
-
-                '''
-                new_news = []
-                news = []
-
-                soup = BeautifulSoup(page.text, "html.parser")
-
-                news = soup.findAll('div', class_='style-scope ytd-video-secondary-info-renderer')
-
-                for i in range(len(news)):
-                    if news[i].find('span', class_='style-scope yt-formatted-string') is not None:
-                        new_news.append(news[i].text)
-
-                for i in range(len(new_news)):
-                    response = tg.sendMessage(chat_id, new_news[i])
-                '''
-
-
-            elif text == "куки":
-                if "cookie" in request.cookie:
-                    response = tg.sendMessage(chat_id, request.cookie.get("cookie"))
-                else:
-                    response = redirect("/")
-                    response.set_cookie("cookie","real")
-
-                    response = tg.sendMessage(chat_id, "Сохранил.")
-
-
-            elif text == "сеси":
-                if "session" in request.session:
-                    response = tg.sendMessage(chat_id, request.session["session"])
-                else:
-                    #request.session.set_expiry(60)
-                    #request.session["session"] = "too reel"
-
-                    response = tg.sendMessage(chat_id, "Сохранил.")
-
-
+                tg.sendMessage(chat_id, str(response.get()))
 
 
             elif text == "":
@@ -592,9 +509,9 @@ def bot(request):
 
             else:
                 if (chat_type == "private"):
-                    response = tg.sendMessage(chat_id, "чего?")
+                    tg.sendMessage(chat_id, "чего?")
 
-
+        # приём гет запроса
         elif request.GET["start"] == "1":
             return HttpResponse("Да, start равно 1")
 
@@ -622,35 +539,25 @@ def givMeArray(val):
 
 
 '''
-    # метод getMe с помощью функции call
-    result = tg.call("getMe")
-    first_name = result['first_name']
-    response = tg.call("sendMessage", "?chat_id=" + str(master) + "&text=" + str(first_name))
+# метод getMe с помощью функции call
+result = tg.call("getMe")
+first_name = result['first_name']
+tg.call("sendMessage", "?chat_id=" + str(master) + "&text=" + str(first_name))
 '''
 
-    #return HttpResponse(response.text)
+#return HttpResponse(response.text)
 
 
-    # отправка сообщения
-    #response = requests.get("https://api.telegram.org/bot" + str(token) + "/sendMessage?chat_id=1038937592&text=" + str(first_name))
+# отправка сообщения
+#requests.get("https://api.telegram.org/bot" + str(token) + "/sendMessage?chat_id=1038937592&text=" + str(first_name))
 
 '''
-    # тест запроса типа GET
-    response = requests.get("http://f0430377.xsph.ru/test/test.php")
-#    return HttpResponse(response.json())
-    return HttpResponse(response.text)
+# тест запроса типа GET
+response = requests.get("http://f0430377.xsph.ru/test/test.php")
+#return HttpResponse(response.json())
+return HttpResponse(response.text)
 '''
 
-    # переадресация
-    #return HttpResponseRedirect("https://prizmarket.ru")
+# переадресация
+#return HttpResponseRedirect("https://prizmarket.ru")
 
-    # приём гет запроса
-'''
-    try:
-        if (request.GET["s"] == "t"):
-            return HttpResponse('<br><br><br><br><br><center>O da!</center>')
-        else:
-            return HttpResponse('<br><br><br><br><br><center>Hello from Python!</center>')
-    except Exception:
-        return HttpResponse('<br><br><br><br><br><center>Hello with Exception!</center>')
-'''
