@@ -39,7 +39,7 @@ def send(request):
         smtp_port = 465
         smtp_server = "smtp.mail.ru"
 
-        token = ""
+        token = "1224906863:AAHYalxznzb4XwcP-7olgPu8BQjNJ0LrKXY"
         master = 1038937592
 
     else:
@@ -78,24 +78,20 @@ def send(request):
 
             else:
 
-                try:
-                    # сохранение сессии
-                    if "repeat" not in request.session:
-                        # удаление через 60 секунд
-                        #request.session.set_expiry(60)
-                        request.session["repeat"] = "yes"
+                # сохранение сессии
+                # для localhost SESSION_ENGINE необходимо закоментировать в settings.py
+                if "repeat" not in request.session:
+                    # удаление через 60 секунд
+                    #request.session.set_expiry(60)
+                    request.session["repeat"] = "yes"
 
-                        r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
+                    r = tg.sendMessage(master, request.POST["email"] + "\n\n" +request.POST["message"])
 
-                        response += "Письмо отправленно!"
+                    response += "Письмо отправленно!"
 
-                    else:
+                else:
 
-                        response += "Письмо уже отправленно!"
-
-                except:
-
-                    response += "Exception: SESSION_ENGINE необходимо закоментировать в settings.py"
+                    response += "Письмо уже отправленно!"
 
 
             ''' отправка письма

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-#from django.http import HttpResponse
+from django.http import Http404
 
 from .models import Greeting, Url
 
@@ -14,6 +14,42 @@ def index(request):
 def public(request):
 
     all_url = Url.objects.order_by('-id')
+
+    return render(request, "public.html", {'all_url':all_url})
+
+
+def public_page(request, page_id):
+
+    page_id = int(page_id)
+    all_url = Url.objects.order_by('-id')
+    length = len(all_url)
+
+    if length > 9:
+        if page_id == 1:
+            all_url = all_url[:9]
+        elif page_id > 1:
+            remains = length % 9
+
+            if remains == 0:
+                quantity = length / 9
+                if page_id > quantity:
+                    raise Http404("Нет такой страницы!")
+                else:
+                    all_url = all_url[((page_id-1)*9):(page_id*9)]
+            else:
+                length = length - remains
+                quantity = length / 9 + 1
+                if page_id > quantity:
+                    raise Http404("Нет такой страницы!")
+                elif page_id == quantity:
+                    all_url = all_url[(((page_id-1)*9)+1):]
+                else:
+                    all_url = all_url[((page_id-1)*9):(page_id*9)]
+        else:
+            raise Http404("Нет такой страницы!")
+
+    elif page_id != 1:
+        raise Http404("Нет такой страницы!")
 
     return render(request, "public.html", {'all_url':all_url})
 
