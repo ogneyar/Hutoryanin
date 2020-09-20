@@ -66,8 +66,6 @@ def bot(request):
 
             if message is None:
                 callback_query = update.getCallbackQuery()
-                #if 'callback_query' in update:
-                #    callback_query = update['callback_query']
 
                 if callback_query is None:
 

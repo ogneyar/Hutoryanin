@@ -45,21 +45,23 @@ class CallBack:
     def __init__(self, callback_query):
 
         try:
-            '''
             id = callback_query.getId()
             callback_from = callback_query.getFrom()
             data = callback_query.getData()
-            '''
 
+            '''
             if 'id' in callback_query:
                 id = callback_query['id']
             if 'from' in callback_query:
                 callback_from = callback_query['from']
             if 'data' in callback_query:
                 data = callback_query['data']
+            '''
 
             if data is None:
                 return HttpResponse("ok")
+
+            tg.answerCallbackQuery(id, "Какой-то текст")
 
             if data == "public":
 
