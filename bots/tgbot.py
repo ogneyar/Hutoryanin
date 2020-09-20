@@ -22,7 +22,9 @@ mc = bmemcached.Client(mc_servers, username=mc_user, password=mc_passw)
 mc.enable_retry_delay(True)
 
 token = os.getenv("TOKEN")
-master = int(os.getenv("MASTER"))
+master = os.getenv("MASTER")
+if master is not None:
+    master = int(master)
 debug = os.getenv("DEBUG")
 
 groupHutor = -464572634 # group

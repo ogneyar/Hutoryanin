@@ -16,7 +16,9 @@ mc = bmemcached.Client(mc_servers, username=mc_user, password=mc_passw)
 mc.enable_retry_delay(True)
 
 token = os.getenv("TOKEN")
-master = int(os.getenv("MASTER"))
+master = os.getenv("MASTER")
+if master is not None:
+    master = int(master)
 tg = Bot(token)
 
 debug = os.getenv("DEBUG")
@@ -110,16 +112,16 @@ class Public:
 
                 #mc.delete("wait")
                 mc.set("wait", "public")
-                
+
                 tg.sendMessage(master, "Нажми или пришли мне - Опубликовать /Удалить.")
-                
-                
+
+
             elif mc.get("wait") == "public":
 
                 if text == "Опубликовать":
-                    
+
                     url = mc.get("url")
-                
+
                     title = mc.get("title")
 
                     caption = "Здравствуйте все! 🤚\n\n"
@@ -129,11 +131,11 @@ class Public:
 
                     text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + url + ")"
                     text_url = text_url * 3
-                    
+
                     file_id = mc.get("file_id")
 
                     tg.sendPhoto(master, file_id, caption + text_url, "markdown", reply_markup=inline_keyboard_markup_finish)
-                    
+
                     data = {
                         'title':title,
                         'url':url,
@@ -143,19 +145,19 @@ class Public:
                     if form.is_valid():
                         form.save()
                         tg.sendMessage(master, "Сохранил в БД.")
-                    
+
                     mc.delete("wait")
                     mc.delete("file_id")
                     mc.delete("url")
                     mc.delete("title")
-                
-                
+
+
                 if text == "Удалить":
                     mc.delete("wait")
                     mc.delete("file_id")
                     mc.delete("url")
                     mc.delete("title")
-                    
+
                     tg.sendMessage(master, "Очистил memcached.")
 
 
