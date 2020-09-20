@@ -72,17 +72,17 @@ class CallBack:
                 tg.sendPhoto(master, file_id, caption + text_url, "markdown", reply_markup=inline_keyboard_markup)
 
                 data = {
-                        'title':title,
-                        'url':url,
-                        'file_id':file_id
+                    'title':title,
+                    'url':url,
+                    'file_id':file_id
                 }
                 form = UrlForm(data)
                 if form.is_valid():
                     form.save()
                     #tg.sendMessage(master, "Сохранил в БД.")
-                    tg.answerCallbackQuery(id, "Сохранил в БД!")
+                    tg.answerCallbackQuery(id, "Сохранил в БД!", True)
                 else:
-                    tg.answerCallbackQuery(id, "Форма не валидная!")
+                    tg.answerCallbackQuery(id, "Форма не валидная!", True)
 
                 mc.delete("wait")
                 mc.delete("file_id")

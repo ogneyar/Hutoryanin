@@ -120,12 +120,11 @@ class Public:
                 mc.set("url", url)
                 mc.set("title", title)
 
-                #mc.delete("wait")
-                mc.set("wait", "public")
+                mc.delete("wait")
+                #mc.set("wait", "public")
+                #tg.sendMessage(master, "Нажми или пришли мне - Опубликовать / Удалить.")
 
-                tg.sendMessage(master, "Нажми или пришли мне - Опубликовать /Удалить.")
-
-
+                '''
             elif mc.get("wait") == "public":
 
                 if text == "Опубликовать":
@@ -169,13 +168,14 @@ class Public:
                     mc.delete("title")
 
                     tg.sendMessage(master, "Очистил memcached.")
-
+                '''
 
         except:
-            mc.delete("wait")
+
             mc.delete("file_id")
             mc.delete("url")
             mc.delete("title")
+            mc.delete("wait")
 
 
         return HttpResponse("ok")
