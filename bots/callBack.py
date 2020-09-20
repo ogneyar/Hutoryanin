@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from classes.tg.botApi import Bot
 
 from web.models import Url
-from web.forms import UrlForms
+from web.forms import UrlForm
 
 
 mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
@@ -49,24 +49,17 @@ class CallBack:
             callback_from = callback_query.getFrom()
             data = callback_query.getData()
 
-            '''
-            if 'id' in callback_query:
-                id = callback_query['id']
-            if 'from' in callback_query:
-                callback_from = callback_query['from']
-            if 'data' in callback_query:
-                data = callback_query['data']
-            '''
-
             if data is None:
                 return HttpResponse("ok")
 
-            tg.answerCallbackQuery(id, "Какой-то текст")
+            #tg.answerCallbackQuery(id)
 
             if data == "public":
 
                 url = mc.get("url")
                 title = mc.get("title")
+                file_id = mc.get("file_id")
+
                 # формирование публикации
                 caption = "Здравствуйте все! 🤚\n\n"
                 caption += "Вышло новое видео на ютуб-канале [ХуторянинЪ.](https://www.youtube.com/c/ХуторянинЪ) "
@@ -76,8 +69,6 @@ class CallBack:
                 text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + url + ")"
                 text_url = text_url * 3
 
-                file_id = mc.get("file_id")
-
                 tg.sendPhoto(master, file_id, caption + text_url, "markdown", reply_markup=inline_keyboard_markup)
 
                 data = {
@@ -85,10 +76,13 @@ class CallBack:
                         'url':url,
                         'file_id':file_id
                 }
-                form = UrlForms(data)
+                form = UrlForm(data)
                 if form.is_valid():
                     form.save()
-                    tg.sendMessage(master, "Сохранил в БД.")
+                    #tg.sendMessage(master, "Сохранил в БД.")
+                    tg.answerCallbackQuery(id, "Сохранил в БД!")
+                else:
+                    tg.answerCallbackQuery(id, "Форма не валидная!")
 
                 mc.delete("wait")
                 mc.delete("file_id")

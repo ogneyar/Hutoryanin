@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from classes.tg.botApi import Bot
 
 from web.models import Url
-from web.forms import UrlForms
+from web.forms import UrlForm
 
 
 mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
@@ -131,8 +131,8 @@ class Public:
                 if text == "Опубликовать":
 
                     url = mc.get("url")
-
                     title = mc.get("title")
+                    file_id = mc.get("file_id")
 
                     caption = "Здравствуйте все! 🤚\n\n"
                     caption += "Вышло новое видео на ютуб-канале [ХуторянинЪ.](https://www.youtube.com/c/ХуторянинЪ) "
@@ -142,8 +142,6 @@ class Public:
                     text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + url + ")"
                     text_url = text_url * 3
 
-                    file_id = mc.get("file_id")
-
                     tg.sendPhoto(master, file_id, caption + text_url, "markdown", reply_markup=inline_keyboard_markup_finish)
 
                     data = {
@@ -151,10 +149,12 @@ class Public:
                         'url':url,
                         'file_id':file_id
                     }
-                    form = UrlForms(data)
+                    form = UrlForm(data)
                     if form.is_valid():
                         form.save()
                         tg.sendMessage(master, "Сохранил в БД.")
+                    else:
+                        tg.sendMessage(master, "Форма не валидная!")
 
                     mc.delete("wait")
                     mc.delete("file_id")
