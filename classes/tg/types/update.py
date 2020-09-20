@@ -88,12 +88,12 @@ class Update:
             response.update({'inline_query':self.inline_query.get()})
         if self.chosen_inline_result is not None:
             response.update({'chosen_inline_result':self.chosen_inline_result.get()})
-        
+
 
         if self.callback_query is not None:
             response.update({'callback_query':self.callback_query.get()})
 
-        
+
         if self.shipping_query is not None:
             response.update({'shipping_query':self.shipping_query.get()})
         if self.pre_checkout_query is not None:
@@ -180,7 +180,7 @@ class Update:
 
     # запись объекта класса CallbackQuery
     def setCallbackQuery(self, val):
-        self.callback_query = CallbackQuery(val)
+        self.callback_query = val#CallbackQuery(val)
 
     # получение объекта класса CallbackQuery
     def getCallbackQuery(self):
