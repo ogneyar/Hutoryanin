@@ -185,20 +185,24 @@ def parser(request):
     }
 
     #url = "https://www.youtube.com/watch?v=dGRJU_QlMf4&feature=youtu.be"
-    url = "https://youtu.be/SszezOHLCCY"
-    #url = "https://www.prizmarket.ru"
+    #url = "https://youtu.be/SszezOHLCCY"
+    url = "https://www.prizmarket.ru"
 
     page = requests.get(url, headers=headers)
 
     #soup = BeautifulSoup(page.text, "html.parser")
     soup = BeautifulSoup(page.text, "lxml")
 
-    response.write( str(page.status_code)+"<br><br>"+str(soup.title.get_text())+"<br><br>" )
-    #response.write( str(page.status_code)+"<br><br>"+str(soup.body.get_text())+"<br><br>" )
+    #response.write( str(page.status_code)+"<br><br>"+str(soup.title.get_text())+"<br><br>" )
+    response.write( str(page.status_code)+"<br><br>"+str(soup.body.get_text())+"<br><br>" )
 
+
+    # деление ссылки на части и формирование новой
+    '''
     split = url.split("/")
     length = len(split)
-    response.write( str(split[length-1]) )
+    response.write( "https://www.youtube.com/embed/" + str(split[length-1]) )
+    '''
 
     # для titel с ютуба
     '''
