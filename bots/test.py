@@ -53,7 +53,12 @@ def test(request):
                 response.write( "<p>Записана в мемкеш 'foo': " + mc.get("foo") + '</p>' )
 
                 mc.delete("foo")
-                response.write( "И сразу удалил foo." )
+                response.write( "<p>И сразу удалил foo.</p>" )
+
+                mc.delete("this")
+                response.write( "<p>Пробую удалить несуществующую запись в memcached</p>" )
+
+
 
 
         response.write("<br><br><p>Это тестовый режим. (request.META)</p>")
