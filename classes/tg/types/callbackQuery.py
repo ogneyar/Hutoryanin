@@ -1,4 +1,4 @@
-#from classes.tg.types.message import Message
+from classes.tg.types.message import Message
 from classes.tg.types.user import User
 import json
 
