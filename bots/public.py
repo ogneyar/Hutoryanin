@@ -5,6 +5,10 @@ from bs4 import BeautifulSoup
 
 from classes.tg.botApi import Bot
 
+from web.models import Url
+from web.forms import UrlForms
+
+
 mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
 mc_user = os.environ.get('MEMCACHIER_USERNAME', '')
 mc_passw = os.environ.get('MEMCACHIER_PASSWORD', '')
@@ -104,7 +108,38 @@ class Public:
                 mc.set("url", url)
                 mc.set("title", title)
 
-                mc.delete("wait")
+                #mc.delete("wait")
+                mc.set("wait", "public")
+                
+                tg.sendMessage(master, "Нажми или пришли мне - Опубликовать /Удалить.")
+                
+                
+            elif mc.get("wait") == "public":
+
+                if text == "Опубликовать":
+                    
+                    url = mc.get("url")
+                
+                    title = mc.get("title")
+
+                    caption = "Здравствуйте все! 🤚\n\n"
+                    caption += "Вышло новое видео на ютуб-канале [ХуторянинЪ.](https://www.youtube.com/c/ХуторянинЪ) "
+                    caption += "*" + title + "*\n\n"
+                    caption += "Смотрите, комментируйте, ставьте лайки, подписывайтесь на канал.\n*Приятного просмотра!* 😉\n"
+
+                    text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + url + ")"
+                    text_url = text_url * 3
+
+                    tg.sendPhoto(master, mc.get("file_id"), caption + text_url, "markdown", reply_markup=inline_keyboard_markup_finish)
+                
+                
+                if text == "Удалить":
+                    mc.delete("wait")
+                    mc.delete("file_id")
+                    mc.delete("url")
+                    mc.delete("title")
+                    
+                    tg.sendMessage(master, "Очистил memcached.")
 
 
         except:
