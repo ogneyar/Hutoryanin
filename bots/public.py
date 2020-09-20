@@ -94,12 +94,17 @@ class Public:
                 page = requests.get(url, headers=headers)
                 soup = BeautifulSoup(page.text, "lxml")
                 full_title = str(soup.title.get_text())
+                num = 0
                 num = full_title.find(" - YouTube")
-                title = full_title[:num]
+                if num < 0:
+                    title = full_title
+                else:
+                    title = full_title[:num]
+
                 # формирование публикации
                 caption = "Здравствуйте все! 🤚\n\n"
                 caption += "Вышло новое видео на ютуб-канале [ХуторянинЪ.](https://www.youtube.com/c/ХуторянинЪ) "
-                caption += "*" + full_title + "*\n\n"
+                caption += "*" + title + "*\n\n"
                 caption += "Смотрите, комментируйте, ставьте лайки, подписывайтесь на канал.\n*Приятного просмотра!* 😉\n"
 
                 text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + url + ")"
@@ -107,8 +112,13 @@ class Public:
 
                 tg.sendPhoto(master, mc.get("file_id"), caption + text_url, "markdown", reply_markup=inline_keyboard_markup)
 
+                split = url.split("/")
+                length = len(split)
+                nameUrl = str(split[length-1])
+                url = "https://www.youtube.com/embed/" + nameUrl
+
                 mc.set("url", url)
-                mc.set("title", full_title)
+                mc.set("title", title)
 
                 #mc.delete("wait")
                 mc.set("wait", "public")
