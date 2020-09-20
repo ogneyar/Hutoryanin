@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from classes.tg.botApi import Bot
 
 from web.models import Url
-from web.forms import UrlForms
+#from web.forms import UrlForms
 
 
 mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
