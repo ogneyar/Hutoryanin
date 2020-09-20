@@ -1,8 +1,13 @@
+#from classes.tg.types.message import Message
+from classes.tg.types.user import User
+import json
+
+
 class CallbackQuery:
     'класс типов телеграм объектов'
 
     #	String	Unique identifier for this query
-    user_id = ""
+    id = ""
     # объект класса User	Sender
     user_from = None
 
@@ -21,6 +26,7 @@ class CallbackQuery:
     def __init__(self, obj):
         self.setId(obj['id'])
         self.setFrom(obj['from'])
+
         if 'message' in obj:
             self.setMessage(obj['message'])
         if 'inline_message_id' in obj:
@@ -33,13 +39,43 @@ class CallbackQuery:
             self.setGameShortName(obj['game_short_name'])
 
 
+
+
+    def get(self):
+        response = {
+            'id':self.id,
+            'from':self.user_from.get()
+        }
+
+        if self.message is not None:
+            response.update({'message':self.message.get()})
+        if self.inline_message_id != "":
+            response.update({'inline_message_id':self.inline_message_id})
+        if self.chat_instance != "":
+            response.update({'chat_instance':self.chat_instance})
+        if self.data != "":
+            response.update({'data':self.data})
+        if self.game_short_name != "":
+            response.update({'game_short_name':self.game_short_name})
+
+        return response
+
+
+    def getStr(self):
+        return str(self.get())
+
+
+    def getJson(self):
+        return json.dumps(self.get())
+
+
     # запись id
     def setId(self, val):
-        self.user_id = val
+        self.id = val
 
     # получение id
     def getId(self):
-        return self.user_id
+        return self.id
 
 
     # запись объекта класса User
@@ -94,9 +130,6 @@ class CallbackQuery:
     # получение
     def getGameShortName(self):
         return self.game_short_name
-
-
-
 
 
 
