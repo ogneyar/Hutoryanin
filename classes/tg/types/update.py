@@ -28,8 +28,10 @@ class Update:
     inline_query = None
     # объект класса ChosenInlineResult (Optional)
     chosen_inline_result = None
+
     # объект класса CallbackQuery (Optional)
     callback_query = None
+
     # объект класса ShippingQuery (Optional)
     shipping_query = None
     # объект класса PreCheckoutQuery (Optional)
@@ -55,6 +57,7 @@ class Update:
             self.setInlineQuery(obj['inline_query'])
         if 'chosen_inline_result' in obj:
             self.setChosenInlineResult(obj['chosen_inline_result'])
+
         if 'callback_query' in obj:
             self.setCallbackQuery(obj['callback_query'])
 
@@ -89,10 +92,10 @@ class Update:
         if self.chosen_inline_result is not None:
             response.update({'chosen_inline_result':self.chosen_inline_result.get()})
 
-
+        '''
         if self.callback_query is not None:
             response.update({'callback_query':self.callback_query.get()})
-
+        '''
 
         if self.shipping_query is not None:
             response.update({'shipping_query':self.shipping_query.get()})
@@ -180,7 +183,7 @@ class Update:
 
     # запись объекта класса CallbackQuery
     def setCallbackQuery(self, val):
-        self.callback_query = val#CallbackQuery(val)
+        self.callback_query = CallbackQuery(val)
 
     # получение объекта класса CallbackQuery
     def getCallbackQuery(self):
