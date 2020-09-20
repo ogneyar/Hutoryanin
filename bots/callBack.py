@@ -7,6 +7,10 @@ from bs4 import BeautifulSoup
 
 from classes.tg.botApi import Bot
 
+from web.models import Url
+from web.forms import UrlForms
+
+
 mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
 mc_user = os.environ.get('MEMCACHIER_USERNAME', '')
 mc_passw = os.environ.get('MEMCACHIER_PASSWORD', '')
@@ -41,9 +45,18 @@ class CallBack:
     def __init__(self, callback_query):
 
         try:
+            '''
             id = callback_query.getId()
             callback_from = callback_query.getFrom()
-            data= callback_query.getData()
+            data = callback_query.getData()
+            '''
+
+            if 'id' in callback_query:
+                id = callback_query['id']
+            if 'from' in callback_query:
+                callback_from = callback_query['from']
+            if 'data' in callback_query:
+                data = callback_query['data']
 
             if data is None:
                 return HttpResponse("ok")
@@ -61,18 +74,32 @@ class CallBack:
                 text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + url + ")"
                 text_url = text_url * 3
 
-                tg.sendPhoto(master, mc.get("file_id"), caption + text_url, "markdown", reply_markup=inline_keyboard_markup)
+                file_id = mc.get("file_id")
 
+                tg.sendPhoto(master, file_id, caption + text_url, "markdown", reply_markup=inline_keyboard_markup)
+
+                data = {
+                        'title':title,
+                        'url':url,
+                        'file_id':file_id
+                }
+                form = UrlForms(data)
+                if form.is_valid():
+                    form.save()
+                    tg.sendMessage(master, "Сохранил в БД.")
+
+                mc.delete("wait")
                 mc.delete("file_id")
                 mc.delete("url")
-                mc.delete("file_id")
+                mc.delete("title")
 
 
             elif data == "delete":
 
+                mc.delete("wait")
                 mc.delete("file_id")
                 mc.delete("url")
-                mc.delete("file_id")
+                mc.delete("title")
 
                 tg.sendMessage(master, "Очистил memcached")
 
