@@ -129,8 +129,20 @@ class Public:
 
                     text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + url + ")"
                     text_url = text_url * 3
+                    
+                    file_id = mc.get("file_id")
 
-                    tg.sendPhoto(master, mc.get("file_id"), caption + text_url, "markdown", reply_markup=inline_keyboard_markup_finish)
+                    tg.sendPhoto(master, file_id, caption + text_url, "markdown", reply_markup=inline_keyboard_markup_finish)
+                    
+                    data = {
+                        'title':title,
+                        'url':url,
+                        'file_id':file_id
+                    }
+                    form = UrlForms(data)
+                    if form.is_valid():
+                        form.save()
+                        tg.sendMessage(master, "Сохранил в БД.")
                     
                     mc.delete("wait")
                     mc.delete("file_id")
