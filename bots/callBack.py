@@ -27,6 +27,7 @@ debug = os.getenv("DEBUG")
 groupHutor = -464572634 # group
 groupHutor2 = -1001471520704 # supergroup
 groupHutor3 = -1001393395949 # supergroup
+tg_channel = os.getenv("CHANNEL") # channel
 testerBotoff = 351009636
 inline_keyboard_markup = {
     'inline_keyboard':[
@@ -80,7 +81,8 @@ class CallBack:
                 if form.is_valid():
                     form.save()
                     #tg.sendMessage(master, "Сохранил в БД.")
-                    tg.answerCallbackQuery(id, "Сохранил в БД!", True)
+                    tg.sendPhoto(tg_channel, file_id, caption + text_url, "markdown", reply_markup=inline_keyboard_markup)
+                    tg.answerCallbackQuery(id, "Опубликовал на канале и сохранил в БД!", True)
                 else:
                     tg.answerCallbackQuery(id, "Форма не валидная!", True)
 

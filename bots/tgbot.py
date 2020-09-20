@@ -31,6 +31,8 @@ groupHutor = -464572634 # group
 groupHutor2 = -1001471520704 # supergroup
 groupHutor3 = -1001393395949 # supergroup
 
+tg_channel = os.getenv("CHANNEL") # channel
+
 testerBotoff = 351009636
 
 # инициализация телеграм бота
