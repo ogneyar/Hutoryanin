@@ -131,6 +131,11 @@ class Public:
                     text_url = text_url * 3
 
                     tg.sendPhoto(master, mc.get("file_id"), caption + text_url, "markdown", reply_markup=inline_keyboard_markup_finish)
+                    
+                    mc.delete("wait")
+                    mc.delete("file_id")
+                    mc.delete("url")
+                    mc.delete("title")
                 
                 
                 if text == "Удалить":
