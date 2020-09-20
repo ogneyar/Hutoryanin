@@ -99,7 +99,7 @@ class Public:
                 # формирование публикации
                 caption = "Здравствуйте все! 🤚\n\n"
                 caption += "Вышло новое видео на ютуб-канале [ХуторянинЪ.](https://www.youtube.com/c/ХуторянинЪ) "
-                caption += "*" + title + "*\n\n"
+                caption += "*" + full_title + "*\n\n"
                 caption += "Смотрите, комментируйте, ставьте лайки, подписывайтесь на канал.\n*Приятного просмотра!* 😉\n"
 
                 text_url = "\n[СМОТРЕТЬ ЭТО ВИДЕО!](" + url + ")"
@@ -108,7 +108,7 @@ class Public:
                 tg.sendPhoto(master, mc.get("file_id"), caption + text_url, "markdown", reply_markup=inline_keyboard_markup)
 
                 mc.set("url", url)
-                mc.set("title", title)
+                mc.set("title", full_title)
 
                 #mc.delete("wait")
                 mc.set("wait", "public")
