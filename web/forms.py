@@ -7,7 +7,7 @@ class UrlForms(ModelForm):
     class Meta:
         model = Url
         fields = ['title','url','file_id']
-
+        '''
         widgets = {
             "title":TextInput(attr={
                 'class': 'form-control',
@@ -22,4 +22,5 @@ class UrlForms(ModelForm):
                 'placeholder': 'Введи file_id'
             })
         }
+        '''
     
