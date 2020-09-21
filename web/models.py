@@ -19,3 +19,16 @@ class Url(models.Model):
         verbose_name_plural = 'Ссылка'
 
 
+class Messages(models.Model):
+    email = models.CharField("email", max_length=200)
+    text = models.TextField("Текст сообщения")
+
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        verbose_name = 'Сообщения'
+        verbose_name_plural = 'Сообщение'
+
+
+
