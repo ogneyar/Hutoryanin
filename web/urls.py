@@ -24,12 +24,17 @@ urlpatterns = [
     path("public/<int:page_id>/", web.views.public_page, name="public_page"),
 
     path("products/", web.views.products, name="products"),
-    #path("products/<str:product>/creating_an_order", web.views.creating_an_order, name="creating_an_order"),
+    path("products/<str:category>/<str:product>/creating_an_order", web.views.creating_an_order, name="creating_an_order"),
+
     path("products/knifes/", web.views.knifes, name="knifes"),
+    path("products/knifes/middle_knife", web.views.middle_knife, name="middle_knife"),
+
     path("products/spoons/", web.views.spoons, name="spoons"),
+    path("products/spoons/high_spoon/", web.views.high_spoon, name="high_spoon"),
+
     path("products/candlesticks/", web.views.candlesticks, name="candlesticks"),
+
     path("products/applications/", web.views.applications, name="applications"),
-    path("products/applications/<str:product>/creating_an_order", web.views.creating_an_order, name="creating_an_order"),
     path("products/applications/site", web.views.site, name="site"),
     path("products/applications/tgbot", web.views.tgbot, name="tgbot"),
     path("products/applications/android", web.views.android, name="android"),
