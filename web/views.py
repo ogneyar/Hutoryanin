@@ -60,11 +60,14 @@ def public_page(request, page_id):
     return render(request, "public.html", parameters)
 
 
+
 def products(request):
 
     return render(request, "products/products.html")
 
-#def creating_an_order(request, product):    return render(request, "products/creating_an_order.html", {'product':product})
+def creating_an_order(request, product):
+
+    return render(request, "products/creating_an_order.html", {'product':product})
 
 def knifes(request):
 
@@ -80,7 +83,12 @@ def candlesticks(request):
 
 def applications(request):
 
-    return render(request, "products/applications.html")
+    return render(request, "products/applications/applications.html")
+
+def site(request):
+
+    return render(request, "products/applications/site.html")
+
 
 
 def promo(request):
