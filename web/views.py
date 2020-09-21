@@ -60,9 +60,9 @@ def public_page(request, page_id):
     return render(request, "public.html", parameters)
 
 
-def shop(request):
+def products(request):
 
-    return render(request, "products/shop.html")
+    return render(request, "products/products.html")
 
 
 def creating_an_order(request, product):

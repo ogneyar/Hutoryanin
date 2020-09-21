@@ -23,8 +23,8 @@ urlpatterns = [
     path("public/", web.views.public, name="public"),
     path("public/<int:page_id>/", web.views.public_page, name="public_page"),
 
-    path("shop/", web.views.shop, name="shop"),
-    path("shop/<str:product>/", web.views.creating_an_order, name="creating_an_order"),
+    path("products/", web.views.products, name="products"),
+    path("products/<str:product>/", web.views.creating_an_order, name="creating_an_order"),
 
     path("support/", web.views.support, name="support"),
     path("sendmail/", web.templates.support.sendmail.send, name="send"),
