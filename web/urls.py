@@ -24,12 +24,14 @@ urlpatterns = [
     path("public/<int:page_id>/", web.views.public_page, name="public_page"),
 
     path("products/", web.views.products, name="products"),
-    path("products/<str:product>/creating_an_order", web.views.creating_an_order, name="creating_an_order"),
+    #path("products/<str:product>/creating_an_order", web.views.creating_an_order, name="creating_an_order"),
     path("products/knifes/", web.views.knifes, name="knifes"),
     path("products/spoons/", web.views.spoons, name="spoons"),
     path("products/candlesticks/", web.views.candlesticks, name="candlesticks"),
     path("products/applications/", web.views.applications, name="applications"),
+    path("products/applications/<str:product>/creating_an_order", web.views.creating_an_order, name="creating_an_order"),
     path("products/applications/site", web.views.site, name="site"),
+
 
     path("support/", web.views.support, name="support"),
     path("sendmail/", web.templates.support.sendmail.send, name="send"),
