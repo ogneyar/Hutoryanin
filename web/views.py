@@ -89,6 +89,14 @@ def site(request):
 
     return render(request, "products/applications/site.html")
 
+def tgbot(request):
+
+    return render(request, "products/applications/tgbot.html")
+
+def android(request):
+
+    return render(request, "products/applications/android.html")
+
 
 
 def promo(request):

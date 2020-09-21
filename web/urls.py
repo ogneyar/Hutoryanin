@@ -31,6 +31,8 @@ urlpatterns = [
     path("products/applications/", web.views.applications, name="applications"),
     path("products/applications/<str:product>/creating_an_order", web.views.creating_an_order, name="creating_an_order"),
     path("products/applications/site", web.views.site, name="site"),
+    path("products/applications/tgbot", web.views.tgbot, name="tgbot"),
+    path("products/applications/android", web.views.android, name="android"),
 
 
     path("support/", web.views.support, name="support"),
