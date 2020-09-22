@@ -30,6 +30,8 @@ urlpatterns = [
     path("products/knifes/middle_knife", web.views.middle_knife, name="middle_knife"),
 
     path("products/spoons/", web.views.spoons, name="spoons"),
+    path("products/spoons/low_spoon/", web.views.low_spoon, name="low_spoon"),
+    path("products/spoons/middle_spoon/", web.views.middle_spoon, name="middle_spoon"),
     path("products/spoons/high_spoon/", web.views.high_spoon, name="high_spoon"),
 
     path("products/candlesticks/", web.views.candlesticks, name="candlesticks"),

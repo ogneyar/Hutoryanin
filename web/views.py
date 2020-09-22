@@ -81,6 +81,14 @@ def spoons(request):
 
     return render(request, "products/spoons/spoons.html")
 
+def low_spoon(request):
+
+    return render(request, "products/spoons/low_spoon.html")
+
+def middle_spoon(request):
+
+    return render(request, "products/spoons/middle_spoon.html")
+
 def high_spoon(request):
 
     return render(request, "products/spoons/high_spoon.html")
