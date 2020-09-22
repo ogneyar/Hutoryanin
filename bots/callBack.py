@@ -31,9 +31,11 @@ tg_channel = os.getenv("CHANNEL") # channel
 testerBotoff = 351009636
 inline_keyboard_markup = {
     'inline_keyboard':[
+        '''
         [
             {'text':'Сайт ХуторянинЪ','url':'https://hutoryanin.ru'}
         ],
+        '''
         [
             {'text':'Ссылка на соц.сети','url':'https://t.me/hutoryanin_chat/271'}
         ]
