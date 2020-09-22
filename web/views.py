@@ -65,7 +65,7 @@ def products(request):
 
     return render(request, "products/products.html")
 
-def creating_an_order(request, product):
+def creating_an_order(request, category, product):
 
     return render(request, "products/creating_an_order.html", {'category':category,'product':product})
 
