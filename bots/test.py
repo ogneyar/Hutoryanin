@@ -1,20 +1,11 @@
-#!/usr/bin/python3
-
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
-import requests
-import json
-import os
-import bmemcached
+from django.http import HttpResponse, HttpResponseRedirect
+import requests, json, os, bmemcached
 from bs4 import BeautifulSoup
-
-#import http.cookies
 
 
 mc_servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
 mc_user = os.environ.get('MEMCACHIER_USERNAME', '')
 mc_passw = os.environ.get('MEMCACHIER_PASSWORD', '')
-
 mc = bmemcached.Client(mc_servers, username=mc_user, password=mc_passw)
 mc.enable_retry_delay(True)  # Enabled by default. Sets retry delay to 5s.
 
@@ -25,7 +16,6 @@ def test(request):
 
     try:
 
-        #if request.META['HTTP_HOST'] == '127.0.0.1:8000':
         if request.get_host() == '127.0.0.1:8000':
 
             response.write("<p>Это тестовый режим. (addons Heroku Memcash, но на локальной машине используется куки.)</p>")
@@ -57,7 +47,6 @@ def test(request):
 
                 mc.delete("this")
                 response.write( "<p>Пробую удалить несуществующую запись в memcached</p>" )
-
 
 
 
