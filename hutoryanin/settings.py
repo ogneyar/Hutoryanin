@@ -7,7 +7,6 @@ import django_heroku
 BASE_DIR = Path(__file__).resolve().parent.parent
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'secretsecretkeY'
@@ -17,6 +16,9 @@ SECRET_KEY = 'secretsecretkeY'
 debug = os.getenv("DEBUG")
 if debug is None:
     debug = "Да"
+else:
+    SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
 if debug == "Да":
     DEBUG = True
 else:
