@@ -1,83 +1,11 @@
-﻿{% extends "base.html" %}
+{% extends "products/base_products.html" %}
 {% load static %}
 
-{% block header %}
-
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-
-  <h1 class="display-4">Категория "Приложения"!</h1>
-   
-  <p class="lead">Выберайте тип приложения.</p>
-  
-  <p class="lead">Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>
-  
-  <p class="lead">Вернуться <a class="btn btn-outline-primary" href="/products">назад</a></p>
-  
-</div>
-
+{% block category %}
+Приложения"!</h1>
 {% endblock %}
 
-{% block content %}
-
-<div class="card-deck mb-3 text-center">  
-   
-	<div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Сайт</h4>
-      </div>
-      <div class="card-body">
-	  
-		<a href="/products/applications/site">
-			<img class="mb-2" src="{% static 'products/applications/site.jpg'%}" alt="" width="100%">
-		</a>
-		
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-success" href="/products/applications/site">Описание</a>		
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-outline-danger" href="/products/applications/site/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
-      </div>
-    </div>
-	
-	<div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Телеграм бот</h4>
-      </div>
-      <div class="card-body">
-	  
-		<a href="/products/applications/tgbot">
-			<img class="mb-2" src="{% static 'products/applications/bot.jpg'%}" alt="" width="100%">
-		</a>
-		
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-success" href="/products/applications/tgbot">Описание</a>
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-outline-danger" href="/products/applications/tgbot/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
-      </div>
-    </div>	
-	
-	<div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Андроид приложение</h4>
-      </div>
-      <div class="card-body">		
-		<a href="/products/applications/android">
-			<img class="mb-2" src="{% static 'products/applications/android.jpg'%}" alt="" width="100%">
-		</a>		
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-success" href="/products/applications/android">Описание</a>
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-outline-danger" href="/products/applications/android">ОФОРМИТЬ ЗАКАЗ</a>
-      </div>
-    </div>
-	
-</div>
-  
+{% block category_text %}
+Выберайте тип приложения
 {% endblock %}
-
 
