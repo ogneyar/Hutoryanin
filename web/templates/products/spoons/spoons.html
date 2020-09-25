@@ -1,79 +1,44 @@
-﻿{% extends "base.html" %}
+﻿{% extends "products/base_products.html" %}
 {% load static %}
 
-{% block header %}
+{% block category %}Ложки для мёда{% endblock %}
 
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+{% block category_text %}Выберайте модель нажав на изображение.{% endblock %}
 
-  <h1 class="display-4">Категория "Ложки для мёда"!</h1>
-   
-  <p class="lead">Выберайте модель нажав на изображение.</p>
-  
-  <p class="lead">Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>
-  
-  <p class="lead">Вернуться <a class="btn btn-outline-primary" href="/products">назад</a></p>
-  
-</div>
+<!------------------------------------>
 
+{% block name1 %}Ложка "кроха"<br> (лм12д){% endblock %}
+{% block photo1 %}
+<a href="/products/spoons/low_spoon">
+	<img class="mb-2" src="{% static 'products/spoons/low_spoon.jpg'%}" alt="" width="100%">
+</a>
 {% endblock %}
+{% block link1 %}/products/spoons/low_spoon/low_knife{% endblock %}
+{% block order_link1 %}/products/spoons/low_spoon/creating_an_order{% endblock %}
 
-{% block content %}
+<!------------------------------------>
 
-<div class="card-deck mb-3 text-center">  
-   	
-	<div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Ложка "кроха"<br> (лм12д)</h4>
-      </div>
-      <div class="card-body">
-		<a href="/products/spoons/low_spoon">
-			<img class="mb-2" src="{% static 'products/spoons/low_spoon.jpg'%}" alt="" width="100%">
-		</a>
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-success" href="/products/spoons/low_spoon">Описание</a>
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-outline-danger" href="/products/spoons/low_spoon/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
-      </div>
-    </div>		
-	
-	<div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Ложка "мера"<br> (лм16д)</h4>
-      </div>
-      <div class="card-body">
-		<a href="/products/spoons/middle_spoon">
-			<img class="mb-2" src="{% static 'products/spoons/middle_spoon.jpg'%}" alt="" width="100%">
-		</a>
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-success" href="/products/spoons/middle_spoon">Описание</a>
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-outline-danger" href="/products/spoons/middle_spoon/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
-      </div>
-    </div>
-	
-	<div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Ложка "царица"<br> (лм20д)</h4>
-      </div>
-      <div class="card-body">	  
-		<a href="/products/spoons/high_spoon">	  
-			<img class="mb-2" src="{% static 'products/spoons/high_spoon.jpg'%}" alt="" width="100%">
-		</a>
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-success" href="/products/spoons/high_spoon">Описание</a>
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-outline-danger" href="/products/spoons/high_spoon/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
-      </div>
-    </div>	
-	
-</div>
-  
+{% block name2 %}Ложка "мера"<br> (лм16д){% endblock %}
+{% block photo2 %}
+<a href="/products/spoons/middle_spoon">
+	<img class="mb-2" src="{% static 'products/spoons/middle_spoon.jpg'%}" alt="" width="100%">
+</a>
 {% endblock %}
+{% block link2 %}/products/spoons/middle_spoon{% endblock %}
+{% block order_link2 %}/products/spoons/middle_spoon/creating_an_order{% endblock %}
+
+<!------------------------------------>
+
+{% block name3 %}Ложка "царица"<br> (лм20д){% endblock %}
+{% block photo3 %}
+<a href="/products/spoons/high_spoon">
+	<img class="mb-2" src="{% static 'products/spoons/high_spoon.jpg'%}" alt="" width="100%">
+</a>
+{% endblock %}
+{% block link3 %}/products/spoons/high_spoon{% endblock %}
+{% block order_link3 %}/products/spoons/high_spoon/creating_an_order{% endblock %}
+
+<!------------------------------------>
+
 
 
