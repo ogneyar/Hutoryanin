@@ -105,6 +105,19 @@ def candlesticks(request):
 
     return render(request, "products/candlesticks/candlesticks.html")
 
+def low_candlestick(request):
+
+    return render(request, "products/candlesticks/low_candlestick.html")
+
+def middle_candlestick(request):
+
+    return render(request, "products/candlesticks/middle_candlestick.html")
+
+def high_candlestick(request):
+
+    return render(request, "products/candlesticks/high_candlestick.html")
+
+
 def applications(request):
 
     return render(request, "products/applications/applications.html")

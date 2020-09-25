@@ -37,6 +37,9 @@ urlpatterns = [
     path("products/spoons/high_spoon/", web.views.high_spoon, name="high_spoon"),
 
     path("products/candlesticks/", web.views.candlesticks, name="candlesticks"),
+    path("products/candlesticks/low_candlestick", web.views.low_candlestick, name="low_candlestick"),
+    path("products/candlesticks/middle_candlestick", web.views.middle_candlestick, name="middle_candlestick"),
+    path("products/candlesticks/high_candlestick", web.views.high_candlestick, name="high_candlestick"),
 
     path("products/applications/", web.views.applications, name="applications"),
     path("products/applications/site", web.views.site, name="site"),
