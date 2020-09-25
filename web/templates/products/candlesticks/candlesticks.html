@@ -31,12 +31,12 @@
 
 {% block name3 %}Подсвечник "макси"{% endblock %}
 {% block photo3 %}
-<a href="/products/candlesticks/high_candlestick">
+<a href="{% url 'high_candlestick' %}">
 	<img class="mb-2" src="{% static 'products/candlesticks/high_candlestick.jpg'%}" alt="" width="100%">
 </a>
 {% endblock %}
-{% block link3 %}/products/candlesticks/high_candlestick{% endblock %}
-{% block order_link3 %}/products/candlesticks/high_candlestick/creating_an_order{% endblock %}
+{% block link3 %}{% url 'high_candlestick' %}{% endblock %}
+{% block order_link3 %}{% url 'high_candlestick' %}creating_an_order{% endblock %}
 
 <!------------------------------------>
 
