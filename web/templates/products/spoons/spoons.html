@@ -9,34 +9,34 @@
 
 {% block name1 %}Ложка "кроха"<br> (лм12д){% endblock %}
 {% block photo1 %}
-<a href="/products/spoons/low_spoon">
+<a href="{% url 'low_spoon' %}">
 	<img class="mb-2" src="{% static 'products/spoons/low_spoon.jpg'%}" alt="" width="100%">
 </a>
 {% endblock %}
-{% block link1 %}/products/spoons/low_spoon/low_knife{% endblock %}
-{% block order_link1 %}/products/spoons/low_spoon/creating_an_order{% endblock %}
+{% block link1 %}{% url 'low_spoon' %}{% endblock %}
+{% block order_link1 %}{% url 'low_spoon' %}/creating_an_order{% endblock %}
 
 <!------------------------------------>
 
 {% block name2 %}Ложка "мера"<br> (лм16д){% endblock %}
 {% block photo2 %}
-<a href="/products/spoons/middle_spoon">
+<a href="{% url 'middle_spoon' %}">
 	<img class="mb-2" src="{% static 'products/spoons/middle_spoon.jpg'%}" alt="" width="100%">
 </a>
 {% endblock %}
-{% block link2 %}/products/spoons/middle_spoon{% endblock %}
-{% block order_link2 %}/products/spoons/middle_spoon/creating_an_order{% endblock %}
+{% block link2 %}{% url 'middle_spoon' %}{% endblock %}
+{% block order_link2 %}{% url 'middle_spoon' %}/creating_an_order{% endblock %}
 
 <!------------------------------------>
 
 {% block name3 %}Ложка "царица"<br> (лм20д){% endblock %}
 {% block photo3 %}
-<a href="/products/spoons/high_spoon">
+<a href="{% url 'high_spoon' %}">
 	<img class="mb-2" src="{% static 'products/spoons/high_spoon.jpg'%}" alt="" width="100%">
 </a>
 {% endblock %}
-{% block link3 %}/products/spoons/high_spoon{% endblock %}
-{% block order_link3 %}/products/spoons/high_spoon/creating_an_order{% endblock %}
+{% block link3 %}{% url 'high_spoon' %}{% endblock %}
+{% block order_link3 %}{% url 'high_spoon' %}/creating_an_order{% endblock %}
 
 <!------------------------------------>
 
