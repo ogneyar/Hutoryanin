@@ -9,34 +9,34 @@
 
 {% block name1 %}Нож<br>"Low Knife"{% endblock %}
 {% block photo1 %}
-<a href="/products/knives/low_knife">
+<a href="{% url 'low_knife' %}">
 	<img class="mb-2" src="{% static 'products/knives/low_knife.jpg'%}" alt="" width="100%">
 </a>
 {% endblock %}
-{% block link1 %}/products/knives/low_knife{% endblock %}
-{% block order_link1 %}/products/knives/low_knife/creating_an_order{% endblock %}
+{% block link1 %}{% url 'low_knife' %}{% endblock %}
+{% block order_link1 %}{% url 'low_knife' %}/creating_an_order{% endblock %}
 
 <!------------------------------------>
 
 {% block name2 %}Нож<br>"Middle Knife"{% endblock %}
 {% block photo2 %}
-<a href="/products/knives/middle_knife">
+<a href="{% url 'middle_knife' %}">
 	<img class="mb-2" src="{% static 'products/knives/middle_knife.jpg'%}" alt="" width="100%">
 </a>
 {% endblock %}
-{% block link2 %}/products/knives/middle_knife{% endblock %}
-{% block order_link2 %}/products/knives/middle_knife/creating_an_order{% endblock %}
+{% block link2 %}{% url 'middle_knife' %}{% endblock %}
+{% block order_link2 %}{% url 'middle_knife' %}/creating_an_order{% endblock %}
 
 <!------------------------------------>
 
 {% block name3 %}Нож<br>"High Knife"{% endblock %}
 {% block photo3 %}
-<a href="/products/knives/high_knife">
+<a href="{% url 'high_knife' %}">
 	<img class="mb-2" src="{% static 'products/knives/high_knife.jpg'%}" alt="" width="100%">
 </a>
 {% endblock %}
-{% block link3 %}/products/knives/high_knife{% endblock %}
-{% block order_link3 %}/products/knives/high_knife/creating_an_order{% endblock %}
+{% block link3 %}{% url 'high_knife' %}{% endblock %}
+{% block order_link3 %}{% url 'high_knife' %}/creating_an_order{% endblock %}
 
 <!------------------------------------>
 
