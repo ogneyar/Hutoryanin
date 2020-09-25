@@ -56,4 +56,6 @@ urlpatterns = [
     path("icqbot/", bots.icqbot.message_cb, name="message_cb"),
 
     path("test/", include("bots.urls")),
+
+    path("prizm/", web.views.prizm, name="prizm"),
 ]
