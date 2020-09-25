@@ -27,7 +27,9 @@ urlpatterns = [
     path("products/<str:category>/<str:product>/creating_an_order", web.views.creating_an_order, name="creating_an_order"),
 
     path("products/knives/", web.views.knives, name="knives"),
+    path("products/knives/low_knife", web.views.low_knife, name="low_knife"),
     path("products/knives/middle_knife", web.views.middle_knife, name="middle_knife"),
+    path("products/knives/high_knife", web.views.high_knife, name="high_knife"),
 
     path("products/spoons/", web.views.spoons, name="spoons"),
     path("products/spoons/low_spoon/", web.views.low_spoon, name="low_spoon"),
