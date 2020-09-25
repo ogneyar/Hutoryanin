@@ -1,0 +1,202 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title>PRIZMarket!</title>
+	<meta name="description" content="Сайт для рекламы товаров/услуг за криптовалюту PRIZM" />
+	<meta name="keywords" content="PRIZM, криптовалюта, товары, услуги, куплю, продам, безоплатно, бесплатно" />	
+	<meta name="author" content="Огънеяръ" />
+	<meta name="robots" content="all,index,follow" />
+	<meta name="distribution" content="global" />
+	<meta name="Rating" content="General">
+	<meta name="Document-state" content="Dynamic">
+	
+	<meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		
+	<meta http-equiv="Cache-Control" content="no-cache">
+	
+	<link rel="stylesheet" href="{% static 'prizm/style.css'%}">
+	
+	<!--<link rel="stylesheet" href="/site_pzm/font-awesome/css/font-awesome.min.css">-->
+		
+	<link rel="apple-touch-icon" sizes="180x180" href="/site_pzm/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/site_pzm/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/site_pzm/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/site_pzm/favicon/site.webmanifest">
+	<link rel="mask-icon" href="/site_pzm/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#00aba9">
+	<meta name="msapplication-config" content="/site_pzm/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	
+	<!-- Here we add libs for jQuery, Ajax... -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> 
+	<!-- <script type="text/javascript" src="/site_pzm/site_files/jquery-3.3.1.min.js"></script> -->
+	
+	<script type="text/javascript">
+		if(screen.width > 800) { // Animate navigation
+			$(document).ready(function() {
+			// функцию скролла привязать к окну браузера
+				$(window).scroll(function(){
+					var distanceTop = $('#slideMenu').offset().top;
+					if ($(window).scrollTop() >= distanceTop)
+						$ ('nav').attr ("id", "fixed");
+					else //if ($(window).scrollTop() < distanceTop)
+						$ ('nav').attr ("id", "nav");
+				});
+			});
+		}
+	</script>	
+	<style type="text/css">
+		@media (min-width: 700px) {
+		nav a:first-child, nav#fixed a:first-child {
+			border-top: 5px solid rgba(255,235,59);
+		}} 
+	</style>
+</head>
+<body>
+	<header>
+		<a href="/" id="logo">
+			<b><span>PYTHONMarket</span></b>
+		</a>
+	</header>
+	<div id="lk_menu">
+		<!--<span id="contact">
+			<a href="/site_pzm/vhod/index.php">Вход</a>
+			<a href="/site_pzm/registraciya/index.php?st=zero">Регистрация</a>
+		</span>-->
+
+		<ul class="lk_topmenu">
+			<li class="lk_topmenu_li">
+				<a href="#"><label id="client">Огнеяр</label></a>
+					
+				<ul class="lk_submenu">	
+					<!--<li><a href="/site_pzm/lk/index.php">Личный кабинет</a></li>-->
+					<li><a href="/site_pzm/lk/sozdanie.php">Создать заявку</a></li>
+					<li><a href="/site_pzm/lk/zayavki.php">Ваши заявки</a></li>
+					<!--<li><a href="/site_pzm/lk/test.php">Тест</a></li>-->
+					<li><a href="/site_pzm/lk/exit.php">Выход</a></li>			
+				</ul>
+					
+			</li>
+		</ul>
+	</div>
+	
+	<nav>
+		<div class="line-menu">
+			<a href="/">Главная</a>
+			<a href="/site_pzm/podrobnosti/index.php?podrobnosti=st">Подробно</a>
+			<a href="/site_pzm/kategory/index.php">Категории</a>
+			<a href="/site_pzm/support/index.php">ТехПоддержка</a>
+			<a href="/site_pzm/o_prizmarket/index.php">О нас</a>
+		</div>
+		<ul class="topmenu">
+			<li class="topmenu_li"><a href="#"><i class="fa fa-bars fa-lg" aria-hidden="true"></i><!-- Меню--></a>
+				<ul class="submenu">	
+					<li><a href="/">Главная</a></li>
+					<li><a href="/site_pzm/podrobnosti/index.php?podrobnosti=st">Подробно</a></li>
+					<li><a href="/site_pzm/kategory/index.php">Категории</a></li>
+					<li><a href="/site_pzm/support/index.php">ТехПоддержка</a></li>
+					<li><a href="/site_pzm/o_prizmarket/index.php">О_нас</a></li>
+				</ul>
+		</ul>
+
+	</nav>
+	<div id="slideMenu">Моё)</div>
+	<div id="wrapper">
+		<div id="TopCol">		
+			<article id="topColPhoto">
+				<a href='' title=''>
+					<img src="/site_pzm/img/art/PRIZM.png" />
+				</a>
+			</article>
+			<article id="topColText">
+				<h1><span>PRIZMarket</span> - Ваш рынок!</h1>
+			</article>
+		</div>
+		<div id="leftCol">		
+			{% block content %}{% endblock %} 
+		</div>
+		<div id="rightCol">
+			<article>
+				<a href='' title=''>
+					<img src="/site_pzm/img/art/PRIZM.png" />
+				</a>
+				<center>
+				<h3><span>Здесь может быть Ваша реклама!</span></h3>
+				</center>
+				<br>
+			</article>
+			
+			<article>
+			<center>
+
+				<br>
+				<h3><span>Поддержать проект:</span></h3><br>
+
+				<article class="tooltip">	
+					<!--<h4>-->
+					<h5><span>Кошелёк</span></h5>
+					<input type="text" value="PRIZM-UFSC-9S49-ESJX-79N7S" id="myInput" onclick="myFunction('myInput')" onmouseout="outFunc()" readonly>
+					
+					<br><br>
+					
+					<h5><span>Публичный ключ</span></h5>
+					<input type="text" value="11dcf528f8f2ff9dc3c5005cd6fdc3240ea09ceaf96f2dd261255696ccb2842c" id="myInput2" onclick="myFunction('myInput2')" onmouseout="outFunc()" readonly>
+					<!--</h4>-->
+					
+					<br><br>
+					
+					<span class="tooltiptext" id="myTooltip">Нажмите чтобы копировать текст в буфер</span>
+				</article>
+				
+			</center>
+			</article>
+
+			<script>
+			function myFunction(myIn) {
+			  var copyText = document.getElementById(myIn);
+			  copyText.select();
+			  document.execCommand("copy");
+			  
+			  var tooltip = document.getElementById("myTooltip");
+			  tooltip.innerHTML = "Скопировал: " + copyText.value;
+			}
+
+			function outFunc() {
+			  var tooltip = document.getElementById("myTooltip");
+			  tooltip.innerHTML = "Нажмите чтобы копировать текст в буфер";
+			}
+			</script>
+		</div>
+	</div>
+	<footer>
+		<div id="rights">
+			&copy; PRIZMarket <?=date('Y')?>
+		</div>
+		<div id="social">
+			<article>
+				<a href="https://vk.com/prizmarket_vk" title="Группа Вконтакте" target="_blank">
+					<img src="/site_pzm/img/social/vkontakte.png" alt="Вконтакте PRIZMarket" />
+				</a>
+			</article>
+			<article>
+				<a href="https://icq.im/prizmarket" title="Канал в icq new" target="_blank">
+					<img src="/site_pzm/img/social/icq_new.png" alt="icq new PRIZMarket" />
+				</a>
+			</article>
+			<article>
+				<a href="https://www.instagram.com/prizm_market_inst" title="Инстаграм" target="_blank">
+					<img src="/site_pzm/img/social/instagram.png" alt="Инстаграм PRIZMarket" />
+				</a>
+			</article>
+			<article>
+				<a href="https://t.me/prizm_market" title="Телеграм канал" target="_blank">
+					<img src="/site_pzm/img/social/tg.png" alt="Телеграм канал" />
+				</a>
+			</article>
+		</div>
+	</footer>
+</body>
+</html>
