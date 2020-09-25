@@ -26,8 +26,8 @@ urlpatterns = [
     path("products/", web.views.products, name="products"),
     path("products/<str:category>/<str:product>/creating_an_order", web.views.creating_an_order, name="creating_an_order"),
 
-    path("products/knifes/", web.views.knifes, name="knifes"),
-    path("products/knifes/middle_knife", web.views.middle_knife, name="middle_knife"),
+    path("products/knives/", web.views.knives, name="knives"),
+    path("products/knives/middle_knife", web.views.middle_knife, name="middle_knife"),
 
     path("products/spoons/", web.views.spoons, name="spoons"),
     path("products/spoons/low_spoon/", web.views.low_spoon, name="low_spoon"),

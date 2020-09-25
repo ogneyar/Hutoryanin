@@ -69,13 +69,21 @@ def creating_an_order(request, category, product):
 
     return render(request, "products/creating_an_order.html", {'category':category,'product':product})
 
-def knifes(request):
+def knives(request):
 
-    return render(request, "products/knifes/knifes.html")
+    return render(request, "products/knives/knives.html")
+
+def low_knife(request):
+
+    return render(request, "products/knives/low_knife.html")
 
 def middle_knife(request):
 
-    return render(request, "products/knifes/middle_knife.html")
+    return render(request, "products/knives/middle_knife.html")
+
+def high_knife(request):
+
+    return render(request, "products/knives/high_knife.html")
 
 def spoons(request):
 
