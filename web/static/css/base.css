@@ -110,6 +110,7 @@ input {
 	display: none;
 	background: #f0f0f0;	
 	border: 1px solid #8c8c8c;
+	border-radius: 5px;
 }
 .topmenu_li {
 	display: inline-block;
