@@ -63,4 +63,5 @@ urlpatterns = [
     path("test/", include("bots.urls")),
 
     path("prizm/", web.views.prizm, name="prizm"),
+    path("vanila/", web.views.vanila, name="vanila"),
 ]

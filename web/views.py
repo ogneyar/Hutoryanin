@@ -187,4 +187,8 @@ def prizm(request):
 
     return render(request, "prizm/prizm.html")
 
+def vanila(request):
+
+    return render(request, "prizm/vanila.html")
+
 
