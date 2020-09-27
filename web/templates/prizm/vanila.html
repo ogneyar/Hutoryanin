@@ -1,0 +1,155 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Тест!</title>	
+	<style type="text/css">
+	.{
+		margin: 0;
+		padding: 0;
+		font-family: sans-serif;
+	}
+	body {
+		display: flex;
+		justify-content: center; /*Центрирование в блоке по горизонтали*/
+		align-items: center; /*Центрирование в блоке по вертикали*/
+		min-height: 100vh; /*растяжение блока на весь экран*/
+		background: #131313;
+	}
+	.container {
+		position: relative;
+		display: flex;
+		justify-content: center; /* Центрирование в блоке по горизонтали */
+		align-items: center; /* Центрирование в блоке по вертикали */
+		flex-wrap: wrap;
+		width: 1200px;
+		transform-style: preserve-3d;
+	}
+	.container .box {
+		position: relative;
+		width: 300px;
+		height: 400px;
+		margin: 40px;
+		background: #232323;
+		border-radius: 20px;
+		transform-style: preserve-3d;
+	}
+	.container .box::before {
+		content: 'МАСТЕР';
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		font-size: 4em;
+		font-weight: 900; /* жирный текст */
+		color: #fff;/**/
+		font-style: italic;
+		opacity: 0;	/* видимость объекта откл */
+		transition: 0.5s; /* задержка появления */
+	}	
+	.container .box::after {
+		content: 'МАСТЕР';
+		position: absolute;
+		bottom: 20px;
+		right: 20px;
+		font-size: 4em;
+		font-weight: 900; /* жирный текст */
+		color: #fff;/**/
+		font-style: italic;
+		opacity: 0;	/* видимость объекта откл */
+		transition: 0.5s; /* задержка появления */
+	}
+	.container .box:hover::before,
+	.container .box:hover::after {
+		opacity: 0.04; /* полупрозрачная видимость объекта */
+	}
+	.container .box .name {
+		position: absolute;
+		top: 0;
+		left: 0;
+		text-align: center;
+		color: #fff;/**/
+		width: 100%;
+		transform-style: preserve-3d;
+		transform: translate3d(0,0,75px);/**/
+		transition: 0.5s; /* задержка появления */
+		opacity: 0;	/* видимость объекта откл */
+		z-index: 10;
+	}
+	.container .box:hover .name {
+		top: 40px;
+		opacity: 1;
+	}
+	.container .box .buy {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform-style: preserve-3d;
+		transform: translate3d(-50%,0,75px);
+		color: #fff;
+		background: #333;
+		padding: 10px 25px;
+		border-radius: 30px;
+		text-decoration: none;
+		transition: 0.5s; /* задержка появления */
+		opacity: 0;	/* видимость объекта откл */
+		z-index: 10;
+	}
+	.container .box:hover .buy {
+		bottom: 30px;
+		opacity: 1;
+	}
+	.container .box .circle {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		transition: 0.5s;
+		background: #fff;
+		transform-style: preserve-3d;
+		z-index: 10;
+		opacity: 1;
+		transform: translate3d(-50%,-50%,50px);
+	}
+	.container .box .product {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		max-width: 200px;
+		transition: 0.5s;
+		z-index: 11;
+		transition: 0.5s;
+		transform-style: preserve-3d;
+		transform: translate3d(-50%,-50%,0px) rotate(-15deg);
+	}
+	.container .box:nth-child(1) .circle,
+	.container .box:nth-child(1) .buy {
+		background: #fb4b4f;
+	}
+	.container .box:hover .product {
+		transform: translate3d(-50%,-50%,100px) rotate(-15deg);
+	}
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box">
+			<h2 class="name">ХуторянинЪ</h2>
+			<a class="buy" href="#">заходи</a>
+			<div class="circle">
+			<img src="{% static 'logo.png'%}" class="product"></div>
+		</div>
+	</div>
+	<script src="{% static 'js/vanilla-tilt.min.js'%}"></script>
+	<script>
+		VanillaTilt.init(document.querySelectorAll(".box"),{
+			max: 25,
+			speed: 400
+		});
+	</script>
+</body>
+</html>
