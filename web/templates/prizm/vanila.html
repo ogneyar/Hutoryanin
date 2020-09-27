@@ -16,7 +16,7 @@
 		justify-content: center; /*Центрирование в блоке по горизонтали*/
 		align-items: center; /*Центрирование в блоке по вертикали*/
 		min-height: 100vh; /*растяжение блока на весь экран*/
-		background: #131313;
+		background: #f1f1f1;
 	}
 	.container {
 		position: relative;
@@ -32,7 +32,7 @@
 		width: 300px;
 		height: 400px;
 		margin: 40px;
-		background: #232323;
+		background: #e1e1e1;
 		border-radius: 20px;
 		transform-style: preserve-3d;
 	}
@@ -43,7 +43,7 @@
 		left: 20px;
 		font-size: 4em;
 		font-weight: 900; /* жирный текст */
-		color: #fff;/**/
+		color: #000;/**/
 		font-style: italic;
 		opacity: 0;	/* видимость объекта откл */
 		transition: 0.5s; /* задержка появления */
@@ -55,14 +55,14 @@
 		right: 20px;
 		font-size: 4em;
 		font-weight: 900; /* жирный текст */
-		color: #fff;/**/
+		color: #000;/**/
 		font-style: italic;
 		opacity: 0;	/* видимость объекта откл */
 		transition: 0.5s; /* задержка появления */
 	}
 	.container .box:hover::before,
 	.container .box:hover::after {
-		opacity: 0.04; /* полупрозрачная видимость объекта */
+		opacity: 0.05; /* полупрозрачная видимость объекта */
 	}
 	.container .box .name {
 		position: absolute;
@@ -118,19 +118,19 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		max-width: 200px;
+		max-width: 220px;
 		transition: 0.5s;
 		z-index: 11;
 		transition: 0.5s;
 		transform-style: preserve-3d;
-		transform: translate3d(-50%,-50%,0px) rotate(-15deg);
+		transform: translate3d(-50%,-50%,0px) rotate(-5deg); /* rotate - наклон */
 	}
 	.container .box:nth-child(1) .circle,
 	.container .box:nth-child(1) .buy {
 		background: #fb4b4f;
 	}
 	.container .box:hover .product {
-		transform: translate3d(-50%,-50%,100px) rotate(-15deg);
+		transform: translate3d(-50%,-50%,70px) rotate(-5deg);
 	}
 		
 	</style>
@@ -139,7 +139,7 @@
 	<div class="container">
 		<div class="box">
 			<h2 class="name">ХуторянинЪ</h2>
-			<a class="buy" href="#">заходи</a>
+			<a class="buy" href="https://hutoryanin.ru">заходи</a>
 			<div class="circle">
 			<img src="{% static 'logo.png'%}" class="product"></div>
 		</div>
