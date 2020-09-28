@@ -18,9 +18,12 @@
 {% endblock %}
 
 {% block content %}
+<link href="{% static 'css/vanilla.css'%}" rel="stylesheet">
+
 
 <div class="card-deck mb-3 text-center">
 
+	<!-- -->
 	<div class="card mb-4 shadow-sm">
       <div class="card-header">
         <h4 class="my-0 font-weight-normal">Приложения <br> (сайты, боты)</h4>
@@ -35,74 +38,58 @@
 	  <div class="card-header">
         <a class="btn btn-primary" href="/products/applications">Посмотреть</a>
       </div>
+    </div>	 
+	
+	<div class="card mb-4 shadow-sm container">
+		
+      <div class="box">	  
+		<h2 class="name">Приложения</h2>
+		<a class="btn btn-primary buy" href="/products/applications">Посмотреть</a>
+		<img class="mb-2 product" src="{% static 'products/applications/applications.jpg'%}" alt="" width="100%">
+	  </div>	  
+	  
     </div>	
   
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Кованые<br>ножи</h4>
-      </div>
-      <div class="card-body">	  
-		<a href="/products/knives">
-			<img class="mb-2" src="{% static 'products/knives/knives.jpg'%}" alt="" width="100%">	
-		</a>		
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-primary" href="/products/knives">Посмотреть</a>
+    <div class="card mb-4 shadow-sm container">     
+      <div class="box">	  
+		<h2 class="name">Кованые ножи</h2>
+		<a class="btn btn-primary buy" href="/products/knives">Посмотреть</a>
+		<img class="mb-2 product" src="{% static 'products/knives/knives.jpg'%}" alt="" width="100%">	
       </div>
     </div>
 	
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Ложки<br>для мёда</h4>
-      </div>
-      <div class="card-body">	  
-		<a href="/products/spoons">
-			<img class="mb-2" src="{% static 'products/spoons/spoons.jpg'%}" alt="" width="100%">
-		</a>		
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-primary" href="/products/spoons">Посмотреть</a>
-      </div>
+    <div class="card mb-4 shadow-sm container">      
+      <div class="box">	  
+		<h2 class="name">Ложки д/мёда</h2>
+		<a class="btn btn-primary buy" href="/products/spoons">Посмотреть</a>
+		<img class="mb-2 product" src="{% static 'products/spoons/spoons.jpg'%}" alt="" width="100%">		
+      </div>	  
     </div>
 	
-	<div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Подсвечники<br></h4>
-      </div>
-      <div class="card-body">	  
-		<a href="/products/candlesticks">
-			<img class="mb-2" src="{% static 'products/candlesticks/candlesticks.jpg'%}" alt="" width="100%">
-		</a>		
-      </div>
-	  <div class="card-header">
-        <a class="btn btn-primary" href="/products/candlesticks">Посмотреть</a>
+	<div class="card mb-4 shadow-sm container">      
+      <div class="box">	  
+		<h2 class="name">Подсвечники</h2>
+		<a class="btn btn-primary buy" href="/products/candlesticks">Посмотреть</a>
+			<img class="mb-2 product" src="{% static 'products/candlesticks/candlesticks.jpg'%}" alt="" width="100%">
       </div>
     </div>
 			
-	<div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Пусто /<br> Empty</h4>
-      </div>
-      <div class="card-body">	  
-        <img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">		
-      </div>
-	  <div class="card-header">
-        <!--<a class="btn btn-outline-dark" href="/">Посмотреть</a>-->
-		<button type="button" class="btn btn-outline-dark" disabled>Посмотреть</button>
+	<div class="card mb-4 shadow-sm container">
+      <div class="box">	  
+		<h2 class="name">Пусто</h2>
+		<!--<a class="btn btn-outline-dark buy" href="/">Посмотреть</a>-->
+		<button class="btn btn-outline-dark buy" type="button" disabled>Посмотреть</button>
+        <img class="mb-2 product" src="{% static 'logo3.png'%}" alt="" width="100%">		
       </div>
     </div>
 	
-	<div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Пусто /<br> Empty</h4>
-      </div>
-      <div class="card-body">
-        <img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">		
+	<div class="card mb-4 shadow-sm container">
+      <div class="box">
+		<h2 class="name">Пусто</h2>
+		<!--<a class="btn btn-outline-dark buy" href="/">Посмотреть</a>-->
+		<button class="btn btn-outline-dark buy" type="button" disabled>Посмотреть</button>
+        <img class="mb-2 product" src="{% static 'logo3.png'%}" alt="" width="100%">		
       </div>	  
-	  <div class="card-header">
-        <!--<a class="btn btn-outline-dark" href="/">Посмотреть</a>-->
-		<button type="button" class="btn btn-outline-dark" disabled>Посмотреть</button>
-      </div>
     </div>
 	
 </div>

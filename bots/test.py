@@ -26,7 +26,7 @@ def header():
 
     response.write("<a href='/'>-----</a>  |  ")
     response.write("<a href='/test/prizm'>prizm</a>  |  ")
-    response.write("<a href='/test/vanila'>vanila</a>  |  ")
+    response.write("<a href='/test/vanilla'>vanilla</a>  |  ")
     response.write("<a href='/test/fullPageScrolling'>fullPageScrolling</a>  |  <br><br>")
 
     return response

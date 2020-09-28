@@ -5,9 +5,9 @@ def prizm(request):
 
     return render(request, "prizm/prizm.html")
 
-def vanila(request):
+def vanilla(request):
 
-    return render(request, "vanila.html")
+    return render(request, "vanilla.html")
 
 def fullPageScrolling(request):
 
