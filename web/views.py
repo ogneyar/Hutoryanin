@@ -183,12 +183,4 @@ def db(request):
     return render(request, "db.html", {"greetings": greetings})
 
 
-def prizm(request):
-
-    return render(request, "prizm/prizm.html")
-
-def vanila(request):
-
-    return render(request, "prizm/vanila.html")
-
 

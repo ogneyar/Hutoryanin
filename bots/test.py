@@ -10,6 +10,28 @@ mc = bmemcached.Client(mc_servers, username=mc_user, password=mc_passw)
 mc.enable_retry_delay(True)  # Enabled by default. Sets retry delay to 5s.
 
 
+# функция вывода заголовка на экран тестовых страниц
+def header():
+
+    response = HttpResponse()
+
+    # вывод на экран
+    response.write("<h1>Добро пожаловать!</h1>")
+
+    response.write("<a href='/test/getcookie'>getCokie</a>  |  ")
+    response.write("<a href='/test/cookie'>cokie</a>  |  ")
+    response.write("<a href='/test/session'>session</a>  |  ")
+    response.write("<a href='/test/parser'>parser</a>  |  ")
+    response.write("<a href='/test'>назад</a>  |  ")
+
+    response.write("<a href='/'>-----</a>  |  ")
+    response.write("<a href='/test/prizm'>prizm</a>  |  ")
+    response.write("<a href='/test/vanila'>vanila</a>  |  ")
+    response.write("<a href='/test/fullPageScrolling'>fullPageScrolling</a>  |  <br><br>")
+
+    return response
+
+
 def test(request):
 
     response = header()
@@ -213,21 +235,6 @@ def parser(request):
 
 
 
-# функция вывода заголовка на экран тестовых страниц
-def header():
-
-    response = HttpResponse()
-
-    # вывод на экран
-    response.write("<h1>Добро пожаловать!</h1>")
-
-    response.write("<a href='/test/getcookie'>getCokie</a>  |  ")
-    response.write("<a href='/test/cookie'>cokie</a>  |  ")
-    response.write("<a href='/test/session'>session</a>  |  ")
-    response.write("<a href='/test/parser'>parser</a>  |  ")
-    response.write("<a href='/test'>назад</a>  |  <br><br>")
-
-    return response
 
 
 

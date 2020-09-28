@@ -1,8 +1,3 @@
-"""hutoryanin URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
-"""
 from django.contrib import admin
 from django.urls import path, include
 
@@ -15,7 +10,6 @@ import bots.tgbot
 import bots.icqbot
 import bots.urls
 
-# Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
 
 urlpatterns = [
     path("", web.views.index, name="index"),
@@ -62,6 +56,5 @@ urlpatterns = [
 
     path("test/", include("bots.urls")),
 
-    path("prizm/", web.views.prizm, name="prizm"),
-    path("vanila/", web.views.vanila, name="vanila"),
+
 ]
