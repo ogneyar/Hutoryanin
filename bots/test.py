@@ -30,9 +30,9 @@ def header():
     response.write("<a href='/test/fullPageScrolling'>fullPageScrolling</a>  |  ")
 
     response.write("<a href='#' style='text-decoration: none;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>  |  ")
-    response.write("<a href='https://web.hutoryanin.online'>web</a>  |  ")
-    response.write("<a href='https://wep.hutoryanin.online'>wep</a>  |  ")
-    response.write("<a href='https://wed.hutoryanin.online'>wed</a>  |  <br><br>")
+    response.write("<a href='https://sph.hutoryanin.online'>Sprint</a>  |  ")
+    response.write("<a href='https://heroku.hutoryanin.online'>Heroku</a>  |  ")
+    response.write("<a href='https://beget.hutoryanin.online'>Beget</a>  |  <br><br>")
 
     return response
 
