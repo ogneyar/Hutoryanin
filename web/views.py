@@ -130,6 +130,10 @@ def tgbot(request):
 
     return render(request, "products/applications/tgbot.html")
 
+def vkbot(request):
+
+    return render(request, "products/applications/vkbot.html")
+
 def android(request):
 
     return render(request, "products/applications/android.html")

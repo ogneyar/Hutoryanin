@@ -1,11 +1,15 @@
-﻿{% extends "products/applications/base_applications.html" %}
+﻿{% extends "base.html" %}
 {% load static %}
 
-{% block handle %}Разработка телеграм бота!{% endblock %}
+{% block header %}
 
-{% block url1 %}{% url 'tgbot' %}/creating_an_order{% endblock %}
-
-{% block handle_text %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  
+	<h1 class="display-4">Разработка телеграм бота!</h1>
+    <br>
+	<p class="lead"><a class="btn btn-outline-danger" href="{% url 'tgbot' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a></p>
+	<br>
+	
 	<p class="lead">Для примера есть телеграм бот <a class="btn btn-outline-primary" href="https://t.me/Prizm_market_bot" target="_blank">Prizm_market_bot</a> сделанный для команды <a class="btn btn-dark" href="https://prizmarket.ru" target="_blank">PRIZMarket</a> Он создан для того чтобы клиент мог посмотреть имеющиеся на сайте prizmarket.ru публикации c предложениями о покупке (продаже) товаров и услуг за криптовалюту PRIZM. Бот напрямую из базы данных достаёт лоты, проверяет их актуальность (по заданным временным рамкам), если лоты старые, то он их удаляет. Лоты разбиты по категориям для удобства поиска необходимого товара. Заходите, протестируйте бота, ознакомьтесь.</p>
 	
 	<p class="lead">Ещё бот может показывать курс криптовалюты PRIZM с <a class="btn btn-outline-success" href="https://coinmarketcap.com/ru/currencies/prizm/" target="_blank">CoinMarketCap</a> имспользуя API методы этого сайта. Любые существующие API методы любых сайтов можно применить в функционале бота, иногда эти возможности платные. Так например CoinMarketCap предлагает большой выбор методов на платной основе, я использовал безОплатные, поэтому бот показывает стоимость монеты только в рублях и долларах, а вообще можно выводить сравнительные цены любых криптовалют (bitcoin, ethereum, ripple), всё зависит от желания клиента и наличия финансов.</p>
@@ -19,15 +23,48 @@
 	<p class="lead">В общем много чего можно делать при помощи телеграм ботов.</p>
 	
 	<p class="lead">Стоимость заказа зависит от сложности поставленной задачи.</p>
+	
+    <br>
+	<p class="lead"><a class="btn btn-outline-danger" href="{% url 'tgbot' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a></p>
+	<br>
+  
+	<p class="lead">Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>  
+	<p class="lead">Вернуться <a class="btn btn-outline-primary" href="/products/applications">назад</a></p>
+  
+</div>
+
 {% endblock %}
 
-{% block url2 %}{% url 'tgbot' %}/creating_an_order{% endblock %}
+{% block content %}
 
-
-{% block logo1 %}{% static 'products/applications/prizm_market_bot.jpg' %}{% endblock %}
-
-{% block logo2 %}{% static 'products/applications/zakaz_prizm_bot.jpg' %}{% endblock %}
-
-{% block logo3 %}{% static 'products/applications/hutoryanin_bot.jpg' %}{% endblock %}
+<div class="card-deck mb-3 text-center">  
+   
+	<div class="card mb-4 shadow-sm">      
+      <div class="card-body">
+	  
+        <img class="mb-2" src="{% static 'logo3.png' %}" alt="" width="100%">
+		
+      </div>
+    </div>
+	
+	<div class="card mb-4 shadow-sm">      
+      <div class="card-body">
+	  
+        <img class="mb-2" src="{% static 'logo3.png' %}" alt="" width="100%">
+		
+      </div>
+    </div>	
+	
+	<div class="card mb-4 shadow-sm">     
+      <div class="card-body">
+	  
+        <img class="mb-2" src="{% static 'logo3.png' %}" alt="" width="100%">
+		
+      </div>
+    </div>
+	
+</div>
+  
+{% endblock %}
 
 

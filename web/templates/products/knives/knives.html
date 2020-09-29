@@ -1,45 +1,120 @@
-﻿{% extends "products/base_products.html" %}
+{% extends "base.html" %}
 {% load static %}
 
-{% block category %}Ножи{% endblock %}
+{% block header %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 
-{% block category_text %}<p class="lead">Выберайте модель нажав на изображение.</p>{% endblock %}
 
-<!------------------------------------>
-
-{% block name1 %}Нож<br>"Low Knife"{% endblock %}
-{% block photo1 %}
-<a href="{% url 'low_knife' %}">
-	<img class="mb-2" src="{% static 'products/knives/low_knife.jpg'%}" alt="" width="100%">
-</a>
+  <h1 class="display-4">Категория "Ножи"!</h1>
+   
+  <p class="lead">Выберайте модель.</p>
+  
+  
+  <p class="lead">Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>  
+  <p class="lead">Вернуться <a class="btn btn-outline-primary" href="/products">назад</a></p>  
+</div>
 {% endblock %}
-{% block link1 %}{% url 'low_knife' %}{% endblock %}
-{% block order_link1 %}{% url 'low_knife' %}/creating_an_order{% endblock %}
 
-<!------------------------------------>
-
-{% block name2 %}Нож<br>"Middle Knife"{% endblock %}
-{% block photo2 %}
-<a href="{% url 'middle_knife' %}">
-	<img class="mb-2" src="{% static 'products/knives/middle_knife.jpg'%}" alt="" width="100%">
-</a>
+{% block content %}
+<div class="card-deck mb-3 text-center">     	
+	
+	<!------------------------------------>
+			
+	<div class="card mb-4 shadow-sm container">		  
+		<div class="box">	  
+			<h2 class="name">"Low Knife"</h2>			
+			<a class="btn btn-success buy" href="{% url 'low_knife' %}">Описание</a>				
+			<img class="mb-2 product" src="{% static 'products/knives/low_knife.jpg'%}" alt="" width="100%">
+		</div>	  
+		<br>
+		<a class="btn btn-outline-danger" href="{% url 'low_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
+		<br>
+	</div>	
+	
+	<!------------------------------------>
+	
+	<div class="card mb-4 shadow-sm container">
+      <div class="box">
+		<h2 class="name">"Middle Knife"</h2>
+		<a class="btn btn-success buy" href="{% url 'middle_knife' %}">Описание</a>
+		<img class="mb-2 product" src="{% static 'products/knives/middle_knife.jpg'%}" alt="" width="100%">
+      </div>
+	  <br>
+		<a class="btn btn-outline-danger" href="{% url 'middle_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
+	  <br>
+    </div>	
+	
+	<!------------------------------------>
+	
+	<div class="card mb-4 shadow-sm container">
+      <div class="box">
+		<h2 class="name">"High Knife"</h2>
+		<a class="btn btn-success buy" href="{% url 'high_knife' %}">Описание</a>
+		<img class="mb-2 product" src="{% static 'products/knives/high_knife.jpg'%}" alt="" width="100%">
+      </div>
+	  <br>
+		<a class="btn btn-outline-danger" href="{% url 'high_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
+	  <br>		
+    </div>		
+	
+	<!------------------------------------>
+	
+	<div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Пусто</h4>
+      </div>
+      <div class="card-body">	  
+		<a href="#">
+			<img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">
+		</a>		
+      </div>
+	  <div class="card-header">
+		<button class="btn btn-outline-dark buy" type="button" disabled>Описание</button>
+      </div>
+	  <div class="card-header">
+		<button class="btn btn-outline-dark buy" type="button" disabled>ОФОРМИТЬ ЗАКАЗ</button>
+      </div>
+    </div>	 
+		
+	<!------------------------------------>
+	
+	<div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Пусто</h4>
+      </div>
+      <div class="card-body">	  
+		<a href="#">
+			<img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">
+		</a>		
+      </div>
+	  <div class="card-header">
+		<button class="btn btn-outline-dark buy" type="button" disabled>Описание</button>
+      </div>
+	  <div class="card-header">
+		<button class="btn btn-outline-dark buy" type="button" disabled>ОФОРМИТЬ ЗАКАЗ</button>
+      </div>
+    </div>	 
+	
+	<!------------------------------------>
+		
+	<div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Пусто</h4>
+      </div>
+      <div class="card-body">	  
+		<a href="#">
+			<img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">
+		</a>		
+      </div>
+	  <div class="card-header">
+		<button class="btn btn-outline-dark buy" type="button" disabled>Описание</button>
+      </div>
+	  <div class="card-header">
+		<button class="btn btn-outline-dark buy" type="button" disabled>ОФОРМИТЬ ЗАКАЗ</button>
+      </div>
+    </div>	 
+	
+</div>
+  
 {% endblock %}
-{% block link2 %}{% url 'middle_knife' %}{% endblock %}
-{% block order_link2 %}{% url 'middle_knife' %}/creating_an_order{% endblock %}
-
-<!------------------------------------>
-
-{% block name3 %}Нож<br>"High Knife"{% endblock %}
-{% block photo3 %}
-<a href="{% url 'high_knife' %}">
-	<img class="mb-2" src="{% static 'products/knives/high_knife.jpg'%}" alt="" width="100%">
-</a>
-{% endblock %}
-{% block link3 %}{% url 'high_knife' %}{% endblock %}
-{% block order_link3 %}{% url 'high_knife' %}/creating_an_order{% endblock %}
-
-<!------------------------------------>
-
-
-
 

@@ -38,6 +38,7 @@ urlpatterns = [
     path("products/applications/", web.views.applications, name="applications"),
     path("products/applications/site", web.views.site, name="site"),
     path("products/applications/tgbot", web.views.tgbot, name="tgbot"),
+    path("products/applications/vkbot", web.views.vkbot, name="vkbot"),
     path("products/applications/android", web.views.android, name="android"),
 
 
