@@ -38,8 +38,6 @@ a, *:hover {
 }
 
 body {
-/*	background-color: rgba(172,172,183); серый*/
-/*	background-color: rgba(205,30,30); красный*/ 
 	background-color: rgba(250,200,200); /*розовый*/
 	width: 100%;
 	float: left;
@@ -143,9 +141,6 @@ body {
 
 header {
 	width: 98%;
-/*	float: left;*/
-/*	background-color: rgba(20,17,45); чёрный с оттенком*/
-/*	background-color: rgba(250,200,200); розовый*/
 	background-color: rgba(205,30,30); /*красный*/ 
 	padding: 0.5% 1%;	
 }
@@ -153,10 +148,7 @@ header {
 header #logo {
 	text-shadow: 2px 2px 4px red, -2px 2px 4px red, 2px -2px 4px red, -2px -2px 4px red;
 	font-family: Times New Roman, sans-serif;
-/*	color: rgba(255,235,59); жёлтый  */
 	color: rgba(255,255,255); /* белый */
-/*	float: left;*/
-/*	width: 80%;*/
 	padding-top: 10px;
 }
 
@@ -170,8 +162,6 @@ header #logo {
 }
 
 #lk_menu {
-/*	background-color: rgba(20,17,45); чёрный с оттенком*/
-/*	background-color: rgba(250,200,200); розовый*/
 	background-color: rgba(205,30,30); /*красный*/ 
 	margin-top: -1px;
 }
@@ -259,10 +249,24 @@ nav a:hover, nav#fixed a:hover {
 .topmenu {
 	margin-top: -20px;
 }
-.topmenu ul {
+.submenu {
 	list-style: none; 
 	margin: 0;
-	padding: 0;
+	padding: 20px;
+	
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 10;
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out;
+	
+	display: none;
+	background: white;
+	border: 1px solid #8c8c8c;
+	border-radius: 5px;
 }
 .topmenu  li {
 	display: inline-block;
@@ -280,27 +284,16 @@ nav a:hover, nav#fixed a:hover {
 	outline: none;
 	transition: .5s linear;
 }
-.submenu {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	z-index: 10;
-	-webkit-transition: 0.5s ease-in-out;
-	-moz-transition: 0.5s ease-in-out;
-	-o-transition: 0.5s ease-in-out;
-	transition: 0.5s ease-in-out;
-}
+
 .submenu li a {
-	border-bottom: 1px solid #8c8c8c;
+	border: 1px solid #8c8c8c;
+	border-radius: 5px;
 	padding: 10px 15px;
 	color: #8c8c8c;
-	margin-left: 0;
+	margin: 5px;
 	float: left;
 }
-.submenu {
-	display: none;
-	background: white;
-}
+
 .topmenu li:hover .submenu {
 	display: block;
 }
