@@ -24,10 +24,15 @@ def header():
     response.write("<a href='/test/parser'>parser</a>  |  ")
     response.write("<a href='/test'>назад</a>  |  ")
 
-    response.write("<a href='/'>-----</a>  |  ")
+    response.write("<a href='#' style='text-decoration: none;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>  |  ")
     response.write("<a href='/test/prizm'>prizm</a>  |  ")
     response.write("<a href='/test/vanilla'>vanilla</a>  |  ")
-    response.write("<a href='/test/fullPageScrolling'>fullPageScrolling</a>  |  <br><br>")
+    response.write("<a href='/test/fullPageScrolling'>fullPageScrolling</a>  |  ")
+
+    response.write("<a href='#' style='text-decoration: none;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>  |  ")
+    response.write("<a href='https://web.hutoryanin.online'>web</a>  |  ")
+    response.write("<a href='https://wep.hutoryanin.online'>wep</a>  |  ")
+    response.write("<a href='https://wed.hutoryanin.online'>wed</a>  |  <br><br>")
 
     return response
 
