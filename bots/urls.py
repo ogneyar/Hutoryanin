@@ -15,6 +15,7 @@ urlpatterns = [
     path("parser/", bots.test.parser, name="parser"),
 
     path("prizm/", bots.views.prizm, name="prizm"),
+    path("7yanika/", bots.views.semyanika, name="7yanika"),
     path("vanilla/", bots.views.vanilla, name="vanilla"),
     path("fullPageScrolling/", bots.views.fullPageScrolling, name="fullPageScrolling"),
 ]

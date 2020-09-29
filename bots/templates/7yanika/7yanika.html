@@ -1,0 +1,314 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title>СЕМЬЯНИКА!</title>
+	<meta name="description" content="Сайт знакомств для создания семьи!" />
+	<meta name="keywords" content="семья, союз, брак, встречи" />	
+	<meta name="author" content="Огънеяръ" />	
+	<meta name="robots" content="all,index,follow" />	
+	<meta name="distribution" content="global" />	
+	<meta name="Rating" content="General">	
+	<meta name="Document-state" content="Dynamic">
+	
+	<!-- Adopt website to current screen -->
+	<meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		
+	<meta http-equiv="Cache-Control" content="no-cache">
+	
+	<link rel="stylesheet" href="{% static '7yanika/style.css' %}">
+	
+	<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">	
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/site.webmanifest">
+	<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#00aba9">
+	<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	
+	<!-- Here we add libs for jQuery, Ajax... -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> 
+	
+	<!-- reCAPTCHA -->
+	<script src="https://www.google.com/recaptcha/api.js?render=6LfQ4rIZAAAAAE0Fuv294UR55S8IYXKXciVt28_C"></script>
+	
+	
+	<script type="text/javascript">
+		if(screen.width > 800) { // Animate navigation
+			$(document).ready(function() {
+			// функцию скролла привязать к окну браузера
+				$(window).scroll(function(){
+					var distanceTop = $('#slideMenu').offset().top;
+					if ($(window).scrollTop() >= distanceTop)
+						$ ('nav').attr ("id", "fixed");
+					else //if ($(window).scrollTop() < distanceTop)
+						$ ('nav').attr ("id", "nav");
+				});
+			});
+		}
+	</script>	
+	
+	<style type="text/css">
+		@media (min-width: 700px) {
+		nav a:first-child, nav#fixed a:first-child {
+			border-bottom: 5px solid rgba(255,235,59);
+		}} 
+	</style>
+</head>
+<body>
+	<header>
+		<a href="/" id="logo">
+			<center>	
+			<p><br></p>
+			<h1><span>СЕМЬЯНИКА</span> - место Вашей встречи!<h1>
+			</center>
+		</a>
+	</header>
+	<div id="lk_menu">
+		<span id="contact">
+			<center>
+				<h3><p>Знакомства для создания семьи.</p></h3>
+				<h1><p>Тел: 8-918-577-0009</p></h1>
+			</center>
+		</span>
+	</div>
+	<nav>
+		<div class="line-menu">
+			<a href="/">Главная</a>
+			<a href="/o_nas/index.php">О нас</a>
+			<a href="/contacts/index.php">Контакты</a>
+			<a href="/zayavki/index.php">Заявки</a>
+			<a href="/otzivi/index.php">Отзывы</a>
+		</div>
+		<ul class="topmenu">
+			<li id="mini-menu"><a href="#"><i class="fa fa-bars fa-lg" aria-hidden="true"></i><!-- Меню--></a>
+				<ul class="submenu">	
+					<li><a href="/">Главная</a></li>
+					<li><a href="/o_nas/index.php">О нас</a></li>
+					<li><a href="/contacts/index.php">Контакты</a></li>
+					<li><a href="/zayavki/index.php">Заявки</a></li>
+					<li><a href="/otzivi/index.php">Отзывы</a></li>
+				</ul>
+		</ul>
+	</nav>
+	<div id="slideMenu">Моё)</div>
+	<div id="wrapper">
+		<div id="TopCol">		
+			<article id="topColPhoto">
+				<a href='' title=''>
+					<img src="/img/art/7yanika.jpg" />
+				</a>
+			</article>
+			<article id="topColText">
+				<h3><span>7яника</span> - создание семьи!</h3>
+			</article>
+		</div>
+		<div id="leftCol">		
+			<article id="glavnaya">
+				<div>
+
+				<img src="{% static '7yanika/photo_34703.jpg' %}">
+
+				<br>
+				<center>
+				<h1>
+				Информация для всех!
+				</h1>
+				</center>
+				<br>
+
+				<h3>
+				&nbsp;&nbsp;&nbsp;Пожалуйста, заполняйте заявку на знакомство на нашем сайте и присоединяйтесь в наш дружный коллектив единомышленников Семьяника!
+				</h3>
+				<h3>
+				&nbsp;&nbsp;&nbsp;Сообщите о себе руководителю Центра Семьяника, предварительным личным звонком, или удобным для вас способом: 
+				отправьте смс – сообщение, в том числе WhatsAp, Telegram.
+				</h3><br />
+				<h3><center>
+				тел. 8-918-577-000-9  (12-20 час)
+				</center></h3><br>
+				<h3>
+				&nbsp;&nbsp;&nbsp;Обязательно укажите в заявке: <br>
+				&nbsp;&nbsp;&nbsp;	•	имя, возраст, <br>
+				&nbsp;&nbsp;&nbsp;	•	населенный пункт проживания,<br>
+				&nbsp;&nbsp;&nbsp;	•	ваш контактный номер телефона (сотовый) и удобное время для звонка,<br>
+				&nbsp;&nbsp;&nbsp;	•	электронный адрес (если есть), <br>
+				&nbsp;&nbsp;&nbsp;	•	ваш контактный телефон в  приложениях WhatsAp, Telegram (если есть),  для обратной связи с вами.<br>
+				</h3><br>
+				<h3>
+				&nbsp;&nbsp;&nbsp;Руководитель Центра, Оксана Семьяника, позвонит вам, в течение недели, и назначит индивидуальную встречу, в удобное для вас время, для обсуждения вашего запроса и наилучшего предложения по выбору партнера.
+				</h3>
+				<h3>
+				&nbsp;&nbsp;&nbsp;Мы гарантируем вам внимательное сопровождение, достоверность информации, в течение всего времени поиска партнера. Индивидуальный, гибкий подход в решении вашей задачи, через частный, конфиденциальный диалог и объективное рукопожатие.
+				</h3>
+				<h3>
+				&nbsp;&nbsp;&nbsp;Фото и контактную информацию претендента на знакомство, предоставляю после подробного обсуждения вашего запроса и анализа на совместимость, только по обоюдному согласию претендентов.
+				</h3><br>
+				<h3>
+				&nbsp;&nbsp;&nbsp;Узнавайте все подробности у руководителя Центра Семьяника.
+				</h3><br />
+
+				<center>
+				<h3>
+				oksana7yanika@mail.ru
+				</h3>
+				</center>
+
+				</div>
+			</article>
+		</div>
+		<div id="rightCol">
+			<article>
+				<br>
+				<center>
+				<h3><span>Страницы!</span></h3>	
+				<h5><br><br>
+					<a href='/obzor_meropriyatiy/index.php' title='Обзор мероприятий'>
+						Обзор мероприятий
+					</a>
+				</h5>
+				<h5><br><br>
+				<a href='/poryadok_meropriyatiy/index.php' title='Порядок мероприятий'>
+					Порядок мероприятий
+				</a>
+				</h5>
+				<h5><br><br>
+					<a href='/sotrudnichestvo/index.php' title='Сотрудничество'>
+						Сотрудничество
+					</a>
+				</h5>
+				<h5><br><br>
+					<a href='/partneri/index.php' title='Наши партнеры'>
+						Наши партнеры
+					</a>
+				</h5>
+				<h5><br><br>
+					<a href='/sovet-da-lubov/index.php' title='Совет-да-любовь'>
+						Совет-да-любовь
+					</a>
+				</h5>
+				</center>
+				<br>
+			</article>
+
+			<article>
+				<br>
+				<form action="/zayavki/znakomstvo.php" align="center">
+					<input type="submit" class="button" name="znakomstvo" id="znakomstvo" value="Заявка на знакомство">
+				</form>
+				
+				<img src="/img/kolca.png" />
+				
+				<form action="/zayavki/send_message.php" align="center">
+				<input type="submit" class="button" name="send_message" id="send_message" value="Отправить сообщение">
+				</form>	
+				<br>
+			</article>
+
+
+			<article>
+				<a href='' title=''>
+					<img src="/img/art/7yanika.jpg" />
+				</a>
+				<center>
+				<h3><span>Здесь может быть Ваша реклама!</span></h3>
+				</center>
+				<br>
+			</article>
+
+			<article>
+			<center>
+
+				<br>
+				<h3><span>Поддержать проект:</span></h3><br>
+
+				<article class="tooltip">	
+					<!--<h4>-->
+					<h5><span>Карта сбербанка</span></h5>
+					<input type="text" value="6390 0252 9029 3032 12" id="myInput" onclick="myFunction('myInput')" onmouseout="outFunc()" readonly>
+					
+					<br><br>
+					
+					<h5><span>По номеру тел.</span></h5>
+					<input type="text" value="8 918 577 00 09" id="myInput2" onclick="myFunction('myInput2')" onmouseout="outFunc()" readonly>
+					<!--</h4>-->
+					
+					<br><br>
+					
+					<span class="tooltiptext" id="myTooltip">Нажмите чтобы копировать текст в буфер</span>
+				</article>
+				
+			</center>
+			</article>
+
+			<script>
+			function myFunction(myIn) {
+			  var copyText = document.getElementById(myIn);
+			  copyText.select();
+			  document.execCommand("copy");
+			  
+			  var tooltip = document.getElementById("myTooltip");
+			  tooltip.innerHTML = "Скопировал: " + copyText.value;
+			}
+
+			function outFunc() {
+			  var tooltip = document.getElementById("myTooltip");
+			  tooltip.innerHTML = "Нажмите чтобы копировать текст в буфер";
+			}
+			</script>
+
+		</div>
+	</div>
+	<footer>
+		<div id="rights">
+			&copy; 7яника <?=date('Y')?>
+		</div>
+		<div id="social">	
+			<article>
+				<a href="https://ok.ru/profile/329270985047" title="ОдноКлассники" target="_blank">
+					<img src="/img/social/ok.png" alt="ОдноКлассники" />
+				</a>
+			</article>
+			<article>
+				<a href="https://www.facebook.com/profile.php?id=100011374764032" title="FaceBook" target="_blank">
+					<img src="/img/social/fb.png" alt="FaceBook" />
+				</a>
+			</article>
+			<article>
+				<a href="https://www.youtube.com/channel/UCZOunpCQtO2J2Ro5A3BkswA" title="YouTube" target="_blank">
+					<img src="/img/social/yt.png" alt="YouTube" />
+				</a>
+			</article>
+			<article>
+				<a href="https://vk.com/id303326087" title="VKontakte" target="_blank">
+					<img src="/img/social/vkontakte.png" alt="VKontakte" />
+				</a>
+			</article>
+			<article>
+				<a href="https://wa.me/79185770009" title="WhatsApp" target="_blank">
+					<img src="/img/social/wa.png" alt="WhatsApp" />
+				</a>
+			</article>
+			<article>
+				<a href="https://teleg.link/oksanasemyanika" title="Telegram" target="_blank">
+					<img src="/img/social/tg.png" alt="Telegram" />
+				</a>
+			</article>
+		</div>
+
+	</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
