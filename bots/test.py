@@ -36,6 +36,7 @@ def header():
     response.write("<a href='https://heroku.hutoryanin.online'>Heroku</a>  |  ")
     response.write("<a href='https://beget.hutoryanin.online'>Beget</a>  |  <br><br>")
 
+
     return response
 
 

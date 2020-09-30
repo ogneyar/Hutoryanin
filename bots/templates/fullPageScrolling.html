@@ -5,151 +5,129 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Тест!</title>	
+	
 	<style type="text/css">
 	.{
 		margin: 0;
 		padding: 0;
 		font-family: sans-serif;
 	}
-	body {
-		display: flex;
-		justify-content: center; /*Центрирование в блоке по горизонтали*/
-		align-items: center; /*Центрирование в блоке по вертикали*/
-		min-height: 100vh; /*растяжение блока на весь экран*/
-		background: #f1f1f1;
-	}
 	.container {
 		position: relative;
-		display: flex;
-		justify-content: center; /* Центрирование в блоке по горизонтали */
-		align-items: center; /* Центрирование в блоке по вертикали */
-		flex-wrap: wrap;
-		width: 1200px;
-		transform-style: preserve-3d;
-	}
-	.container .box {
-		position: relative;
-		width: 300px;
-		height: 400px;
-		margin: 40px;
-		background: #e1e1e1;
-		border-radius: 20px;
-		transform-style: preserve-3d;
-	}
-	.container .box::before {
-		content: 'МАСТЕР';
-		position: absolute;
-		top: 20px;
-		left: 20px;
-		font-size: 4em;
-		font-weight: 900; /* жирный текст */
-		color: #000;/**/
-		font-style: italic;
-		opacity: 0;	/* видимость объекта откл */
-		transition: 0.5s; /* задержка появления */
-	}	
-	.container .box::after {
-		content: 'МАСТЕР';
-		position: absolute;
-		bottom: 20px;
-		right: 20px;
-		font-size: 4em;
-		font-weight: 900; /* жирный текст */
-		color: #000;/**/
-		font-style: italic;
-		opacity: 0;	/* видимость объекта откл */
-		transition: 0.5s; /* задержка появления */
-	}
-	.container .box:hover::before,
-	.container .box:hover::after {
-		opacity: 0.05; /* полупрозрачная видимость объекта */
-	}
-	.container .box .name {
-		position: absolute;
-		top: 0;
-		left: 0;
-		text-align: center;
-		color: #fff;/**/
 		width: 100%;
-		transform-style: preserve-3d;
-		transform: translate3d(0,0,75px);/**/
-		transition: 0.5s; /* задержка появления */
-		opacity: 0;	/* видимость объекта откл */
-		z-index: 10;
+		height: 100vh;
+		overflow: auto;
 	}
-	.container .box:hover .name {
-		top: 40px;
-		opacity: 1;
+	.container .section {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		background-blend-mode: multiply;
 	}
-	.container .box .buy {
+	.container .section:nth-child(1) {
+		background: #0f0 url({% static 'logo.png' %}); /* ya.jpg */
+		background-size: cover; /* растягивание изображения на весь экран */
+		background-attachment: fixed; /* фиксация изображения */
+	}
+	.container .section:nth-child(2) {
+		background: #f00 url({% static 'logo2.png' %}); 
+		background-size: cover; /* растягивание изображения на весь экран */
+		background-attachment: fixed; /* фиксация изображения */
+	}
+	.container .section:nth-child(3) {
+		background: #ff0 url({% static 'logo.png' %}); /* ya.jpg */
+		background-size: cover; /* растягивание изображения на весь экран */
+		background-attachment: fixed; /* фиксация изображения */
+	}
+	.container .section:nth-child(4) {
+		background: #0ff url({% static 'logo3.png' %}); 
+		background-size: cover; /* растягивание изображения на весь экран */
+		background-attachment: fixed; /* фиксация изображения */
+	}
+	.container .section:nth-child(5) {
+		background: #00f url({% static 'logo.png' %}); 
+		background-size: cover; /* растягивание изображения на весь экран */
+		background-attachment: fixed; /* фиксация изображения */
+	}
+	.container .section .content {
 		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform-style: preserve-3d;
-		transform: translate3d(-50%,0,75px);
-		color: #fff;
-		background: #333;
-		padding: 10px 25px;
-		border-radius: 30px;
-		text-decoration: none;
-		transition: 0.5s; /* задержка появления */
-		opacity: 0;	/* видимость объекта откл */
-		z-index: 10;
+		bottom: 50px;
+		left: 50px;
+		max-width: 700px;
 	}
-	.container .box:hover .buy {
-		bottom: 30px;
-		opacity: 1;
-	}
-	.container .box .circle {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 200px;
-		height: 200px;
-		border-radius: 50%;
-		transition: 0.5s;
+	.container .section .content h2 {
 		background: #fff;
-		transform-style: preserve-3d;
-		z-index: 10;
-		opacity: 1;
-		transform: translate3d(-50%,-50%,50px);
+		color: #111;
+		font-weight: 600;
+		display: inline-block;
+		padding: 10px 20px;
+		font-size: 2em;
 	}
-	.container .box .product {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		max-width: 220px;
-		transition: 0.5s;
-		z-index: 11;
-		transition: 0.5s;
-		transform-style: preserve-3d;
-		transform: translate3d(-50%,-50%,0px) rotate(-5deg); /* rotate - наклон */
+	.container .section .content p {
+		background: #fff;
+		color: #111;
+		font-weight: 300;		
+		padding: 10px 20px;
+		margin-top: 10px;
 	}
-	.container .box:nth-child(1) .circle,
-	.container .box:nth-child(1) .buy {
-		background: #fb4b4f;
-	}
-	.container .box:hover .product {
-		transform: translate3d(-50%,-50%,70px) rotate(-5deg);
-	}
-		
+	
 	</style>
+	
 </head>
 <body>
 	<div class="container">
-		<div class="box">
-			<h2 class="name">ХуторянинЪ</h2>
-			<a class="buy" href="https://hutoryanin.ru">заходи</a>
-			<div class="circle">
-			<img src="{% static 'logo.png'%}" class="product"></div>
+		<div class="section">
+			<div class="content">
+				<h2 class="name">Секция номер 1</h2>
+				<p>Какой-то текст тут, тут много какого-то текста. Какой-то текст тут, 
+				Какой-то текст тут, тут много какого-то текстатут много какого-то текста.
+				Какой-то текст тут, тут много какого-то текста. Какой-то текст тут, тут 
+				много какого-то текста. Какой-то текст тут, тут много какого-то текста.</p>
+			</div>
+		</div>
+		<div class="section">
+			<div class="content">
+				<h2 class="name">Секция номер 2</h2>
+				<p>Какой-то текст тут, тут много какого-то текста. Какой-то текст тут, 
+				Какой-то текст тут, тут много какого-то текстатут много какого-то текста.
+				Какой-то текст тут, тут много какого-то текста. Какой-то текст тут, тут 
+				много какого-то текста. Какой-то текст тут, тут много какого-то текста.</p>
+			</div>
+		</div>
+		<div class="section">
+			<div class="content">
+				<h2 class="name">Секция номер 3</h2>
+				<p>Какой-то текст тут, тут много какого-то текста. Какой-то текст тут, 
+				Какой-то текст тут, тут много какого-то текстатут много какого-то текста.
+				Какой-то текст тут, тут много какого-то текста. Какой-то текст тут, тут 
+				много какого-то текста. Какой-то текст тут, тут много какого-то текста.</p>
+			</div>
+		</div>
+		<div class="section">
+			<div class="content">
+				<h2 class="name">Секция номер 4</h2>
+				<p>Какой-то текст тут, тут много какого-то текста. Какой-то текст тут, 
+				Какой-то текст тут, тут много какого-то текстатут много какого-то текста.
+				Какой-то текст тут, тут много какого-то текста. Какой-то текст тут, тут 
+				много какого-то текста. Какой-то текст тут, тут много какого-то текста.</p>
+			</div>
+		</div>
+		<div class="section">
+			<div class="content">
+				<h2 class="name">Секция номер 5</h2>
+				<p>Какой-то текст тут, тут много какого-то текста. Какой-то текст тут, 
+				Какой-то текст тут, тут много какого-то текстатут много какого-то текста.
+				Какой-то текст тут, тут много какого-то текста. Какой-то текст тут, тут 
+				много какого-то текста. Какой-то текст тут, тут много какого-то текста.</p>
+			</div>
 		</div>
 	</div>
-	<script src="{% static 'js/vanilla-tilt.min.js'%}"></script>
+	<!--<script src="{% static 'js/vanilla-tilt.min.js'%}"></script>
 	<script>
 		VanillaTilt.init(document.querySelectorAll(".box"),{
 			max: 25,
 			speed: 400
 		});
-	</script>
+	</script>-->
 </body>
 </html>
