@@ -20,15 +20,6 @@
 	
 	<link rel="stylesheet" href="{% static '7yanika/style.css' %}">
 	
-	<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">	
-	
-	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-	<link rel="manifest" href="/favicon/site.webmanifest">
-	<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="msapplication-config" content="/favicon/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
 	
 	<!-- Here we add libs for jQuery, Ajax... -->
@@ -56,27 +47,23 @@
 	<style type="text/css">
 		@media (min-width: 700px) {
 		nav a:first-child, nav#fixed a:first-child {
-			border-bottom: 5px solid rgba(255,235,59);
+			border-bottom: 3px solid rgba(255,235,59);
 		}} 
 	</style>
 </head>
 <body>
 	<header>
-		<a href="/" id="logo">
-			<center>	
-			<p><br></p>
-			<h1><span>СЕМЬЯНИКА</span> - место Вашей встречи!<h1>
-			</center>
-		</a>
+		<div class="header">
+			<a href="/">			
+				<h1><span>СЕМЬЯНИКА</span> - место Вашей встречи!<h1>
+			</a>
+		</div>	
+		<div class="contact">
+			<h3>Знакомства для создания семьи.</h3>
+			<h1>Тел: +7(918)577-00-09</h1>
+		</div>
 	</header>
-	<div id="lk_menu">
-		<span id="contact">
-			<center>
-				<h3><p>Знакомства для создания семьи.</p></h3>
-				<h1><p><b>Тел: +7(918)577-00-09</b></p></h1>
-			</center>
-		</span>
-	</div>
+	
 	<nav>
 		<div class="line-menu">
 			<a href="/">Главная</a>
@@ -86,7 +73,7 @@
 			<a href="/otzivi/index.php">Отзывы</a>
 		</div>
 		<ul class="topmenu">
-			<li id="mini-menu"><a href="#"><i class="fa fa-bars fa-lg" aria-hidden="true"></i><!-- Меню--></a>
+			<li class="topmenu_li"><a href="#"><i class="fa fa-bars fa-lg" aria-hidden="true"></i><!-- Меню--></a>
 				<ul class="submenu">	
 					<li><a href="/">Главная</a></li>
 					<li><a href="/o_nas/index.php">О нас</a></li>
@@ -96,27 +83,37 @@
 				</ul>
 		</ul>
 	</nav>
+	
 	<div id="slideMenu">Моё)</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<div id="wrapper">
+	
 		<div id="TopCol">		
 			<article id="topColPhoto">
 				<a href='' title=''>
-					<img src="/img/art/7yanika.jpg" />
+					<img src="{% static '7yanika/7yanika.jpg' %}" />
 				</a>
 			</article>
 			<article id="topColText">
 				<h3><span>7яника</span><span class="span_dop"> - создание семьи!</span></h3>
 			</article>
 		</div>
+		
 		<div id="leftCol">		
 			<article>
-				<div>
+				<div class="f-text">
 
 					<center>
 
-					<h3>
-					Подача заявки на знакомство. 
-					</h3>
+					<h3>Подача заявки на знакомство.</h3>
 
 					
 						<form action="podtverjdenie.php" method="post" enctype="multipart/form-data" id="demo-form">
@@ -174,7 +171,7 @@
 					Отправка сообщения.
 					</h3>	
 
-					<h4>
+					
 						<form action="podtverjdenie.php" method="post" enctype="multipart/form-data">
 							
 						<br>		
@@ -190,7 +187,7 @@
 						<br><br>
 							
 						</form>
-					</h4>
+					
 
 					<h3><br>
 					Ожидайте ответа руководителя.
@@ -228,7 +225,7 @@
 			<article>
 				<br>
 				<center>
-				<h3><span>Страницы!</span></h3>	
+				<h1><span>Страницы!</span></h1>	
 				<h3><br><br>
 					<a href='/obzor_meropriyatiy/index.php' title='Обзор мероприятий'>
 						Обзор мероприятий
@@ -290,15 +287,15 @@
 				<h3><span>Поддержать проект:</span></h3><br>
 
 				<article class="tooltip">	
-					<!--<h4>-->
-					<h5><span>Карта сбербанка</span></h5>
+					
+					<h4><span>Карта сбербанка</span></h4>
 					<input type="text" value="6390 0252 9029 3032 12" id="myInput" onclick="myFunction('myInput')" onmouseout="outFunc()" readonly>
 					
 					<br><br>
 					
-					<h5><span>По номеру тел.</span></h5>
+					<h4><span>По номеру тел.</span></h4>
 					<input type="text" value="8 918 577 00 09" id="myInput2" onclick="myFunction('myInput2')" onmouseout="outFunc()" readonly>
-					<!--</h4>-->
+					
 					
 					<br><br>
 					
@@ -335,38 +332,40 @@
 	<footer>		
 	<div>
 		<div id="rights">
-			&copy; 7яника <?=date('Y')?>
+		<h4>
+			&copy; 7яника 2008 - <?=date('Y')?>
 			<br>+7(918)577-00-09
+		</h4>
 		</div>
 		<div id="social">	
 			<article>
 				<a href="https://ok.ru/profile/329270985047" title="ОдноКлассники" target="_blank">
-					<img src="/img/social/ok.png" alt="ОдноКлассники" />
+					<img src="{% static '7yanika/social/ok.png' %}" alt="ОдноКлассники" />
 				</a>
 			</article>
 			<article>
 				<a href="https://www.facebook.com/profile.php?id=100011374764032" title="FaceBook" target="_blank">
-					<img src="/img/social/fb.png" alt="FaceBook" />
+					<img src="{% static '7yanika/social/fb.png' %}" alt="FaceBook" />
 				</a>
 			</article>
 			<article>
 				<a href="https://www.youtube.com/channel/UCZOunpCQtO2J2Ro5A3BkswA" title="YouTube" target="_blank">
-					<img src="/img/social/yt.png" alt="YouTube" />
+					<img src="{% static '7yanika/social/yt.png' %}" alt="YouTube" />
 				</a>
 			</article>
 			<article>
 				<a href="https://vk.com/id303326087" title="VKontakte" target="_blank">
-					<img src="/img/social/vkontakte.png" alt="VKontakte" />
+					<img src="{% static '7yanika/social/vkontakte.png' %}" alt="VKontakte" />
 				</a>
 			</article>
 			<article>
 				<a href="https://wa.me/79185770009" title="WhatsApp" target="_blank">
-					<img src="/img/social/wa.png" alt="WhatsApp" />
+					<img src="{% static '7yanika/social/wa.png' %}" alt="WhatsApp" />
 				</a>
 			</article>
 			<article>
 				<a href="https://teleg.link/oksanasemyanika" title="Telegram" target="_blank">
-					<img src="/img/social/tg.png" alt="Telegram" />
+					<img src="{% static '7yanika/social/tg.png' %}" alt="Telegram" />
 				</a>
 			</article>
 		</div>
