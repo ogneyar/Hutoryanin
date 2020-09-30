@@ -18,4 +18,5 @@ urlpatterns = [
     path("7yanika/", bots.views.semyanika, name="7yanika"),
     path("vanilla/", bots.views.vanilla, name="vanilla"),
     path("fullPageScrolling/", bots.views.fullPageScrolling, name="fullPageScrolling"),
+    path("neonButton/", bots.views.neonButton, name="neonButton"),
 ]

@@ -43,90 +43,113 @@ body {
 	float: left;
 }
 
+@media (min-width: 800px) {
+label {font-size: 2em;}
+h1 { font-size: 2em; }
+h3 { font-size: 2em; }
+h4 { font-size: 2em; }
+}
+@media (max-width: 799px)  and (min-width: 500px) {
+label {font-size: 1.7em;}
+h1 { font-size: 1.7em; }
+h3 { font-size: 1.7em; }
+h4 { font-size: 1.7em; }
+}
+@media (max-width: 499px) {
+label {	font-size: 1.5em;}
+h1 { font-size: 1.5em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.5em; }
+.span_dop {display: none;}
+}
+
+/*
 @media (min-width: 1300px) {
 	h1 { font-size: 3em; }
 	h3 { font-size: 2.5em; }
 	h4 { font-size: 2.25em; }
 	h5 { font-size: 1.8em; }
-	p label { font-size: 3em; }
+	label { font-size: 2em; }
 }
 @media (max-width: 1299px)  and (min-width: 1000px) {
 	h1 { font-size: 2.5em; }
 	h3 { font-size: 2.1em; }
 	h4 { font-size: 1.9em; }
 	h5 { font-size: 1.6em; }
-	p label { font-size: 2.5em; }
+	label { font-size: 2em; }
 }
 @media (max-width: 999px)  and (min-width: 800px) {
 	h1 { font-size: 2em; }
 	h3 { font-size: 1.7em; }
 	h4 { font-size: 1.5em; }
 	h5 { font-size: 1.3em; }
-	p label { font-size: 2em; }
+	label { font-size: 2em; }
 }
 @media (max-width: 799px) and (min-width: 700px) {
 	h1 { font-size: 1.8em; }
 	h3 { font-size: 1.5em; }
 	h4 { font-size: 1.3em; }
 	h5 { font-size: 1.1em; }
-	p label { font-size: 1.8em; }
+	label { font-size: 1.8em; }
 }
 @media (max-width: 699px) and (min-width: 600px) {
 	h1 { font-size: 1.7em; }
 	h3 { font-size: 1.4em; }
 	h4 { font-size: 1.2em; }
 	h5 { font-size: 1em; }
-	p label { font-size: 1.7em; }
+	label { font-size: 1.7em; }
 }
 @media (max-width: 599px) and (min-width: 540px) {
 	h1 { font-size: 1.6em; }
 	h3 { font-size: 1.3em; }
 	h4 { font-size: 1.1em; }
 	h5 { font-size: 0.9em; }
-	p label { font-size: 1.6em; }
+	label { font-size: 1.6em; }
 }
 @media (max-width: 539px) and (min-width: 490px) {
 	h1 { font-size: 1.4em; }
 	h3 { font-size: 1.1em; }
 	h4 { font-size: 0.9em; }
 	h5 { font-size: 0.7em; }
-	p label { font-size: 1.4em; }
+	label { font-size: 1.4em; }
 }
 @media (max-width: 489px) and (min-width: 440px) {
 	h1 { font-size: 1.3em; }
 	h3 { font-size: 1em; }
 	h4 { font-size: 0.8em; }
 	h5 { font-size: 0.6em; }
-	p label { font-size: 1.4em; }
+	label { font-size: 1.4em; }
 }
 @media (max-width: 439px) and (min-width: 390px) {
 	h1 { font-size: 1.2em; }
 	h3 { font-size: 0.9em; }
 	h4 { font-size: 0.7em; }
 	h5 { font-size: 0.5em; }
-	p label { font-size: 1.4em; }
+	label { font-size: 1.4em; }
 }
 @media (max-width: 389px) and (min-width: 340px) {
 	h1 { font-size: 1.1em; }
 	h3 { font-size: 0.8em; }
 	h4 { font-size: 0.6em; }
 	h5 { font-size: 0.4em; }
-	p label { font-size: 1.4em; }
+	label { font-size: 1.4em; }
 }
 @media (max-width: 339px) and (min-width: 300px) {
 	h1 { font-size: 1em; }
 	h3 { font-size: 0.7em; }
 	h4 { font-size: 0.5em; }
 	h5 { font-size: 0.35em; }
-	p label { font-size: 1.4em; }
+	label { font-size: 1.4em; }
 }
 @media (max-width: 299px) {
 	h1 { font-size: 0.9em; }
 	h3 { font-size: 0.6em; }
 	h4 { font-size: 0.4em; }
 	h5 { font-size: 0.3em; }
-	p label { font-size: 1.4em; }
+	label { font-size: 1.4em; }
 }
+*/
+
 
 /* -------------------------------
 Выделение текста
@@ -154,7 +177,7 @@ header #logo {
 
 #contact h1 p {
 	text-shadow: 1px 1px 2px green, 0 0 2em white;
-	color: green;
+	color: white;
 }
 #contact h3 p {
 	text-shadow: 1px 1px 2px green, 0 0 2em white;

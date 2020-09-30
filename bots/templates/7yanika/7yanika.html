@@ -73,7 +73,7 @@
 		<span id="contact">
 			<center>
 				<h3><p>Знакомства для создания семьи.</p></h3>
-				<h1><p>Тел: +7(918)577-00-09</p></h1>
+				<h1><p><b>Тел: +7(918)577-00-09</b></p></h1>
 			</center>
 		</span>
 	</div>
@@ -105,93 +105,155 @@
 				</a>
 			</article>
 			<article id="topColText">
-				<h3><span>7яника</span> - создание семьи!</h3>
+				<h3><span>7яника</span><span class="span_dop"> - создание семьи!</span></h3>
 			</article>
 		</div>
 		<div id="leftCol">		
-			<article id="glavnaya">
+			<article>
 				<div>
 
-				<img src="{% static '7yanika/photo_34703.jpg' %}">
+					<center>
 
-				<br>
-				<center>
-				<h1>
-				Информация для всех!
-				</h1>
-				</center>
-				<br>
+					<h3>
+					Подача заявки на знакомство. 
+					</h3>
 
-				<h3>
-				&nbsp;&nbsp;&nbsp;Пожалуйста, заполняйте заявку на знакомство на нашем сайте и присоединяйтесь в наш дружный коллектив единомышленников Семьяника!
-				</h3>
-				<h3>
-				&nbsp;&nbsp;&nbsp;Сообщите о себе руководителю Центра Семьяника, предварительным личным звонком, или удобным для вас способом: 
-				отправьте смс – сообщение, в том числе WhatsAp, Telegram.
-				</h3><br />
-				<h3><center>
-				тел. 8-918-577-000-9  (12-20 час)
-				</center></h3><br>
-				<h3>
-				&nbsp;&nbsp;&nbsp;Обязательно укажите в заявке: <br>
-				&nbsp;&nbsp;&nbsp;	•	имя, возраст, <br>
-				&nbsp;&nbsp;&nbsp;	•	населенный пункт проживания,<br>
-				&nbsp;&nbsp;&nbsp;	•	ваш контактный номер телефона (сотовый) и удобное время для звонка,<br>
-				&nbsp;&nbsp;&nbsp;	•	электронный адрес (если есть), <br>
-				&nbsp;&nbsp;&nbsp;	•	ваш контактный телефон в  приложениях WhatsAp, Telegram (если есть),  для обратной связи с вами.<br>
-				</h3><br>
-				<h3>
-				&nbsp;&nbsp;&nbsp;Руководитель Центра, Оксана Семьяника, позвонит вам, в течение недели, и назначит индивидуальную встречу, в удобное для вас время, для обсуждения вашего запроса и наилучшего предложения по выбору партнера.
-				</h3>
-				<h3>
-				&nbsp;&nbsp;&nbsp;Мы гарантируем вам внимательное сопровождение, достоверность информации, в течение всего времени поиска партнера. Индивидуальный, гибкий подход в решении вашей задачи, через частный, конфиденциальный диалог и объективное рукопожатие.
-				</h3>
-				<h3>
-				&nbsp;&nbsp;&nbsp;Фото и контактную информацию претендента на знакомство, предоставляю после подробного обсуждения вашего запроса и анализа на совместимость, только по обоюдному согласию претендентов.
-				</h3><br>
-				<h3>
-				&nbsp;&nbsp;&nbsp;Узнавайте все подробности у руководителя Центра Семьяника.
-				</h3><br />
+					
+						<form action="podtverjdenie.php" method="post" enctype="multipart/form-data" id="demo-form">
+						
+						<br>		
+							<input type="hidden" name="zayavka" id="zayavka" value="Да">
+							<input type="hidden" name="token" id="token">
+							<input type="hidden" name="action" id="action">
+							
+							<label>Введите Ваше имя: <font color="red">*</font><br></label>			
+							<input type="text" placeholder="Введите имя..." name="imya" id="imya" size="15" maxlength="100">
+						<br><br>
+						
+							<label>Укажите дату рождения: <font color="red">*</font><br></label>
+							<input type="text" placeholder="Ваш возраст..." name="vozrast" id="vozrast" size="15" maxlength="100">
+						<br><br>	
+									
+							<label>Место проживания: <font color="red">*</font><br></label>
+							<input type="text" placeholder="Населённый пункт..." name="projivanie" id="projivanie" size="20" maxlength="1000">
+						<br><br>	
+							
+							<label>Ваше образование:<br></label>
+							<input type="text" placeholder="Образование..." name="obrazovanie" id="obrazovanie" size="20" maxlength="200">
+						<br><br>	
+								
+							<label>Профессия, род деятельности:<br></label>
+							<input type="text" placeholder="Профессия..." name="profesiya" id="profesiya" size="20" maxlength="200">
+						<br><br>	
+							
+							<label>Дети, их пол и возраст:<br></label>
+							<textarea placeholder="Дети есть?..." rows="5" cols="25" name="deti" id="deti"></textarea>
+						<br><br>	
+							
+							<label>Возможен ли переезд?<br></label>
+							<input type="text" placeholder="Возможен ли?..." name="pereezd" id="pereezd" size="15" maxlength="100">
+						<br><br>		
+							
+							<label>Укажите данные для связи с Вами (телефон, email, соц.сеть): <font color="red">*</font><br></label>
+							<input type="text" placeholder="Телефон, email..." name="dannie" id="dannie" size="20" maxlength="200">
+						<br><br>		
+							
+							<label>Загрузите фото (нужен фотопортрет без солнцезащитных очков и в полный рост): <font color="red">*</font><br></label>
+							<input type="file" name="file" id="file" accept=".jpg, .jpeg, .png">	
+						<br><br> 
+							
+								
+							<input type="submit" class="button" name="done" id="done" value="Отправить заявку">
+							
+						<br><br>
+							
+						</form>
+					
 
-				<center>
-				<h3>
-				oksana7yanika@mail.ru
-				</h3>
-				</center>
+					<h3><br>
+					Отправка сообщения.
+					</h3>	
+
+					<h4>
+						<form action="podtverjdenie.php" method="post" enctype="multipart/form-data">
+							
+						<br>		
+							<input type="hidden" name="message" id="message" value="Да">
+							<input type="hidden" name="token" id="token">
+							<input type="hidden" name="action" id="action">
+								
+							<label>Напишите сообщение, укажите данные для связи с Вами (телефон, email, соц.сеть):<br></label>
+							<textarea placeholder="Ваше сообщение..." rows="5" cols="25" name="msg" id="msg"></textarea>
+						<br><br>	
+							
+							<input type="submit" class="button" name="done2" id="done2" value="Отправить сообщение">
+						<br><br>
+							
+						</form>
+					</h4>
+
+					<h3><br>
+					Ожидайте ответа руководителя.
+					</h3>
+
+					</center>
+
+					<h3>
+					&nbsp;&nbsp;&nbsp;&nbsp;Мы позвоним вам, чтобы обсудить подробности и назначить встречу(для местных жителей), в удобное для вас время.
+					</h3>	
 
 				</div>
 			</article>
-		</div>
+
+			<script>
+						let captcha_action = 'add_comment';
+					 
+						grecaptcha.ready(function() {
+							grecaptcha.execute('6LfQ4rIZAAAAAE0Fuv294UR55S8IYXKXciVt28_C', {action: captcha_action})
+								.then(function(token) {
+									if (token) {
+										document.getElementById('token').value = token;
+										document.getElementById('action').value = captcha_action;
+									}
+								});
+						});
+			</script>
+			
+		</div>						
+		<!-- leftCol-->
+		
+		
+		
 		<div id="rightCol">
 			<article>
 				<br>
 				<center>
 				<h3><span>Страницы!</span></h3>	
-				<h5><br><br>
+				<h3><br><br>
 					<a href='/obzor_meropriyatiy/index.php' title='Обзор мероприятий'>
 						Обзор мероприятий
 					</a>
-				</h5>
-				<h5><br><br>
+				</h3>
+				<h3><br><br>
 				<a href='/poryadok_meropriyatiy/index.php' title='Порядок мероприятий'>
 					Порядок мероприятий
 				</a>
-				</h5>
-				<h5><br><br>
+				</h3>
+				<h3><br><br>
 					<a href='/sotrudnichestvo/index.php' title='Сотрудничество'>
 						Сотрудничество
 					</a>
-				</h5>
-				<h5><br><br>
+				</h3>
+				<h3><br><br>
 					<a href='/partneri/index.php' title='Наши партнеры'>
 						Наши партнеры
 					</a>
-				</h5>
-				<h5><br><br>
+				</h3>
+				<h3><br><br>
 					<a href='/sovet-da-lubov/index.php' title='Совет-да-любовь'>
 						Совет-да-любовь
 					</a>
-				</h5>
+				</h3>
 				</center>
 				<br>
 			</article>
@@ -263,7 +325,13 @@
 			</script>
 
 		</div>
+		
+		<!-- rightCol-->
+		
+		
 	</div>
+	
+	
 	<footer>		
 	<div>
 		<div id="rights">

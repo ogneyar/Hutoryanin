@@ -16,26 +16,33 @@ def header():
     response = HttpResponse()
 
     # вывод на экран
+    response.write("<style type='text/css'>a{text-decoration: none; border: 1px solid #8c8c8c; border-radius: 5px; margin: 5px; padding: 5px 10px;}</style>")
+
     response.write("<h1>Добро пожаловать!</h1>")
 
-    response.write("<a href='/test/getcookie'>getCokie</a>  |  ")
-    response.write("<a href='/test/cookie'>cokie</a>  |  ")
-    response.write("<a href='/test/session'>session</a>  |  ")
-    response.write("<a href='/test/parser'>parser</a>  |  ")
-    response.write("<a href='/test'>назад</a>  |  ")
+    response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    response.write("<a href='/test/prizm'>TESTMarket</a>")
+    response.write("<a href='/test/7yanika'>TEST7yanika</a>")
 
-    response.write("<a href='#' style='text-decoration: none;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>  |  ")
-    response.write("<a href='/test/prizm'>TESTMarket</a>  |  ")
-    response.write("<a href='/test/7yanika'>TEST7yanika</a>  |  ")
-    response.write("<a href='#' style='text-decoration: none;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>  |  ")
-    response.write("<a href='/test/vanilla'>vanilla</a>  |  ")
-    response.write("<a href='/test/fullPageScrolling'>fullPageScrolling</a>  |  ")
+    response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    response.write("<a href='https://sph.hutoryanin.online'>Sprint</a>")
+    response.write("<a href='https://heroku.hutoryanin.online'>Heroku</a>")
+    response.write("<a href='https://beget.hutoryanin.online'>Beget</a><br><br><br><br>")
 
-    response.write("<a href='#' style='text-decoration: none;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>  |  ")
-    response.write("<a href='https://sph.hutoryanin.online'>Sprint</a>  |  ")
-    response.write("<a href='https://heroku.hutoryanin.online'>Heroku</a>  |  ")
-    response.write("<a href='https://beget.hutoryanin.online'>Beget</a>  |  <br><br>")
 
+    response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    response.write("<a href='/test/vanilla'>vanilla</a>")
+    response.write("<a href='/test/fullPageScrolling'>fullPageScrolling</a>")
+    response.write("<a href='/test/neonButton'>neonButton</a><br><br><br><br>")
+
+
+    response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    response.write("<a href='/test/getcookie'>getCokie</a>")
+    response.write("<a href='/test/cookie'>cokie</a>")
+    response.write("<a href='/test/session'>session</a>")
+    response.write("<a href='/test/parser'>parser</a>")
+    response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    response.write("<a href='/test'>Назад</a><br><br>")
 
     return response
 
