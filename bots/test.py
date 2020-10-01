@@ -17,6 +17,8 @@ def header():
 
     # вывод на экран
     response.write("<style type='text/css'>a{text-decoration: none; border: 1px solid #8c8c8c; border-radius: 5px; margin: 5px; padding: 5px 10px;}</style>")
+    
+    response.write("<meta name='viewport' content='user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=1.0'>")
 
     response.write("<h1>Добро пожаловать!</h1>")
 
