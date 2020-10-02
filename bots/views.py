@@ -11,7 +11,7 @@ def semyanika(request):
     
 def hutor(request):
 
-    return render(request, "hutoryanin/index.html")
+    return render(request, "hutoryanin/hutor.html")
 
 def vanilla(request):
 
