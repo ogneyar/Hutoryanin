@@ -31,6 +31,34 @@
 	
 	<style type="text/css">
 	    
+	    . {
+	        margin: 0;
+	        padding: 0;
+	        font-family: sans-serif;
+	    }
+	    body {
+	        display: flex;
+	        /*flex-column: center;*/
+	        justify-content: center; /*Центрирование в блоке по горизонтали*/
+	    	align-items: center; /*Центрирование в блоке по вертикали*/
+		    min-height: 100vh; /*растяжение блока на весь экран*/
+	    	background: #f1f1f1;
+	    }
+	    a {
+	        text-decoration: none;
+	        padding: 20px;
+	        margin: 5px;
+	    }
+	    .btn {
+	        border: 1px solid color(0,0,0,0);
+	    }
+	    .btn-line-black {
+	        border: 1px solid color(0,0,0,1);
+	    }
+	    .btn-line-black {
+	        border: 1px solid color(0,0,0,1);
+	        background: color(0,0,0,1);
+	    }
 	    
 	    
 	</style>
@@ -46,7 +74,7 @@
 	  
 	  <nav class="my-2 my-md-0 mr-md-3 line-menu">
 		<!--<a class="btn btn-outline-dark" href="/">Главная</a>-->
-		<a class="btn btn-outline-dark" href="/public/1">Публикации</a>
+		<a class="btn btn-line-black" href="/public/1">Публикации</a>
 		<a class="btn btn-outline-primary" href="/products">Товары</a>
 		<a class="btn btn-outline-success" href="/promo">Акции</a>
 		<!--<a class="p-2 text-dark" href="/about">Обо мне</a>-->
