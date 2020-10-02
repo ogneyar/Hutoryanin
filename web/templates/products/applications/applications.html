@@ -23,8 +23,10 @@
 	<div class="card mb-4 shadow-sm contain">		  
 		<div class="box">	  
 			<h2 class="name">Сайт</h2>			
-			<a class="btn btn-success buy" href="{% url 'site' %}">Описание</a>				
-			<img class="mb-2 product" src="{% static 'products/applications/site.jpg'%}" alt="" width="100%">
+			<a class="btn btn-success buy" href="{% url 'site' %}">Описание</a>		
+			<a href="{% url 'site' %}">
+				<img class="mb-2 product" src="{% static 'products/applications/site.jpg'%}" alt="" width="100%">
+			</a>
 		</div>	  
 		<br>
 		<a class="btn btn-outline-danger" href="{% url 'site' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
@@ -37,7 +39,9 @@
       <div class="box">
 		<h2 class="name">Телеграм бот</h2>
 		<a class="btn btn-success buy" href="{% url 'tgbot' %}">Описание</a>
-		<img class="mb-2 product" src="{% static 'products/applications/tgbot.jpg'%}" alt="" width="100%">
+		<a href="{% url 'tgbot' %}">
+			<img class="mb-2 product" src="{% static 'products/applications/tgbot.jpg'%}" alt="" width="100%">
+		</a>
       </div>
 	  <br>
 		<a class="btn btn-outline-danger" href="{% url 'tgbot' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
@@ -50,7 +54,9 @@
       <div class="box">
 		<h2 class="name">ВКонтакте бот</h2>
 		<a class="btn btn-success buy" href="{% url 'vkbot' %}">Описание</a>
+		<a href="{% url 'vkbot' %}">
 		<img class="mb-2 product" src="{% static 'products/applications/vkbot.jpg'%}" alt="" width="100%">
+		</a>
       </div>
 	  <br>
 		<a class="btn btn-outline-danger" href="{% url 'vkbot' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
@@ -62,7 +68,9 @@
       <div class="box">
 		<h2 class="name">Андроид приложение</h2>
 		<a class="btn btn-success buy" href="{% url 'android' %}">Описание</a>
-		<img class="mb-2 product" src="{% static 'products/applications/android.jpg'%}" alt="" width="100%">
+		<a href="{% url 'android' %}">
+			<img class="mb-2 product" src="{% static 'products/applications/android.jpg'%}" alt="" width="100%">
+		</a>
       </div>
 	  <br>
 		<a class="btn btn-outline-danger" href="{% url 'android' %}creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>

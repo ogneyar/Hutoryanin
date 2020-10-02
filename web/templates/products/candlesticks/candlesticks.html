@@ -23,8 +23,10 @@
 	<div class="card mb-4 shadow-sm contain">		  
 		<div class="box">	  
 			<h2 class="name">Подсвечник "макси"</h2>			
-			<a class="btn btn-success buy" href="{% url 'high_candlestick' %}">Описание</a>				
-			<img class="mb-2 product" src="{% static 'products/candlesticks/high_candlestick.jpg'%}" alt="" width="100%">
+			<a class="btn btn-success buy" href="{% url 'high_candlestick' %}">Описание</a>		
+			<a href="{% url 'high_candlestick' %}">			
+				<img class="mb-2 product" src="{% static 'products/candlesticks/high_candlestick.jpg'%}" alt="" width="100%">
+			</a>
 		</div>	  
 		<br>
 		<a class="btn btn-outline-danger" href="{% url 'high_candlestick' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>

@@ -23,8 +23,10 @@
 	<div class="card mb-4 shadow-sm contain">		  
 		<div class="box">	  
 			<h2 class="name">"Low Knife"</h2>			
-			<a class="btn btn-success buy" href="{% url 'low_knife' %}">Описание</a>				
-			<img class="mb-2 product" src="{% static 'products/knives/low_knife.jpg'%}" alt="" width="100%">
+			<a class="btn btn-success buy" href="{% url 'low_knife' %}">Описание</a>
+			<a href="{% url 'low_knife' %}">			
+				<img class="mb-2 product" src="{% static 'products/knives/low_knife.jpg'%}" alt="" width="100%">
+			</a>
 		</div>	  
 		<br>
 		<a class="btn btn-outline-danger" href="{% url 'low_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
@@ -37,7 +39,9 @@
       <div class="box">
 		<h2 class="name">"Middle Knife"</h2>
 		<a class="btn btn-success buy" href="{% url 'middle_knife' %}">Описание</a>
-		<img class="mb-2 product" src="{% static 'products/knives/middle_knife.jpg'%}" alt="" width="100%">
+		<a href="{% url 'middle_knife' %}">
+			<img class="mb-2 product" src="{% static 'products/knives/middle_knife.jpg'%}" alt="" width="100%">
+		</a>
       </div>
 	  <br>
 		<a class="btn btn-outline-danger" href="{% url 'middle_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
@@ -50,7 +54,9 @@
       <div class="box">
 		<h2 class="name">"High Knife"</h2>
 		<a class="btn btn-success buy" href="{% url 'high_knife' %}">Описание</a>
-		<img class="mb-2 product" src="{% static 'products/knives/high_knife.jpg'%}" alt="" width="100%">
+		<a href="{% url 'high_knife' %}">
+			<img class="mb-2 product" src="{% static 'products/knives/high_knife.jpg'%}" alt="" width="100%">
+		</a>
       </div>
 	  <br>
 		<a class="btn btn-outline-danger" href="{% url 'high_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>

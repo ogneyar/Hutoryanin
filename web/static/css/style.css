@@ -28,6 +28,10 @@ body {
 	margin: 0;
 	padding: 0;
 }
+h1 {
+	margin: 0;
+	padding: 0;
+}
 a {
 	text-decoration: none;
 }
@@ -143,31 +147,44 @@ input {
 /* -------------- */
 
 
-
-
-
 .main {
-	/*float: left;*/
-	max-width: 960px;	
-	text-align: center;
-	/*
-	display: grid;
-	grid-template-columns: auto auto auto;
-	grid-template-rows: 100px 100px;
+	display: flex;	
+	flex-direction: column;
 	
-	grid-gap: 50px 30px;
-	*/	
+	background: blue;
+	/*max-width: 960px;*/
+
+	text-align: center;
+	/*padding: 0 20px;	*/
 }
 
+@media (min-width: 960px) {
+    .main {
+		width: 70%;	
+		margin-left: 15%;
+		margin-right: 15%;		
+	}
+}
+@media (max-width: 959px) {
+	.main {
+		width: 100%;	
+		margin-left: 0;
+		margin-right: 0;	
+	}
+}
+
+
 .header {
-	background: yellow;
-	
-	padding: 20px;
-	margin: 20px;
-	
-	position: relative;
-	top: 100px;
-	left: 0;
+	/*background: yellow;*/	
+	background: #f7f7f7;
+	padding: 20px;	
+	/*width: 70%;	*/
+	text-align: center;	
+}
+
+.content {
+	background: violet;	
+	text-align: center;	
 }
 
 

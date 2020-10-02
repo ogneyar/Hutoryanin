@@ -27,10 +27,12 @@
 	width: 100%;	
 	/*background: yellow;	*/
 	background: #f7f7f7;
-	/*padding: 20px 0;*/
-	padding-bottom: 20px;
+	padding: 20px 0;
+	/*padding-bottom: 20px;*/
 	/*border-bottom: 1px solid #e1e1e1;	*/
 	box-shadow: 0 3px 4px 0 rgba(0,0,0,0.1);
+	
+	margin-bottom: 20px;
 }
 
 .menu  .nav {	
@@ -58,29 +60,39 @@
 	/*background: white;	*/
 }
 
-@media (max-width: 499px){	
+/* Мобильная версия меню */
+@media (max-width: 519px){	
 	.menu {
 		display: none;
 	}	
 }
-@media (min-width: 500px){	
+/* Средний режим меню */
+@media (min-width: 520px) and (max-width: 699px){	
 	.menu-mobile {
 		display: none;			
 	}	
-}
-
-@media (min-width: 500px) and (max-width: 700px){	
 	.menu  .logo{
 		text-align: center;
-		/*width: 100%;
-		display: none;		*/
-		float: none;
+		float: none;		
 	}	
 	.menu  .nav{
 		text-align: center;
 		float: none;	
-	}	
+	}		
+	.menu, .menu-mobile {	
+		padding: 10px 0;		
+	}
 }
+/* Максимальный режим меню */
+@media (min-width: 700px){	
+	.menu-mobile {
+		display: none;			
+	}	
+	.menu, .menu-mobile {
+		margin-bottom: 30px;		
+	}
+}
+
 
 .submenu {
 	list-style: none;   	
