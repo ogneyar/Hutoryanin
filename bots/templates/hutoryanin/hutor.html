@@ -26,8 +26,8 @@
 	<!--<link rel="icon" href="{% static 'logo.png'%}">
 	<meta name="theme-color" content="#563d7c">-->
 
-	<link href="{% static 'css/base.css'%}" rel="stylesheet">	
-	<link href="{% static 'css/vanilla.css'%}" rel="stylesheet">
+	<!--<link href="{% static 'css/base.css'%}" rel="stylesheet">	
+	<link href="{% static 'css/vanilla.css'%}" rel="stylesheet">-->
 	
 	
 	
@@ -46,6 +46,250 @@
 		    /*min-height: 100vh; растяжение блока на весь экран*/
 	    	background: #f1f1f1;
 	    }
+	    
+font-face {
+  font-family: 'FontAwesome';
+  src: url('/static/fonts/font-awesome/fontawesome-webfont.eot?v=4.7.0');
+  src: url('/static/fonts/font-awesome/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('/static/fonts/font-awesome/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('/static/fonts/font-awesome/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('/static/fonts/font-awesome/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('/static/fonts/font-awesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+	font-size: 14px;
+}
+@media (min-width: 768px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+.container {
+	max-width: 960px;
+}
+
+.pricing-header {
+	max-width: 700px;
+}
+
+.card-deck .card {
+	min-width: 220px;
+}
+		
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@media (min-width: 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+		  
+textarea {
+	width: 75%;
+	height: 325px; 
+	resize: none; /* Запрещаем изменять размер */
+}
+		  
+input {
+	width: 75%;
+}
+		  
+.btn {
+	margin-bottom:5px;
+}
+	
+.fa {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;			
+	/*font-family: Times New Roman, sans-serif;*/
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.fa-bars:before{
+	content:"\f0c9"
+}
+.fa-lg {
+	font-size: 3em;
+	line-height: 0.75em;
+	vertical-align: -15%;
+}
+
+@media (max-width: 449px){
+	.line-menu {
+		display: none;
+	}
+	.menu {		
+		float: left;
+		width: 100%;
+	}			
+	.logo {
+		float: right;
+		margin-top: 7.5px;
+	}
+}
+@media (min-width: 450px){
+	.topmenu {
+		display: none;
+	}			
+}
+		
+.submenu {
+	list-style: none;   	
+	margin: 0;
+	padding: 20px;	
+	
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 10;
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out;
+	
+	display: none;
+	background: #f0f0f0;	
+	border: 1px solid #8c8c8c;
+	border-radius: 5px;
+}
+.topmenu_li {
+	display: inline-block;
+	margin: 0px;
+	margin-left: -30px;
+	float: left;
+	position: relative;	
+	
+	padding: 10px 0;
+	text-decoration: none;
+	outline: none;
+	transition: .5s linear;
+}
+.topmenu_li:last-child {
+	margin-right: 0;
+}
+
+.submenu a {
+	/*border-bottom: 1px solid #8c8c8c;*/
+	padding: 10px 15px;
+	color: #8c8c8c;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	float: left;
+}
+
+.topmenu_li:hover .submenu {
+	display: block;
+}
+
+	.container {
+		position: relative;
+		/*display: -webkit-box;
+		display: -ms-flexbox;*/
+		display: flex;
+		justify-content: center; /* Центрирование в блоке по горизонтали */
+		align-items: center; /* Центрирование в блоке по вертикали */
+		flex-wrap: wrap;		
+		width: 100%;
+		transform-style: preserve-3d;
+	}
+	.container .box {
+		position: relative;
+		width: 100%;
+		height: 400px;
+		background: #e1e1e1;
+		border-radius: 20px;
+		transform-style: preserve-3d;
+	}
+	.container .box::before {
+		content: 'ХуторянинЪ';
+		position: absolute;
+		top: 10px;
+		left: 5px;
+		font-size: 2.1em;
+		font-weight: 900; /* жирный текст */
+		color: #000;/**/
+		font-style: italic;
+		opacity: 0;	/* видимость объекта откл */
+		transition: 0.5s; /* задержка появления */
+	}	
+	.container .box::after {
+		content: 'ХуторянинЪ';
+		position: absolute;
+		bottom: 10px;
+		right: 5px;
+		font-size: 2.1em;
+		font-weight: 900; /* жирный текст */
+		color: #000;/**/
+		font-style: italic;
+		opacity: 0;	/* видимость объекта откл */
+		transition: 0.5s; /* задержка появления */
+	}
+	.container .box:hover::before,
+	.container .box:hover::after {
+		opacity: 0.05; /* полупрозрачная видимость объекта */
+	}
+	.container .box .name {
+		position: absolute;
+		top: 15px;
+		left: 0;
+		text-align: center;
+		color: #fff;
+		width: 100%;
+		transform-style: preserve-3d;
+		transform: translate3d(0,0,75px);/**/
+		transition: 0.5s; /* задержка появления */		
+		z-index: 10;
+	}
+	.container .box:hover .name {
+		color: #000;
+		top: 70px;
+		background: #fff;
+	}
+	.container .box .buy {
+		position: absolute;
+		bottom: 5px;
+		left: 50%;
+		transform-style: preserve-3d;
+		transform: translate3d(-50%,0,75px);
+		color: #fff;		
+		padding: 10px 15px;		
+		text-decoration: none;
+		transition: 0.5s; /* задержка появления */		
+		z-index: 10;
+	}
+	.container .box:hover .buy {
+		bottom: 70px;
+	}	
+	.container .box .product {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		max-width: 280px;
+		transition: 0.5s;
+		z-index: 8;
+		transition: 0.5s;
+		transform-style: preserve-3d;
+		transform: translate3d(-50%,-50%,0px); /* rotate(-5deg);  rotate - наклон */
+	}	
+	.container .box:hover .product {
+		transform: translate3d(-50%,-50%,70px) rotate(-3deg);
+	}
+	
+	
+
+	    
+	    
 	    a {
 	        text-decoration: none;
 	    }
@@ -85,6 +329,7 @@
 	    
 	    .menu {
 	        width: 100%;
+	        margin: 40px;
 	    }
 	    /*
 	    .d-flex {
@@ -92,7 +337,7 @@
 	    }
 	    */
 	    .card-deck {
-	        min-width: 33%;
+	        width: 33%;
 	    }
 	</style>
 	
