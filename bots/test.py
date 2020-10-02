@@ -25,6 +25,7 @@ def header():
     response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
     response.write("<a href='/test/prizm'>TESTMarket</a>")
     response.write("<a href='/test/7yanika'>TEST7yanika</a>")
+    response.write("<a href='/test/hutor'>TESThutor</a>")
 
     response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
     response.write("<a href='https://sph.hutoryanin.online'>Sprint</a>")

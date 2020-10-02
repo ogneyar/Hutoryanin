@@ -8,6 +8,10 @@ def prizm(request):
 def semyanika(request):
 
     return render(request, "7yanika/7yanika.html")
+    
+def hutor(request):
+
+    return render(request, "hutoryanin/index.html")
 
 def vanilla(request):
 
