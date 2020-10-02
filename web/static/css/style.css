@@ -1,21 +1,35 @@
-﻿body {
-background: green;
+﻿@font-face {
+    font-family: 'NaturalMono'; 
+    src: url('/static/fonts/NaturalMono.ttf'); 
 }
-
-/*
-. {
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
+@font-face {
+    font-family: 'mr_AfronikG'; 
+    src: url('/static/fonts/mr_AfronikG.ttf'); 
 }
-
+@font-face {
+    font-family: 'Verdana'; 
+    src: url('/static/fonts/Verdana.ttf'); 
+}
 html {
+	/*font-family: sans-serif;*/
+	/*font-family: "Courier New", Courier, monospace;*/
+	font-family: Verdana;
 	font-size: 14px;
 }
 @media (min-width: 768px) {
 	html {
 		font-size: 16px;
 	}
+}
+
+body {
+	background: #f7f7f7; /* #f7f7f7 green */	
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
 }
 textarea {
 	width: 75%;
@@ -25,23 +39,46 @@ textarea {
 input {
 	width: 75%;
 }
-a {
-	text-decoration: none;
+.btn {	
+	padding: 10px 15px;	
+	border-radius: 5px;
 }
-body {
+.btn-outline-dark {
+	border: 1px solid black;
+	color: black;
+}
+.btn-outline-danger {
+	border: 1px solid red;
+	color: red;
+}
+.btn-dark {
+	border: 1px solid black;
+	background: black;
+	color: white;
+}
+.btn-danger {
+	border: 1px solid red;
+	background: red;
+	color: white;
+}
 
-	display: flex;
-	flex-column: center;
-	justify-content: center; 
-	align-items: center;
-	min-height: 100vh;
-	background: #f1f1f1;
 
+.main {
+	/*float: left;*/
+	max-width: 960px;	
+	text-align: center;
+	/*
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: 100px 100px;
+	
+	grid-gap: 50px 30px;
+	*/	
 }
 
 
 
-
+/*
 
 
 .bd-placeholder-img {
@@ -57,9 +94,7 @@ body {
 		font-size: 3.5rem;
 	}
 }
-.container {
-	max-width: 960px;
-}
+
 .pricing-header {
 	max-width: 700px;	
 }
@@ -70,32 +105,8 @@ body {
 	min-width: 220px;
 }
 
-.btn {	
-	padding: 10px 15px;	
-	border-radius: 5px;
-}
 
-.text-center {
-	text-align: center;
-}
-.btn-outline-dark {
-	border: 3px solid black;
-	color: black;
-}
-.btn-outline-danger {
-	border: 3px solid red;
-	color: red;
-}
-.btn-dark {
-	border: 3px solid black;
-	background: black;
-	color: white;
-}
-.btn-danger {
-	border: 3px solid red;
-	background: red;
-	color: white;
-}
+
 .d-flex {	
 	display: flex; 
 }
