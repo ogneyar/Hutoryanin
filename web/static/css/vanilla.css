@@ -1,16 +1,16 @@
-﻿	
-	.container {
+﻿    /* vanilla */
+	.contain {
 		position: relative;
 		/*display: -webkit-box;
 		display: -ms-flexbox;*/
 		display: flex;
 		justify-content: center; /* Центрирование в блоке по горизонтали */
 		align-items: center; /* Центрирование в блоке по вертикали */
-		flex-wrap: wrap;		
+		flex-wrap: wrap;
 		width: 100%;
 		transform-style: preserve-3d;
 	}
-	.container .box {
+	.contain .box {
 		position: relative;
 		width: 100%;
 		height: 400px;
@@ -18,7 +18,7 @@
 		border-radius: 20px;
 		transform-style: preserve-3d;
 	}
-	.container .box::before {
+	.contain .box::before {
 		content: 'ХуторянинЪ';
 		position: absolute;
 		top: 10px;
@@ -29,8 +29,8 @@
 		font-style: italic;
 		opacity: 0;	/* видимость объекта откл */
 		transition: 0.5s; /* задержка появления */
-	}	
-	.container .box::after {
+	}
+	.contain .box::after {
 		content: 'ХуторянинЪ';
 		position: absolute;
 		bottom: 10px;
@@ -42,11 +42,11 @@
 		opacity: 0;	/* видимость объекта откл */
 		transition: 0.5s; /* задержка появления */
 	}
-	.container .box:hover::before,
-	.container .box:hover::after {
+	.contain .box:hover::before,
+	.contain .box:hover::after {
 		opacity: 0.05; /* полупрозрачная видимость объекта */
 	}
-	.container .box .name {
+	.contain .box .name {
 		position: absolute;
 		top: 15px;
 		left: 0;
@@ -55,30 +55,30 @@
 		width: 100%;
 		transform-style: preserve-3d;
 		transform: translate3d(0,0,75px);/**/
-		transition: 0.5s; /* задержка появления */		
+		transition: 0.5s; /* задержка появления */
 		z-index: 10;
 	}
-	.container .box:hover .name {
+	.contain .box:hover .name {
 		color: #000;
 		top: 70px;
 		background: #fff;
 	}
-	.container .box .buy {
+	.contain .box .buy {
 		position: absolute;
 		bottom: 5px;
 		left: 50%;
 		transform-style: preserve-3d;
 		transform: translate3d(-50%,0,75px);
-		color: #fff;		
-		padding: 10px 15px;		
+		color: #fff;
+		padding: 10px 15px;
 		text-decoration: none;
-		transition: 0.5s; /* задержка появления */		
+		transition: 0.5s; /* задержка появления */
 		z-index: 10;
 	}
-	.container .box:hover .buy {
+	.contain .box:hover .buy {
 		bottom: 70px;
-	}	
-	.container .box .product {
+	}
+	.contain .box .product {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -88,8 +88,8 @@
 		transition: 0.5s;
 		transform-style: preserve-3d;
 		transform: translate3d(-50%,-50%,0px); /* rotate(-5deg);  rotate - наклон */
-	}	
-	.container .box:hover .product {
+	}
+	.contain .box:hover .product {
 		transform: translate3d(-50%,-50%,70px) rotate(-3deg);
 	}
 	

@@ -9,15 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Огънеяръ">
     <title>ХуторянинЪ</title>
-    
+
     <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 	<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
-	
+
 	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicons/apple-touch-icon.png'%}">
 	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicons/favicon-32x32.png'%}">
 	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicons/favicon-16x16.png'%}">
-	<link rel="manifest" href="{% static 'favicons/site.webmanifest'%}">	
+	<link rel="manifest" href="{% static 'favicons/site.webmanifest'%}">
 	<link rel="mask-icon" href="{% static 'favicons/safari-pinned-tab.svg'%}" color="#5bbad5">
 	<meta name="msapplication-config" content="{% static 'favicons/browserconfig.xml'%}">
 	<meta name="msapplication-TileColor" content="#dbecfe">
@@ -26,270 +26,27 @@
 	<!--<link rel="icon" href="{% static 'logo.png'%}">
 	<meta name="theme-color" content="#563d7c">-->
 
-	<!--<link href="{% static 'css/base.css'%}" rel="stylesheet">	
+	<!--<link href="{% static 'css/base.css'%}" rel="stylesheet">
 	<link href="{% static 'css/vanilla.css'%}" rel="stylesheet">-->
-	
-	
-	
+
+
+
 	<style type="text/css">
-	    
-	    . {
-	        margin: 0;
-	        padding: 0;
-	        font-family: sans-serif;
-	    }
-	    body {
-	        /*display: flex;*/
-	        /*flex-column: center;*/
-	        /*justify-content: center; Центрирование в блоке по горизонтали*/
-	    	/*align-items: center; Центрирование в блоке по вертикали*/
-		    /*min-height: 100vh; растяжение блока на весь экран*/
-	    	background: #f1f1f1;
-	    }
-	    
-font-face {
-  font-family: 'FontAwesome';
-  src: url('/static/fonts/font-awesome/fontawesome-webfont.eot?v=4.7.0');
-  src: url('/static/fonts/font-awesome/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('/static/fonts/font-awesome/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('/static/fonts/font-awesome/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('/static/fonts/font-awesome/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('/static/fonts/font-awesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 
-html {
-	font-size: 14px;
-}
-@media (min-width: 768px) {
-	html {
-		font-size: 16px;
-	}
-}
 
-.container {
-	max-width: 960px;
-}
-
-.pricing-header {
-	max-width: 700px;
-}
-
-.card-deck .card {
-	min-width: 220px;
-}
-		
-.bd-placeholder-img {
-	font-size: 1.125rem;
-	text-anchor: middle;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-@media (min-width: 768px) {
-	.bd-placeholder-img-lg {
-		font-size: 3.5rem;
-	}
-}
-		  
-textarea {
-	width: 75%;
-	height: 325px; 
-	resize: none; /* Запрещаем изменять размер */
-}
-		  
-input {
-	width: 75%;
-}
-		  
-.btn {
-	margin-bottom:5px;
-}
-	
-.fa {
-	display: inline-block;
-	font: normal normal normal 14px/1 FontAwesome;			
-	/*font-family: Times New Roman, sans-serif;*/
-	font-size: inherit;
-	text-rendering: auto;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-.fa-bars:before{
-	content:"\f0c9"
-}
-.fa-lg {
-	font-size: 3em;
-	line-height: 0.75em;
-	vertical-align: -15%;
-}
-
-@media (max-width: 449px){
-	.line-menu {
-		display: none;
-	}
-	.menu {		
-		float: left;
-		width: 100%;
-	}			
-	.logo {
-		float: right;
-		margin-top: 7.5px;
-	}
-}
-@media (min-width: 450px){
-	.topmenu {
-		display: none;
-	}			
-}
-		
-.submenu {
-	list-style: none;   	
-	margin: 0;
-	padding: 20px;	
-	
-	position: absolute;
-	top: 100%;
-	left: 0;
-	z-index: 10;
-	-webkit-transition: 0.5s ease-in-out;
-	-moz-transition: 0.5s ease-in-out;
-	-o-transition: 0.5s ease-in-out;
-	transition: 0.5s ease-in-out;
-	
-	display: none;
-	background: #f0f0f0;	
-	border: 1px solid #8c8c8c;
-	border-radius: 5px;
-}
-.topmenu_li {
-	display: inline-block;
-	margin: 0px;
-	margin-left: -30px;
-	float: left;
-	position: relative;	
-	
-	padding: 10px 0;
-	text-decoration: none;
-	outline: none;
-	transition: .5s linear;
-}
-.topmenu_li:last-child {
-	margin-right: 0;
-}
-
-.submenu a {
-	/*border-bottom: 1px solid #8c8c8c;*/
-	padding: 10px 15px;
-	color: #8c8c8c;
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	float: left;
-}
-
-.topmenu_li:hover .submenu {
-	display: block;
-}
-
-	.container {
-		position: relative;
-		/*display: -webkit-box;
-		display: -ms-flexbox;*/
-		display: flex;
-		justify-content: center; /* Центрирование в блоке по горизонтали */
-		align-items: center; /* Центрирование в блоке по вертикали */
-		flex-wrap: wrap;		
-		width: 100%;
-		transform-style: preserve-3d;
-	}
-	.container .box {
-		position: relative;
-		width: 100%;
-		height: 400px;
-		background: #e1e1e1;
-		border-radius: 20px;
-		transform-style: preserve-3d;
-	}
-	.container .box::before {
-		content: 'ХуторянинЪ';
-		position: absolute;
-		top: 10px;
-		left: 5px;
-		font-size: 2.1em;
-		font-weight: 900; /* жирный текст */
-		color: #000;/**/
-		font-style: italic;
-		opacity: 0;	/* видимость объекта откл */
-		transition: 0.5s; /* задержка появления */
-	}	
-	.container .box::after {
-		content: 'ХуторянинЪ';
-		position: absolute;
-		bottom: 10px;
-		right: 5px;
-		font-size: 2.1em;
-		font-weight: 900; /* жирный текст */
-		color: #000;/**/
-		font-style: italic;
-		opacity: 0;	/* видимость объекта откл */
-		transition: 0.5s; /* задержка появления */
-	}
-	.container .box:hover::before,
-	.container .box:hover::after {
-		opacity: 0.05; /* полупрозрачная видимость объекта */
-	}
-	.container .box .name {
-		position: absolute;
-		top: 15px;
-		left: 0;
-		text-align: center;
-		color: #fff;
-		width: 100%;
-		transform-style: preserve-3d;
-		transform: translate3d(0,0,75px);/**/
-		transition: 0.5s; /* задержка появления */		
-		z-index: 10;
-	}
-	.container .box:hover .name {
-		color: #000;
-		top: 70px;
-		background: #fff;
-	}
-	.container .box .buy {
-		position: absolute;
-		bottom: 5px;
-		left: 50%;
-		transform-style: preserve-3d;
-		transform: translate3d(-50%,0,75px);
-		color: #fff;		
-		padding: 10px 15px;		
-		text-decoration: none;
-		transition: 0.5s; /* задержка появления */		
-		z-index: 10;
-	}
-	.container .box:hover .buy {
-		bottom: 70px;
-	}	
-	.container .box .product {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		max-width: 280px;
-		transition: 0.5s;
-		z-index: 8;
-		transition: 0.5s;
-		transform-style: preserve-3d;
-		transform: translate3d(-50%,-50%,0px); /* rotate(-5deg);  rotate - наклон */
-	}	
-	.container .box:hover .product {
-		transform: translate3d(-50%,-50%,70px) rotate(-3deg);
-	}
-	
-	
-
-	    
-	    
+		. {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+		}
+		body {
+			/*display: flex;*/
+			/*flex-column: center;*/
+			/*justify-content: center; Центрирование в блоке по горизонтали*/
+			/*align-items: center; Центрирование в блоке по вертикали*/
+			/*min-height: 100vh; растяжение блока на весь экран*/
+			background: #f1f1f1;
+		}
 	    a {
 	        text-decoration: none;
 	    }
@@ -301,7 +58,7 @@ input {
 	        margin: 20px;
 	        border-radius: 5px;
 	    }
-	    
+
 	    .btn-outline-dark {
 	        border: 3px solid black;
 	        color: black;
@@ -326,30 +83,36 @@ input {
 	    .text-center {
 	        text-align: center;
 	    }
-	    
+
 	    .menu {
 	        width: 100%;
 	        margin: 40px;
 	    }
-	    /*
+/*
 	    .d-flex {
 	        display: flex;
 	    }
-	    */
+*/
 	    .card-deck {
+	        width: 100%;
+	    }
+        .card {
 	        width: 33%;
 	    }
+        .text-center {
+            text-align: center;
+        }
 	</style>
-	
-	
-	
+
+
+
   </head>
-  
+
 <body>
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm menu">	
-	
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm menu">
+
 	<a class="btn btn-danger logo-left line-menu" href="/">ХуторянинЪ</a>
-	
+
 	<nav class="line-menu nav">
 		<!--<a class="btn btn-outline-dark" href="/">Главная</a>-->
 		<a class="btn btn-outline-dark" href="/public/1">Публикации</a>
@@ -358,11 +121,11 @@ input {
 		<!--<a class="p-2 text-dark" href="/about">Обо мне</a>-->
 		<a class="btn btn-outline-warning" href="/support">Тех.поддержка</a>
 	</nav>
-	
+
 		<a class="btn btn-outline-danger topmenu logo" href="/">ХуторянинЪ</a>
 		<ul class="topmenu">
 			<li class="topmenu_li"><a href="#"><i class="fa fa-bars fa-lg" aria-hidden="true"></i><!-- Меню--></a>
-				<ul class="submenu">	
+				<ul class="submenu">
 					<li><a class="btn btn-outline-danger" href="/">Главная</a></li>
 					<li><a class="btn btn-outline-dark" href="/public/1">Публикации</a></li>
 					<li><a class="btn btn-outline-primary" href="/products">Товары</a></li>
@@ -372,8 +135,8 @@ input {
 			</li>
 			<!--<li class="logo"><a class="btn btn-danger" href="/">ХуторянинЪ</a></li>-->
 		</ul>
-		
-		
+
+
 	    <!--<a class="btn btn-outline-primary" href="/lk">Л.К.</a>-->
 
 </div>
@@ -383,10 +146,10 @@ input {
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 
   <h1 class="display-4">Добро пожаловать!</h1>
-  
+
   <p class="lead">Это тестовая страница.</p>
-  
-  
+
+
 </div>
 
 
@@ -395,157 +158,157 @@ input {
 
 
 <div class="card-deck mb-3 text-center">
-		
-	<div class="card mb-4 shadow-sm container">
-		
-      <div class="box">	  
+
+	<div class="card mb-4 shadow-sm contain">
+
+      <div class="box">
 		<h2 class="name">Приложения</h2>
 		<a class="btn btn-primary buy" href="/products/applications">Посмотреть</a>
 		<img class="mb-2 product" src="{% static 'products/applications/applications.jpg'%}" alt="" width="100%">
-	  </div>	  
-	  
-    </div>	
-  
-    <div class="card mb-4 shadow-sm container">     
-      <div class="box">	  
+	  </div>
+
+    </div>
+
+    <div class="card mb-4 shadow-sm contain">
+      <div class="box">
 		<h2 class="name">Кованые ножи</h2>
 		<a class="btn btn-primary buy" href="/products/knives">Посмотреть</a>
-		<img class="mb-2 product" src="{% static 'products/knives/knives.jpg'%}" alt="" width="100%">	
+		<img class="mb-2 product" src="{% static 'products/knives/knives.jpg'%}" alt="" width="100%">
       </div>
     </div>
-	
-    <div class="card mb-4 shadow-sm container">      
-      <div class="box">	  
+
+    <div class="card mb-4 shadow-sm contain">
+      <div class="box">
 		<h2 class="name">Ложки д/мёда</h2>
 		<a class="btn btn-primary buy" href="/products/spoons">Посмотреть</a>
-		<img class="mb-2 product" src="{% static 'products/spoons/spoons.jpg'%}" alt="" width="100%">		
-      </div>	  
+		<img class="mb-2 product" src="{% static 'products/spoons/spoons.jpg'%}" alt="" width="100%">
+      </div>
     </div>
-	
-	<div class="card mb-4 shadow-sm container">      
-      <div class="box">	  
+
+	<div class="card mb-4 shadow-sm contain">
+      <div class="box">
 		<h2 class="name">Подсвечники</h2>
 		<a class="btn btn-primary buy" href="/products/candlesticks">Посмотреть</a>
 			<img class="mb-2 product" src="{% static 'products/candlesticks/candlesticks.jpg'%}" alt="" width="100%">
       </div>
     </div>
-			
-	<!--<div class="card mb-4 shadow-sm container">	
-      <div class="box">	  
-		<h2 class="name">Пусто</h2> 		
+
+	<!--<div class="card mb-4 shadow-sm contain">
+      <div class="box">
+		<h2 class="name">Пусто</h2>
 		<button class="btn btn-outline-dark buy" type="button" disabled>Посмотреть</button>
-        <img class="mb-2 product" src="{% static 'logo3.png'%}" alt="" width="100%">		
+        <img class="mb-2 product" src="{% static 'logo3.png'%}" alt="" width="100%">
       </div>
     </div> -->
-		
+
 	<!-- -->
 	<div class="card mb-4 shadow-sm">
       <div class="card-header">
         <h4 class="my-0 font-weight-normal">Пусто</h4>
       </div>
-      <div class="card-body">	  
+      <div class="card-body">
 		<a href="#">
 			<img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">
-		</a>		
+		</a>
       </div>
 	  <div class="card-header">
         <button class="btn btn-outline-dark buy" type="button" disabled>Посмотреть</button>
       </div>
-    </div>	 
-	
+    </div>
+
 	<!-- -->
 	<div class="card mb-4 shadow-sm">
       <div class="card-header">
         <h4 class="my-0 font-weight-normal">Пусто</h4>
       </div>
-      <div class="card-body">	  
+      <div class="card-body">
 		<a href="#">
 			<img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">
-		</a>		
+		</a>
       </div>
 	  <div class="card-header">
 		<button class="btn btn-outline-dark buy" type="button" disabled>Посмотреть</button>
       </div>
-    </div>	 
-	
+    </div>
+
 </div>
 
 
 <div class="card-deck mb-3 text-center">
-  
-    <div class="card mb-4 shadow-sm">      
+
+    <div class="card mb-4 shadow-sm">
       <div class="card-body">
-	  
+
         <img class="mb-2" src="{% static 'ya.jpg'%}" alt="" width="100%">
-		
+
 		<!--<img class="mb-2" src="http://f0430377.xsph.ru/hutoryanin/photo/ya.jpg" alt="" width="100%">-->
-		
+
       </div>
 	  <div class="card-header">
         <h4 class="my-0 font-weight-normal">Азъ есмь Огънеяръ!</h4>
       </div>
     </div>
-	
-    
-	
+
+
+
 </div>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 
   <h3 class="font-italic">Немного о себе.</h3>
-  
+
   <p class="lead">Здравствуйте все! Я блогер, ютубер ХуторянинЪ. </p>
-  
+
   <p class="lead">Программист по образованию, по специальности, а уже кузнец по случайности, немного столяр, математик и немного певец. Славянин, наречён Весътой именем Огънеяръ. Друзья и близкие так и зовут - Огнеяр, в миру Михаил (Яковлев Михаил Валерьевич). Сын Валерия и Ольги (Звенирады), внук Сергея и Томары, а так же Леонида и Татьяны. Слава Роду! Слава наша - Богам и Предкам! </p>
-  
+
   <p class="lead">Трудился я во многих сферах, по специальности кстати никогда - это хобби, был грущиком, кладовщиком, зав.складом, мастером по установке спутникового оборудования, инженером-ремонтником холодильного оборудования, инженером пекарни, а сейчас охранник и вольный блогер ютуб-канала.</p>
-  
+
   <p class="lead">Кстати видео с ютуб-канала можно посмотреть здесь на сайте, во вкладке <a class="btn btn-outline-dark" href="/public/1">Публикации</a> нажав тут или в меню на верху. Жду Ваш царский лайк и если перейдёте на ютуб то оставьте свой комментарий под видео, это способствует продвижению канала. Обязательно подпишитесь, если ещё не подписанны и жмите колокольчик чтобы не пропускать мои новые видео.</p>
-  
+
   <p class="lead">Этот сайт я сделал сам. Конечно ничего особого в нём нет, он прост, но он тем самым меня и привлекает, а что-либо добавить всегда можно и тем более я это планирую делать, но постепенно и надеюсь с Вашей помощью, совету всегда рад.</p>
-  
+
   <p class="lead">Немного технической информации касаемой сайта (если кому интересно): это мой третий сайт, он написан на python 3, фреймворк django, css стили от bootstrap'а, хостинг на heroku. Первый свой сайт писал сам, без фреймворка, на php, css'ки тоже сам прописывал и знаете что, устал, это просто жесть. <a class="btn btn-outline-dark" href="https://prizmarket.ru" target="_blank">Вот он</a> посмотрите. Второй сайт это практически его копия, только расцветку сменил, <a class="btn btn-outline-danger" href="https://7yanika-rostov.ru" target="_blank">вот и он</a> сравните.</p>
-  
+
   <p class="lead">В работе сайтов использую телеграм-ботов, они очень помогают в решении разных задач. В первом сайте используется вообще "целая армия" ботов, каждый сделан под определённую задачу. Написаны на php, а в этом сайте мне помогает пока только один, конечно же написан он на python.</p>
-  
+
   <p class="lead">Мне было интересно усвоить новый язык программирования, вот я и стал изучать python. А так, я коснулся даже программирования приложений под android, поработал немного с языком java, но к нему я ещё обязательно вернусь когда решу в каком виде должно быть приложение для Хуторянина.</p>
-  
+
   <p class="lead">Не совсем-то "немного тех. информации" получилось, увлёкся. ;)</p>
-  
+
   <p class="lead">Периодически кую... или поковываю... Ковать интересно, но быстро устаёт рука молотком махать, с пневмо-молотом было бы по веселей (или гидро-молотом, или электро, это не так важно). Менее меня увлекает столярка, обтачивать деталь нудно как-то, но как же душа радуется когда процесс подходит к концу и видишь результат своих стараний.</p>
-  
+
   <p class="lead">Иногда точу на деревообрабатывающем станке. Чаще всего это ложки для мёда, иногда скалку, подсвечник, дверные ручки и ножки для тумбочки. В общем любые круглые предметы могу на станке сделать. Станок самодельный, достался мне вместе с домом от предыдущих хозяев. Хороший станок.</p>
-  
+
   <p class="lead">На этом сайте решил сделать интернет магазин, где предлагаю товары сделанные своими руками и умом. Такие как ножи, ложки, скалки, подсвечники, сайты и боты. Может и странное сочетание, но так уж вышло, так уж сложилась судьба. Я думаю не спроста мне на дипломную работу в институте выпало сделать именно интернет-магазин. Правда название у диплома было жёсткое, я еле понял что имеется ввиду - "Распределительная система управления формированием заказов и их исполнением".</p>
-  
+
   <p class="lead">Заходите по ссылке <a class="btn btn-outline-primary" href="/products">Товары</a> здесь или в верхнем меню, заказывайте понравившийся товар или услугу, жду Вас.</p>
-  
+
   <p class="lead">Периодически провожу различные <a class="btn btn-outline-success" href="/promo">Акции</a> следите за ними, получайте разные подарки, будь то ложки, скалки, ножи или скидки на товары.</p>
-  
+
   <p class="lead">Благодарю всех кто дочитал до этих строк, прошу, по учавствуйте в создании этого сайта, мне нужны идеи, подсказки. Жду от Вас любых советов, касаемых улучшения сайта, буду рад разным предложениям по видеосъёмке, может есть идеи для моих будущих видео-постов? Пишите в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>
-  
+
   <p class="lead">Всем удачи! Пока.</p>
-  
+
 </div>
 
 
 <div class="card-deck mb-3 text-center">
-  
-    <div class="card mb-4 shadow-sm">      
+
+    <div class="card mb-4 shadow-sm">
       <div class="card-body">
-	  
+
         <img class="mb-2" src="{% static 'ya2.jpg'%}" alt="" width="100%">
-		
+
 		<!--<img class="mb-2" src="http://f0430377.xsph.ru/hutoryanin/photo/ya2.jpg" alt="" width="100%">-->
-		
+
       </div>
 	  <div class="card-header">
         <a class="btn btn-danger" href="/">ХуторянинЪ</a>
       </div>
     </div>
-	
-    
-	
+
+
+
 </div>
 
 
@@ -554,10 +317,10 @@ input {
 
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
-	
-      <div class="col-12 col-md">	  
-        <img class="mb-2" src="{% static 'logo.png'%}" alt="" width="24" height="24">	
-        <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>		
+
+      <div class="col-12 col-md">
+        <img class="mb-2" src="{% static 'logo.png'%}" alt="" width="24" height="24">
+        <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>
       </div>
 
       <div class="col-6 col-md">
@@ -572,11 +335,11 @@ input {
           <!--<li><a class="text-muted" href="/about">о Хуторянине</a></li>-->
         </ul>
       </div>
-	  
+
       <div class="col-6 col-md">
         <h5>Соц.сети</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="https://www.youtube.com/channel/UCXo_PcOU2E-ek-pbdDGUYLA?view_as=subscriber" target="_blank">Ютуб канал</a></li>		  
+          <li><a class="text-muted" href="https://www.youtube.com/channel/UCXo_PcOU2E-ek-pbdDGUYLA?view_as=subscriber" target="_blank">Ютуб канал</a></li>
 		  <li><a class="text-muted" href="https://t.me/hutor_yanin" target="_blank">Телеграм канал</a></li>
 		  <li><a class="text-muted" href="https://www.instagram.com/hutor_yanin" target="_blank">Инстаграм</a></li>
           <li><a class="text-muted" href="https://vk.com/club198545483" target="_blank">Вконтакте</a></li>
@@ -584,11 +347,11 @@ input {
           <li><a class="text-muted" href="https://icq.im/hutoryanin" target="_blank">ICQ new</a></li>
 		  <li><a class="text-muted" href="https://www.facebook.com/groups/649701642614016/?ref=share" target="_blank">Facebook</a></li>
 		  <li><a class="text-muted" href="https://invite.viber.com/?g2=AQBw4bOeGtYqR0wXcLMpZvsnYqNQw60KFF2aA6i%2B6o0lCXCfSYGrnty3J9%2FAqJt%2B" target="_blank">Viber</a></li>
-		  
+
 		  <li><a class="text-muted" href="https://yandex.ru/chat/#/join/317765f5-498a-4010-ba49-2f766c134385" target="_blank">Яндекс месенджер</a></li>
         </ul>
       </div>
-      
+
     </div>
   </footer>
 </div>
