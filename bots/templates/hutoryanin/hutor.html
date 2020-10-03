@@ -25,7 +25,8 @@
 
 	<link href="{% static 'css/style.css'%}" rel="stylesheet">
 	<link href="{% static 'css/menu.css'%}" rel="stylesheet">	
-	<link href="{% static 'css/vanilla.css'%}" rel="stylesheet">
+	<link href="{% static 'css/buttons.css'%}" rel="stylesheet">
+	<link href="{% static 'css/contain.css'%}" rel="stylesheet">
 
 	<style type="text/css">
 	</style>
@@ -66,114 +67,108 @@
 	<!--<a class="btn btn-outline-primary" href="/lk">Л.К.</a>-->	
 </div>
 
-<!--------------------
-	<div class="header">
-		<h1>Добро пожаловать!</h1>
-		<p>Это тестовая страница.</p>
-	</div>-->
 
-<div class="main">	
+<!---------------------->
 
+<div class="header">
+	<h1>Добро пожаловать!</h1>
+	<p>Это тестовая страница.</p>
+</div>	
 	
-
-	<!---------------------->
-
+	
+<div class="main">
 	<div class="content">
 
-		<div class="contain"><!--
+		<div class="contain">
 		  <div class="box">
 			<h2 class="name">Приложения</h2>
 			<a class="btn btn-primary buy" href="/products/applications">Посмотреть</a>
 			<img class="product" src="{% static 'products/applications/applications.jpg'%}" alt="" width="100%">
-		  </div>-->
+		  </div>
 		</div>
 
-		<div class="contain"><!--
+		<div class="contain">
 		  <div class="box">
 			<h2 class="name">Кованые ножи</h2>
 			<a class="btn btn-primary buy" href="/products/knives">Посмотреть</a>
 			<img class="product" src="{% static 'products/knives/knives.jpg'%}" alt="" width="100%">
-		  </div>-->
+		  </div>
 		</div>
 
-		<div class="contain"><!--
+		<div class="contain">
 		  <div class="box">
 			<h2 class="name">Ложки д/мёда</h2>
 			<a class="btn btn-primary buy" href="/products/spoons">Посмотреть</a>
 			<img class="product" src="{% static 'products/spoons/spoons.jpg'%}" alt="" width="100%">
-		  </div>-->
+		  </div>
 		</div>
-<!--
+
 		<div class="contain">
 		  <div class="box">
 			<h2 class="name">Подсвечники</h2>
 			<a class="btn btn-primary buy" href="/products/candlesticks">Посмотреть</a>
 				<img class="product" src="{% static 'products/candlesticks/candlesticks.jpg'%}" alt="" width="100%">
 		  </div>
-		</div>-->
+		</div>
 		
-		<!-- 
+		<!-- -->
 		<div class="contain">
 		  <div class="box">
 			<h2 class="name">Пусто</h2>
 			<button class="btn btn-outline-dark buy" type="button" disabled>Посмотреть</button>
 			<img class="product" src="{% static 'logo3.png'%}" alt="" width="100%">
 		  </div>
-		</div> -->
+		</div> 
 		
-		<!-- 
+		<!-- -->
 		<div class="contain">
 		  <div class="box">
 			<h2 class="name">Пусто</h2>
 			<button class="btn btn-outline-dark buy" type="button" disabled>Посмотреть</button>
 			<img class="product" src="{% static 'logo3.png'%}" alt="" width="100%">
 		  </div>
-		</div> -->
+		</div> 
 	</div> <!--/* CONTENT */-->
 
 </div> <!--/* MAIN */-->
 
 
+<footer class="footer">
 
-  <footer class="pt-4 my-md-5 pt-md-5 border-top">
-    <div class="row">
+	<div class="brend">
+		<img src="{% static 'logo.png'%}" alt="" width="24" height="24">
+		<small>&copy; 2017-2020</small>
+	</div>
 
-      <div class="col-12 col-md">
-        <img class="mb-2" src="{% static 'logo.png'%}" alt="" width="24" height="24">
-        <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>
-      </div>
+	<div class="resources">
+		<h5>Ресурсы</h5>
+		<ul class="list">
+			<li><a class="btn btn-outline-danger" href="/">Главная</a></li>
+			<li><a class="btn btn-outline-dark" href="/public/1">Публикации</a></li>
+			<!--<li><a class="text-muted" href="/lk">Личный кабинет</a></li>-->
+			<li><a class="btn btn-outline-primary" href="/products">Товары</a></li>
+			<li><a class="btn btn-outline-success" href="/promo">Акции</a></li>
+			<li><a class="btn btn-outline-warning" href="/support">Тех.поддержка</a></li>
+		</ul>
+	</div>
 
-      <div class="col-6 col-md">
-        <h5>Ресурсы</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="btn btn-outline-danger" href="/">Главная</a></li>
-		  <li><a class="btn btn-outline-dark" href="/public/1">Публикации</a></li>
-          <!--<li><a class="text-muted" href="/lk">Личный кабинет</a></li>-->
-          <li><a class="btn btn-outline-primary" href="/products">Товары</a></li>
-          <li><a class="btn btn-outline-success" href="/promo">Акции</a></li>
-          <li><a class="btn btn-outline-warning" href="/support">Тех.поддержка</a></li>
-          <!--<li><a class="text-muted" href="/about">о Хуторянине</a></li>-->
-        </ul>
-      </div>
-
-      <div class="col-6 col-md">
+    <div class="social">
         <h5>Соц.сети</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="https://www.youtube.com/channel/UCXo_PcOU2E-ek-pbdDGUYLA?view_as=subscriber" target="_blank">Ютуб канал</a></li>
-		  <li><a class="text-muted" href="https://t.me/hutor_yanin" target="_blank">Телеграм канал</a></li>
-		  <li><a class="text-muted" href="https://www.instagram.com/hutor_yanin" target="_blank">Инстаграм</a></li>
-          <li><a class="text-muted" href="https://vk.com/club198545483" target="_blank">Вконтакте</a></li>
-          <li><a class="text-muted" href="https://ok.ru/group/64240788504623" target="_blank">Одноклассники</a></li>
-          <li><a class="text-muted" href="https://icq.im/hutoryanin" target="_blank">ICQ new</a></li>
-		  <li><a class="text-muted" href="https://www.facebook.com/groups/649701642614016/?ref=share" target="_blank">Facebook</a></li>
-		  <li><a class="text-muted" href="https://invite.viber.com/?g2=AQBw4bOeGtYqR0wXcLMpZvsnYqNQw60KFF2aA6i%2B6o0lCXCfSYGrnty3J9%2FAqJt%2B" target="_blank">Viber</a></li>
+        <ul class="list">
+			<li><a class="text-muted" href="https://www.youtube.com/channel/UCXo_PcOU2E-ek-pbdDGUYLA?view_as=subscriber" target="_blank">Ютуб канал</a></li>
+			<li><a class="text-muted" href="https://t.me/hutor_yanin" target="_blank">Телеграм канал</a></li>
+			<li><a class="text-muted" href="https://www.instagram.com/hutor_yanin" target="_blank">Инстаграм</a></li>
+			<li><a class="text-muted" href="https://vk.com/club198545483" target="_blank">Вконтакте</a></li>
+			<li><a class="text-muted" href="https://ok.ru/group/64240788504623" target="_blank">Одноклассники</a></li>
+			<li><a class="text-muted" href="https://icq.im/hutoryanin" target="_blank">ICQ new</a></li>
+			<li><a class="text-muted" href="https://www.facebook.com/groups/649701642614016/?ref=share" target="_blank">Facebook</a></li>
+			<li><a class="text-muted" href="https://invite.viber.com/?g2=AQBw4bOeGtYqR0wXcLMpZvsnYqNQw60KFF2aA6i%2B6o0lCXCfSYGrnty3J9%2FAqJt%2B" target="_blank">Viber</a></li>
 
-		  <li><a class="text-muted" href="https://yandex.ru/chat/#/join/317765f5-498a-4010-ba49-2f766c134385" target="_blank">Яндекс месенджер</a></li>
+			<li><a class="text-muted" href="https://yandex.ru/chat/#/join/317765f5-498a-4010-ba49-2f766c134385" target="_blank">Яндекс месенджер</a></li>
         </ul>
-      </div>
-
-    </div>
-  </footer>
+	</div>
+    
+ </footer>
   
 
 </body>

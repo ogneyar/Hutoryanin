@@ -1,0 +1,107 @@
+﻿
+/* buttons классы от Bootstrap'а */
+
+.btn {	
+	padding: 10px 15px;	
+	border-radius: 5px;
+}
+
+/* BUTTON DANGER */
+.btn-danger {
+	border: 1px solid Crimson;
+	background: Crimson; /* red FireBrick Crimson*/
+	color: White;
+}
+.btn-danger:hover {	
+	border: 1px solid FireBrick;
+	background: FireBrick; /* Brown DarkRed */
+}
+.btn-outline-danger {
+	border: 1px solid Crimson;
+	color: Crimson;
+}
+.btn-outline-danger:hover {
+	background: Crimson;
+	color: White;
+}
+/* ------------- */
+
+/* BUTTON DARK */ 
+.btn-dark {
+	border: 1px solid #333; /* Black */
+	background: #333;
+	color: White;
+}
+.btn-dark:hover {
+	border: 1px solid Black;
+	background: Black;
+}
+.btn-outline-dark {
+	border: 1px solid #333;
+	color: #333;
+}
+.btn-outline-dark:hover {
+	background: #333;
+	color: White;
+}
+/* ----------- */ 
+
+/* BUTTON PRIMARY */
+.btn-primary {
+	border: 1px solid DodgerBlue; /* DeepSkyBlue Blue DodgerBlue RoyalBlue */
+	background: DodgerBlue;
+	color: White;
+}.btn-primary:hover {
+	border: 1px solid RoyalBlue;
+	background: RoyalBlue;
+}
+.btn-outline-primary {
+	border: 1px solid DodgerBlue;
+	color: DodgerBlue;
+}
+.btn-outline-primary:hover {	
+	background: DodgerBlue;
+	color: White;
+}
+/* -------------- */
+
+/* BUTTON SUCCESS */
+.btn-success {
+	border: 1px solid ForestGreen; /* Green MediumSeaGreen SeaGreen DarkGreen ForestGreen */
+	background: ForestGreen;
+	color: White;
+}.btn-success:hover {
+	border: 1px solid Green;
+	background: Green;
+}
+.btn-outline-success {
+	border: 1px solid ForestGreen;
+	color: ForestGreen;
+}
+.btn-outline-success:hover {
+	background: ForestGreen;
+	color: White;
+}
+/* -------------- */
+
+/* BUTTON WARNING */
+.btn-warning {
+	border: 1px solid Orange; /* Orange Gold GoldenRod Peru */
+	background: Orange;
+	color: White;
+}
+.btn-warning:hover {
+	border: 1px solid Peru;
+	background: Peru;
+}
+.btn-outline-warning {
+	border: 1px solid Orange;
+	color: Orange;
+}
+.btn-outline-warning:hover {
+	background: Orange;
+	color: White;
+}
+/* -------------- */
+
+

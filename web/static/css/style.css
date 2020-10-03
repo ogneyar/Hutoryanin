@@ -23,19 +23,10 @@ html {
 }
 
 body {
-	background: green; /* #f7f7f7 green */	
+	background: #f7f7f7;
 	width: 100%;
 	margin: 0;
-	padding: 0;
-	
-	text-align: center;	
-	
-	display: -webkit-flex; 
-	display: flex;	
-	flex-direction: column;
-	justify-content: center; 	
-	
-	position: relative;
+	padding: 0;	
 }
 h1 {
 	margin: 0;
@@ -52,266 +43,31 @@ textarea {
 input {
 	width: 75%;
 }
-.btn {	
-	padding: 10px 15px;	
-	border-radius: 5px;
-}
 
-/* BUTTON DANGER */
-.btn-danger {
-	border: 1px solid Crimson;
-	background: Crimson; /* red FireBrick Crimson*/
-	color: White;
-}
-.btn-danger:hover {	
-	border: 1px solid FireBrick;
-	background: FireBrick; /* Brown DarkRed */
-}
-.btn-outline-danger {
-	border: 1px solid Crimson;
-	color: Crimson;
-}
-.btn-outline-danger:hover {
-	background: Crimson;
-	color: White;
-}
-/* ------------- */
-
-/* BUTTON DARK */ 
-.btn-dark {
-	border: 1px solid #333; /* Black */
-	background: #333;
-	color: White;
-}
-.btn-dark:hover {
-	border: 1px solid Black;
-	background: Black;
-}
-.btn-outline-dark {
-	border: 1px solid #333;
-	color: #333;
-}
-.btn-outline-dark:hover {
-	background: #333;
-	color: White;
-}
-/* ----------- */ 
-
-/* BUTTON PRIMARY */
-.btn-primary {
-	border: 1px solid DodgerBlue; /* DeepSkyBlue Blue DodgerBlue RoyalBlue */
-	background: DodgerBlue;
-	color: White;
-}.btn-primary:hover {
-	border: 1px solid RoyalBlue;
-	background: RoyalBlue;
-}
-.btn-outline-primary {
-	border: 1px solid DodgerBlue;
-	color: DodgerBlue;
-}
-.btn-outline-primary:hover {	
-	background: DodgerBlue;
-	color: White;
-}
-/* -------------- */
-
-/* BUTTON SUCCESS */
-.btn-success {
-	border: 1px solid ForestGreen; /* Green MediumSeaGreen SeaGreen DarkGreen ForestGreen */
-	background: ForestGreen;
-	color: White;
-}.btn-success:hover {
-	border: 1px solid Green;
-	background: Green;
-}
-.btn-outline-success {
-	border: 1px solid ForestGreen;
-	color: ForestGreen;
-}
-.btn-outline-success:hover {
-	background: ForestGreen;
-	color: White;
-}
-/* -------------- */
-
-/* BUTTON WARNING */
-.btn-warning {
-	border: 1px solid Orange; /* Orange Gold GoldenRod Peru */
-	background: Orange;
-	color: White;
-}
-.btn-warning:hover {
-	border: 1px solid Peru;
-	background: Peru;
-}
-.btn-outline-warning {
-	border: 1px solid Orange;
-	color: Orange;
-}
-.btn-outline-warning:hover {
-	background: Orange;
-	color: White;
-}
-/* -------------- */
-
+/* .menu и .menu-mobile в отдельном файле menu.css */
 
 .header {
-	/*background: yellow;*/	
 	background: #f7f7f7;
-	padding: 20px;	
-	/*width: 70%;	*/
+	padding: 20px;		
 	text-align: center;	
 }
 
-
 .main {
-
 	display: -webkit-flex; 
-	display: flex;	
-	/*flex-direction: column;*/
-	justify-content: center; 
-	/*flex-wrap: wrap;*/
-	
-	background: blue;
-	text-align: center;
-	padding: 20px;
+	display: flex;			
+	justify-content: center;
 }
 
 .content {	
-	background: violet;	
-	text-align: center;	
-	width: 100%;
-	height: 65vh;
-	padding: 20px;
-	border: 5px solid White;
-	
 	display: -webkit-inline-flex;
-	display: inline-flex; 
-	
+	display: inline-flex; 	
 	flex-direction: row;
 	flex-wrap: wrap;
-	position: relative;
-	/*align-items: center;*/
-	
-}
-
-.contain {
-
-	-webkit-flex: 1 1 auto; 
-	-ms-flex:  1 1 auto; 
-	flex: 1 1 auto;
-
-	background: yellow;
-	/*width: 50%;*/
-	height:100px;
-	
-	margin: 5px;
-	
-	min-width: 220px;
+	width: 100%;
 	max-width: 960px;
 }
-.contain:nth-child(2) {
-	background: red;
-	height:100px;
-}
-.contain:last-child {
-	background: green;
-	height:100px;
-	
-	/*min-width: 240px;	
-	max-width: 200px;*/
-}
 
-@media (min-width: 960px) {
-    .main {
-	/*flex: 1 1 auto;*/
-		/*width: 70%;	
-		margin-left: 15%;
-		margin-right: 15%;		*/
-	}
-	.content {					
-		max-width: 960px;
-		text-align: center;	
-		
-		
-		/*width: 100%;*/
-	}	
-	.contain {
-		
-		/*width: 30%;*/
-		
-		
-		/*min-width: 220px;
-		max-width: 960px;*/
-	}
-}
-@media (max-width: 959px) {
-	.main {
-	/*flex: 1 1 auto;*/
-		/*width: 86%;	*/
-		margin-left: 0;
-		margin-right: 0;	
-	}
-}
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-.bd-placeholder-img {
-	font-size: 1.125rem;
-	text-anchor: middle;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-@media (min-width: 768px) {
-	.bd-placeholder-img-lg {
-		font-size: 3.5rem;
-	}
-}
-
-.pricing-header {
-	max-width: 700px;	
-}
-.text-center {
-	text-align: center;
-}
-.card-deck .card {
-	min-width: 220px;
-}
-
-
-
-.d-flex {	
-	display: flex; 
-}
-.flex-md-row {	
-	flex-direction: row;
-}
-
-
-
-
-.card-deck {
-	width: 100%;
-}
-.card {
-	width: 33%;
-}
-*/
-
-
+/* .cvontein и .box в отдельном файле contain.css */
 
 
 
