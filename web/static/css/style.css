@@ -148,14 +148,16 @@ input {
 
 
 .main {
+	/*
 	display: flex;	
 	flex-direction: column;
+	*/
 	
 	background: blue;
 	/*max-width: 960px;*/
 
 	text-align: center;
-	/*padding: 0 20px;	*/
+	padding: 0 20px;
 }
 
 @media (min-width: 960px) {
@@ -163,6 +165,9 @@ input {
 		width: 70%;	
 		margin-left: 15%;
 		margin-right: 15%;		
+	}
+	.content {
+		max-width: 960px;
 	}
 }
 @media (max-width: 959px) {
