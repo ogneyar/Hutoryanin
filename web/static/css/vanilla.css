@@ -1,13 +1,15 @@
 ﻿    /* vanilla */
 	.contain {
-		position: relative;
+		/*position: relative;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
-		justify-content: center; /* Центрирование в блоке по горизонтали */
-		align-items: center; /* Центрирование в блоке по вертикали */
-		flex-wrap: wrap;
-		width: 100%;
+		justify-content: center; 
+		align-items: center; 
+		flex-wrap: wrap;	*/	
+		
+		/*width: 100%;*/
+		
 		transform-style: preserve-3d;
 	}
 	.contain .box {
