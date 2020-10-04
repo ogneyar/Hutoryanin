@@ -8,6 +8,8 @@
 	min-width: 220px;
 	margin: 15px;		
 	transform-style: preserve-3d;
+	
+	text-align: center;
 }
 .contain .box {
 	position: relative;

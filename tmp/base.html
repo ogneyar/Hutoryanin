@@ -1,0 +1,118 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+	<meta name="description" content="Официальный сайт блогера ХуторянинЪ!" />
+	<meta name="keywords" content="хуторянин, ковка, ложки, мёд, сайт, боты" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Огънеяръ">
+    <title>ХуторянинЪ</title>
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicons/apple-touch-icon.png'%}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicons/favicon-32x32.png'%}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicons/favicon-16x16.png'%}">
+	<link rel="manifest" href="{% static 'favicons/site.webmanifest'%}">	
+	<link rel="mask-icon" href="{% static 'favicons/safari-pinned-tab.svg'%}" color="#5bbad5">
+	<meta name="msapplication-config" content="{% static 'favicons/browserconfig.xml'%}">
+	<meta name="msapplication-TileColor" content="#dbecfe">
+	<meta name="theme-color" content="#ffffff">
+
+	<!--<link rel="icon" href="{% static 'logo.png'%}">
+	<meta name="theme-color" content="#563d7c">-->
+
+	<link href="{% static 'css/base.css'%}" rel="stylesheet">	
+	<link href="{% static 'css/contain.css'%}" rel="stylesheet">
+   
+  </head>
+  
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">	
+	<h5 class="my-0 mr-md-auto font-weight-normal line-menu"><a class="btn btn-danger" href="/">ХуторянинЪ</a></h5>
+	<div class="menu">
+	  
+	  <nav class="my-2 my-md-0 mr-md-3 line-menu">
+		<!--<a class="btn btn-outline-dark" href="/">Главная</a>-->
+		<a class="btn btn-outline-dark" href="/public/1">Публикации</a>
+		<a class="btn btn-outline-primary" href="/products">Товары</a>
+		<a class="btn btn-outline-success" href="/promo">Акции</a>
+		<!--<a class="p-2 text-dark" href="/about">Обо мне</a>-->
+		<a class="btn btn-outline-warning" href="/support">Тех.поддержка</a>
+	  </nav>
+		<a class="btn btn-outline-danger topmenu logo" href="/">ХуторянинЪ</a>
+		<ul class="topmenu">
+			<li class="topmenu_li"><a href="#"><i class="fa fa-bars fa-lg" aria-hidden="true"></i><!-- Меню--></a>
+				<ul class="submenu">	
+					<li><a class="btn btn-outline-danger" href="/">Главная</a></li>
+					<li><a class="btn btn-outline-dark" href="/public/1">Публикации</a></li>
+					<li><a class="btn btn-outline-primary" href="/products">Товары</a></li>
+					<li><a class="btn btn-outline-success" href="/promo">Акции</a></li>
+					<li><a class="btn btn-outline-warning" href="/support">Тех.поддержка</a></li>
+				</ul>
+			</li>
+			<!--<li class="logo"><a class="btn btn-danger" href="/">ХуторянинЪ</a></li>-->
+		</ul>
+		
+		
+	  <!--<a class="btn btn-outline-primary" href="/lk">Л.К.</a>-->
+	</div>
+</div>
+
+
+{% block header %}{% endblock %} 
+
+
+
+<div class="container">
+
+
+
+{% block content %}{% endblock %} 
+
+
+
+  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+	
+      <div class="col-12 col-md">	  
+        <img class="mb-2" src="{% static 'logo.png'%}" alt="" width="24" height="24">	
+        <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>		
+      </div>
+
+      <div class="col-6 col-md">
+        <h5>Ресурсы</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="btn btn-outline-danger" href="/">Главная</a></li>
+		  <li><a class="btn btn-outline-dark" href="/public/1">Публикации</a></li>
+          <!--<li><a class="text-muted" href="/lk">Личный кабинет</a></li>-->
+          <li><a class="btn btn-outline-primary" href="/products">Товары</a></li>
+          <li><a class="btn btn-outline-success" href="/promo">Акции</a></li>
+          <li><a class="btn btn-outline-warning" href="/support">Тех.поддержка</a></li>
+          <!--<li><a class="text-muted" href="/about">о Хуторянине</a></li>-->
+        </ul>
+      </div>
+	  
+      <div class="col-6 col-md">
+        <h5>Соц.сети</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="https://www.youtube.com/channel/UCXo_PcOU2E-ek-pbdDGUYLA?view_as=subscriber" target="_blank">Ютуб канал</a></li>		  
+		  <li><a class="text-muted" href="https://t.me/hutor_yanin" target="_blank">Телеграм канал</a></li>
+		  <li><a class="text-muted" href="https://www.instagram.com/hutor_yanin" target="_blank">Инстаграм</a></li>
+          <li><a class="text-muted" href="https://vk.com/club198545483" target="_blank">Вконтакте</a></li>
+          <li><a class="text-muted" href="https://ok.ru/group/64240788504623" target="_blank">Одноклассники</a></li>
+          <li><a class="text-muted" href="https://icq.im/hutoryanin" target="_blank">ICQ new</a></li>
+		  <li><a class="text-muted" href="https://www.facebook.com/groups/649701642614016/?ref=share" target="_blank">Facebook</a></li>
+		  <li><a class="text-muted" href="https://invite.viber.com/?g2=AQBw4bOeGtYqR0wXcLMpZvsnYqNQw60KFF2aA6i%2B6o0lCXCfSYGrnty3J9%2FAqJt%2B" target="_blank">Viber</a></li>
+		  
+		  <li><a class="text-muted" href="https://yandex.ru/chat/#/join/317765f5-498a-4010-ba49-2f766c134385" target="_blank">Яндекс месенджер</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </footer>
+</div>
+</body>
+</html>

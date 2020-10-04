@@ -5,9 +5,66 @@
   font-weight: normal;
   font-style: normal;
 }
+
+html {
+	font-size: 14px;
+}
+@media (min-width: 768px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+.card {
+	border: 0;
+	border-radius: 20px;
+}
+
+.container {
+	max-width: 960px;
+}
+
+.pricing-header {
+	max-width: 700px;
+}
+
+.card-deck .card {
+	min-width: 220px;
+}
+		
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@media (min-width: 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+		  
+textarea {
+	width: 75%;
+	height: 325px; 
+	resize: none; /* Запрещаем изменять размер */
+}
+		  
+input {
+	width: 75%;
+}
+		  
+.btn {
+	margin-bottom:5px;
+}
+	
 .fa {
 	display: inline-block;
-	font: normal normal normal 14px/1 FontAwesome;	
+	font: normal normal normal 14px/1 FontAwesome;			
+	/*font-family: Times New Roman, sans-serif;*/
 	font-size: inherit;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
@@ -22,78 +79,39 @@
 	vertical-align: -15%;
 }
 
-.menu, .menu-mobile {
-	float: left;	
-	width: 100%;	
-	background: #f7f7f7;
-	padding: 20px 0;
-	box-shadow: 0 3px 4px 0 rgba(0,0,0,0.1);
-	margin-bottom: 20px;
-}
-
-.menu  .nav {	
-	float: right;
-	padding: 20px;
-	margin: 0 10px;	
-}
-
-.menu-mobile .nav {	
-	float: right;
-	margin: 0 30px;	
-}
-
-.menu  .logo, .menu-mobile  .logo {
-	float: left;	
-	padding: 20px;
-	margin: 0 10px;	
-}
-
-/* Мобильная версия меню */
-@media (max-width: 519px){	
-	.menu {
+@media (max-width: 449px){
+	.line-menu {
 		display: none;
-	}	
-}
-/* Средний режим меню */
-@media (min-width: 520px) and (max-width: 699px){	
-	.menu-mobile {
-		display: none;			
-	}	
-	.menu  .logo{
-		text-align: center;
-		float: none;		
-	}	
-	.menu  .nav{
-		text-align: center;
-		float: none;	
-	}		
-	.menu, .menu-mobile {	
-		padding: 10px 0;		
+	}
+	.menu {		
+		float: left;
+		width: 100%;
+	}			
+	.logo {
+		float: right;
+		margin-top: 7.5px;
 	}
 }
-/* Максимальный режим меню */
-@media (min-width: 700px){	
-	.menu-mobile {
-		display: none;			
-	}	
-	.menu, .menu-mobile {
-		margin-bottom: 30px;		
-	}
+@media (min-width: 450px){
+	.topmenu {
+		display: none;
+	}			
 }
-
-
+		
 .submenu {
 	list-style: none;   	
 	margin: 0;
-	padding: 20px;		
+	padding: 20px;	
+	
 	position: absolute;
 	top: 100%;
-	right: 0;
+	left: 0;
 	z-index: 10;
 	-webkit-transition: 0.5s ease-in-out;
 	-moz-transition: 0.5s ease-in-out;
 	-o-transition: 0.5s ease-in-out;
-	transition: 0.5s ease-in-out;	
+	transition: 0.5s ease-in-out;
+	
 	display: none;
 	background: #f0f0f0;	
 	border: 1px solid #8c8c8c;
@@ -104,13 +122,19 @@
 	margin: 0px;
 	margin-left: -30px;
 	float: left;
-	position: relative;		
+	position: relative;	
+	
 	padding: 10px 0;
 	text-decoration: none;
 	outline: none;
 	transition: .5s linear;
 }
-.submenu a {	
+.topmenu_li:last-child {
+	margin-right: 0;
+}
+
+.submenu a {
+	/*border-bottom: 1px solid #8c8c8c;*/
 	padding: 10px 15px;
 	color: #8c8c8c;
 	margin-left: 20px;
@@ -123,3 +147,6 @@
 .topmenu_li:hover .submenu {
 	display: block;
 }
+
+
+

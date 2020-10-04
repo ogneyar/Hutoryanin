@@ -3,7 +3,10 @@
 
 .btn {	
 	padding: 10px 15px;	
-	border-radius: 5px;
+	border-radius: 5px;	
+	margin: 1px 0;	
+	display: -webkit-inline-flex; 
+	display: inline-flex;
 }
 
 /* BUTTON DANGER */

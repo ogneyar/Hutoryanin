@@ -10,11 +10,17 @@
     font-family: 'Verdana'; 
     src: url('/static/fonts/Verdana.ttf'); 
 }
+
+/* выделение текста */
+::selection {background: red; color: white;}
+::-moz-selection {background: red; color: white;}
+
 html {
 	/*font-family: sans-serif;*/
 	/*font-family: "Courier New", Courier, monospace;*/
 	font-family: Verdana;
-	font-size: 14px;
+    font-size: 1rem;
+	/*font-size: 14px;*/
 }
 @media (min-width: 768px) {
 	html {
@@ -26,14 +32,36 @@ body {
 	background: #f7f7f7;
 	width: 100%;
 	margin: 0;
-	padding: 0;	
+	padding: 0;		
+	min-height: 100vh;
+	display: -webkit-flex; 
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
 }
 h1 {
 	margin: 0;
 	padding: 0;
 }
+p {
+	line-height: 2;
+}
 a {
-	text-decoration: none;
+	text-decoration: none;	
+	color: red;
+}
+a:active {color: red;}
+a:hover {color: lightgreen;}
+
+a.text:active, a.text:hover, a.text {
+	color: #666;
+}
+li {
+    list-style-type: none; /* Убираем маркеры */
+}
+ul {
+    margin-left: 0; /* Отступ слева в браузере IE и Opera */
+    padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
 }
 textarea {
 	width: 75%;
@@ -54,20 +82,94 @@ input {
 
 .main {
 	display: -webkit-flex; 
-	display: flex;			
-	justify-content: center;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;	
+	-webkit-flex: 1 1 auto; 
+	-ms-flex:  1 1 auto; 
+	flex: 1 1 auto;
+	
+	margin-bottom: 16px;
 }
 
-.content {	
+.main .content {	
 	display: -webkit-inline-flex;
-	display: inline-flex; 	
-	flex-direction: row;
+	display: inline-flex; 		
+	-webkit-flex-direction: row;
+	flex-direction: row;		
+	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
 	width: 100%;
 	max-width: 960px;
 }
 
 /* .cvontein и .box в отдельном файле contain.css */
+
+
+.footer {
+	display: -webkit-flex; 
+	display: flex;	
+	-webkit-justify-content: center;
+	justify-content: center;	
+	width: 100%;
+}
+.footer .row {
+	display: -webkit-inline-flex; 
+	display: inline-flex;	
+	-webkit-flex-direction: row;
+	flex-direction: row;	
+	width: 100%;
+	max-width: 960px;
+	border-top: 1px solid lightgrey;
+	margin: 48px 10px;	
+	padding-top: 48px;
+}
+.column {
+	width: 100%;
+}
+.brend {
+	display: -webkit-flex; 
+	display: flex;	
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+.brend span {
+	display: -webkit-flex; 
+	display: flex;	
+	-webkit-align-items: center;
+	align-items: center;
+	margin: 7% 0;
+}
+.brend small {
+	margin-bottom: 14px;
+}
+.list {
+	display: -webkit-flex; 
+	display: flex;
+	margin: 5px 0;
+}
+.list a.btn {
+	padding: 8px 12px;
+}
+@media (max-width: 768px) {
+	.main {		
+		margin-bottom: 14px;
+	}
+	.brend {
+		min-width: 100%;
+	}
+	.brend span {
+		margin: 10px 0;
+	}
+	.footer .row {
+		flex-wrap:wrap;
+		margin: 0 10px;	
+		padding-top: 21px;		
+	}
+	.column {
+		width: 50%;		
+	}	
+}
 
 
 
