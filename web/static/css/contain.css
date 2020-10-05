@@ -18,6 +18,7 @@
 	background: #e1e1e1;
 	border-radius: 20px;
 	transform-style: preserve-3d;
+	margin-bottom: 5px;
 }
 .contain .box::before {
 	content: 'ХуторянинЪ';
