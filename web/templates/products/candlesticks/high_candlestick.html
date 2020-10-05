@@ -3,50 +3,34 @@
 
 {% block header %}
 
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+<div class="header">
 
-  <h1 class="display-4">Подсвечник "макси"!</h1><br>
+	<h1>Подсвечник "макси"!</h1><br>
   
-  <p class="lead"><a class="btn btn-outline-danger" href="/products/candlesticks/high_candlestick/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a></p>    
+	<p><a class="btn btn-outline-danger" href="{% url 'high_candlestick' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a></p>    
      
-  <p class="lead">Стоимость подсвечника - 800 рублей.</p>
+	<p>Стоимость подсвечника - 800 рублей.</p>
     
-  <p class="lead">Доставка почтой России оплачивается отдельно.</p>
+	<p>Доставка почтой России оплачивается отдельно.</p>
   
-  <br>
-  <p class="lead"><a class="btn btn-outline-danger" href="/products/candlesticks/high_candlestick/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a></p>
-  <br>
+	<br>
+	<p><a class="btn btn-outline-danger" href="{% url 'high_candlestick' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a></p>
+	<br>
   
-  <p class="lead">Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>
+	<p>Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>
   
-  <p class="lead">Вернуться <a class="btn btn-outline-primary" href="/products/candlesticks">назад</a></p>
+	<p>Вернуться <a class="btn btn-outline-primary" href="/products/candlesticks">назад</a></p>
   
 </div>
 
 {% endblock %}
 
 {% block content %}
-
-<div class="card-deck mb-3 text-center">  
-   
-	<div class="card mb-4 shadow-sm">      
-      <div class="card-body">	  
-        <img class="mb-2" src="{% static 'products/candlesticks/high_candlestick_1.jpg'%}" alt="" width="100%">		
-      </div>
-    </div>
 	
-	<div class="card mb-4 shadow-sm">      
-      <div class="card-body">	  
-        <img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">		
-      </div>
-    </div>	
-	
-	<div class="card mb-4 shadow-sm">      
-      <div class="card-body">	  
-        <img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">		
-      </div>
-    </div>
-	
+<div class="image"> 	  
+	<img src="{% static 'products/candlesticks/high_candlestick_1.jpg' %}" alt="" width="100%">
+	<img src="{% static 'logo3.png' %}" alt="" width="100%">
+	<img src="{% static 'logo3.png' %}" alt="" width="100%">
 </div>
   
 {% endblock %}
