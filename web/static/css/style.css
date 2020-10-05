@@ -51,7 +51,7 @@ a {
 	color: red;
 }
 a:active {color: red;}
-a:hover {color: lightgreen;}
+/*a:hover {color: lightgreen;}*/
 
 a.text:active, a.text:hover, a.text {
 	color: #666;
@@ -103,8 +103,14 @@ input {
 	max-width: 960px;
 }
 
-/* .cvontein и .box в отдельном файле contain.css */
+/* .contain и .box в отдельном файле contain.css */
 
+.pages { /* на странице public */
+	padding: 20px;
+	background: #f7f7f7;
+	box-shadow: 0 0 4px 0 rgba(0,0,0,0.1);
+}
+.pages-nums, .pages-all { padding: 5px; } 
 
 .footer {
 	display: -webkit-flex; 

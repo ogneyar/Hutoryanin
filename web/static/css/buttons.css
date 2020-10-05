@@ -6,7 +6,8 @@
 	border-radius: 5px;	
 	margin: 1px 0;	
 	display: -webkit-inline-flex; 
-	display: inline-flex;
+	display: inline-flex;	
+	line-height: 1;
 }
 
 /* BUTTON DANGER */
