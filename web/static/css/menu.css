@@ -49,13 +49,14 @@
 }
 
 /* Мобильная версия меню */
-@media (max-width: 519px){	
+@media (max-width: 549px){	
 	.menu {
 		display: none;
 	}	
+	a#menu { color: Blue; }
 }
 /* Средний режим меню */
-@media (min-width: 520px) and (max-width: 699px){	
+@media (min-width: 550px) and (max-width: 739px){	
 	.menu-mobile {
 		display: none;			
 	}	
@@ -72,7 +73,7 @@
 	}
 }
 /* Максимальный режим меню */
-@media (min-width: 700px){	
+@media (min-width: 740px){	
 	.menu-mobile {
 		display: none;			
 	}	
@@ -103,6 +104,7 @@
 	display: inline-block;
 	margin: 0px;
 	margin-left: -30px;
+	margin-top: 10px;
 	float: left;
 	position: relative;		
 	padding: 10px 0;
