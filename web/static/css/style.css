@@ -48,11 +48,12 @@ p {
 }
 a {
 	text-decoration: none;	
-	color: red;
+	color: Red;
 }
-a:active {color: red;}
+a:active {color: Red;}
 /*a:hover {color: lightgreen;}*/
-
+a#menu { color: Blue; }
+a.home:active  {color: White;}
 a.text:active, a.text:hover, a.text {
 	color: #666;
 }

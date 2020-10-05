@@ -52,8 +52,7 @@
 @media (max-width: 549px){	
 	.menu {
 		display: none;
-	}	
-	a#menu { color: Blue; }
+	}		
 }
 /* Средний режим меню */
 @media (min-width: 550px) and (max-width: 739px){	
