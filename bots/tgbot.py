@@ -27,7 +27,7 @@ if master is not None:
     master = int(master)
 debug = os.getenv("DEBUG")
 
-groupHutor = -464572634 # group
+groupHutor = -1001476461678 # supergroup
 groupHutor2 = -1001471520704 # supergroup
 groupHutor3 = -1001393395949 # supergroup
 
