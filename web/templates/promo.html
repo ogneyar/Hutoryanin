@@ -3,15 +3,15 @@
 
 {% block header %}
 
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+<div class="header">
 
-  <h1 class="display-4">Акции от Хуторянина!</h1>
+  <h1>Акции от Хуторянина!</h1>
   
-  <p class="lead">С 1.11.2020 после празднования дня рождения Хуторянина стартует акция, в которой будет разыгран один нож и три ложки для мёда.</p>
+  <p>С 1.11.2020 после празднования дня рождения Хуторянина стартует акция, в которой будет разыгран один нож и три ложки для мёда.</p>
   
-  <p class="lead">Подробности акции чуть позже, следите за обновлениями в новостной ленте телеграм канала <a class="btn btn-primary" href="https://t.me/hutor_yanin" target="_blank">ХуторянинЪ</a></p>
+  <p>Подробности акции чуть позже, следите за обновлениями в новостной ленте телеграм канала <a class="btn btn-primary" href="https://t.me/hutor_yanin" target="_blank">ХуторянинЪ</a></p>
   
-  <p class="lead">А такж же на ютуб-канале <a class="btn btn-danger"  href="https://youtube.com/c/ХуторянинЪ" target="_blank">ХуторянинЪ</a></p>
+  <p>А такж же на ютуб-канале <a class="btn btn-danger"  href="https://youtube.com/c/ХуторянинЪ" target="_blank">ХуторянинЪ</a></p>
   
 </div>
 
@@ -19,21 +19,16 @@
 
 {% block content %}
  
-<div class="card-deck mb-3 text-center">
-  
-    <div class="card mb-4 shadow-sm">      
-      <div class="card-body">
-	  
-        <img class="mb-2" src="{% static 'logo.png'%}" alt="" width="50%">
-		
-      </div>
-	  <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Акция /<br> Promo</h4>
-      </div>
-    </div>
-	
-    
-	
+<div class="contain">      	
+	<div class="image">	  
+        <img src="{% static 'logo.png'%}" alt="" width="30%">		
+        <h4 class="caption">Акция /<br> Promo</h4>
+	</div>	
 </div>
 
 {% endblock %}
+
+
+
+
+
