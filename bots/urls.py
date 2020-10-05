@@ -17,8 +17,9 @@ urlpatterns = [
     path("prizm/", bots.views.prizm, name="prizm"),
     path("7yanika/", bots.views.semyanika, name="7yanika"),
     path("hutor/", bots.views.hutor, name="hutor"),
-    
+
     path("vanilla/", bots.views.vanilla, name="vanilla"),
     path("fullPageScrolling/", bots.views.fullPageScrolling, name="fullPageScrolling"),
     path("neonButton/", bots.views.neonButton, name="neonButton"),
+    path("sidebarMenu/", bots.views.sidebarMenu, name="sidebarMenu"),
 ]

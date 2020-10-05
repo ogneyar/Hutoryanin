@@ -8,7 +8,7 @@ def prizm(request):
 def semyanika(request):
 
     return render(request, "7yanika/7yanika.html")
-    
+
 def hutor(request):
 
     return render(request, "hutoryanin/hutor.html")
@@ -24,5 +24,9 @@ def fullPageScrolling(request):
 def neonButton(request):
 
     return render(request, "neonButton.html")
+
+def sidebarMenu(request):
+
+    return render(request, "sidebarMenu.html")
 
 
