@@ -37,7 +37,8 @@ def header():
     response.write("<a href='/test/vanilla'>vanilla</a>")
     response.write("<a href='/test/fullPageScrolling'>fullPageScrolling</a>")
     response.write("<a href='/test/neonButton'>neonButton</a>")
-    response.write("<a href='/test/sidebarMenu'>sidebarMenu</a><br><br><br><br>")
+    response.write("<a href='/test/sidebarMenu'>sidebarMenu</a>")
+    response.write("<a href='/test/cardHoverEffects'>cardHoverEffects</a><br><br><br><br>")
 
 
     response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")

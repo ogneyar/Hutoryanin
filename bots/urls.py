@@ -22,4 +22,6 @@ urlpatterns = [
     path("fullPageScrolling/", bots.views.fullPageScrolling, name="fullPageScrolling"),
     path("neonButton/", bots.views.neonButton, name="neonButton"),
     path("sidebarMenu/", bots.views.sidebarMenu, name="sidebarMenu"),
+    path("cardHoverEffects/", bots.views.cardHoverEffects, name="cardHoverEffects"),
+
 ]

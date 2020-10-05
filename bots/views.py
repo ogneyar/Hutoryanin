@@ -29,4 +29,9 @@ def sidebarMenu(request):
 
     return render(request, "sidebarMenu.html")
 
+def cardHoverEffects(request):
+
+    return render(request, "cardHoverEffects.html")
+
+
 
