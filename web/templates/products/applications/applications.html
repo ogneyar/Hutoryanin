@@ -2,122 +2,90 @@
 {% load static %}
 
 {% block header %}
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 
-
-  <h1 class="display-4">Категория "Приложения"!</h1>
-   
-  <p class="lead">Выберайте тип приложения.</p>
-  
-  
-  <p class="lead">Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>  
-  <p class="lead">Вернуться <a class="btn btn-outline-primary" href="/products">назад</a></p>  
+<div class="header">
+	<h1">Категория "Приложения"!</h1>
+	<p>Выберайте тип приложения.</p>
+	<p>Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>  
+	<p>Вернуться <a class="btn btn-outline-primary" href="/products">назад</a></p>  
 </div>
+
 {% endblock %}
 
 {% block content %}
-<div class="card-deck mb-3 text-center">     	
-	
-	<!------------------------------------>
+
+<!------------------------------------>
 			
-	<div class="card mb-4 shadow-sm contain">		  
-		<div class="box">	  
-			<h2 class="name">Сайт</h2>			
-			<a class="btn btn-success buy" href="{% url 'site' %}">Описание</a>		
-			<a href="{% url 'site' %}">
-				<img class="mb-2 product" src="{% static 'products/applications/site.jpg'%}" alt="" width="100%">
-			</a>
-		</div>	  
-		<br>
-		<a class="btn btn-outline-danger" href="{% url 'site' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
-		<br>
-	</div>	
+<div class="contain">		  
+	<div class="box">	  
+		<h2 class="name">Сайт</h2>			
+		<a class="btn btn-success buy" href="{% url 'site' %}">Описание</a>		
+		<a href="{% url 'site' %}">
+			<img class="product" src="{% static 'products/applications/site.jpg'%}" alt="" width="100%">
+		</a>
+	</div>
+	<a class="btn btn-outline-danger" href="{% url 'site' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
+</div>	
 	
-	<!------------------------------------>
+<!------------------------------------>
 	
-	<div class="card mb-4 shadow-sm contain">
-      <div class="box">
+<div class="contain">
+	<div class="box">
 		<h2 class="name">Телеграм бот</h2>
 		<a class="btn btn-success buy" href="{% url 'tgbot' %}">Описание</a>
 		<a href="{% url 'tgbot' %}">
-			<img class="mb-2 product" src="{% static 'products/applications/tgbot.jpg'%}" alt="" width="100%">
+			<img class="product" src="{% static 'products/applications/tgbot.jpg'%}" alt="" width="100%">
 		</a>
-      </div>
-	  <br>
-		<a class="btn btn-outline-danger" href="{% url 'tgbot' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
-	  <br>
-    </div>	
+    </div>
+	<a class="btn btn-outline-danger" href="{% url 'tgbot' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
+</div>	
 	
-	<!------------------------------------>
+<!------------------------------------>
 	
-	<div class="card mb-4 shadow-sm contain">
-      <div class="box">
+<div class="contain">
+    <div class="box">
 		<h2 class="name">ВКонтакте бот</h2>
 		<a class="btn btn-success buy" href="{% url 'vkbot' %}">Описание</a>
 		<a href="{% url 'vkbot' %}">
-		<img class="mb-2 product" src="{% static 'products/applications/vkbot.jpg'%}" alt="" width="100%">
+			<img class="product" src="{% static 'products/applications/vkbot.jpg'%}" alt="" width="100%">
 		</a>
-      </div>
-	  <br>
-		<a class="btn btn-outline-danger" href="{% url 'vkbot' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
-	  <br>		
-    </div>		
+    </div>
+	<a class="btn btn-outline-danger" href="{% url 'vkbot' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>	
+</div>		
 	
-	<!------------------------------------>
-	<div class="card mb-4 shadow-sm contain">
-      <div class="box">
+<!------------------------------------>
+
+<div class="contain">
+    <div class="box">
 		<h2 class="name">Андроид приложение</h2>
 		<a class="btn btn-success buy" href="{% url 'android' %}">Описание</a>
 		<a href="{% url 'android' %}">
-			<img class="mb-2 product" src="{% static 'products/applications/android.jpg'%}" alt="" width="100%">
+			<img class="product" src="{% static 'products/applications/android.jpg'%}" alt="" width="100%">
 		</a>
-      </div>
-	  <br>
-		<a class="btn btn-outline-danger" href="{% url 'android' %}creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
-	  <br>		
-    </div>		
+    </div>
+	<a class="btn btn-outline-danger" href="{% url 'android' %}creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>	
+</div>		
 	
 	
-	
-	<!------------------------------------>
-	
-	<div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Пусто</h4>
-      </div>
-      <div class="card-body">	  
-		<a href="#">
-			<img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">
-		</a>		
-      </div>
-	  <div class="card-header">
-		<button class="btn btn-outline-dark buy" type="button" disabled>Описание</button>
-      </div>
-	  <div class="card-header">
-		<button class="btn btn-outline-dark buy" type="button" disabled>ОФОРМИТЬ ЗАКАЗ</button>
-      </div>
-    </div>	 
-	
-	<!------------------------------------>
+<!-- -->
+<div class="contain">
+	<div class="box">
+		<h2 class="name">Пусто</h2>
+		<button class="btn btn-outline-dark buy" type="button" disabled>Посмотреть</button>
+		<img class="product" src="{% static 'logo3.png'%}" alt="" width="100%">
+	</div>
+	<button class="btn btn-outline-dark buy" type="button" disabled>ОФОРМИТЬ ЗАКАЗ</button>  	
+</div> 
 		
-	<div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Пусто</h4>
-      </div>
-      <div class="card-body">	  
-		<a href="#">
-			<img class="mb-2" src="{% static 'logo3.png'%}" alt="" width="100%">
-		</a>		
-      </div>
-	  <div class="card-header">
-		<button class="btn btn-outline-dark buy" type="button" disabled>Описание</button>
-      </div>
-	  <div class="card-header">
-		<button class="btn btn-outline-dark buy" type="button" disabled>ОФОРМИТЬ ЗАКАЗ</button>
-      </div>
-    </div>	 
-	
+<!-- -->
+<div class="contain">
+	<div class="box">
+		<h2 class="name">Пусто</h2>
+		<button class="btn btn-outline-dark buy" type="button" disabled>Посмотреть</button>
+		<img class="product" src="{% static 'logo3.png'%}" alt="" width="100%">
+	</div>
+	<button class="btn btn-outline-dark buy" type="button" disabled>ОФОРМИТЬ ЗАКАЗ</button> 	
 </div>
-  
+
 {% endblock %}
 
