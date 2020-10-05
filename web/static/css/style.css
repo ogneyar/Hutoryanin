@@ -74,10 +74,18 @@ input {
 
 /* .menu и .menu-mobile в отдельном файле menu.css */
 
+.title {
+	display: -webkit-flex; 
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;	
+	width: 100%;
+}
 .header {
 	background: #f7f7f7;
 	padding: 20px;		
 	text-align: center;	
+	max-width: 960px;
 }
 
 .main {
