@@ -22,7 +22,12 @@
 		min-height: 100vh;
 		background: #1e1e1e;
 		
-		width: 100%;
+		width: 100vw;
+	}
+	.main {
+	    display: flex;
+		justify-content: center;
+        width: 100%;
 	}
 	.container {
 		width: 700px;
@@ -31,8 +36,8 @@
 		display: inline-flex;
 		/*justify-content: space-between;*/
 		
-        justify-content: center;
-		flex-wrap: wrap;
+        
+		/*flex-wrap: wrap;*/
 		flex-direction: column;
 		margin-top: -20px;
 	}
@@ -90,6 +95,8 @@
 </head>
 <body>
 	
+<div class="main">
+    
 	<div class="container">
 	
 		<div class="card">
@@ -135,6 +142,8 @@
 		</div>
 		
 	</div>
+	
+</div>
 	
 </body>
 </html>
