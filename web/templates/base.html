@@ -25,7 +25,7 @@
 	<meta name="theme-color" content="#f1f1f1">
 
 	<link href="{% static 'css/style.css'%}" rel="stylesheet">
-	<link href="{% static 'css/menu.css'%}" rel="stylesheet">	
+	<link href="{% static 'css/menu.css'%}" rel="stylesheet">
 	<link href="{% static 'css/buttons.css'%}" rel="stylesheet">
 	<link href="{% static 'css/contain.css'%}" rel="stylesheet">
 	<link href="{% static 'css/image.css'%}" rel="stylesheet">
@@ -33,7 +33,7 @@
 
 	<style type="text/css">
 	</style>
-	
+
 </head>
 
 
@@ -47,17 +47,19 @@
 	<nav class="line-menu nav">
 		<a class="btn btn-outline-dark" href="/public/1">Публикации</a>
 		<a class="btn btn-outline-primary" href="/products">Товары</a>
-		<a class="btn btn-outline-success" href="/promo">Акции</a>		
-		<a class="btn btn-outline-warning" href="/support">Тех.поддержка</a>		
+		<a class="btn btn-outline-success" href="/promo">Акции</a>
+		<a class="btn btn-outline-warning" href="/support">Тех.поддержка</a>
 	</nav>
 </div>
 
-<div class="menu-mobile">	
+<!--
+<div class="menu-mobile">
+
 	<div class="topmenu logo">
-		<a class="btn btn-outline-danger home" href="/">ХуторянинЪ</a>
-	</div>	
+		<a class="btn btn-outline-danger" href="/">ХуторянинЪ</a>
+	</div>
 	<ul class="topmenu nav">
-		<li class="topmenu_li"><a id="menu" href="#"><i class="fa fa-bars fa-lg" aria-hidden="true"></i><!-- Меню--></a>
+		<li class="topmenu_li"><a href="#"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></a>
 			<ul class="submenu">
 				<li><a class="btn btn-outline-danger" href="/">Главная</a></li>
 				<li><a class="btn btn-outline-dark" href="/public/1">Публикации</a></li>
@@ -65,23 +67,48 @@
 				<li><a class="btn btn-outline-success" href="/promo">Акции</a></li>
 				<li><a class="btn btn-outline-warning" href="/support">Тех.поддержка</a></li>
 			</ul>
-		</li>		
+		</li>
 	</ul>
-	<!--<a class="btn btn-outline-primary" href="/lk">Л.К.</a>-->	
+
+</div>
+-->
+<div class="menu-mobile">
+
+  <div class="topmenu logo">
+    <a class="btn btn-outline-danger" href="/">ХуторянинЪ</a>
+  </div>
+
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fa fa-bars fa-lg" aria-hidden="true" id="btn"></i>
+    <i class="fa fa-times fa-lg" id="cancel"></i>
+  </label>
+
+  <div class="sidebar">
+    <header>&nbsp;М&nbsp;Е&nbsp;Н&nbsp;Ю&nbsp;</header>
+    <ul>
+      <li><a class="btn btn-outline-danger" href="/">Главная</a></li>
+      <li><a class="btn btn-outline-dark" href="/public/1">Публикации</a></li>
+      <li><a class="btn btn-outline-primary" href="/products">Товары</a></li>
+      <li><a class="btn btn-outline-success" href="/promo">Акции</a></li>
+      <li><a class="btn btn-outline-warning" href="/support">Тех.поддержка</a></li>
+    </ul>
+  </div>
+
 </div>
 
 
 <!---------------------->
 <div class="title">
-{% block header %}{% endblock %} 
+{% block header %}{% endblock %}
 </div>
 
 <div class="main">
 
 	<div class="content">
-	
-		{% block content %}{% endblock %} 
-		
+
+		{% block content %}{% endblock %}
+
 	</div> <!--/* CONTENT */-->
 
 </div> <!--/* MAIN */-->
@@ -121,11 +148,11 @@
 			<li class="list"><a class="text" href="https://yandex.ru/chat/#/join/317765f5-498a-4010-ba49-2f766c134385" target="_blank">Яндекс месенджер</a></li>
         </ul>
 	</div>
-	
+
 </div>
 
  </footer>
-  
+
 
 </body>
 </html>

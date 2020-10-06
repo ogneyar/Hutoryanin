@@ -7,7 +7,7 @@
 }
 .fa {
 	display: inline-block;
-	font: normal normal normal 14px/1 FontAwesome;	
+	font: normal normal normal 14px/1 FontAwesome;
 	font-size: inherit;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
@@ -16,6 +16,9 @@
 .fa-bars:before{
 	content:"\f0c9"
 }
+.fa-times:before {
+  content: "\f00d";
+}
 .fa-lg {
 	font-size: 3em;
 	line-height: 0.75em;
@@ -23,104 +26,174 @@
 }
 
 .menu, .menu-mobile {
-	float: left;	
-	width: 100%;	
+	float: left;
+	width: 100%;
 	background: #f7f7f7;
 	padding: 20px 0;
 	box-shadow: 0 3px 4px 0 rgba(0,0,0,0.1);
 	margin-bottom: 20px;
-}
 
-.menu  .nav {	
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 11;
+}
+.menu .nav {
 	float: right;
 	padding: 20px;
-	margin: 0 10px;	
+	margin: 0 10px;
 }
-
-.menu-mobile .nav {	
-	float: right;
-	margin: 0 30px;	
-}
-
-.menu  .logo, .menu-mobile  .logo {
-	float: left;	
+.menu .logo, .menu-mobile .logo {
+	float: left;
 	padding: 20px;
-	margin: 0 10px;	
+	margin: 0 10px;
 }
 
 /* Мобильная версия меню */
-@media (max-width: 549px){	
+@media (max-width: 549px){
 	.menu {
 		display: none;
-	}		
+	}
 }
 /* Средний режим меню */
-@media (min-width: 550px) and (max-width: 739px){	
+@media (min-width: 550px) and (max-width: 739px){
 	.menu-mobile {
-		display: none;			
-	}	
-	.menu  .logo{
+		display: none;
+	}
+	.menu .logo{
 		text-align: center;
-		float: none;		
-	}	
-	.menu  .nav{
+		float: none;
+
+    padding: 10px 20px 5px 20px;
+	}
+	.menu .nav{
 		text-align: center;
-		float: none;	
-	}		
-	.menu, .menu-mobile {	
-		padding: 10px 0;		
+		float: none;
+
+    padding: 5px 20px 10px 20px;
+	}
+	.menu, .menu-mobile {
+		padding: 5px 0;
 	}
 }
 /* Максимальный режим меню */
-@media (min-width: 740px){	
+@media (min-width: 740px){
 	.menu-mobile {
-		display: none;			
-	}	
+		display: none;
+	}
 	.menu, .menu-mobile {
-		margin-bottom: 30px;		
+		margin-bottom: 30px;
 	}
 }
 
 
-.submenu {
-	list-style: none;   	
-	margin: 0;
-	padding: 20px;		
-	position: absolute;
-	top: 100%;
-	right: 0;
-	z-index: 10;
-	-webkit-transition: 0.5s ease-in-out;
-	-moz-transition: 0.5s ease-in-out;
-	-o-transition: 0.5s ease-in-out;
-	transition: 0.5s ease-in-out;	
-	display: none;
-	background: #f0f0f0;	
-	border: 1px solid #8c8c8c;
-	border-radius: 5px;
+
+
+
+*{
+  list-style: none;
+  text-decoration: none;
 }
-.topmenu_li {
-	display: inline-block;
-	margin: 0px;
-	margin-left: -30px;
-	margin-top: 10px;
-	float: left;
-	position: relative;		
-	padding: 10px 0;
-	text-decoration: none;
-	outline: none;
-	transition: .5s linear;
+.sidebar {
+  position: fixed;
+  left: -300px;
+  top: 120px;
+  width: 0;
+  height: calc(100% - 120px);
+  background: #f1f1f1;
+
+  z-index: 9;
+  /*display: none;*/
+
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+
+  transition: all .5s ease;
 }
-.submenu a {	
-	padding: 10px 15px;
-	color: #8c8c8c;
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	float: left;
+.sidebar header {
+  font-size: 22px;
+  color: White;
+  text-align: center;
+  line-height: 70px;
+  background: #e1e1e1;
+  user-select: none;
+}
+.sidebar ul a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 55px;
+  font-size: 20px;
+  /*color: white;*/
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255,255,255,.1);
+  /*border-bottom: 1px solid black;*/
+
+  -webkit-transition: .4s;
+  -moz-transition: .4s;
+  -o-transition: .4s;
+
+  transition: .4s;
+}
+ul li:hover a {
+  padding-left: 50px;
 }
 
-.topmenu_li:hover .submenu {
-	display: block;
+#check {
+  display: none;
+}
+label #btn, label #cancel {
+  position: absolute;
+  cursor: pointer;
+/*  background: #042331;*/
+  borde-radius: 3px;
+}
+label #btn {
+  right: 40px;
+  top: 40px;
+  font-size: 35px;
+/*  color: white;*/
+  color: blue;
+  padding: 6px 12px;
+
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+
+  transition: all .5s;
+
+  /*position: fixed;*/
+}
+label #cancel {
+  z-index: 10;
+  left: -245px;
+  top: 130px;
+  font-size: 30px;
+  color: #0a5275;
+  padding: 4px 9px;
+
+  opacity: 0;
+
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+
+  transition: all .5s ease;
+}
+#check:checked ~ .sidebar {
+  left: 0;
+  display: block;
+  width: 300px;
+}
+/*#check:checked ~ label #btn {
+  right: 250px;
+  opacity: 0;
+  point-events: none;
+}*/
+#check:checked ~ label #cancel {
+  opacity: 1;
+  left: 245px;
+  /*position: fixed;*/
 }
