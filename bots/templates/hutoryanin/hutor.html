@@ -23,6 +23,12 @@
 	<meta name="msapplication-TileColor" content="#dbecfe">
 	<meta name="theme-color" content="#f1f1f1">
 
+  <link href="{% static 'css/style.css'%}" rel="stylesheet">
+	<link href="{% static 'hutor/menu2.css'%}" rel="stylesheet">
+	<link href="{% static 'css/buttons.css'%}" rel="stylesheet">
+	<link href="{% static 'css/contain.css'%}" rel="stylesheet">
+	<link href="{% static 'css/image.css'%}" rel="stylesheet">
+	<link href="{% static 'css/video.css'%}" rel="stylesheet">
 
 
 	<style type="text/css">
@@ -45,13 +51,14 @@
 		<a class="btn btn-outline-warning" href="/support">Тех.поддержка</a>
 	</nav>
 </div>
-
+<!--
 <div class="menu-mobile">
+
 	<div class="topmenu logo">
 		<a class="btn btn-outline-danger" href="/">ХуторянинЪ</a>
 	</div>
 	<ul class="topmenu nav">
-		<li class="topmenu_li"><a href="#"><i class="fa fa-bars fa-lg" aria-hidden="true"></i><!-- Меню--></a>
+		<li class="topmenu_li"><a href="#"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></a>
 			<ul class="submenu">
 				<li><a class="btn btn-outline-danger" href="/">Главная</a></li>
 				<li><a class="btn btn-outline-dark" href="/public/1">Публикации</a></li>
@@ -61,7 +68,32 @@
 			</ul>
 		</li>
 	</ul>
-	<!--<a class="btn btn-outline-primary" href="/lk">Л.К.</a>-->
+
+</div>
+-->
+<div class="menu-mobile">
+
+  <div class="topmenu logo">
+    <a class="btn btn-outline-danger" href="/">ХуторянинЪ</a>
+  </div>
+
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fa fa-bars fa-lg" id="btn"></i>
+    <i class="fa fa-times fa-lg" id="cancel"></i>
+  </label>
+
+  <div class="sidebar">
+    <header>&nbsp;М&nbsp;Е&nbsp;Н&nbsp;Ю&nbsp;</header>
+    <ul>
+      <li><a class="btn btn-outline-danger" href="/">Главная</a></li>
+      <li><a class="btn btn-outline-dark" href="/public/1">Публикации</a></li>
+      <li><a class="btn btn-outline-primary" href="/products">Товары</a></li>
+      <li><a class="btn btn-outline-success" href="/promo">Акции</a></li>
+      <li><a class="btn btn-outline-warning" href="/support">Тех.поддержка</a></li>
+    </ul>
+  </div>
+
 </div>
 
 
