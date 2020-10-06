@@ -32,6 +32,11 @@
 	padding: 20px 0;
 	box-shadow: 0 3px 4px 0 rgba(0,0,0,0.1);
 	margin-bottom: 20px;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 11;
 }
 .menu .nav {
 	float: right;
@@ -55,16 +60,20 @@
 	.menu-mobile {
 		display: none;
 	}
-	.menu  .logo{
+	.menu .logo{
 		text-align: center;
 		float: none;
+
+    padding: 10px 20px 5px 20px;
 	}
-	.menu  .nav{
+	.menu .nav{
 		text-align: center;
 		float: none;
+
+    padding: 5px 20px 10px 20px;
 	}
 	.menu, .menu-mobile {
-		padding: 10px 0;
+		padding: 5px 0;
 	}
 }
 /* Максимальный режим меню */
@@ -87,13 +96,14 @@
 }
 .sidebar {
   position: fixed;
-  right: -250px;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  background: #042331;
+  left: -300px;
+  top: 120px;
+  width: 0;
+  height: calc(100% - 120px);
+  background: #f1f1f1;
 
   z-index: 9;
+  /*display: none;*/
 
   -webkit-transition: all .5s ease;
   -moz-transition: all .5s ease;
@@ -106,7 +116,7 @@
   color: White;
   text-align: center;
   line-height: 70px;
-  background: #063146;
+  background: #e1e1e1;
   user-select: none;
 }
 .sidebar ul a {
@@ -115,11 +125,11 @@
   height: 100%;
   line-height: 55px;
   font-size: 20px;
-  color: white;
+  /*color: white;*/
   padding-left: 40px;
   box-sizing: border-box;
   border-top: 1px solid rgba(255,255,255,.1);
-  border-bottom: 1px solid black;
+  /*border-bottom: 1px solid black;*/
 
   -webkit-transition: .4s;
   -moz-transition: .4s;
@@ -137,14 +147,15 @@ ul li:hover a {
 label #btn, label #cancel {
   position: absolute;
   cursor: pointer;
-  background: #042331;
+/*  background: #042331;*/
   borde-radius: 3px;
 }
 label #btn {
   right: 40px;
   top: 40px;
   font-size: 35px;
-  color: white;
+/*  color: white;*/
+  color: blue;
   padding: 6px 12px;
 
   -webkit-transition: all .5s;
@@ -157,8 +168,8 @@ label #btn {
 }
 label #cancel {
   z-index: 10;
-  right: -195px;
-  top: 17px;
+  left: -245px;
+  top: 130px;
   font-size: 30px;
   color: #0a5275;
   padding: 4px 9px;
@@ -172,15 +183,17 @@ label #cancel {
   transition: all .5s ease;
 }
 #check:checked ~ .sidebar {
-  right: 0;
+  left: 0;
+  display: block;
+  width: 300px;
 }
-#check:checked ~ label #btn {
+/*#check:checked ~ label #btn {
   right: 250px;
   opacity: 0;
   point-events: none;
-}
+}*/
 #check:checked ~ label #cancel {
   opacity: 1;
-  right: 195px;
-  position: fixed;
+  left: 245px;
+  /*position: fixed;*/
 }
