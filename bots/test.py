@@ -16,38 +16,38 @@ def header():
     response = HttpResponse()
 
     # вывод на экран
-    response.write("<style type='text/css'>a{text-decoration: none; border: 1px solid #8c8c8c; border-radius: 5px; margin: 5px; padding: 5px 10px;}</style>")
+    response.write("<style type='text/css'>h1{text-align:center;}*{-webkit-hyphens:auto;-moz-hyphens:auto;-ms-hyphens:auto;hyphens:auto;word-wrap:break-word;}a{text-decoration:none;border:1px solid #8c8c8c;border-radius:5px; margin:5px; padding: 5px 10px;}div{display: flex;justify-content:center;flex-wrap: wrap;}</style>")
 
     response.write("<meta name='viewport' content='user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=1.0'>")
 
     response.write("<h1>Добро пожаловать!</h1>")
 
-    response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    response.write("<a href='/test/prizm'>TESTMarket</a>")
+    #response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    response.write("<div><a href='/test/prizm'>TESTMarket</a>")
     response.write("<a href='/test/7yanika'>TEST7yanika</a>")
-    response.write("<a href='/test/hutor'>TESThutor</a>")
+    response.write("<a href='/test/hutor'>TESThutor</a></div>")
 
-    response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    response.write("<a href='https://sph.hutoryanin.online'>Sprint</a>")
+    #response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    response.write("<div><a href='https://sph.hutoryanin.online'>Sprint</a>")
     response.write("<a href='https://heroku.hutoryanin.online'>Heroku</a>")
-    response.write("<a href='https://beget.hutoryanin.online'>Beget</a><br><br><br><br>")
+    response.write("<a href='https://beget.hutoryanin.online'>Beget</a></div><br>")
 
 
-    response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    response.write("<a href='/test/vanilla'>vanilla</a>")
+    #response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    response.write("<div><a href='/test/vanilla'>vanilla</a>")
     response.write("<a href='/test/fullPageScrolling'>fullPageScrolling</a>")
     response.write("<a href='/test/neonButton'>neonButton</a>")
     response.write("<a href='/test/sidebarMenu'>sidebarMenu</a>")
-    response.write("<a href='/test/cardHoverEffects'>cardHoverEffects</a><br><br><br><br>")
+    response.write("<a href='/test/cardHoverEffects'>cardHoverEffects</a></div><br>")
 
 
-    response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    response.write("<a href='/test/getcookie'>getCokie</a>")
+    #response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    response.write("<div><a href='/test/getcookie'>getCokie</a>")
     response.write("<a href='/test/cookie'>cokie</a>")
     response.write("<a href='/test/session'>session</a>")
     response.write("<a href='/test/parser'>parser</a>")
     response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    response.write("<a href='/test'>Назад</a><br><br>")
+    response.write("<a href='/test'>Назад</a></div><br><br>")
 
     return response
 
