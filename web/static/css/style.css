@@ -84,11 +84,13 @@ input {
 }
 .header {
 	background: #f7f7f7;
-	padding: 20px;
+	/*padding: 20px;*/
 	text-align: center;
 	max-width: 960px;
 
-  margin-top: 150px;
+padding-top: 170px;
+padding-bottom: 150px;
+  /*margin-top: 150px;*/
 }
 
 .main {
