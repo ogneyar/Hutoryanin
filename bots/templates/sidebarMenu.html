@@ -51,6 +51,11 @@
 		box-sizing: border-box;
 		border-top: 1px solid rgba(255,255,255,.1);
 		border-bottom: 1px solid black;
+        
+        -webkit-transition: .4s;
+		-moz-transition: .4s;
+		-o-transition: .4s;
+        
 		transition: .4s;
 	}
 	ul li:hover a {
@@ -75,7 +80,13 @@
 		font-size: 35px;
 		color: white;
 		padding: 6px 12px;
+        
+        -webkit-transition: all .5s;
+		-moz-transition: all .5s;
+		-o-transition: all .5s;
+        
 		transition: all .5s;
+        
         position: fixed;
 	}
 	label #cancel {
@@ -85,9 +96,11 @@
 		font-size: 30px;
 		color: #0a5275;
 		padding: 4px 9px;
-		/*-webkit-transition: all .5s ease;
+        
+		-webkit-transition: all .5s ease;
 		-moz-transition: all .5s ease;
-		-o-transition: all .5s ease;*/
+		-o-transition: all .5s ease;
+        
 		transition: all .5s ease;
 	}
 	#check:checked ~ .sidebar {
@@ -111,6 +124,11 @@
 		background-position: center;
 		background-size: cover;
 		height: 100vh;
+        
+        -webkit-transition: all .5s;
+		-moz-transition: all .5s;
+		-o-transition: all .5s;
+        
 		transition: all .5s;
 	}
 			
