@@ -29,7 +29,7 @@
 	float: left;
 	width: 100%;
 	background: #f7f7f7;
-	padding: 20px 0;
+	padding: 5px 0;
 	box-shadow: 0 3px 4px 0 rgba(0,0,0,0.1);
 	margin-bottom: 20px;
 
@@ -40,22 +40,29 @@
 }
 .menu .nav {
 	float: right;
-	padding: 20px;
-	margin: 0 10px;
+	padding: 10px 10px 10px 5px;
+/*	margin: 0 10px;*/
 }
 .menu .logo, .menu-mobile .logo {
 	float: left;
-	padding: 20px;
-	margin: 0 10px;
+	padding: 10px 5px 10px 10px;
+  margin-left: 80px;
+}
+
+.head_image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 12;
 }
 
 /* Мобильная версия меню */
-@media (max-width: 549px){
+@media (max-width: 739px){
 	.menu {
 		display: none;
 	}
 }
-/* Средний режим меню */
+/* Средний режим меню 
 @media (min-width: 550px) and (max-width: 739px){
 	.menu-mobile {
 		display: none;
@@ -75,7 +82,7 @@
 	.menu, .menu-mobile {
 		padding: 5px 0;
 	}
-}
+}*/
 /* Максимальный режим меню */
 @media (min-width: 740px){
 	.menu-mobile {
@@ -97,9 +104,9 @@
 .sidebar {
   position: fixed;
   left: -300px;
-  top: 120px;
+  top: 70px;
   width: 0;
-  height: calc(100% - 120px);
+  height: calc(100% - 70px);
   background: #f1f1f1;
 
   z-index: 9;
@@ -115,7 +122,7 @@
   font-size: 22px;
   color: White;
   text-align: center;
-  line-height: 70px;
+  line-height: 50px;
   background: #e1e1e1;
   user-select: none;
 }
@@ -123,7 +130,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  line-height: 55px;
+  line-height: 40px;
   font-size: 20px;
   /*color: white;*/
   padding-left: 40px;
@@ -148,11 +155,11 @@ label #btn, label #cancel {
   position: absolute;
   cursor: pointer;
 /*  background: #042331;*/
-  borde-radius: 3px;
+  border-radius: 3px;
 }
 label #btn {
-  right: 40px;
-  top: 40px;
+  right: 20px;
+  top: 15px;
   font-size: 35px;
 /*  color: white;*/
   color: blue;
@@ -169,7 +176,7 @@ label #btn {
 label #cancel {
   z-index: 10;
   left: -245px;
-  top: 130px;
+  top: 80px;
   font-size: 30px;
   color: #0a5275;
   padding: 4px 9px;
