@@ -46,7 +46,7 @@
 .menu .logo, .menu-mobile .logo {
 	float: left;
 	padding: 10px 5px 10px 10px;
-  margin-left: 80px;
+  margin-left: 87px;
 }
 
 .head_image {
@@ -91,6 +91,15 @@
 	.menu, .menu-mobile {
 		margin-bottom: 30px;
 	}
+}
+
+@media (min-width: 800px){	
+  .menu .nav {
+  	margin-right: 20px;
+  }
+  .menu .logo {
+    margin-left: 120px;
+  }
 }
 
 
@@ -159,11 +168,11 @@ label #btn, label #cancel {
 }
 label #btn {
   right: 20px;
-  top: 15px;
-  font-size: 35px;
+  top: 12px;
+  font-size: 50px;
 /*  color: white;*/
   color: blue;
-  padding: 6px 12px;
+  padding: 5px 5px;
 
   -webkit-transition: all .5s;
   -moz-transition: all .5s;
