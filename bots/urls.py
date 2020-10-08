@@ -23,5 +23,7 @@ urlpatterns = [
     path("neonButton/", bots.views.neonButton, name="neonButton"),
     path("sidebarMenu/", bots.views.sidebarMenu, name="sidebarMenu"),
     path("cardHoverEffects/", bots.views.cardHoverEffects, name="cardHoverEffects"),
+    path("parallaxScrollingEffect/", bots.views.parallaxScrollingEffect, name="parallaxScrollingEffect"),
+    
 
 ]

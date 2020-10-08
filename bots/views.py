@@ -33,5 +33,8 @@ def cardHoverEffects(request):
 
     return render(request, "cardHoverEffects.html")
 
+def parallaxScrollingEffect(request):
+
+    return render(request, "parallaxScrollingEffect.html")
 
 
