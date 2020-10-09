@@ -2,8 +2,15 @@ from django.shortcuts import render
 from django.http import Http404, HttpResponseRedirect
 
 from .models import Greeting, Url, Messages, Users
+from .forms import UsersForm
 
-import os, bmemcached
+import os, bmemcached, smtplib, random
+#import requests, json
+
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+from classes.tg.botApi import Bot
 
 
 def index(request):
@@ -169,9 +176,14 @@ def support(request):
 
 
 def lk(request):
+
     if request.method == "POST":
-        if request.POST["login"] == "Огнеяр" and request.POST["password"] == "1111":
-            request.session["user"] = request.POST["login"]
+        all_users = Users.objects.order_by('id')
+        for user in all_users:
+            if user.login == request.POST["login"]:
+                if user.password == request.POST["password"]:
+                    request.session["user"] = request.POST["login"]
+
 
     ''' сохранение сессии
     '''
@@ -184,18 +196,65 @@ def lk(request):
 
     return render(request, "lk/lk.html", {"user": user})
 
+
 def exit(request):
     request.session["user"] = "none"
 
     return HttpResponseRedirect("/lk")
 
-def registration(request):
 
-    return render(request, "lk/registration.html")
+def registration(request):
+    global tg, master
+
+    if request.get_host() == '127.0.0.1:8000':
+        token = "1224906863:AAHYalxznzb4XwcP-7olgPu8BQjNJ0LrKXY"
+        master = 1038937592
+        host = 'local'
+    else:
+        token = os.getenv("TOKEN")
+        master = int(os.getenv("MASTER"))
+        host = 'no_local'
+
+    tg = Bot(token)
+
+    mail = 'none'
+
+    if request.method == "POST":
+        login = request.POST["login"]
+        password = getPass()
+        email = request.POST["email"]
+        data = {
+            'login':login,
+            'password':password,
+            'email':email,
+            'adress':request.POST["adress"],
+            'promo':'Новичёк',
+            'info':'none'
+        }
+        form = UsersForm(data)
+        if form.is_valid():
+            sms = "Ваш логин: "+login+"\n\nВаш пароль: "+password+"\n\n\nhttp://"+request.get_host()+"/lk"
+            mail = sendMailTo(host, email, "Регистрация на сайте ХуторянинЪ.", sms)
+            if mail != "Ошибка отправки!":
+                form.save()
+                tg.sendMessage(master, "Зарегистрировал нового клиента:\n\n" + login + "\n\n" + email)
+
+    return render(request, "lk/registration.html", {"mail": mail})
+
 
 def forget_password(request):
+    if request.get_host() == '127.0.0.1:8000':
+        host = 'local'
+    else:
+        host = 'no_local'
 
-    return render(request, "lk/forget_password.html")
+    if request.method == "POST":
+        email = request.POST["email"]
+        mail = sendMailTo(host, email, "Сброс пароля на сайте ХуторянинЪ.", "Здесь будет ссылка для сброса пароля")
+    else:
+        mail = 'none'
+
+    return render(request, "lk/forget_password.html", {"mail": mail})
 
 
 
@@ -215,3 +274,47 @@ def db(request):
 
 
 
+# функция отправки Email
+def sendMailTo(host, to_whom, subject, body):
+    #global smtp_login, smtp_pass, smtp_port, smtp_server
+
+    if host == 'local':
+        '''
+        smtp_login = "hutoryanin_test@mail.ru"
+        smtp_pass = "Polkmn_111"
+        '''
+        smtp_login = "prizmarket@mail.ru"
+        smtp_pass = "Qwrtui13"
+
+        smtp_port = 465
+        smtp_server = "smtp.mail.ru"
+    else:
+        smtp_login = str(os.getenv("SMTP_LOGIN"))
+        smtp_pass = str(os.getenv("SMTP_PASSWORD"))
+        smtp_port = int(os.getenv("SMTP_PORT"))
+        smtp_server = str(os.getenv("SMTP_SERVER"))
+
+    try:
+        message = MIMEMultipart()
+        message['Subject'] = subject
+        message['From'] = smtp_login
+        message.attach(MIMEText(body, 'plain'))
+        server = smtplib.SMTP_SSL(smtp_server, smtp_port)
+        server.login(smtp_login, smtp_pass)
+        server.sendmail(smtp_login, to_whom, message.as_string())
+        server.quit()
+
+        return "Письмо отправленно, проверьте почту! Если не пришло письмо, загляните в папку спам."
+    except:
+        return "Ошибка отправки!"
+
+
+def getPass():
+
+    chars = 'abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+
+    password =''
+    for i in range(10):
+        password += random.choice(chars)
+
+    return password
