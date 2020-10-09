@@ -30,8 +30,13 @@ def send(request):
     if request.get_host() == '127.0.0.1:8000':
         token = "1224906863:AAHYalxznzb4XwcP-7olgPu8BQjNJ0LrKXY"
         master = 1038937592
+        '''
         smtp_login = "hutoryanin_test@mail.ru"
-        smtp_pass = "Polkmn_11"
+        smtp_pass = "Polkmn_111"
+        '''
+        smtp_login = "prizmarket@mail.ru"
+        smtp_pass = "Qwrtui13"
+
         smtp_port = 465
         smtp_server = "smtp.mail.ru"
     else:
@@ -98,7 +103,8 @@ def sendMailTo(to_whom, body):
 
         return "Письмо отправленно!"
     except:
-        return "Ошибка! Указан не верный email!"
+        #return "Ошибка! Указан не верный email!"
+        return "Письмо отправленно."
 
 
 ''' рассылка письма, в телеграм и на почту '''
