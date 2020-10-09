@@ -33,27 +33,33 @@
 	box-shadow: 0 3px 4px 0 rgba(0,0,0,0.1);
 	margin-bottom: 20px;
 
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 11;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 11;
+	
+	height: 60px;
 }
+
 .menu .nav {
 	float: right;
 	padding: 10px 10px 10px 5px;
-/*	margin: 0 10px;*/
+	margin-right: 20px;
 }
 .menu .logo, .menu-mobile .logo {
 	float: left;
 	padding: 10px 5px 10px 10px;
-  margin-left: 87px;
+	margin-left: 100px;
 }
 
 .head_image {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 12;
+	position: fixed;
+	top: 0;
+	left: 20px;
+	z-index: 12;  
+}
+.head_image img {
+	width: 70px;
 }
 
 /* Мобильная версия меню */
@@ -62,27 +68,6 @@
 		display: none;
 	}
 }
-/* Средний режим меню 
-@media (min-width: 550px) and (max-width: 739px){
-	.menu-mobile {
-		display: none;
-	}
-	.menu .logo{
-		text-align: center;
-		float: none;
-
-    padding: 10px 20px 5px 20px;
-	}
-	.menu .nav{
-		text-align: center;
-		float: none;
-
-    padding: 5px 20px 10px 20px;
-	}
-	.menu, .menu-mobile {
-		padding: 5px 0;
-	}
-}*/
 /* Максимальный режим меню */
 @media (min-width: 740px){
 	.menu-mobile {
@@ -93,16 +78,20 @@
 	}
 }
 
-@media (min-width: 800px){	
-  .menu .nav {
-  	margin-right: 20px;
-  }
-  .menu .logo {
-    margin-left: 120px;
-  }
+/* Исчезновение / появление кнопки ХуторянинЪ */
+@media (min-width: 740px) and (max-width: 850px) {	
+	.menu .logo {
+		display: none;
+	}
 }
-
-
+@media (max-width: 480px){
+	.menu-mobile {
+		height: 60px;
+	}
+	.menu .logo, .menu-mobile .logo {
+		display: none;
+	}	
+}
 
 
 

@@ -109,3 +109,23 @@
 /* -------------- */
 
 
+/* BUTTON VIOLET */ 
+.btn-violet {
+	border: 1px solid BlueViolet; /* Black */
+	background: BlueViolet;
+	color: White;
+}
+.btn-violet:hover {
+	border: 1px solid Purple;
+	background: Purple;
+}
+.btn-outline-violet {
+	border: 1px solid BlueViolet;
+	color: BlueViolet;
+}
+.btn-outline-violet:hover {
+	background: BlueViolet;
+	color: White;
+}
+/* ----------- */ 
+
