@@ -5,27 +5,28 @@
 
 <div class="header">
 	<h1>Регистрация!</h1>  
-	
-	<div class="sign">
-		
+	{% if mail != 'none' %}
+	<p>{{ mail }}</p>  
+	<a href="/" class="btn btn-outline-danger">На главную страницу!</a>
+	{% else %}	
+	<div class="sign">		
 		<form method="post" class="sign_in">
 			<h1>Регистрация!</h1>  
 			<label>Введите логин</label>
-			<input type="text" placeholder="Логин" name="login" id="login" maxlength="100"><br><br>
-			
-			<label>Введите пароль</label>
-			<input type="text" placeholder="Пароль" name="password" id="password" maxlength="100"><br><br>
-			
-			
+			<input type="text" placeholder="Логин" name="login" id="login" maxlength="100"><br><br>			
+			<!--<label>Введите пароль</label>
+			<input type="text" placeholder="Пароль" name="password" id="password" maxlength="100"><br><br>-->			
+			<label>Введите email</label>
+			<input type="text" placeholder="Email" name="email" id="email" maxlength="100"><br><br>
+			<label>Введите почтовый адрес</label>
+			<input type="text" placeholder="Ваш адрес с индексом" name="adress" id="adress" maxlength="100"><br><br>					
 			<div align="center">
 				<button type="submit" class="btn btn-primary">Зарегистрироваться</button>
-			</div><br>
-			
+			</div><br>			
 			<a href="/" class="btn btn-outline-danger">На главную страницу!</a>
-		</form>	
-		
+		</form>			
 	</div>
-	
+	{% endif %}	
 </div>
 
 {% endblock %}
