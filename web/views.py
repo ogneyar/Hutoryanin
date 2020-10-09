@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 
 from .models import Greeting, Url, Messages, Users
 
@@ -145,10 +145,6 @@ def promo(request):
     return render(request, "promo.html")
 
 
-def about(request):
-
-    return render(request, "about.html")
-
 
 def support(request):
 
@@ -173,6 +169,9 @@ def support(request):
 
 
 def lk(request):
+    if request.method == "POST":
+        if request.POST["login"] == "Огнеяр" and request.POST["password"] == "1111":
+            request.session["user"] = request.POST["login"]
 
     ''' сохранение сессии
     '''
@@ -183,7 +182,26 @@ def lk(request):
         #request.session.set_expiry(60)
         #request.session["user"] = "Огнеяр"
 
-    return render(request, "lk.html", {"user": user})
+    return render(request, "lk/lk.html", {"user": user})
+
+def exit(request):
+    request.session["user"] = "none"
+
+    return HttpResponseRedirect("/lk")
+
+def registration(request):
+
+    return render(request, "lk/registration.html")
+
+def forget_password(request):
+
+    return render(request, "lk/forget_password.html")
+
+
+
+def about(request):
+
+    return render(request, "about.html")
 
 
 def db(request):

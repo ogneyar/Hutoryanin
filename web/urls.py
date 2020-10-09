@@ -41,14 +41,17 @@ urlpatterns = [
     path("products/applications/vkbot", web.views.vkbot, name="vkbot"),
     path("products/applications/android", web.views.android, name="android"),
 
+    path("promo/", web.views.promo, name="promo"),
 
     path("support/", web.views.support, name="support"),
     path("sendmail/", web.templates.support.sendmail.send, name="send"),
 
-    path("promo/", web.views.promo, name="promo"),
+    path("lk/", web.views.lk, name="lk"),
+    path("exit/", web.views.exit, name="exit"),
+    path("registration/", web.views.registration, name="registration"),
+    path("forget_password/", web.views.forget_password, name="forget_password"),
 
     path("about/", web.views.about, name="about"),
-    path("lk/", web.views.lk, name="lk"),
     path("db/", web.views.db, name="db"),
 
 
