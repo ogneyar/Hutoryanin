@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
 
-from .models import Greeting, Url
+from .models import Greeting, Url, Messages, Users
 
 import os, bmemcached
 
@@ -174,7 +174,16 @@ def support(request):
 
 def lk(request):
 
-    return render(request, "lk.html")
+    ''' сохранение сессии
+    '''
+    if "user" in request.session:
+        user = str(request.session["user"])
+    else:
+        user = 'none'
+        #request.session.set_expiry(60)
+        #request.session["user"] = "Огнеяр"
+
+    return render(request, "lk.html", {"user": user})
 
 
 def db(request):
