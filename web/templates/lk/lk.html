@@ -5,13 +5,13 @@
 
 <div class="header">
 	<h1>Личный кабинет!</h1>  
-	{% if user == 'Огнеяр' %}
-	<p>Здравствуй Огнеяр.</p>  
-	{% else %}
-	<!--<p>Пуст.</p>  -->
+	{% if user != 'none' %}
+	<p>Здравствуй {{ user }}.</p>  <br><br><br><br>
+	<a href="/exit" class="btn btn-outline-violet">Выход</a>
+	{% else %}	
 	<div class="sign">
 		
-		<form method="post" action="/sign_in/" class="sign_in">
+		<form method="post" class="sign_in">
 			<h1>Вход!</h1>  
 			<label>Введите логин</label>
 			<input type="text" placeholder="Логин" name="login" id="login" maxlength="100"><br><br>
