@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+
+<div class="header">
+	<h1>Личный кабинет!</h1>  
+	{% if user == 'Огнеяр' %}
+	<p>Здравствуй Огнеяр.</p>  
+	{% else %}
+	<!--<p>Пуст.</p>  -->
+	<div class="sign">
+		
+		<form method="post" action="/sign_in/" class="sign_in">
+			<h1>Вход!</h1>  
+			<label>Введите логин</label>
+			<input type="text" placeholder="Логин" name="login" id="login" maxlength="100"><br><br>
+			
+			<label>Введите пароль</label>
+			<input type="text" placeholder="Пароль" name="password" id="password" maxlength="100"><br><br>
+			
+			<a href="/forget_password" style="color:blue;">Забыли пароль?</a>			
+			<br><br>
+			
+			<div align="center">
+				<button type="submit" class="btn btn-primary">Войти</button>
+			</div><br>
+			<a href="/registration" style="color:green;">Зарегистрироваться</a><br><br>
+			<a href="/" class="btn btn-outline-danger">На главную страницу!</a>
+		</form>	
+		
+	</div>
+	{% endif %}	
+</div>
+
+{% endblock %}
+
+
+
+{% block content %}
+ 
+
+{% endblock %}
