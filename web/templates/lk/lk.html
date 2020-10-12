@@ -6,18 +6,26 @@
 <div class="header">
 	<h1>Личный кабинет!</h1>  
 	{% if user != 'none' %}
-	<p>Здравствуй {{ user }}.</p>  <br><br><br><br>
-	<a href="/exit" class="btn btn-outline-violet">Выход</a>
+
+		<p>Здравствуй {{ user }}.</p>  <br><br><br><br>
+		<a href="/exit" class="btn btn-outline-violet">Выход</a>
+
 	{% else %}	
 	<div class="sign">
 		
 		<form method="post" class="sign_in">
-			<h1>Вход!</h1>  
+			<h1>Вход!</h1>  <br>
 			<label>Введите логин</label>
-			<input type="text" placeholder="Логин" name="login" id="login" maxlength="100"><br><br>
+			<input type="text" placeholder="Логин" name="login" id="login" {% if fail != 'none' %} value="{{ login }}" {% endif %} maxlength="100"><br><br>
 			
 			<label>Введите пароль</label>
-			<input type="text" placeholder="Пароль" name="password" id="password" maxlength="100"><br><br>
+			<input type="password" placeholder="Пароль" name="password" id="password" maxlength="100"><br>
+
+			{% if fail != 'none' %} 
+			<label style="color:red;">{{ fail }}</label><br><br>
+			{% else %}	
+			<br><br>
+			{% endif %}			
 			
 			<a href="/forget_password" style="color:blue;">Забыли пароль?</a>			
 			<br><br>
