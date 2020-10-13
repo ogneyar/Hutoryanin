@@ -180,8 +180,6 @@ def lk(request):
     user = "none"
     fail = "none"
     login = "none"
-    email = "none"
-    adress = "none"
 
     if request.method == "POST":
         all_users = Users.objects.order_by('id')
@@ -189,6 +187,13 @@ def lk(request):
         for usr in all_users:
             if usr.login == login:
                 if usr.password == request.POST["password"]:
+                    user = {
+                        'login':usr.login,
+                        'email':usr.email,
+                        'adress':usr.adress
+                    }
+                    request.session["user"] = user
+                    '''
                     request.session["user"] = usr.login
                     request.session["login"] = usr.login
                     request.session["email"] = usr.email
@@ -196,26 +201,27 @@ def lk(request):
                     user = usr.login
                     email = usr.email
                     adress = usr.adress
+                    '''
                 else:
                     fail = "Не верный пароль!"
         if user == "none":
             fail = "Не верный логин!"
 
     elif "user" in request.session:
-        user = str(request.session["user"])
+        user = request.session["user"]
+        '''
         if "login" in request.session:
             login = str(request.session["login"])
         if "email" in request.session:
             email = str(request.session["email"])
         if "adress" in request.session:
             adress = str(request.session["adress"])
+        '''
 
     data = {
         "user": user,
-        "login": login,
-        "email": email,
-        "adress": adress,
-        "fail": fail
+        "fail": fail,
+        "login": login
     }
 
     return render(request, "lk/lk.html", data)
@@ -265,7 +271,7 @@ def registration(request):
             for usr in all_users:
                 if usr.login == login:
                     fail = "Этот логин уже занят!"
-                if usr.email == email:
+                elif usr.email == email:
                     fail = "Этот email уже занят!"
 
             if fail == "none":
@@ -299,6 +305,14 @@ def registration(request):
 
 
 def forget_password(request):
+    all_users = Users.objects.order_by('id')
+
+    mail = "none"
+    fail = "none"
+    new_password = "none"
+    login = "none"
+    password = "none"
+
     if request.get_host() == '127.0.0.1:8000':
         host = 'local'
     else:
@@ -306,11 +320,83 @@ def forget_password(request):
 
     if request.method == "POST":
         email = request.POST["email"]
-        mail = sendMailTo(host, email, "Сброс пароля на сайте ХуторянинЪ.", "Здесь будет ссылка для сброса пароля")
-    else:
-        mail = 'none'
 
-    return render(request, "lk/forget_password.html", {"mail": mail})
+        if email == "":
+            fail = "Введите email!"
+        else:
+            for usr in all_users:
+                if usr.email == email:
+                    login = usr.login
+                    password = usr.password
+
+            if login == "none":
+                fail = "В базе нет такого email!"
+            else:
+                mail = sendMailTo(host, email, "Сброс пароля на сайте ХуторянинЪ.", "Ссылка для сброса пароля\n\nhttp://"+request.get_host()+"/forget_password?login="+login+"&password="+password)
+
+    elif request.method == "GET":
+        if 'login' in request.GET and 'password' in request.GET:
+            login = request.GET["login"]
+            password = request.GET["password"]
+
+            for usr in all_users:
+                if usr.login == login:
+                    if usr.password == password:
+                        new_password = "yes"
+
+    data = {
+        "mail": mail,
+        "fail": fail,
+        "new_password": new_password,
+        "login": login,
+        "password": password
+    }
+
+    return render(request, "lk/forget_password.html", data)
+
+
+def new_password(request):
+    all_users = Users.objects.order_by('id')
+
+    mail = "none"
+    fail = "none"
+    login = "none"
+    old_password = "none"
+    new_password = "none"
+
+    if request.method == "POST":
+        if 'login' in request.POST:
+            login = request.POST["login"]
+        if 'old_password' in request.POST:
+            old_password = request.POST["old_password"]
+        if 'password' in request.POST:
+            new_password = request.POST["password"]
+
+        for usr in all_users:
+            if usr.login == login:
+                if usr.password == old_password:
+                    new_record = {
+                        'login':login,
+                        'password':new_password,
+                        'email':usr.email,
+                        'adress':usr.adress,
+                        'promo':usr.promo,
+                        'info':usr.info
+                    }
+                    article = Users.objects.get(pk=1)
+                    form = UsersForm(new_record, instance=article)
+                    if form.is_valid():
+                        form.save()
+                    mail = "Ваш пароль обновлён!"
+
+    data = {
+        "mail": mail,
+        "fail": fail,
+        "new_password": new_password
+    }
+
+    return render(request, "lk/new_password.html", data)
+
 
 
 

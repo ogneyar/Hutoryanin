@@ -50,6 +50,8 @@ urlpatterns = [
     path("exit/", web.views.exit, name="exit"),
     path("registration/", web.views.registration, name="registration"),
     path("forget_password/", web.views.forget_password, name="forget_password"),
+    path("new_password/", web.views.new_password, name="new_password"),
+
 
     path("about/", web.views.about, name="about"),
     path("db/", web.views.db, name="db"),
