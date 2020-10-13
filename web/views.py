@@ -183,40 +183,27 @@ def lk(request):
 
     if request.method == "POST":
         all_users = Users.objects.order_by('id')
-        login = request.POST["login"]
-        for usr in all_users:
-            if usr.login == login:
-                if usr.password == request.POST["password"]:
-                    user = {
-                        'login':usr.login,
-                        'email':usr.email,
-                        'adress':usr.adress
-                    }
-                    request.session["user"] = user
-                    '''
-                    request.session["user"] = usr.login
-                    request.session["login"] = usr.login
-                    request.session["email"] = usr.email
-                    request.session["adress"] = usr.adress
-                    user = usr.login
-                    email = usr.email
-                    adress = usr.adress
-                    '''
-                else:
-                    fail = "Не верный пароль!"
-        if user == "none":
-            fail = "Не верный логин!"
+        if "login" in request.POST:
+            login = request.POST["login"]
+            for usr in all_users:
+                if usr.login == login:
+                    if "password" in request.POST:
+                        password = request.POST["password"]
+                        if usr.password == password:
+                            user = {
+                                'login':usr.login,
+                                'email':usr.email,
+                                'adress':usr.adress
+                            }
+                            request.session["user"] = user
+
+                        else:
+                            fail = "Не верный пароль!"
+            if user == "none":
+                fail = "Не верный логин!"
 
     elif "user" in request.session:
         user = request.session["user"]
-        '''
-        if "login" in request.session:
-            login = str(request.session["login"])
-        if "email" in request.session:
-            email = str(request.session["email"])
-        if "adress" in request.session:
-            adress = str(request.session["adress"])
-        '''
 
     data = {
         "user": user,
