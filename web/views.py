@@ -177,32 +177,48 @@ def support(request):
 
 def lk(request):
 
+    user = "none"
     fail = "none"
     login = "none"
-    user = "none"
+    email = "none"
+    adress = "none"
 
     if request.method == "POST":
         all_users = Users.objects.order_by('id')
+        login = request.POST["login"]
         for usr in all_users:
-            if usr.login == request.POST["login"]:
-                login = request.POST["login"]
+            if usr.login == login:
                 if usr.password == request.POST["password"]:
-                    request.session["user"] = request.POST["login"]
+                    request.session["user"] = usr.login
+                    request.session["login"] = usr.login
+                    request.session["email"] = usr.email
+                    request.session["adress"] = usr.adress
+                    user = usr.login
+                    email = usr.email
+                    adress = usr.adress
                 else:
                     fail = "Не верный пароль!"
-        if login == "none":
+        if user == "none":
             fail = "Не верный логин!"
-            login = request.POST["login"]
 
-    ''' сохранение сессии
-    '''
-    if "user" in request.session:
+    elif "user" in request.session:
         user = str(request.session["user"])
+        if "login" in request.session:
+            login = str(request.session["login"])
+        if "email" in request.session:
+            email = str(request.session["email"])
+        if "adress" in request.session:
+            adress = str(request.session["adress"])
 
-        #request.session.set_expiry(60)
-        #request.session["user"] = "Огнеяр"
+    data = {
+        "user": user,
+        "login": login,
+        "email": email,
+        "adress": adress,
+        "fail": fail
+    }
 
-    return render(request, "lk/lk.html", {"user": user, "login": login, "fail": fail})
+    return render(request, "lk/lk.html", data)
 
 
 def exit(request):
@@ -229,7 +245,7 @@ def registration(request):
     fail = "none"
     login = "none"
     email = "none"
-    adress = "none"
+    #adress = "none"
 
     if request.method == "POST":
         all_users = Users.objects.order_by('id')
@@ -237,21 +253,14 @@ def registration(request):
         login = request.POST["login"]
         password = getPass()
         email = request.POST["email"]
-        adress = request.POST["adress"]
-        data = {
-            'login':login,
-            'password':password,
-            'email':email,
-            'adress':adress,
-            'promo':'Новичёк',
-            'info':'none'
-        }
+        #adress = request.POST["adress"]
+
         if login == "":
             fail = "Необходимо ввести логин!"
         elif email == "":
             fail = "Необходимо ввести email!"
-        elif adress == "":
-            fail = "Необходимо ввести адрес!"
+        #elif adress == "":
+        #    fail = "Необходимо ввести адрес!"
         else:
             for usr in all_users:
                 if usr.login == login:
@@ -260,15 +269,33 @@ def registration(request):
                     fail = "Этот email уже занят!"
 
             if fail == "none":
-                form = UsersForm(data)
+                new_record = {
+                    'login':login,
+                    'password':password,
+                    'email':email,
+                    'adress':'none',
+                    'promo':'Новичёк',
+                    'info':'none'
+                }
+                form = UsersForm(new_record)
                 if form.is_valid():
-                    sms = "Ваш логин: "+login+"\n\nВаш пароль: "+password+"\n\n\nhttp://"+request.get_host()+"/lk"
+                    sms = "Регистрация!\n\nВаш логин: "+login+"\n\nВаш пароль: "+password+"\n\n\nhttp://"+request.get_host()+"/lk"
                     mail = sendMailTo(host, email, "Регистрация на сайте ХуторянинЪ.", sms)
                     if mail != "Ошибка отправки!":
                         form.save()
                         tg.sendMessage(master, "Зарегистрировал нового клиента:\n\n" + login + "\n\n" + email)
+                else:
+                    mail = "Ошибка формы!"
 
-    return render(request, "lk/registration.html", {"mail": mail, "fail": fail, "login": login, "email": email, "adress": adress})
+    data = {
+        "mail": mail,
+        "fail": fail,
+        "login": login,
+        #"adress": adress,
+        "email": email
+    }
+
+    return render(request, "lk/registration.html", data)
 
 
 def forget_password(request):
