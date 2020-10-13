@@ -14,18 +14,18 @@
 	<div class="sign">		
 
 		<form method="post" class="sign_in">
-			<h1>Регистрация!</h1>  
-			<label>Введите логин</label>
-			<input type="text" placeholder="Логин" name="login" id="login" {% if fail != 'none' %} value="{{ login }}" {% endif %} maxlength="100"><br><br>		
+			<h1>Регистрация!</h1>  <br>
+			<label>Логин</label><br>
+			<input type="text" placeholder="Введите логин" name="login" id="login" {% if fail != 'none' %} value="{{ login }}" {% endif %} maxlength="100"><br><br>		
 			<!--<label>Введите пароль</label>
 			<input type="text" placeholder="Пароль" name="password" id="password" maxlength="100"><br><br>-->			
-			<label>Введите email</label>
-			<input type="text" placeholder="Email" name="email" id="email" {% if fail != 'none' %} value="{{ email }}" {% endif %} maxlength="100"><br><br>
-			<label>Введите почтовый адрес</label>
-			<input type="text" placeholder="Ваш адрес с индексом" name="adress" id="adress" {% if fail != 'none' %} value="{{ adress }}" {% endif %} maxlength="100">	<br>
+			<label>Email</label><br>
+			<input type="text" placeholder="Введите email" name="email" id="email" {% if fail != 'none' %} value="{{ email }}" {% endif %} maxlength="100"><br>
+			<!--<label>Почтовый адрес</label><br>
+			<input type="text" placeholder="Введите почтовый адрес с индексом" name="adress" id="adress"  maxlength="200">	<br>-->
 			
 			{% if fail != 'none' %} 
-			<label style="color:red;">{{ fail }}</label><br><br>
+			<br><label style="color:red;">{{ fail }}</label><br>
 			{% else %}	
 			<br><br>
 			{% endif %}		

@@ -7,7 +7,13 @@
 	<h1>Личный кабинет!</h1>  
 	{% if user != 'none' %}
 
-		<p>Здравствуй {{ user }}.</p>  <br><br><br><br>
+		<p>Здравствуй {{ login }}.</p> <br><br>
+		<p>Ваш email: {{ email }}</p>
+		{% if adress != 'none' %}
+		<p>Ваш адрес: {{ adress }}</p> <br><br>
+		{% else %}	
+		<br><br>
+		{% endif %}	
 		<a href="/exit" class="btn btn-outline-violet">Выход</a>
 
 	{% else %}	
@@ -15,24 +21,23 @@
 		
 		<form method="post" class="sign_in">
 			<h1>Вход!</h1>  <br>
-			<label>Введите логин</label>
-			<input type="text" placeholder="Логин" name="login" id="login" {% if fail != 'none' %} value="{{ login }}" {% endif %} maxlength="100"><br><br>
+			<label>Логин</label>
+			<input type="text" placeholder="Введите логин" name="login" id="login" {% if fail != 'none' %} value="{{ login }}" {% endif %} maxlength="100"><br><br>
 			
-			<label>Введите пароль</label>
-			<input type="password" placeholder="Пароль" name="password" id="password" maxlength="100"><br>
+			<label>Пароль</label>
+			<input type="password" placeholder="Введите пароль" name="password" id="password" maxlength="100"><br>
 
 			{% if fail != 'none' %} 
-			<label style="color:red;">{{ fail }}</label><br><br>
+			<br><label style="color:red;">{{ fail }}</label><br>
 			{% else %}	
 			<br><br>
-			{% endif %}			
-			
-			<a href="/forget_password" style="color:blue;">Забыли пароль?</a>			
-			<br><br>
+			{% endif %}						
 			
 			<div align="center">
 				<button type="submit" class="btn btn-primary">Войти</button>
 			</div><br>
+			<a href="/forget_password" style="color:blue;">Забыли пароль?</a>			
+			<br><br>
 			<a href="/registration" style="color:green;">Зарегистрироваться</a><br><br>
 			<a href="/" class="btn btn-outline-danger">На главную страницу!</a>
 		</form>	
