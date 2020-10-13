@@ -13,6 +13,7 @@ urlpatterns = [
     path("cookie/", bots.test.cookie, name="cookie"),
     path("session/", bots.test.session, name="session"),
     path("parser/", bots.test.parser, name="parser"),
+    path("testjs/", bots.test.testjs, name="testjs"),
 
     path("prizm/", bots.views.prizm, name="prizm"),
     path("7yanika/", bots.views.semyanika, name="7yanika"),
@@ -24,6 +25,6 @@ urlpatterns = [
     path("sidebarMenu/", bots.views.sidebarMenu, name="sidebarMenu"),
     path("cardHoverEffects/", bots.views.cardHoverEffects, name="cardHoverEffects"),
     path("parallaxScrollingEffect/", bots.views.parallaxScrollingEffect, name="parallaxScrollingEffect"),
-    
+
 
 ]

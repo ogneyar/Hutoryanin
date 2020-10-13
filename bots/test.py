@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 import requests, json, os, bmemcached
 from bs4 import BeautifulSoup
@@ -46,6 +47,8 @@ def header():
     response.write("<a href='/test/cookie'>cokie</a>")
     response.write("<a href='/test/session'>session</a>")
     response.write("<a href='/test/parser'>parser</a>")
+    response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    response.write("<a href='/test/testjs'>testjs</a>")
     response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
     response.write("<a href='/test'>Назад</a></div><br><br>")
 
@@ -253,11 +256,6 @@ def parser(request):
 
     return response
 
-
-
-
-
-
     ''' понял как передавать GET параметры
 
     query = {'q': 'Forest', 'order': 'popular', 'min_width': '800', 'min_height': '600'}
@@ -267,5 +265,18 @@ def parser(request):
     # returns 'https://pixabay.com/en/photos/?order=popular&min_height=600&q=Forest&min_width=800'
 
     '''
+
+
+
+
+def testjs(request):
+
+    return render(request, "testjs/index.html")
+
+
+
+
+
+
 
 
