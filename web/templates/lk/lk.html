@@ -7,11 +7,13 @@
 	<h1>Личный кабинет!</h1>  
 	{% if user != 'none' %}
 
-		<p>Здравствуй {{ login }}.</p> <br><br>
-		<p>Ваш email: {{ email }}</p>
-		{% if adress != 'none' %}
-		<p>Ваш адрес: {{ adress }}</p> <br><br>
+		<p>Здравствуй {{ user.login }}.</p> <br><br>
+		<p>Ваш email: {{ user.email }} <a href="#" class="btn btn-outline-success">Заменить</a></p>
+		{% if user.adress != 'none' %}
+		<p>Ваш адрес: {{ user.adress }} <a href="#" class="btn btn-outline-success">Заменить</a></p> <br><br>
 		{% else %}	
+		<p>Ваш адрес: НЕ УКАЗАН <a href="#" class="btn btn-outline-success">Заменить</a></p> 
+		<p>укажите Ваш почтовый адрес для возможности доставки заказанных Вами товаров на сайте ХуторянинЪ</p>
 		<br><br>
 		{% endif %}	
 		<a href="/exit" class="btn btn-outline-violet">Выход</a>
