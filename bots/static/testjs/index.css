@@ -1,0 +1,24 @@
+.body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100vh;
+	display: -webkit-flex; 
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;		
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	user-select: none;	
+	font-family: sans-serif;
+}
+div { 
+	font-size: 50px; 
+	padding: 15px 30px;
+	background: lightgrey;
+}
+.div { color: blue; }
+.div2 { color: red; }

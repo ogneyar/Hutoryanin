@@ -1,31 +1,61 @@
 (function(){
 	var doc = document,
-		div = doc.createElement("div"),
-		body = doc.getElementById("body");
-	
-	//doc.writeln("Hell o world!");
-	
-	div.innerHTML = "<br><br><br><br><br><center><h1>Hell o world!</h1></center>";
-	
-	div.style.color = "red";
+		body = doc.body,
+		div = doc.createElement("div");		
+		
+	body.className = "body";
+	div.className = "div";
+	div.innerHTML = "Hell o world!";
 	div.id = "div";
-	
+	body.appendChild(div);	
+	div.onclick = function(){
+		funcForDiv(div);
+	}
+	body.onclick = function(){
+		funcForBody(body);
+	}
+	//doc.writeln("Hell o world!");		
+	/*
+	div.style.color = "blue";
+	div.style.userSelect = "none";
+	*/	
+	/*
 	div.onclick = function(){
 	    if (this.style.color == "blue") this.style.color = "red";
 	    else this.style.color = "blue";
 	}
-	
-	//div.onclick = myfunc(div);
-	
-	body.parentNode.appendChild(div);
+	*/
+	//body.parentNode.appendChild(div);
 })();
 
-/*
-function myfunc(var el){
-    if (el.style.color == "blue")
-        el.style.color = "red";
-	else 
-	    el.style.color = "blue";
-	return false;
+
+function funcForBody(element){	
+    if (element.style.backgroundColor == "lightgrey") {
+        element.style.backgroundColor = "white";
+	}else {
+	    element.style.backgroundColor = "lightgrey";
+	}	
+	
 }
+function funcForDiv(element){	
+	if (element.className == "div2") {		
+        element.className = "div";
+	}else {
+	    element.className = "div2";
+}	
+/*
+    if (element.style.color == "red") {		
+        element.style.color = "blue";
+		//console.log("zzz");
+	}else {
+	    element.style.color = "red";
+		//console.log("ggg");
+	}	
 */
+}
+
+
+
+
+
+
