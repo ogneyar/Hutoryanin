@@ -1,4 +1,4 @@
-.body {
+/*.body {
 	margin: 0;
 	padding: 0;
 	width: 100%;
@@ -19,6 +19,509 @@ div {
 	font-size: 50px; 
 	padding: 15px 30px;
 	background: lightgrey;
-}
+}*/
 .div { color: blue; }
 .div2 { color: red; }
+
+
+
+/* style.css */
+@font-face {
+    font-family: 'NaturalMono';
+    src: url('/static/fonts/NaturalMono.ttf');
+}
+@font-face {
+    font-family: 'mr_AfronikG';
+    src: url('/static/fonts/mr_AfronikG.ttf');
+}
+@font-face {
+    font-family: 'Verdana';
+    src: url('/static/fonts/Verdana.ttf');
+}
+
+/* выделение текста */
+::selection {background: red; color: white;}
+::-moz-selection {background: red; color: white;}
+
+html {
+	/*font-family: sans-serif;*/
+	/*font-family: "Courier New", Courier, monospace;*/
+	font-family: Verdana;
+    font-size: 1rem;
+	/*font-size: 14px;*/
+}
+@media (min-width: 768px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+body {
+	background: #f7f7f7;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+h1 {
+	margin: 0;
+	padding: 0;
+}
+p {
+	line-height: 2;
+}
+a {
+	text-decoration: none;
+	color: Red;
+}
+a:active {color: Red;}
+/*a:hover {color: lightgreen;}*/
+a#menu { color: Blue; }
+a.home:active  {color: White;}
+a.text:active, a.text:hover, a.text {
+	color: #666;
+}
+li {
+    list-style-type: none; /* Убираем маркеры */
+}
+ul {
+    margin-left: 0; /* Отступ слева в браузере IE и Opera */
+    padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+}
+textarea {
+	width: 75%;
+	height: 325px;
+	resize: none;
+}
+input {
+	width: 75%;	
+}
+
+/* .menu и .menu-mobile в отдельном файле menu.css */
+
+.title {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	width: 100%;
+}
+.header {
+	background: #f7f7f7;
+	/*padding: 20px;*/
+	text-align: center;
+	max-width: 960px;
+
+	padding-top: 120px;
+	padding-bottom: 20px;
+  /*margin-top: 150px;*/
+}
+
+.main {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-flex: 1 1 auto;
+	-ms-flex:  1 1 auto;
+	flex: 1 1 auto;
+
+	margin-bottom: 16px;
+}
+
+.main .content {
+	display: -webkit-inline-flex;
+	display: inline-flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 960px;
+}
+
+/* .contain и .box в отдельном файле contain.css */
+
+.pages { /* на странице public */
+	padding: 20px;
+	background: #f7f7f7;
+	box-shadow: 0 0 4px 0 rgba(0,0,0,0.1);
+}
+.pages-nums, .pages-all { padding: 5px; }
+
+.footer {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	width: 100%;
+}
+.footer .row {
+	display: -webkit-inline-flex;
+	display: inline-flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	width: 100%;
+	max-width: 960px;
+	border-top: 1px solid lightgrey;
+	margin: 48px 10px;
+	padding-top: 48px;
+}
+.column {
+	width: 100%;
+}
+.brend {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+.brend span {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	margin: 7% 0;
+}
+.brend small {
+	margin-bottom: 14px;
+}
+.list {
+	display: -webkit-flex;
+	display: flex;
+	margin: 5px 0;
+}
+.list a.btn {
+	padding: 8px 12px;
+}
+@media (max-width: 768px) {
+	.main {
+		margin-bottom: 14px;
+	}
+	.brend {
+		min-width: 100%;
+	}
+	.brend span {
+		margin: 10px 0;
+	}
+	.footer .row {
+		flex-wrap:wrap;
+		margin: 0 10px;
+		padding-top: 21px;
+	}
+	.column {
+		width: 50%;
+	}
+}
+
+
+/* menu.css */
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('/static/fonts/font-awesome/fontawesome-webfont.eot?v=4.7.0');
+	src: url('/static/fonts/font-awesome/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('/static/fonts/font-awesome/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('/static/fonts/font-awesome/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('/static/fonts/font-awesome/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('/static/fonts/font-awesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+  }
+  .fa {
+	  display: inline-block;
+	  font: normal normal normal 14px/1 FontAwesome;
+	  font-size: inherit;
+	  text-rendering: auto;
+	  -webkit-font-smoothing: antialiased;
+	  -moz-osx-font-smoothing: grayscale;
+  }
+  .fa-bars:before{
+	  content:"\f0c9"
+  }
+  .fa-times:before {
+	content: "\f00d";
+  }
+  .fa-lg {
+	  font-size: 3em;
+	  line-height: 0.75em;
+	  vertical-align: -15%;
+  }
+  
+  .menu, .menu-mobile {
+	  float: left;
+	  width: 100%;
+	  background: #f7f7f7;
+	  padding: 5px 0;
+	  box-shadow: 0 3px 4px 0 rgba(0,0,0,0.1);
+	  margin-bottom: 20px;  
+	  position: fixed;
+	  left: 0;
+	  top: 0;
+	  z-index: 11;	  
+	  height: 60px;
+  }  
+  .menu .nav {
+	  float: right;
+	  padding: 10px 10px 10px 5px;
+	  margin-right: 20px;
+  }
+  .menu .logo, .menu-mobile .logo {
+	  float: left;
+	  padding: 10px 5px 10px 10px;
+	  margin-left: 90px;
+  }  
+  .head_image {
+	  position: fixed;
+	  top: 0;
+	  left: 20px;
+	  z-index: 12;  
+  }
+  .head_image img {
+	  width: 70px;
+  }
+  
+  /* Мобильная версия меню */
+  @media (max-width: 739px){
+	  .menu {
+		  display: none;
+	  }
+  }
+  /* Максимальный режим меню */
+  @media (min-width: 740px){
+	  .menu-mobile {
+		  display: none;
+	  }
+	  .menu, .menu-mobile {
+		  margin-bottom: 30px;
+	  }
+  }
+  
+  /* Исчезновение / появление кнопки ХуторянинЪ */
+  @media (min-width: 740px) and (max-width: 850px) {	
+	  .menu .logo {
+		  display: none;
+	  }
+  }
+  @media (max-width: 480px){
+	  .menu-mobile {
+		  height: 60px;
+	  }
+	  .menu .logo, .menu-mobile .logo {
+		  display: none;
+	  }	
+  }  
+  *{
+	list-style: none;
+	text-decoration: none;
+  }
+  .sidebar {
+	position: fixed;
+	left: -300px;
+	top: 70px;
+	width: 0;
+	height: calc(100% - 70px);
+	background: #f1f1f1;  
+	z-index: 9;  
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;  
+	transition: all .5s ease;
+  }
+  .sidebar header {
+	font-size: 22px;
+	color: White;
+	text-align: center;
+	line-height: 50px;
+	background: #e1e1e1;
+	user-select: none;
+  }
+  .sidebar ul a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 40px;
+	font-size: 20px;
+	padding-left: 40px;
+	box-sizing: border-box;
+	border-top: 1px solid rgba(255,255,255,.1);  
+	-webkit-transition: .4s;
+	-moz-transition: .4s;
+	-o-transition: .4s;  
+	transition: .4s;
+  }
+  .sidebar ul li:hover a {
+	padding-left: 50px;
+  }  
+  #check {
+	display: none;
+  }
+  label #btn, label #cancel {
+	position: absolute;
+	cursor: pointer;
+	border-radius: 3px;
+  }
+  label #btn {
+	right: 20px;
+	top: 12px;
+	font-size: 50px;
+	color: blue;
+	padding: 5px 5px;  
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;  
+	transition: all .5s;
+  }
+  label #cancel {
+	z-index: 10;
+	left: -245px;
+	top: 80px;
+	font-size: 30px;
+	color: #0a5275;
+	padding: 4px 9px;  
+	opacity: 0;
+  	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+  
+	transition: all .5s ease;
+  }
+  #check:checked ~ .sidebar {
+	left: 0;
+	display: block;
+	width: 300px;
+  }
+  #check:checked ~ label #cancel {
+	opacity: 1;
+	left: 245px;
+  }
+  
+
+  /* buttons.css */
+  .btn {	
+	padding: 10px 15px;	
+	border-radius: 5px;	
+	margin: 1px 0;	
+	display: -webkit-inline-flex; 
+	display: inline-flex;	
+	line-height: 1;
+}
+
+/* BUTTON DANGER */
+.btn-danger {
+	border: 1px solid Crimson;
+	background: Crimson; /* red FireBrick Crimson*/
+	color: White;
+}
+.btn-danger:hover {	
+	border: 1px solid FireBrick;
+	background: FireBrick; /* Brown DarkRed */
+}
+.btn-outline-danger {
+	border: 1px solid Crimson;
+	color: Crimson;
+}
+.btn-outline-danger:hover {
+	background: Crimson;
+	color: White;
+}
+/* ------------- */
+
+/* BUTTON DARK */ 
+.btn-dark {
+	border: 1px solid #333; /* Black */
+	background: #333;
+	color: White;
+}
+.btn-dark:hover {
+	border: 1px solid Black;
+	background: Black;
+}
+.btn-outline-dark {
+	border: 1px solid #333;
+	color: #333;
+}
+.btn-outline-dark:hover {
+	background: #333;
+	color: White;
+}
+/* ----------- */ 
+
+/* BUTTON PRIMARY */
+.btn-primary {
+	border: 1px solid DodgerBlue; /* DeepSkyBlue Blue DodgerBlue RoyalBlue */
+	background: DodgerBlue;
+	color: White;
+}.btn-primary:hover {
+	border: 1px solid RoyalBlue;
+	background: RoyalBlue;
+}
+.btn-outline-primary {
+	border: 1px solid DodgerBlue;
+	color: DodgerBlue;
+}
+.btn-outline-primary:hover {	
+	background: DodgerBlue;
+	color: White;
+}
+/* -------------- */
+
+/* BUTTON SUCCESS */
+.btn-success {
+	border: 1px solid ForestGreen; /* Green MediumSeaGreen SeaGreen DarkGreen ForestGreen */
+	background: ForestGreen;
+	color: White;
+}.btn-success:hover {
+	border: 1px solid Green;
+	background: Green;
+}
+.btn-outline-success {
+	border: 1px solid ForestGreen;
+	color: ForestGreen;
+}
+.btn-outline-success:hover {
+	background: ForestGreen;
+	color: White;
+}
+/* -------------- */
+
+/* BUTTON WARNING */
+.btn-warning {
+	border: 1px solid Orange; /* Orange Gold GoldenRod Peru */
+	background: Orange;
+	color: White;
+}
+.btn-warning:hover {
+	border: 1px solid Peru;
+	background: Peru;
+}
+.btn-outline-warning {
+	border: 1px solid Orange;
+	color: Orange;
+}
+.btn-outline-warning:hover {
+	background: Orange;
+	color: White;
+}
+/* -------------- */
+
+
+/* BUTTON VIOLET */ 
+.btn-violet {
+	border: 1px solid BlueViolet; /* Black */
+	background: BlueViolet;
+	color: White;
+}
+.btn-violet:hover {
+	border: 1px solid Purple;
+	background: Purple;
+}
+.btn-outline-violet {
+	border: 1px solid BlueViolet;
+	color: BlueViolet;
+}
+.btn-outline-violet:hover {
+	background: BlueViolet;
+	color: White;
+}
+/* ----------- */ 
+
