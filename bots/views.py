@@ -37,4 +37,7 @@ def parallaxScrollingEffect(request):
 
     return render(request, "parallaxScrollingEffect.html")
 
+def animatedWebsite(request):
+
+    return render(request, "animatedWebsite.html")
 

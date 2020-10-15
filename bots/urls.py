@@ -25,6 +25,6 @@ urlpatterns = [
     path("sidebarMenu/", bots.views.sidebarMenu, name="sidebarMenu"),
     path("cardHoverEffects/", bots.views.cardHoverEffects, name="cardHoverEffects"),
     path("parallaxScrollingEffect/", bots.views.parallaxScrollingEffect, name="parallaxScrollingEffect"),
-
+    path("animatedWebsite/", bots.views.animatedWebsite, name="animatedWebsite"),
 
 ]
