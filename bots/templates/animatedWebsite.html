@@ -87,15 +87,15 @@
 		position: relative;
 		width: 50px;
 		height: 50px;
-		background: url(bots/static/animatedWebsite/menu2.png);
+		background: url({% static 'animatedWebsite/menu2.png' %});
 		background-repeat: 	no-repeat;
 		background-position: center;
 		background-size: 50px;
 		cursor: pointer;
-		filter: invert(1);
+		/*filter: invert(1);*/
 	}
 	.toggle.active {		
-		background: url(bots/static/animatedWebsite/close2.png);
+		background: url({% static 'animatedWebsite/close2.png' %});
 		background-repeat: 	no-repeat;
 		background-position: center;
 		background-size: 40px;
