@@ -19,19 +19,12 @@ def header():
     # вывод на экран  h1{text-align:center;}  justify-content:center;
     response.write("<style type='text/css'>*{-webkit-hyphens:auto;-moz-hyphens:auto;-ms-hyphens:auto;hyphens:auto;word-wrap:break-word;}a{text-decoration:none;border:1px solid #8c8c8c;border-radius:5px; margin:5px; padding: 5px 10px;}div{display: flex;flex-wrap: wrap;}</style>")
 
+    # вывод на экран моргающей мордочки
+    response.write("<style type='text/css'>.creature {width:  50px; height: 50px; border-radius: 50%; background: #3ac; position: relative;} .creature::before, .creature::after { content: ''; position: absolute; width: 7px; height: 10px; border-radius: 50%; background: #000; top: 10px; animation: eye 3s ease-in-out infinite;}.creature::before { left: 14px; } .creature::after { right: 14px; } @keyframes eye { 90% { transform: none; } 95% { transform: scaleY(0.1); }}</style>")
+
     response.write("<meta name='viewport' content='user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=1.0'>")
 
-    response.write("<h1>Добро пожаловать!</h1>")
-
-    #response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    response.write("<div><a href='/test/prizm'>TESTMarket</a>")
-    response.write("<a href='/test/7yanika'>TEST7yanika</a>")
-    response.write("<a href='/test/hutor'>TESThutor</a>")
-    response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    response.write("<a href='https://sph.hutoryanin.online'>Sprint</a>")
-    response.write("<a href='https://heroku.hutoryanin.online'>Heroku</a>")
-    response.write("<a href='https://beget.hutoryanin.online'>Beget</a></div><br><br>")
-
+    response.write("<h1>Добро пожаловать!<div class='creature'></div></h1>")
 
     #response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
     response.write("<div><a href='/test/vanilla'>vanilla</a>")
@@ -45,6 +38,14 @@ def header():
     response.write("<a href='/test/pixelButtonEffects'>pixelButtonEffects</a>")
     response.write("<a href='/test/waterTextAnimation'>waterTextAnimation</a></div><br><br>")
 
+    #response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    response.write("<div><a href='/test/prizm'>TESTMarket</a>")
+    response.write("<a href='/test/7yanika'>TEST7yanika</a>")
+    response.write("<a href='/test/hutor'>TESThutor</a>")
+    response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    response.write("<a href='https://sph.hutoryanin.online'>Sprint</a>")
+    response.write("<a href='https://heroku.hutoryanin.online'>Heroku</a>")
+    response.write("<a href='https://beget.hutoryanin.online'>Beget</a></div><br>")
 
     #response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
     response.write("<div><a href='/test/getcookie'>getCokie</a>")
