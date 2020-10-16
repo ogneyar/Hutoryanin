@@ -41,3 +41,8 @@ def animatedWebsite(request):
 
     return render(request, "animatedWebsite.html")
 
+def pixelButtonEffects(request):
+
+    return render(request, "pixelButtonEffects.html")
+
+    
