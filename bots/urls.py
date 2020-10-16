@@ -27,6 +27,7 @@ urlpatterns = [
     path("parallaxScrollingEffect/", bots.views.parallaxScrollingEffect, name="parallaxScrollingEffect"),
     path("animatedWebsite/", bots.views.animatedWebsite, name="animatedWebsite"),
     path("pixelButtonEffects/", bots.views.pixelButtonEffects, name="pixelButtonEffects"),
+    path("waterTextAnimation/", bots.views.waterTextAnimation, name="waterTextAnimation"),
 
 
 ]

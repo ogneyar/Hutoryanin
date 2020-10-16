@@ -45,4 +45,7 @@ def pixelButtonEffects(request):
 
     return render(request, "pixelButtonEffects.html")
 
-    
+def waterTextAnimation(request):
+
+    return render(request, "waterTextAnimation.html")
+

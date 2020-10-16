@@ -30,7 +30,7 @@ def header():
     response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
     response.write("<a href='https://sph.hutoryanin.online'>Sprint</a>")
     response.write("<a href='https://heroku.hutoryanin.online'>Heroku</a>")
-    response.write("<a href='https://beget.hutoryanin.online'>Beget</a></div><br>")
+    response.write("<a href='https://beget.hutoryanin.online'>Beget</a></div><br><br>")
 
 
     #response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
@@ -38,10 +38,12 @@ def header():
     response.write("<a href='/test/fullPageScrolling'>fullPageScrolling</a>")
     response.write("<a href='/test/neonButton'>neonButton</a>")
     response.write("<a href='/test/sidebarMenu'>sidebarMenu</a>")
-    response.write("<a href='/test/cardHoverEffects'>cardHoverEffects</a>")
-    response.write("<a href='/test/parallaxScrollingEffect'>parallaxScrollingEffect</a>")
+    response.write("<a href='/test/cardHoverEffects'>cardHoverEffects</a></div><br>")
+
+    response.write("<div><a href='/test/parallaxScrollingEffect'>parallaxScrollingEffect</a>")
     response.write("<a href='/test/animatedWebsite'>animatedWebsite</a>")
-    response.write("<a href='/test/pixelButtonEffects'>pixelButtonEffects</a></div><br>")
+    response.write("<a href='/test/pixelButtonEffects'>pixelButtonEffects</a>")
+    response.write("<a href='/test/waterTextAnimation'>waterTextAnimation</a></div><br><br>")
 
 
     #response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")

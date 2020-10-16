@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Animated Website!</title>	
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+	<style type="text/css">
+	@font-face {
+		font-family: 'Poppins';
+		src: url({% static 'waterTextAnimation/Poppins.ttf' %});
+	}
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Poppins', sans-serif;
+	}
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		background: #000;
+	}
+	.content {
+		position: relative;
+	}
+	.content h2 {
+		position: absolute;
+		/*color: #fff;*/
+		transform: translate(-50%, -50%);
+		font-size: 8em;
+	}
+	.content h2:nth-child(1) {
+		color: transparent;
+		-webkit-text-stroke: 2px #03a9f4;
+	}
+	.content h2:nth-child(2) {
+		color: #03a9f4;
+		animation: animate 4s ease-in-out infinite;
+	}
+	@keyframes animate {
+		0%,100% {
+			clip-path: polygon(0 61%, 5% 55%, 13% 51%, 22% 50%, 29% 53%, 34% 56%, 40% 61%, 46% 65%, 53% 68%, 60% 70%, 68% 71%, 78% 70%, 86% 68%, 92% 65%, 97% 59%, 100% 52%, 100% 100%, 1% 100%);
+		}
+		50% {
+			clip-path: polygon(0 61%, 6% 67%, 12% 72%, 20% 75%, 28% 77%, 36% 76%, 42% 73%, 47% 69%, 53% 63%, 60% 59%, 67% 55%, 75% 54%, 82% 54%, 89% 56%, 95% 60%, 100% 66%, 100% 100%, 1% 100%);
+		}
+	}
+	
+
+	</style>
+</head>
+<body>
+	<div class="content">
+		<h2>Жидкость</h2>
+		<h2>Жидкость</h2>
+	</div>
+</body>
+</html>
