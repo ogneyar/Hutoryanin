@@ -7,20 +7,25 @@
 	<h1>Личный кабинет!</h1>  
 	{% if user != 'none' %}
 
-		<p>Здравствуйте {{ user.login }}.</p> <br>
+		<p>Здравствуйте {{ user.login }}.</p>
 		
+		<p>Это Ваш личный кабинет, Вы авторизованный пользователь и Вам доступна скидка 10% на все товары по промокоду - <span style="color:blue;">{{ user.promo }}</span> -. При заказе товара в магазине ХуторянинЪ Вам достаточно раз указать Ваш почтовый адрес и он сохранится, а при желании его всегда можно будет тут подкорректировать. Так же Вы можете здесь сменить пароль и email.</p>
+				
 		<form method="get" action="/forget_password/">
 			<input type="hidden" name="login" id="login" value="{{ user.login }}">
 			<input type="hidden" name="old_password" id="old_password" value="{{ user.password }}">
+			Ваш пароль: * * * * 
 			<button type="submit" class="btn btn-outline-warning">Сменить пароль</button><br>
-		</form>	
+		</form>
 		
 		<p>Ваш email: {{ user.email }} <a href="#" class="btn btn-outline-success">Заменить</a></p>
 		{% if user.adress != 'none' %}
 		<p>Ваш адрес: {{ user.adress }} <a href="#" class="btn btn-outline-success">Заменить</a></p> <br><br>
 		{% else %}	
-		<p>Ваш адрес: НЕ УКАЗАН <a href="#" class="btn btn-outline-success">Заменить</a></p> 
-		<p>укажите Ваш почтовый адрес для возможности доставки заказанных Вами товаров на сайте ХуторянинЪ</p>
+		<p>Ваш адрес: НЕ УКАЗАН <a href="#" class="btn btn-outline-success">Заменить</a>
+		<br>
+		<span style="color:lightgrey;">укажите Ваш почтовый адрес для доставки товаров<span>
+		</p> 
 		<br><br>
 		{% endif %}	
 		<a href="/exit" class="btn btn-outline-violet">Выход</a>
