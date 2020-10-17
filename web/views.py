@@ -193,6 +193,7 @@ def lk(request):
                             user = {
                                 'login':usr.login,
                                 'password':usr.password,
+                                'promo':usr.promo,
                                 'email':usr.email,
                                 'adress':usr.adress
                             }
@@ -268,7 +269,7 @@ def registration(request):
                     'password':password,
                     'email':email,
                     'adress':'none',
-                    'promo':'Новичёк',
+                    'promo':'STARt',
                     'info':'none'
                 }
                 form = UsersForm(new_record)
