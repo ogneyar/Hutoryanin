@@ -192,6 +192,7 @@ def lk(request):
                         if usr.password == password:
                             user = {
                                 'login':usr.login,
+                                'password':usr.password,
                                 'email':usr.email,
                                 'adress':usr.adress
                             }
@@ -296,9 +297,12 @@ def forget_password(request):
 
     mail = "none"
     fail = "none"
-    new_password = "none"
+    forget_password = "none"
+    forget = "none"
     login = "none"
-    password = "none"
+    old_password = "none"
+    new_password = "none"
+    new_password2 = "none"
 
     if request.get_host() == '127.0.0.1:8000':
         host = 'local'
@@ -306,84 +310,79 @@ def forget_password(request):
         host = 'no_local'
 
     if request.method == "POST":
-        email = request.POST["email"]
+        # если клиент ввёл новый пароль
+        if 'forget' in request.POST:
+            forget = request.POST["forget"]
 
-        if email == "":
-            fail = "Введите email!"
-        else:
-            for usr in all_users:
-                if usr.email == email:
-                    login = usr.login
-                    password = usr.password
+            if 'login' in request.POST:
+                login = request.POST["login"]
+            if 'old_password' in request.POST:
+                old_password = request.POST["old_password"]
+            if 'new_password' in request.POST:
+                new_password = request.POST["new_password"]
+            if 'new_password2' in request.POST:
+                new_password2 = request.POST["new_password2"]
 
-            if login == "none":
-                fail = "В базе нет такого email!"
+            if new_password == new_password2:
+                for usr in all_users:
+                    if usr.login == login:
+                        if usr.password == old_password:
+                            new_record = {
+                                'login':login,
+                                'password':new_password,
+                                'email':usr.email,
+                                'adress':usr.adress,
+                                'promo':usr.promo,
+                                'info':usr.info
+                            }
+                            article = Users.objects.get(id=usr.id)
+                            form = UsersForm(new_record, instance=article)
+                            if form.is_valid():
+                                form.save()
+                            mail = "Ваш пароль обновлён!"
             else:
-                mail = sendMailTo(host, email, "Сброс пароля на сайте ХуторянинЪ.", "Ссылка для сброса пароля\n\nhttp://"+request.get_host()+"/forget_password?login="+login+"&password="+password)
+                fail = "Ошибка повтора пароля!"
+                forget_password = "yes"
+
+
+        elif 'email' in request.POST:
+            # если клиент нажал "забыли пароль?"
+            email = request.POST["email"]
+
+            if email == "":
+                fail = "Введите email!"
+            else:
+                for usr in all_users:
+                    if usr.email == email:
+                        login = usr.login
+                        old_password = usr.password
+
+                if login == "none":
+                    fail = "В базе нет такого email!"
+                else:
+                    mail = sendMailTo(host, email, "Сброс пароля на сайте ХуторянинЪ.", "Ссылка для сброса пароля\n\nhttp://"+request.get_host()+"/forget_password?login="+login+"&old_password="+old_password)
 
     elif request.method == "GET":
-        if 'login' in request.GET and 'password' in request.GET:
+        # если клиент пришёл по ссылке для восстановления пароля
+        if 'login' in request.GET and 'old_password' in request.GET:
             login = request.GET["login"]
-            password = request.GET["password"]
+            old_password = request.GET["old_password"]
 
             for usr in all_users:
                 if usr.login == login:
-                    if usr.password == password:
-                        new_password = "yes"
+                    if usr.password == old_password:
+                        forget_password = "yes"
 
     data = {
         "mail": mail,
         "fail": fail,
-        "new_password": new_password,
+        "forget_password": forget_password,
         "login": login,
-        "password": password
+        "new_password": new_password,
+        "old_password": old_password
     }
 
     return render(request, "lk/forget_password.html", data)
-
-
-def new_password(request):
-    all_users = Users.objects.order_by('id')
-
-    mail = "none"
-    fail = "none"
-    login = "none"
-    old_password = "none"
-    new_password = "none"
-
-    if request.method == "POST":
-        if 'login' in request.POST:
-            login = request.POST["login"]
-        if 'old_password' in request.POST:
-            old_password = request.POST["old_password"]
-        if 'password' in request.POST:
-            new_password = request.POST["password"]
-
-        for usr in all_users:
-            if usr.login == login:
-                if usr.password == old_password:
-                    new_record = {
-                        'login':login,
-                        'password':new_password,
-                        'email':usr.email,
-                        'adress':usr.adress,
-                        'promo':usr.promo,
-                        'info':usr.info
-                    }
-                    article = Users.objects.get(pk=1)
-                    form = UsersForm(new_record, instance=article)
-                    if form.is_valid():
-                        form.save()
-                    mail = "Ваш пароль обновлён!"
-
-    data = {
-        "mail": mail,
-        "fail": fail,
-        "new_password": new_password
-    }
-
-    return render(request, "lk/new_password.html", data)
-
 
 
 
