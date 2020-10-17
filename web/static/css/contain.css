@@ -7,7 +7,6 @@
 	flex: 1 1 auto;
 	min-width: 220px;
 	margin: 15px;		
-	transform-style: preserve-3d;
 	
 	text-align: center;
 }
@@ -17,7 +16,6 @@
 	height: 400px;
 	background: #e1e1e1;
 	border-radius: 20px;
-	transform-style: preserve-3d;
 	margin-bottom: 5px;
 }
 .contain .box::before {
@@ -55,7 +53,6 @@
 	text-align: center;
 	color: #fff;
 	width: 100%;
-	transform-style: preserve-3d;
 	transform: translate3d(0,0,75px);/**/
 	transition: 0.5s; /* задержка появления */
 	z-index: 10;
@@ -69,7 +66,6 @@
 	position: absolute;
 	bottom: 5px;
 	left: 50%;
-	transform-style: preserve-3d;
 	transform: translate3d(-50%,0,75px);
 	color: #fff;
 	padding: 10px 15px;
