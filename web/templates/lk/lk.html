@@ -7,7 +7,14 @@
 	<h1>Личный кабинет!</h1>  
 	{% if user != 'none' %}
 
-		<p>Здравствуйте {{ user.login }}.</p> <br><br>
+		<p>Здравствуйте {{ user.login }}.</p> <br>
+		
+		<form method="get" action="/forget_password/">
+			<input type="hidden" name="login" id="login" value="{{ user.login }}">
+			<input type="hidden" name="old_password" id="old_password" value="{{ user.password }}">
+			<button type="submit" class="btn btn-outline-warning">Сменить пароль</button><br>
+		</form>	
+		
 		<p>Ваш email: {{ user.email }} <a href="#" class="btn btn-outline-success">Заменить</a></p>
 		{% if user.adress != 'none' %}
 		<p>Ваш адрес: {{ user.adress }} <a href="#" class="btn btn-outline-success">Заменить</a></p> <br><br>
