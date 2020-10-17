@@ -23,10 +23,10 @@
 		
 		<form method="post" class="sign_in">
 			<h1>Вход!</h1>  <br>
-			<label>Логин</label>
+			<label>Логин</label><br>
 			<input type="text" placeholder="Введите логин" name="login" id="login" {% if fail != 'none' %} value="{{ login }}" {% endif %} maxlength="100"><br><br>
 			
-			<label>Пароль</label>
+			<label>Пароль</label><br>
 			<input type="password" placeholder="Введите пароль" name="password" id="password" maxlength="100"><br>
 
 			{% if fail != 'none' %} 
