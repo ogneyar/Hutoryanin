@@ -53,3 +53,8 @@ def blurExpect(request):
 
     return render(request, "blurExpect.html")
 
+def responsiveCard(request):
+
+    return render(request, "responsiveCard.html")
+
+

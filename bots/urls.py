@@ -29,5 +29,6 @@ urlpatterns = [
     path("pixelButtonEffects/", bots.views.pixelButtonEffects, name="pixelButtonEffects"),
     path("waterTextAnimation/", bots.views.waterTextAnimation, name="waterTextAnimation"),
     path("blurExpect/", bots.views.blurExpect, name="blurExpect"),
+    path("responsiveCard/", bots.views.responsiveCard, name="responsiveCard"),
 
 ]
