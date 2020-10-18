@@ -36,7 +36,9 @@ def header():
     response.write("<div><a href='/test/parallaxScrollingEffect'>parallaxScrollingEffect</a>")
     response.write("<a href='/test/animatedWebsite'>animatedWebsite</a>")
     response.write("<a href='/test/pixelButtonEffects'>pixelButtonEffects</a>")
-    response.write("<a href='/test/waterTextAnimation'>waterTextAnimation</a></div><br><br>")
+    response.write("<a href='/test/waterTextAnimation'>waterTextAnimation</a>")
+    response.write("<a href='/test/blurExpect'>blurExpect</a></div><br><br>")
+    
 
     #response.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
     response.write("<div><a href='/test/prizm'>TESTMarket</a>")

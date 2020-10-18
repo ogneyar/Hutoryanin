@@ -49,3 +49,7 @@ def waterTextAnimation(request):
 
     return render(request, "waterTextAnimation.html")
 
+def blurExpect(request):
+
+    return render(request, "blurExpect.html")
+
