@@ -18,16 +18,19 @@
 	flex-wrap: wrap;
 }
 .image img {
-	min-width: 220px;	
+	min-width: 220px;		
 }
 .image .img33 {
-	width: 33%;
+	width: calc(33% - 10px);
+	padding: 5px;
 }
 .image .img50 {
-	width: 50%;
+	width: calc(50% - 15px);
+	padding: 7.5px;
 }
 .image .img100 {
-	width: 100%;
+	width: calc(100% - 20px);
+	padding: 10px;
 }
 
 .image .caption {
