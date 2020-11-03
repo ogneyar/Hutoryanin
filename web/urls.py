@@ -26,9 +26,9 @@ urlpatterns = [
     path("products/knives/high_knife", web.views.high_knife, name="high_knife"),
 
     path("products/spoons/", web.views.spoons, name="spoons"),
-    path("products/spoons/low_spoon/", web.views.low_spoon, name="low_spoon"),
-    path("products/spoons/middle_spoon/", web.views.middle_spoon, name="middle_spoon"),
-    path("products/spoons/high_spoon/", web.views.high_spoon, name="high_spoon"),
+    path("products/spoons/low_spoon", web.views.low_spoon, name="low_spoon"),
+    path("products/spoons/middle_spoon", web.views.middle_spoon, name="middle_spoon"),
+    path("products/spoons/high_spoon", web.views.high_spoon, name="high_spoon"),
 
     path("products/candlesticks/", web.views.candlesticks, name="candlesticks"),
     path("products/candlesticks/low_candlestick", web.views.low_candlestick, name="low_candlestick"),
