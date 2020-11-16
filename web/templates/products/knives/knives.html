@@ -20,20 +20,81 @@
 			
 <div class="contain">		  
 	<div class="box">	  
-		<h2 class="name">"Low Knife"</h2>			
-		<a class="btn btn-success buy" href="{% url 'low_knife' %}">Описание</a>
-		<a href="{% url 'low_knife' %}">			
-			<img class="product" src="{% static 'products/knives/low_knife.jpg'%}" alt="" width="100%">
+		<h2 class="name">"Low Knife Bee"</h2>	
+		<h2 class="price">1200р</h2>
+		<a class="btn btn-success buy" href="{% url 'low_knife_bee' %}">Описание</a>
+		<a href="{% url 'low_knife_bee' %}">			
+			<img class="product" src="{% static 'products/knives/low_knife_bee.jpg'%}" alt="" width="100%">
 		</a>
-	</div>
-	<a class="btn btn-outline-danger" href="{% url 'low_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
+	</div>	
+	<a class="btn btn-outline-danger" href="{% url 'low_knife_bee' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
 </div>	
 	
 <!------------------------------------>
 	
 <div class="contain">
     <div class="box">
+		<h2 class="name">"Middle Knife Bee"</h2>
+		<h2 class="price">1500р</h2>
+		<a class="btn btn-success buy" href="{% url 'middle_knife_bee' %}">Описание</a>
+		<a href="{% url 'middle_knife_bee' %}">
+			<img class="mb-2 product" src="{% static 'products/knives/middle_knife_bee.jpg'%}" alt="" width="100%">
+		</a>
+    </div>
+	<a class="btn btn-outline-danger" href="{% url 'middle_knife_bee' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
+</div>	
+	
+<!------------------------------------>
+
+<div class="contain">
+    <div class="box">
+		<h2 class="name">"High Knife Bee"</h2>
+		<h2 class="price">2000р</h2>
+		<a class="btn btn-success buy" href="{% url 'high_knife_bee' %}">Описание</a>
+		<a href="{% url 'high_knife_bee' %}">
+			<img class="mb-2 product" src="{% static 'products/knives/high_knife_bee.jpg'%}" alt="" width="100%">
+		</a>
+    </div>
+	<a class="btn btn-outline-danger" href="{% url 'high_knife_bee' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
+</div>
+
+
+
+
+
+
+
+
+<div class="contain">
+	<div class="box">
+		<h2 class="name">Low Knife</h2>
+		<h2 class="price b">нет в наличии</h2>
+		<button class="btn btn-outline-dark buy" type="button" disabled>Посмотреть</button>
+		<img class="product" src="{% static 'logo3.png'%}" alt="" width="100%">
+	</div>
+	<button class="btn btn-outline-dark buy" type="button" disabled>ОФОРМИТЬ ЗАКАЗ</button>  	
+</div> 
+
+<!------------------------------------>
+			
+<!-- <div class="contain">		  
+	<div class="box">	  
+		<h2 class="name">"Low Knife"</h2>
+		<h2 class="price">800р</h2>
+		<a class="btn btn-success buy" href="{% url 'low_knife' %}">Описание</a>
+		<a href="{% url 'low_knife' %}">			
+			<img class="product" src="{% static 'products/knives/low_knife.jpg'%}" alt="" width="100%">
+		</a>
+	</div>
+	<a class="btn btn-outline-danger" href="{% url 'low_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
+</div>	 -->
+	
+<!------------------------------------>
+	
+<div class="contain">
+    <div class="box">
 		<h2 class="name">"Middle Knife"</h2>
+		<h2 class="price">1200р</h2>
 		<a class="btn btn-success buy" href="{% url 'middle_knife' %}">Описание</a>
 		<a href="{% url 'middle_knife' %}">
 			<img class="mb-2 product" src="{% static 'products/knives/middle_knife.jpg'%}" alt="" width="100%">
@@ -47,6 +108,7 @@
 <div class="contain">
     <div class="box">
 		<h2 class="name">"High Knife"</h2>
+		<h2 class="price">1500р</h2>
 		<a class="btn btn-success buy" href="{% url 'high_knife' %}">Описание</a>
 		<a href="{% url 'high_knife' %}">
 			<img class="mb-2 product" src="{% static 'products/knives/high_knife.jpg'%}" alt="" width="100%">
@@ -54,6 +116,8 @@
     </div>
 	<a class="btn btn-outline-danger" href="{% url 'high_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
 </div>			
+
+
 
 {% endblock %}
 

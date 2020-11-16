@@ -97,6 +97,19 @@
 	top: 70px;
 	background: #fff;
 }
+.price {
+	position: absolute;
+	bottom: 50px;
+	left: 0;
+	text-align: center;
+	color: rgb(255, 0, 0);
+	width: 100%;
+	transition: 0.5s;
+	z-index: 10;
+}
+.contain .box:hover .price {
+	bottom: 20px;
+}
 .contain .box .buy {
 	position: absolute;
 	bottom: 5px;
@@ -187,7 +200,7 @@
 	border-top: 1px solid lightgrey;
 	margin: 48px 10px;
 	width: 100%;
-	height: 450px;
+	height: 550px;
 }
 .benefit h2{
 	text-align: center;
@@ -203,21 +216,21 @@
 	left: 50px; 
 }
 .benefit_img2 {
-	top: 200px;
+	top: 250px;
 	right: 50px;
 }
 .benefit_img3 {
-	top: 350px;
+	top: 400px;
 	left: 100px;
 }
 .benefit_img_text {
-	/* margin-top: -5px; */
+	margin-top: -5px;
 	font-size: 1em;
 	text-align: center;
 }
 .benefit_text_bottom {
 	position: absolute;
-	top: 470px;
+	top: 570px;
 	/* text-align: center; */
 	right: 150px;
 }
@@ -247,12 +260,36 @@
 	height: 450px;
 	text-align: center;
 }
-@media (max-width: 500px){
+@media (max-width: 700px){
 	.help {
 		padding-top: 10px;
-		height: 480px;
+		height: 500px;
 	}
 }
+/* ------------------------- */
 
 
+/* ------------------------- */
+/* Формирование заказа */
+.creating_an_order {
+	width: 100%;
+}
+.creating_an_order textarea {
+	height: 100px;
+}
+
+/* ------------------------- */
+
+
+/* ------------------------- */
+/* АКЦИИ */
+.r {
+	color: red;
+}
+.g {
+	color: rgb(5, 196, 5);
+}
+.b {
+	color:black;
+}
 /* ------------------------- */

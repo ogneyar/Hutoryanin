@@ -4,8 +4,18 @@
 {% block header %}
 
 <div class="header">
-  <h1>Формирование заказа</h1>
-  
+
+	<h1>Формирование заказа</h1>
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="contain creating_an_order">	
+
   <!--<p class="lead">Этот товар/услугу можно преобрести только по предварительному заказу.</p>-->
   {% if product == "site" %}
 	<p>Сайт можно преобрести только по предварительному заказу.</p>
@@ -16,22 +26,42 @@
 		{% if product == "android" %}		
 			<p>Приложение можно преобрести только по предварительному заказу.</p>		
 		{% else %}
-			<p>Этот товар/услугу можно преобрести только по предварительному заказу.</p>
+			<!-- <p>Этот товар/услугу можно преобрести только по предварительному заказу.</p> -->
+
+			
+        
+				<h3>Вы выбрали {{ product }}</h3>
+				 
+				<form method="post" action="/sendmail/">
+					<input type="hidden" name="login" id="login" value="test">
+						
+					<label>Ваш Email:</label><br>
+					<input type="text" placeholder="Укажите Ваш Email" name="email" id="email" maxlength="100"><br><br>
+						
+					<label>Текст сообщения:</label><br>
+					
+					<div contenteditable="true">
+						<textarea placeholder="Здесь напишите Ваши пожелания (необязательно)" name="message" id="message" maxlength="1500" wrap="soft"></textarea>
+					</div>	<br>
+						
+					<div align="center">
+						<button type="submit" class="btn btn-primary">Отправить</button>
+					</div>
+				</form><br><br>
+			
+
 		{% endif %}	
 	{% endif %}			
   {% endif %}
-  
+
   <p>Все вопросы в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>
   
   <p>Вернуться <a class="btn btn-outline-primary" onclick="javascript:history.back(); return false;">назад</a></p>
   
 </div>
 
-{% endblock %}
-
-{% block content %}
-
   
+
 {% endblock %}
 
 

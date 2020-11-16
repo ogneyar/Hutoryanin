@@ -24,6 +24,9 @@ urlpatterns = [
     path("products/knives/low_knife", web.views.low_knife, name="low_knife"),
     path("products/knives/middle_knife", web.views.middle_knife, name="middle_knife"),
     path("products/knives/high_knife", web.views.high_knife, name="high_knife"),
+    path("products/knives/low_knife_bee", web.views.low_knife_bee, name="low_knife_bee"),
+    path("products/knives/middle_knife_bee", web.views.middle_knife_bee, name="middle_knife_bee"),
+    path("products/knives/high_knife_bee", web.views.high_knife_bee, name="high_knife_bee"),
 
     path("products/spoons/", web.views.spoons, name="spoons"),
     path("products/spoons/low_spoon", web.views.low_spoon, name="low_spoon"),

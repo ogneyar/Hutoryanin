@@ -4,7 +4,7 @@
 {% block header %}
 
 <div class="header">
-	<h1">Категория "Приложения"!</h1>
+	<h1>Категория "Приложения"!</h1>
 	<p>Выберайте тип приложения.</p>
 	<p>Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>  
 	<p>Вернуться <a class="btn btn-outline-primary" href="/products">назад</a></p>  
@@ -14,7 +14,6 @@
 
 {% block content %}
 
-<!------------------------------------>
 			
 <div class="contain">		  
 	<div class="box">	  
@@ -27,34 +26,31 @@
 	<a class="btn btn-outline-danger" href="{% url 'site' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
 </div>	
 	
-<!------------------------------------>
 	
 <div class="contain">
 	<div class="box">
 		<h2 class="name">Телеграм бот</h2>
 		<a class="btn btn-success buy" href="{% url 'tgbot' %}">Описание</a>
 		<a href="{% url 'tgbot' %}">
-			<img class="product" src="{% static 'products/applications/tgbot.jpg'%}" alt="" width="100%">
+			<img class="product" src="{% static 'products/applications/tgbot.png'%}" alt="" width="100%">
 		</a>
     </div>
 	<a class="btn btn-outline-danger" href="{% url 'tgbot' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>
 </div>	
-	
-<!------------------------------------>
+
 	
 <div class="contain">
     <div class="box">
 		<h2 class="name">ВКонтакте бот</h2>
 		<a class="btn btn-success buy" href="{% url 'vkbot' %}">Описание</a>
 		<a href="{% url 'vkbot' %}">
-			<img class="product" src="{% static 'products/applications/vkbot.jpg'%}" alt="" width="100%">
+			<img class="product" src="{% static 'products/applications/vkbot.png'%}" alt="" width="100%">
 		</a>
     </div>
 	<a class="btn btn-outline-danger" href="{% url 'vkbot' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>	
 </div>		
-	
-<!------------------------------------>
 
+<!-- 
 <div class="contain">
     <div class="box">
 		<h2 class="name">Андроид приложение</h2>
@@ -66,8 +62,6 @@
 	<a class="btn btn-outline-danger" href="{% url 'android' %}creating_an_order">ОФОРМИТЬ ЗАКАЗ</a>	
 </div>		
 	
-	
-<!-- -->
 <div class="contain">
 	<div class="box">
 		<h2 class="name">Пусто</h2>
@@ -76,8 +70,7 @@
 	</div>
 	<button class="btn btn-outline-dark buy" type="button" disabled>ОФОРМИТЬ ЗАКАЗ</button>  	
 </div> 
-		
-<!-- -->
+	
 <div class="contain">
 	<div class="box">
 		<h2 class="name">Пусто</h2>
@@ -85,7 +78,7 @@
 		<img class="product" src="{% static 'logo3.png'%}" alt="" width="100%">
 	</div>
 	<button class="btn btn-outline-dark buy" type="button" disabled>ОФОРМИТЬ ЗАКАЗ</button> 	
-</div>
+</div> -->
 
 {% endblock %}
 

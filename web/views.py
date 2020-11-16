@@ -92,6 +92,18 @@ def high_knife(request):
 
     return render(request, "products/knives/high_knife.html")
 
+def low_knife_bee(request):
+
+    return render(request, "products/knives/low_knife_bee.html")
+
+def middle_knife_bee(request):
+
+    return render(request, "products/knives/middle_knife_bee.html")
+
+def high_knife_bee(request):
+
+    return render(request, "products/knives/high_knife_bee.html")
+
 def spoons(request):
 
     return render(request, "products/spoons/spoons.html")
