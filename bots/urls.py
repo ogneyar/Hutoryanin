@@ -30,5 +30,6 @@ urlpatterns = [
     path("waterTextAnimation/", bots.views.waterTextAnimation, name="waterTextAnimation"),
     path("blurExpect/", bots.views.blurExpect, name="blurExpect"),
     path("responsiveCard/", bots.views.responsiveCard, name="responsiveCard"),
+    path("loadingEffects/", bots.views.loadingEffects, name="loadingEffects"),
 
 ]

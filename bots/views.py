@@ -57,4 +57,8 @@ def responsiveCard(request):
 
     return render(request, "responsiveCard.html")
 
+def loadingEffects(request):
+
+    return render(request, "loadingEffects.html")
+
 
