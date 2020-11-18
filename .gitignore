@@ -1,6 +1,5 @@
-venv
 *.pyc
 staticfiles
 .env
 db.sqlite3
-getting-started/*
+node_modules
