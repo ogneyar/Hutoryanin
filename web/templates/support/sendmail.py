@@ -28,17 +28,20 @@ def send(request):
     global tg, master, smtp_login, smtp_pass, smtp_port, smtp_server
 
     if request.get_host() == '127.0.0.1:8000':
-        token = "1224906863:AAHYalxznzb4XwcP-7olgPu8BQjNJ0LrKXY"
+        '''
+        token = ""
         master = 1038937592
-        '''
-        smtp_login = "hutoryanin_test@mail.ru"
-        smtp_pass = "Polkmn_111"
-        '''
         smtp_login = "prizmarket@mail.ru"
-        smtp_pass = "Qwrtui13"
-
+        smtp_pass = ""
         smtp_port = 465
         smtp_server = "smtp.mail.ru"
+        '''
+        token = os.getenv("TOKEN")
+        master = int(os.getenv("MASTER"))
+        smtp_login = str(os.getenv("SMTP_LOGIN"))
+        smtp_pass = str(os.getenv("SMTP_PASSWORD"))
+        smtp_port = int(os.getenv("SMTP_PORT"))
+        smtp_server = str(os.getenv("SMTP_SERVER"))
     else:
         token = os.getenv("TOKEN")
         master = int(os.getenv("MASTER"))
@@ -56,23 +59,29 @@ def send(request):
 
             if request.get_host() != '127.0.0.1:8000':
                 if mc.get("repeat") is None:
-                    mc.set("repeat", "yes")
+                    mc.set("repeat", "yes", 30)
 
-                    response += mailing(request.POST["email"], request.POST["message"])
+                    if "product" in request.POST:
+                        response += mailing(request.POST["email"], request.POST["message"], request.POST["product"])
+                    else:
+                        response += mailing(request.POST["email"], request.POST["message"])
 
-                else:
+                else:                    
                     response += "Письмо уже отправленно!"
             else:
                 # сохранение сессии
                 # для localhost SESSION_ENGINE необходимо закоментировать в settings.py
                 if "repeat" not in request.session:
-                    # удаление через 60 секунд
-                    #request.session.set_expiry(60)
+                    # удаление через 30 секунд
+                    request.session.set_expiry(30)
                     request.session["repeat"] = "yes"
 
-                    response += mailing(request.POST["email"], request.POST["message"])
+                    if "product" in request.POST:
+                        response += mailing(request.POST["email"], request.POST["message"], request.POST["product"])
+                    else:
+                        response += mailing(request.POST["email"], request.POST["message"])
 
-                else:
+                else:                    
                     response += "Письмо уже отправленно!"
         else:
             response += "Необходимо описать суть вопроса или предложения!"
@@ -90,7 +99,7 @@ def sendMailTo(to_whom, body):
         message['Subject'] = "Клиент " + to_whom +" c сайта hutoryanin.ru"
         message['From'] = smtp_login
         #message['To'] = 'someone@else.com'
-        message.attach(MIMEText(to_whom + "\n\n" + body, 'plain'))
+        message.attach(MIMEText(body, 'plain'))
         #message.attach(MIMEText('<h1 style="color: blue">A Heading</a><p>Something else in the body</p>', 'html'))
         server = smtplib.SMTP_SSL(smtp_server, smtp_port)
         #server.starttls()
@@ -108,12 +117,17 @@ def sendMailTo(to_whom, body):
 
 
 ''' рассылка письма, в телеграм и на почту '''
-def mailing(email, message):
+def mailing(email, message, product = ""):
+
+    if product != "":
+        body = email + "\n\nКуплю: " + product + "\n\n" + message
+    else:
+        body = email + "\n\n" + message
 
     try:
-        tg.sendMessage(master, email + "\n\n" + message)
+        tg.sendMessage(master, body)
 
-        return sendMailTo(email, message)#return "Письмо отправленно!"#
+        return sendMailTo(email, body)#return "Письмо отправленно!"#
 
     except:
         return "Ошибка! Не смог отправить сообщение!"
