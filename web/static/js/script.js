@@ -1,4 +1,3 @@
-// функция для работы кнопки "ОБО МНЕ" на главной странице
 (function(){
 
     var doc = document;
@@ -9,6 +8,7 @@
         var about = doc.getElementById('about');
         var text = doc.getElementById('about-text');
 
+        // функция для работы кнопки "ОБО МНЕ" на главной странице
 		about.onclick = function() {
             if (text.style.display == "block") {
                 text.style.display = "none";
@@ -25,7 +25,19 @@
             //предотвращаем переход по ссылке href
             return false;
         }
-        console.log(about);
-	});	
+        //console.log(about);
+
+    });	
+
+    
+    var submit_sendmail = doc.getElementsByClassName('submit_sendmail');
+    var loader_image = doc.getElementsByClassName('loader_image');
+
+    // функция для показа заставки во время отправки сообщения на почту
+    submit_sendmail[0].onclick = function() {
+        loader_image[0].style.display = "block";
+
+        //return false;
+    }
 
 })();
