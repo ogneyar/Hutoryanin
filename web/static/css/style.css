@@ -11,7 +11,8 @@ button {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  line-height: 1; }
+  line-height: 1;
+  cursor: pointer; }
 
 /* BUTTON DANGER */
 .btn-danger {
@@ -803,8 +804,16 @@ a#menu {
 a.home:active {
   color: White; }
 
-a.text:active, a.text:hover, a.text {
-  color: #666; }
+a.text {
+  color: #666;
+  margin-bottom: 10px; }
+
+a.text:hover {
+  color: Red;
+  padding-left: 10px;
+  -webkit-transition: 0.7s;
+  -o-transition: 0.7s;
+  transition: 0.7s; }
 
 li {
   list-style-type: none;

@@ -61,8 +61,14 @@ a:active {color: Red;}
 /*a:hover {color: lightgreen;}*/
 a#menu { color: Blue; }
 a.home:active  {color: White;}
-a.text:active, a.text:hover, a.text {
+a.text {
 	color: #666;
+	margin-bottom: 10px;;
+}
+a.text:hover {
+	color: Red;
+	padding-left: 10px;
+	transition: 0.7s;
 }
 li {
     list-style-type: none; /* Убираем маркеры */
