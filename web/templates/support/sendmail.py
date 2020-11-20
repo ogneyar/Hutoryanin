@@ -25,30 +25,15 @@ def send(request):
     if request.method != "POST" or "email" not in request.POST or "message" not in request.POST:
         return HttpResponseRedirect("/")
 
-    global tg, master, smtp_login, smtp_pass, smtp_port, smtp_server
+    global tg, master, admin_group, smtp_login, smtp_pass, smtp_port, smtp_server
 
-    if request.get_host() == '127.0.0.1:8000':
-        '''
-        token = ""
-        master = 1038937592
-        smtp_login = "prizmarket@mail.ru"
-        smtp_pass = ""
-        smtp_port = 465
-        smtp_server = "smtp.mail.ru"
-        '''
-        token = os.getenv("TOKEN")
-        master = int(os.getenv("MASTER"))
-        smtp_login = str(os.getenv("SMTP_LOGIN"))
-        smtp_pass = str(os.getenv("SMTP_PASSWORD"))
-        smtp_port = int(os.getenv("SMTP_PORT"))
-        smtp_server = str(os.getenv("SMTP_SERVER"))
-    else:
-        token = os.getenv("TOKEN")
-        master = int(os.getenv("MASTER"))
-        smtp_login = str(os.getenv("SMTP_LOGIN"))
-        smtp_pass = str(os.getenv("SMTP_PASSWORD"))
-        smtp_port = int(os.getenv("SMTP_PORT"))
-        smtp_server = str(os.getenv("SMTP_SERVER"))
+    token = os.getenv("TOKEN")
+    master = int(os.getenv("MASTER"))
+    admin_group = int(os.getenv("ADMIN_GROUP"))
+    smtp_login = str(os.getenv("SMTP_LOGIN"))
+    smtp_pass = str(os.getenv("SMTP_PASSWORD"))
+    smtp_port = int(os.getenv("SMTP_PORT"))
+    smtp_server = str(os.getenv("SMTP_SERVER"))
 
     tg = Bot(token)
 
@@ -125,7 +110,7 @@ def mailing(email, message, product = ""):
         body = email + "\n\n" + message
 
     try:
-        tg.sendMessage(master, body)
+        tg.sendMessage(admin_group, body)
 
         return sendMailTo(email, body)#return "Письмо отправленно!"#
 
