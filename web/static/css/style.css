@@ -792,12 +792,14 @@ p {
 
 a {
   text-decoration: none;
-  color: Red; }
+  color: #303aca; }
+
+a:hover {
+  color: #9fa5ff; }
 
 a:active {
   color: Red; }
 
-/*a:hover {color: lightgreen;}*/
 a#menu {
   color: Blue; }
 

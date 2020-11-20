@@ -60,10 +60,13 @@ p {
 }
 a {
 	text-decoration: none;
-	color: Red;
+	// color: Red;
+	color: rgb(48, 58, 202);
 }
+a:hover {color:  rgb(159, 165, 255);}
+
 a:active {color: Red;}
-/*a:hover {color: lightgreen;}*/
+
 a#menu { color: Blue; }
 a.home:active  {color: White;}
 a.text {
