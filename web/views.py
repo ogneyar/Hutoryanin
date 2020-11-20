@@ -18,6 +18,11 @@ def index(request):
     return render(request, "index.html")
 
 
+def privacy(request):
+
+    return render(request, "privacy.html")
+
+
 def public(request):
 
     all_url = Url.objects.order_by('-id')

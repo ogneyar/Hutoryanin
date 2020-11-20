@@ -806,7 +806,10 @@ a.home:active {
 
 a.text {
   color: #666;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  -webkit-transition: 0.7s;
+  -o-transition: 0.7s;
+  transition: 0.7s; }
 
 a.text:hover {
   color: Red;
@@ -845,12 +848,10 @@ input {
 
 .header {
   background: #f7f7f7;
-  /*padding: 20px;*/
   text-align: center;
   max-width: 960px;
   padding-top: 120px;
-  padding-bottom: 20px;
-  /*margin-top: 150px;*/ }
+  padding-bottom: 20px; }
 
 .main {
   display: -webkit-box;
@@ -980,16 +981,16 @@ input {
     -webkit-filter: hue-rotate(0deg);
             filter: hue-rotate(0deg); }
   100% {
-    -webkit-filter: hue-rotate(30deg);
-            filter: hue-rotate(30deg); } }
+    -webkit-filter: hue-rotate(35deg);
+            filter: hue-rotate(35deg); } }
 
 @keyframes animateBg {
   0% {
     -webkit-filter: hue-rotate(0deg);
             filter: hue-rotate(0deg); }
   100% {
-    -webkit-filter: hue-rotate(30deg);
-            filter: hue-rotate(30deg); } }
+    -webkit-filter: hue-rotate(35deg);
+            filter: hue-rotate(35deg); } }
 
 #section .box {
   display: -webkit-box;
@@ -1029,8 +1030,8 @@ input {
   background: #00ff0a;
   -webkit-box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a, 0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
           box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a, 0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
+  -webkit-animation: animate 1s linear infinite;
+          animation: animate 1s linear infinite;
   -webkit-animation-delay: calc(0.1s * var(--i));
           animation-delay: calc(0.1s * var(--i)); }
 
@@ -1049,3 +1050,7 @@ input {
   80%, 100% {
     -webkit-transform: scale(0);
             transform: scale(0); } }
+
+.privacy {
+  float: left;
+  padding: 10px; }

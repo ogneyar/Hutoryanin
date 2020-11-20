@@ -13,6 +13,8 @@ import bots.urls
 
 urlpatterns = [
     path("", web.views.index, name="index"),
+    
+    path("privacy/", web.views.privacy, name="privacy"),
 
     path("public/", web.views.public, name="public"),
     path("public/<int:page_id>/", web.views.public_page, name="public_page"),
