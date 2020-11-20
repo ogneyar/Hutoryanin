@@ -31,11 +31,11 @@
 
     
     var submit_sendmail = doc.getElementsByClassName('submit_sendmail');
-    var loader_image = doc.getElementsByClassName('loader_image');
+    var section = doc.getElementById('section');
 
     // функция для показа заставки во время отправки сообщения на почту
     submit_sendmail[0].onclick = function() {
-        loader_image[0].style.display = "block";
+        section.style.display = "block";
 
         //return false;
     }
