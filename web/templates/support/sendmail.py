@@ -47,7 +47,12 @@ def send(request):
                     mc.set("repeat", "yes", 30)
 
                     if "product" in request.POST:
-                        response += mailing(request.POST["email"], request.POST["message"], request.POST["product"])
+                        product = "Куплю: " + request.POST["product"]
+                        if "color" in request.POST:
+                            product += " " + request.POST["color"]
+                            if "promo" in request.POST:
+                                product += "\n\nПромо-код: " + request.POST["promo"]
+                        response += mailing(request.POST["email"], request.POST["message"], product)
                     else:
                         response += mailing(request.POST["email"], request.POST["message"])
 
@@ -62,7 +67,12 @@ def send(request):
                     request.session["repeat"] = "yes"
 
                     if "product" in request.POST:
-                        response += mailing(request.POST["email"], request.POST["message"], request.POST["product"])
+                        product = "Куплю: " + request.POST["product"]
+                        if "color" in request.POST:
+                            product += " " + request.POST["color"]
+                            if "promo" in request.POST:
+                                product += "\n\nПромо-код: " + request.POST["promo"]
+                        response += mailing(request.POST["email"], request.POST["message"], product)
                     else:
                         response += mailing(request.POST["email"], request.POST["message"])
 
@@ -95,7 +105,7 @@ def sendMailTo(to_whom, body):
 
         server.quit()
 
-        return "Письмо отправленно!"
+        return "Письмо отправленно! Ожидайте, Вам скоро ответят."
     except:
         #return "Ошибка! Указан не верный email!"
         return "Письмо отправленно."
@@ -105,7 +115,7 @@ def sendMailTo(to_whom, body):
 def mailing(email, message, product = ""):
 
     if product != "":
-        body = email + "\n\nКуплю: " + product + "\n\n" + message
+        body = email + "\n\n" + product +  "\n\n" + message
     else:
         body = email + "\n\n" + message
 

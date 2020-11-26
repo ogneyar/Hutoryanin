@@ -79,11 +79,16 @@ def products(request):
 
 
 def creating_an_order(request, category, product):
+    user = "none"
+    if "user" in request.session:
+        user = request.session["user"]
+
     color = ""
     if request.method == "GET":
         if 'color' in request.GET:
             color = request.GET["color"]
     parameters = {
+        'user':user,
         'category':category,
         'product':product,
         'color':color

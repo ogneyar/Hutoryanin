@@ -90,9 +90,23 @@ textarea {
 	width: 75%;
 	height: 325px;
 	resize: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+
 }
 input {
 	width: 75%;	
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+@media (min-width: 768px) {
+	input {
+		width: 50%;	
+	}
+	textarea {
+		width: 50%;
+	}
+
 }
 
 /* .menu и .menu-mobile в отдельном файле menu.css */
