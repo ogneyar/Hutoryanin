@@ -294,9 +294,10 @@ def registration(request):
         all_users = Users.objects.order_by('id')
 
         login = request.POST["login"]
-        password = getPass()
+        password = getPass(10)
         email = request.POST["email"]
         #adress = request.POST["adress"]
+        promo = getPass(5)
 
         if login == "":
             fail = "Необходимо ввести логин!"
@@ -317,13 +318,13 @@ def registration(request):
                     'password':password,
                     'email':email,
                     'adress':'none',
-                    'promo':'STARt',
+                    'promo':promo,
                     'info':'none'
                 }
                 form = UsersForm(new_record)
                 if form.is_valid():
                     sms = "Регистрация!\n\nВаш логин: "+login+"\n\nВаш пароль: "+password+"\n\n\nhttp://"+request.get_host()+"/lk"
-                    mail = sendMailTo(host, email, "Регистрация на сайте ХуторянинЪ.", sms)
+                    mail = sendMailTo(email, "Регистрация на сайте ХуторянинЪ.", sms)
                     if mail != "Ошибка отправки!":
                         form.save()
                         tg.sendMessage(master, "Зарегистрировал нового клиента:\n\n" + login + "\n\n" + email)
@@ -347,21 +348,16 @@ def forget_password(request):
     mail = "none"
     fail = "none"
     forget_password = "none"
-    forget = "none"
+    #forget = "none"
     login = "none"
     old_password = "none"
     new_password = "none"
-    new_password2 = "none"
-
-    if request.get_host() == '127.0.0.1:8000':
-        host = 'local'
-    else:
-        host = 'no_local'
+    new_password2 = "none"    
 
     if request.method == "POST":
         # если клиент ввёл новый пароль
         if 'forget' in request.POST:
-            forget = request.POST["forget"]
+            #forget = request.POST["forget"]
 
             if 'login' in request.POST:
                 login = request.POST["login"]
@@ -409,7 +405,7 @@ def forget_password(request):
                 if login == "none":
                     fail = "В базе нет такого email!"
                 else:
-                    mail = sendMailTo(host, email, "Сброс пароля на сайте ХуторянинЪ.", "Ссылка для сброса пароля\n\nhttp://"+request.get_host()+"/forget_password?login="+login+"&old_password="+old_password)
+                    mail = sendMailTo(email, "Сброс пароля на сайте ХуторянинЪ.", "Ссылка для сброса пароля\n\nhttp://"+request.get_host()+"/forget_password?login="+login+"&old_password="+old_password)
 
     elif request.method == "GET":
         # если клиент пришёл по ссылке для восстановления пароля
@@ -452,24 +448,13 @@ def db(request):
 
 
 # функция отправки Email
-def sendMailTo(host, to_whom, subject, body):
+def sendMailTo(to_whom, subject, body):
     #global smtp_login, smtp_pass, smtp_port, smtp_server
 
-    if host == 'local':
-        '''
-        smtp_login = "hutoryanin_test@mail.ru"
-        smtp_pass = "Polkmn_111"
-        '''
-        smtp_login = "prizmarket@mail.ru"
-        smtp_pass = "Qwrtui13"
-
-        smtp_port = 465
-        smtp_server = "smtp.mail.ru"
-    else:
-        smtp_login = str(os.getenv("SMTP_LOGIN"))
-        smtp_pass = str(os.getenv("SMTP_PASSWORD"))
-        smtp_port = int(os.getenv("SMTP_PORT"))
-        smtp_server = str(os.getenv("SMTP_SERVER"))
+    smtp_login = str(os.getenv("SMTP_LOGIN"))
+    smtp_pass = str(os.getenv("SMTP_PASSWORD"))
+    smtp_port = int(os.getenv("SMTP_PORT"))
+    smtp_server = str(os.getenv("SMTP_SERVER"))
 
     try:
         message = MIMEMultipart()
@@ -486,12 +471,12 @@ def sendMailTo(host, to_whom, subject, body):
         return "Ошибка отправки!"
 
 
-def getPass():
+def getPass(n):
 
     chars = 'abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
 
     password =''
-    for i in range(10):
+    for i in range(n):
         password += random.choice(chars)
 
     return password
