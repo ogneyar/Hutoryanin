@@ -4,10 +4,9 @@
 {% block header %}
 
 <div class="header">
-
-	<h1>Нож "High Knife"!</h1>
+	<h1>Нож "High Bee {{ color }}"!</h1>
 	<br><br>  
-	<p><a class="btn btn-outline-danger" href="{% url 'high_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a></p>
+	<p><a class="btn btn-outline-danger" href="{% url 'high_knife_bee' %}/creating_an_order?color={{ color }}">ОФОРМИТЬ ЗАКАЗ</a></p>
 	<br>	 
 	<p>Нож из нержавеющей кованой стали 95х18.</p>
 	<p>Стоимость ножа с полосатой рукоятью - 2000 рублей.</p>  
@@ -17,20 +16,28 @@
 
 {% endblock %}
 
+
 {% block content %}
 
-<div class="image"> 	  
-	<img class="img33" src="{% static 'products/knives/high_knife_bee.png'%}" alt="high_knife_bee">
+<div class="image"> 
+	{% if color == 'red' %}	  
+	<img class="img33" src="{% static 'products/knives/high_knife_bee_red.png'%}" alt="high_knife_bee_red">
+	<img class="img33" src="{% static 'products/knives/high_knife_bee_red2.png'%}" alt="high_knife_bee_red2">
 	<img class="img33" src="{% static 'logo3.png' %}" alt="">
-	<img class="img33" src="{% static 'logo3.png' %}" alt="">
+	{% else  %}	 
+		{% if color == 'transparent' %}	 
+		<img class="img33" src="{% static 'products/knives/high_knife_bee_transparent.png'%}" alt="high_knife_bee_transparent">
+		<img class="img33" src="{% static 'products/knives/high_knife_bee_transparent2.png'%}" alt="high_knife_bee_transparent2">
+		<img class="img33" src="{% static 'logo3.png' %}" alt="">
+		{% endif %}
+	{% endif %}
 </div>
 <div class="contain">
-	<p><a class="btn btn-outline-danger" href="{% url 'high_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a></p>
+	<p><a class="btn btn-outline-danger" href="{% url 'high_knife_bee' %}/creating_an_order?color={{ color }}">ОФОРМИТЬ ЗАКАЗ</a></p>
 	<br>  
 	<p>Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>
 	<br>  
 	<p>Вернуться <a class="btn btn-outline-primary" href="/products/knives">назад</a></p>
 </div>
+
 {% endblock %}
-
-

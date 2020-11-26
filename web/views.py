@@ -77,9 +77,19 @@ def products(request):
 
     return render(request, "products/products.html")
 
-def creating_an_order(request, category, product):
 
-    return render(request, "products/creating_an_order.html", {'category':category,'product':product})
+def creating_an_order(request, category, product):
+    color = ""
+    if request.method == "GET":
+        if 'color' in request.GET:
+            color = request.GET["color"]
+    parameters = {
+        'category':category,
+        'product':product,
+        'color':color
+    }
+    return render(request, "products/creating_an_order.html", parameters)
+
 
 def knives(request):
 
@@ -97,17 +107,38 @@ def high_knife(request):
 
     return render(request, "products/knives/high_knife.html")
 
-def low_knife_bee(request):
 
-    return render(request, "products/knives/low_knife_bee.html")
+def low_knife_bee(request):
+    color = ""
+    if request.method == "GET":
+        if 'color' in request.GET:
+            color = request.GET["color"]
+    parameters = {
+        'color':color
+    }
+    return render(request, "products/knives/low_knife_bee.html", parameters)
 
 def middle_knife_bee(request):
+    color = ""
+    if request.method == "GET":
+        if 'color' in request.GET:
+            color = request.GET["color"]
+    parameters = {
+        'color':color
+    }
+    return render(request, "products/knives/middle_knife_bee.html", parameters)
 
-    return render(request, "products/knives/middle_knife_bee.html")
 
 def high_knife_bee(request):
+    color = ""
+    if request.method == "GET":
+        if 'color' in request.GET:
+            color = request.GET["color"]
+    parameters = {
+        'color':color
+    }
+    return render(request, "products/knives/high_knife_bee.html", parameters)
 
-    return render(request, "products/knives/high_knife_bee.html")
 
 def spoons(request):
 

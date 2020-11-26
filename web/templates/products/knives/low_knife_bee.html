@@ -4,30 +4,18 @@
 {% block header %}
 
 <div class="header">
-
-	<h1>Нож "Low Knife"!</h1><br>
-  
-	<p><a class="btn btn-outline-danger" href="{% url 'low_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a></p>    
-	 
+	<h1>Нож "Low Bee {{ color }}"!</h1>
+	<br><br>  
+	<p><a class="btn btn-outline-danger" href="{% url 'low_knife_bee' %}/creating_an_order?color={{ color }}">ОФОРМИТЬ ЗАКАЗ</a></p>    	 
+	<br>
 	<p>Нож из нержавеющей кованой стали 95х18.</p>
-
-	<p>Стоимость ножа c полосатой рукоятью - 1200 рублей.</p>
-  
-	<p>Дополнительно можно заказать кожаные ножны - 300 рублей.</p>
-  
+	<p>Стоимость ножа c полосатой рукоятью - 1200 рублей.</p>  
+	<p>Дополнительно можно заказать кожаные ножны - 300 рублей.</p>  
 	<p>Доставка почтой России оплачивается отдельно.</p>
-  
-	<br>
-	<p><a class="btn btn-outline-danger" href="{% url 'low_knife' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a></p>
-	<br>
-  
-	<p>Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>
-  
-	<p>Вернуться <a class="btn btn-outline-primary" href="/products/knives">назад</a></p>
-  
 </div>
 
 {% endblock %}
+
 
 {% block content %}
 <!-- 
@@ -37,6 +25,12 @@
 	<img class="img33" src="{% static 'logo3.png' %}" alt="">
 </div>
    -->
+<div class="contain">
+	<p><a class="btn btn-outline-danger" href="{% url 'low_knife_bee' %}/creating_an_order?color={{ color }}">ОФОРМИТЬ ЗАКАЗ</a></p>
+	<br>  
+	<p>Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>
+	<br>   
+	<p>Вернуться <a class="btn btn-outline-primary" href="/products/knives">назад</a></p>  
+</div>
+
 {% endblock %}
-
-

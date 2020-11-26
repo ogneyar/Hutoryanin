@@ -983,16 +983,16 @@ input {
     -webkit-filter: hue-rotate(0deg);
             filter: hue-rotate(0deg); }
   100% {
-    -webkit-filter: hue-rotate(35deg);
-            filter: hue-rotate(35deg); } }
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg); } }
 
 @keyframes animateBg {
   0% {
     -webkit-filter: hue-rotate(0deg);
             filter: hue-rotate(0deg); }
   100% {
-    -webkit-filter: hue-rotate(35deg);
-            filter: hue-rotate(35deg); } }
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg); } }
 
 #section .box {
   display: -webkit-box;
