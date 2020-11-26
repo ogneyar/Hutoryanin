@@ -40,7 +40,7 @@ def send(request):
     response = ""
 
     if request.POST["email"] != "":
-        if request.POST["message"] != "":
+        # if request.POST["message"] != "":
 
             if request.get_host() != '127.0.0.1:8000':
                 if mc.get("repeat") is None:
@@ -52,6 +52,7 @@ def send(request):
                             product += " " + request.POST["color"]
                             if "promo" in request.POST:
                                 product += "\n\nПромо-код: " + request.POST["promo"]
+                        
                         response += mailing(request.POST["email"], request.POST["message"], product)
                     else:
                         response += mailing(request.POST["email"], request.POST["message"])
@@ -78,8 +79,8 @@ def send(request):
 
                 else:                    
                     response += "Письмо уже отправленно!"
-        else:
-            response += "Необходимо описать суть вопроса или предложения!"
+        # else:
+        #     response += "Необходимо описать суть вопроса или предложения!"
     else:
         response += "Необходимо указать Ваш email!"
 

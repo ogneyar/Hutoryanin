@@ -4,63 +4,64 @@
 {% block header %}
 
 <div class="header">
-
 	<h1>Формирование заказа</h1>
-
 </div>
 
 {% endblock %}
 
+
 {% block content %}
 
-
 <div class="contain creating_an_order">	
-
-  <!--<p class="lead">Этот товар/услугу можно преобрести только по предварительному заказу.</p>-->
-  {% if product == "site" %}
+  	
+  	{% if product == "site" %}
 	<p>Сайт можно преобрести только по предварительному заказу.</p>
-  {% else %}	
-	{% if product == "tgbot" %}	
-		<p>Бота можно преобрести только по предварительному заказу.</p>
-	{% else %}		
-		{% if product == "android" %}		
-			<p>Приложение можно преобрести только по предварительному заказу.</p>		
-		{% else %}
-			<!-- <p>Этот товар/услугу можно преобрести только по предварительному заказу.</p> -->
-	   
+  	{% else %}	
+		{% if product == "tgbot" %}	
+			<p>Бота можно преобрести только по предварительному заказу.</p>
+		{% else %}		
+			{% if product == "android" %}		
+				<p>Приложение можно преобрести только по предварительному заказу.</p>		
+			{% else %}
 			
-				<p><strong>{{ user.login }}</strong> Вы выбрали {{ product }} {{ color }}</p>
+			<p><strong>{{ user.login }}</strong> Вы выбрали {{ product }} {{ color }}</p>
+			<p><span style="color:lightgrey;">Для заказа товара достаточно указать email.</span></p>
 
-				<p><span style="color:lightgrey;">Для заказа товара достаточно указать email.</span></p>
-				<!-- <p>После отправки этого сообщения с Вами свяжутся для уточнения деталей.</p> -->
-
-				<form method="post" action="/sendmail/">
-					<input type="hidden" name="login" id="login" value="test">
-					<input type="hidden" name="product" id="product" value="{{ product }}">
-					<input type="hidden" name="color" id="color" value="{{ color }}">
+			{% endif %}	
+		{% endif %}			
+	{% endif %}
+			
+	<form method="post" action="/sendmail/">
+		<input type="hidden" name="login" id="login" value="test">
+		<input type="hidden" name="product" id="product" value="{{ product }}">
+		<input type="hidden" name="color" id="color" value="{{ color }}">
 						
-					<label>Ваш Email:</label><br>
-					<input type="text" placeholder="Укажите Ваш Email" value="{{ user.email }}" name="email" id="email" maxlength="100"><br><br>
+		<label>Ваш Email:</label><br>
+		<input type="text" placeholder="Укажите Ваш Email" value="{{ user.email }}" name="email" id="email" maxlength="100"><br><br>
 
-					<label>Ваш промо-код:</label><br>
-					<input type="text" placeholder="Укажите промо-код (необязательно)" value="{{ user.promo }}" name="promo" id="promo" maxlength="100"><br><br>
+		<label>Ваш промо-код:</label><br>
+		<input type="text" placeholder="Укажите промо-код (необязательно)" value="{{ user.promo }}" name="promo" id="promo" maxlength="100"><br><br>
 						
-					<label>Текст сообщения:</label><br>
+		<label>Текст сообщения:</label><br>
 					
-					<div contenteditable="true">
-						<textarea placeholder="Напишите Ваши пожелания (необязательно)" name="message" id="message" maxlength="1500" wrap="soft"></textarea>
-					</div>	<br>
+		<div contenteditable="true">
+			{% if product == "site" or product == "tgbot" or product == "android" %}
+			<textarea placeholder="Опишите кратко Ваш заказ" name="message" id="message" maxlength="1500" wrap="soft"></textarea>
+			{% else %}
+			<textarea placeholder="Напишите Ваши пожелания (необязательно)" name="message" id="message" maxlength="1500" wrap="soft"></textarea>
+			{% endif %}
 						
-					<div align="center">
-						<button type="submit" class="btn btn-primary submit_sendmail">Отправить</button>
-					</div>
-				</form><br><br>
+		</div>	
+		<br>
+						
+		<div align="center">
+			<button type="submit" class="btn btn-primary submit_sendmail">Отправить</button>
+		</div>
+	</form>
+	<br><br>
 
-				<!-- <div class="loader_image"></div> -->			
+	<!-- <div class="loader_image"></div> -->		
 
-		{% endif %}	
-	{% endif %}			
-  {% endif %}
 
   <p>Все вопросы в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>
   
@@ -69,7 +70,4 @@
 </div>
 
   
-
 {% endblock %}
-
-
