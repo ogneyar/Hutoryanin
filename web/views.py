@@ -113,35 +113,73 @@ def high_knife(request):
     return render(request, "products/knives/high_knife.html")
 
 
-def low_knife_bee(request):
+
+# def getColor(color):
+#     colorInRussian = ''
+#     colorInRussianMen = ''
+#     if color == 'blue':
+#         colorInRussian = 'Синяя'
+#         colorInRussianMen = 'Синий'
+#     if color == 'red':
+#         colorInRussian = 'Красная'
+#         colorInRussianMen = 'Красный'
+#     if color == 'green':
+#         colorInRussian = 'Зелёная'
+#         colorInRussianMen = 'Зелёный'
+#     if color == 'transparent':
+#         colorInRussian = 'Прозрачная'
+#         colorInRussianMen = 'Прозрачный'
+#     if color == 'orange':
+#         colorInRussian = 'Оранжевая'
+#         colorInRussianMen = 'Оранжевый'
+#     return colorInRussian
+
+def getParameters(request):
     color = ""
+    colorInRussian = ""
+    colorInRussianMen = ''
+
     if request.method == "GET":
         if 'color' in request.GET:
             color = request.GET["color"]
+            # colorInRussian = getColor(color)
+
+    if color == 'blue':
+        colorInRussian = 'Синяя'
+        colorInRussianMen = 'Синий'
+    if color == 'red':
+        colorInRussian = 'Красная'
+        colorInRussianMen = 'Красный'
+    if color == 'green':
+        colorInRussian = 'Зелёная'
+        colorInRussianMen = 'Зелёный'
+    if color == 'transparent':
+        colorInRussian = 'Прозрачная'
+        colorInRussianMen = 'Прозрачный'
+    if color == 'orange':
+        colorInRussian = 'Оранжевая'
+        colorInRussianMen = 'Оранжевый'
+    
     parameters = {
-        'color':color
+        'color':color,
+        'colorInRussian':colorInRussian,
+        'colorInRussianMen':colorInRussianMen
     }
+    return parameters
+
+
+def low_knife_bee(request):
+    parameters = getParameters(request)    
     return render(request, "products/knives/low_knife_bee.html", parameters)
 
+
 def middle_knife_bee(request):
-    color = ""
-    if request.method == "GET":
-        if 'color' in request.GET:
-            color = request.GET["color"]
-    parameters = {
-        'color':color
-    }
+    parameters = getParameters(request)
     return render(request, "products/knives/middle_knife_bee.html", parameters)
 
 
 def high_knife_bee(request):
-    color = ""
-    if request.method == "GET":
-        if 'color' in request.GET:
-            color = request.GET["color"]
-    parameters = {
-        'color':color
-    }
+    parameters = getParameters(request)
     return render(request, "products/knives/high_knife_bee.html", parameters)
 
 
