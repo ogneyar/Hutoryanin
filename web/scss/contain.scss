@@ -195,10 +195,10 @@
 /* раздел ПОЛЬЗА (или выгода)*/
 .benefit {
 	position: relative;
-	margin-top: 50px;
+	// margin-top: 50px;
 	padding-top: 30px;
 	border-top: 1px solid lightgrey;
-	margin: 48px 10px;
+	margin: 50px 10px 50px 10px;
 	width: 100%;
 	height: 550px;
 }
@@ -214,9 +214,10 @@
 }
 .benefit_img1 {	
 	left: 50px; 
+	top: 150px;
 }
 .benefit_img2 {
-	top: 250px;
+	top: 270px;
 	right: 50px;
 }
 .benefit_img3 {
@@ -230,7 +231,7 @@
 }
 .benefit_text_bottom {
 	position: absolute;
-	top: 570px;
+	top: 600px;
 	/* text-align: center; */
 	right: 150px;
 }
