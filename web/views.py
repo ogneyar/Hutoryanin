@@ -78,19 +78,66 @@ def products(request):
     return render(request, "products/products.html")
 
 
+
+def getRussianName(product):
+    russianName = 'none'
+    if product == 'high_knife_bee':
+        russianName = 'Шмель'
+    if product == 'middle_knife_bee':
+        russianName = 'Пчела'
+    if product == 'low_knife_bee':
+        russianName = 'Жучёк'
+
+    # if product == 'high_knife' or product == 'middle_knife' or product == 'low_knife':
+    #     russianName = product
+
+    if product == 'high_knife':
+        russianName = 'Брат'
+    if product == 'middle_knife':
+        russianName = 'Друг'
+    if product == 'low_knife':
+        russianName = 'Товарищ'
+
+    if product == 'high_spoon':
+        russianName = 'Царица'
+    if product == 'middle_spoon':
+        russianName = 'Мера'
+    if product == 'low_spoon':
+        russianName = 'Кроха'
+    
+    if product == 'site':
+        russianName = 'Сайт'
+    if product == 'tgbot':
+        russianName = 'Бота'
+    if product == 'vkbot':
+        russianName = 'Бота'
+    if product == 'android':
+        russianName = 'Приложение'
+    
+    return russianName
+
 def creating_an_order(request, category, product):
     user = "none"
     if "user" in request.session:
         user = request.session["user"]
 
+    russianName = getRussianName(product)
+
     color = ""
+    
     if request.method == "GET":
         if 'color' in request.GET:
-            color = request.GET["color"]
+            #color = request.GET["color"]   
+            if russianName == 'Шмель':
+                color = getColorMen(request.GET["color"])
+            if russianName == 'Пчела':
+                color = getColor(request.GET["color"])    
+
     parameters = {
         'user':user,
         'category':category,
         'product':product,
+        'russianName':russianName,
         'color':color
     }
     return render(request, "products/creating_an_order.html", parameters)
@@ -114,25 +161,33 @@ def high_knife(request):
 
 
 
-# def getColor(color):
-#     colorInRussian = ''
-#     colorInRussianMen = ''
-#     if color == 'blue':
-#         colorInRussian = 'Синяя'
-#         colorInRussianMen = 'Синий'
-#     if color == 'red':
-#         colorInRussian = 'Красная'
-#         colorInRussianMen = 'Красный'
-#     if color == 'green':
-#         colorInRussian = 'Зелёная'
-#         colorInRussianMen = 'Зелёный'
-#     if color == 'transparent':
-#         colorInRussian = 'Прозрачная'
-#         colorInRussianMen = 'Прозрачный'
-#     if color == 'orange':
-#         colorInRussian = 'Оранжевая'
-#         colorInRussianMen = 'Оранжевый'
-#     return colorInRussian
+def getColor(color):
+    colorInRussian = ''
+    if color == 'blue':
+        colorInRussian = 'Синяя'
+    if color == 'red':
+        colorInRussian = 'Красная'
+    if color == 'green':
+        colorInRussian = 'Зелёная'
+    if color == 'transparent':
+        colorInRussian = 'Прозрачная'
+    if color == 'orange':
+        colorInRussian = 'Оранжевая'
+    return colorInRussian
+
+def getColorMen(color):
+    colorInRussianMen = ''
+    if color == 'blue':
+        colorInRussianMen = 'Синий'
+    if color == 'red':
+        colorInRussianMen = 'Красный'
+    if color == 'green':
+        colorInRussianMen = 'Зелёный'
+    if color == 'transparent':
+        colorInRussianMen = 'Прозрачный'
+    if color == 'orange':
+        colorInRussianMen = 'Оранжевый'
+    return colorInRussianMen
 
 def getParameters(request):
     color = ""
@@ -142,23 +197,8 @@ def getParameters(request):
     if request.method == "GET":
         if 'color' in request.GET:
             color = request.GET["color"]
-            # colorInRussian = getColor(color)
-
-    if color == 'blue':
-        colorInRussian = 'Синяя'
-        colorInRussianMen = 'Синий'
-    if color == 'red':
-        colorInRussian = 'Красная'
-        colorInRussianMen = 'Красный'
-    if color == 'green':
-        colorInRussian = 'Зелёная'
-        colorInRussianMen = 'Зелёный'
-    if color == 'transparent':
-        colorInRussian = 'Прозрачная'
-        colorInRussianMen = 'Прозрачный'
-    if color == 'orange':
-        colorInRussian = 'Оранжевая'
-        colorInRussianMen = 'Оранжевый'
+            colorInRussian = getColor(color)
+            colorInRussianMen = getColorMen(color)
     
     parameters = {
         'color':color,
@@ -181,6 +221,7 @@ def middle_knife_bee(request):
 def high_knife_bee(request):
     parameters = getParameters(request)
     return render(request, "products/knives/high_knife_bee.html", parameters)
+
 
 
 def spoons(request):

@@ -534,6 +534,10 @@ button {
   .sign .sign_in {
     padding: 20px; } }
 
+@media (min-width: 1000px) {
+  .sign .sign_in {
+    padding: 50px 100px; } }
+
 @font-face {
   font-family: 'FontAwesome';
   src: url("/static/fonts/font-awesome/fontawesome-webfont.eot?v=4.7.0");
@@ -844,7 +848,9 @@ input {
   input {
     width: 50%; }
   textarea {
-    width: 50%; } }
+    width: 50%; }
+  .sign_in input {
+    width: 80%; } }
 
 /* .menu и .menu-mobile в отдельном файле menu.css */
 .title {

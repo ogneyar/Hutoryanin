@@ -13,22 +13,14 @@
 {% block content %}
 
 <div class="contain creating_an_order">	
-  	
-  	{% if product == "site" %}
-	<p>Сайт можно преобрести только по предварительному заказу.</p>
-  	{% else %}	
-		{% if product == "tgbot" %}	
-			<p>Бота можно преобрести только по предварительному заказу.</p>
-		{% else %}		
-			{% if product == "android" %}		
-				<p>Приложение можно преобрести только по предварительному заказу.</p>		
-			{% else %}
+	  
+	{% if product == "site" or product == "tgbot" or product == "android" or product == "vkbot" %}
+		<p>{{ russianName }} можно преобрести только по предварительному заказу.</p>		
+	{% else %}
 			
-			<p><strong>{{ user.login }}</strong> Вы выбрали {{ product }} {{ color }}</p>
-			<p><span style="color:lightgrey;">Для заказа товара достаточно указать email.</span></p>
+		<p><strong>{{ user.login }}</strong> Вы выбрали <strong>{{ color }} {{ russianName }}</strong></p>
+		<p><span style="color:lightgrey;">Для заказа товара достаточно указать email.</span></p>
 
-			{% endif %}	
-		{% endif %}			
 	{% endif %}
 			
 	<form method="post" action="/sendmail/">

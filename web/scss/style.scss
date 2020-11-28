@@ -99,14 +99,16 @@ input {
 	padding: 5px 10px;
 	border-radius: 5px;
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
 	input {
 		width: 50%;	
 	}
 	textarea {
 		width: 50%;
 	}
-
+	.sign_in input {
+		width: 80%;	
+	}
 }
 
 /* .menu и .menu-mobile в отдельном файле menu.css */
