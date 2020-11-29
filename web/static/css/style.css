@@ -712,7 +712,11 @@ label #fon {
   height: 100%;
   opacity: 0;
   visibility: hidden;
-  background: black; }
+  background: black; 
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease; }
 
 #check:checked ~ label #fon {
   opacity: 0.5;
@@ -1049,8 +1053,18 @@ input {
   height: 15px;
   border-radius: 50%;
   background: #00ff0a;
-  -webkit-box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a, 0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
-          box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a, 0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
+  -webkit-box-shadow: 0 0 10px #00ff0a,
+ 0 0 20px #00ff0a,
+ 0 0 40px #00ff0a,
+ 0 0 60px #00ff0a,
+ 0 0 80px #00ff0a,
+ 0 0 100px #00ff0a;
+          box-shadow: 0 0 10px #00ff0a,
+ 0 0 20px #00ff0a,
+ 0 0 40px #00ff0a,
+ 0 0 60px #00ff0a,
+ 0 0 80px #00ff0a,
+ 0 0 100px #00ff0a;
   -webkit-animation: animate 1s linear infinite;
           animation: animate 1s linear infinite;
   -webkit-animation-delay: calc(0.1s * var(--i));
