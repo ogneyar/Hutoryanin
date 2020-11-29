@@ -192,6 +192,10 @@ label #fon {
 	visibility: hidden;
 	background: rgb(0, 0, 0);
 	// z-index: 0;
+	-webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
 }
 #check:checked ~ label #fon {
 	opacity: 0.5;
