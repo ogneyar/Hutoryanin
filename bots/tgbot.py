@@ -43,9 +43,9 @@ def bot(request):
     try:
         if (request.method == "POST"):
 
-            if (debug == "Да"):
-                tg.sendMessage(master, request.body, disable_web_page_preview=True)
-                #return HttpResponse("ok")
+            # if (debug == "Да"):
+                # tg.sendMessage(master, request.body, disable_web_page_preview=True)
+                # return HttpResponse("ok")
 
             update = None
             update = tg.start(request)

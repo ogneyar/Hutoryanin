@@ -357,14 +357,10 @@ def exit(request):
 def registration(request):
     global tg, master
 
-    if request.get_host() == '127.0.0.1:8000':
-        token = "1224906863:AAHYalxznzb4XwcP-7olgPu8BQjNJ0LrKXY"
-        master = 1038937592
-        host = 'local'
-    else:
-        token = os.getenv("TOKEN")
-        master = int(os.getenv("MASTER"))
-        host = 'no_local'
+    token = os.getenv("TOKEN")
+    master = int(os.getenv("MASTER"))
+    admin_group = int(os.getenv("ADMIN_GROUP"))
+    host = 'no_local'
 
     tg = Bot(token)
 
@@ -411,7 +407,7 @@ def registration(request):
                     mail = sendMailTo(email, "Регистрация на сайте ХуторянинЪ.", sms)
                     if mail != "Ошибка отправки!":
                         form.save()
-                        tg.sendMessage(master, "Зарегистрировал нового клиента:\n\n" + login + "\n\n" + email)
+                        tg.sendMessage(admin_group, "Зарегистрировал нового клиента:\n\n" + login + "\n\n" + email)
                 else:
                     mail = "Ошибка формы!"
 
