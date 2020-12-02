@@ -34,10 +34,12 @@
     var section = doc.getElementById('section');
 
     // функция для показа заставки во время отправки сообщения на почту
-    submit_sendmail[0].onclick = function() {
-        section.style.display = "block";
-
-        //return false;
+    for (let i = 0; i < submit_sendmail.length; i++) {
+        submit_sendmail[i].onclick = function() {
+            section.style.display = "block";
+        }
+        console.log('i:',i);
     }
+
 
 })();
