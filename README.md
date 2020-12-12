@@ -7,7 +7,7 @@
 	<a href="https://hutoryanin.ru/products/">
 		<!-- <img src=""> -->
         Товары
-	</a>
+	</a>&nbsp;&nbsp;&nbsp;
 	<a href="https://hutoryanin.ru/public/1/">
 		<!-- <img src=""> -->
         Публикации
@@ -18,25 +18,10 @@
 
 # ХуторянинЪ
 
-Тест typeORM:
+Описание:
 
-```typescript
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+```
 
-@Entity()
-export class User {
+Описание не готово...
 
-    @PrimaryGeneratedColumn()
-    id: number;
-
-    @Column()
-    firstName: string;
-
-    @Column()
-    lastName: string;
-
-    @Column()
-    age: number;
-
-}
 ```
