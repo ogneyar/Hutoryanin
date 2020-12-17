@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+
+<div class="header">
+
+  <h1>Акции от Хуторянина!</h1>
+  <br>
+  <hr>
+  <br>
+
+  <h3>Эта страница сделана для реализации выбора претендента на получение подарка</h3>
+
+  <p>По нажатии кнопки <strong class="g">Покажи победителя!</strong> компьютер выдаст случайное число, каждый из претендентов пронумерован и компьютер тем самым определит победителя. ( вроде логично :) )</p>
+
+  <br>
+  <hr>
+  <br>
+
+  <h2>Первая акция, розыгрыш ножа.</h2>
+
+  <br>
+
+  {% for users in promo1 %}  
+
+    <h4 class="bb">{{ users.login }}</h4>
+
+  {% endfor %}
+
+  <!-- <p>promo1_win1: {{promo1_win1}}</p>
+  <p>promo1_win2: {{promo1_win2}}</p> -->
+
+  <br>
+
+  <form action="/promo/winner" method="POST">
+    <input type="hidden" name="promo1_win1" value="{{promo1_win1}}">
+    <input type="hidden" name="promo1_win2" value="{{promo1_win2}}">
+
+    <input type="submit" class="btn btn-primary form_input" value="Покажи победителя!">
+
+  </form>
+
+  <br><br>
+  
+  <hr>
+  <br>
+
+  <br>
+  <hr>
+  <br>
+  <h2>Вторая акция, розыгрыш ложек.</h2>
+
+  <br>
+
+  {% for users in promo2 %}  
+
+    <h4 class="bb">{{ users.login }}</h4>
+
+  {% endfor %}
+
+  <!-- <p>promo2_win1: {{promo2_win1}}</p>
+  <p>promo2_win2: {{promo2_win2}}</p> -->
+
+  <br>
+  
+  
+  <form action="/promo/winner" method="POST">
+    <input type="hidden" name="promo2_win1" value="{{promo2_win1}}">
+    <input type="hidden" name="promo2_win2" value="{{promo2_win2}}">
+
+    <input type="submit" class="btn btn-primary form_input" value="Покажи победителя!">
+
+  </form>
+
+
+  <br><br>
+
+  <hr>
+  
+  <p>Следите за обновлениями в новостной ленте телеграм канала <a class="btn btn-primary" href="https://t.me/hutor_yanin" target="_blank">ХуторянинЪ</a></p>
+  
+  <p>А такж же на ютуб-канале <a class="btn btn-danger"  href="https://youtube.com/c/ХуторянинЪ" target="_blank">ХуторянинЪ</a></p>
+  
+</div>
+
+{% endblock %}
+
+{% block content %}
+ 
+<div class="image">	
+        <img class="img50" src="{% static 'logo.png'%}" alt="">		
+        <h4 class="caption-two">Акция /<br> Promo</h4>		
+</div>	
+
+
+{% endblock %}
+
+
+
+
+

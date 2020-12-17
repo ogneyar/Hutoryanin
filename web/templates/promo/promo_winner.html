@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+
+<div class="header">
+
+  <h1>Акции от Хуторянина!</h1>
+  <br>
+  <hr>
+  <br>
+
+
+  {% if promo1_win1 != "" %}  
+
+    <h4>Главный приз "нож" достаётся: {{ promo1_win1 }}</h4>
+
+  {% endif %}
+
+  {% if promo1_win2 != "" %}  
+
+    <h4>Утешительный приз достаётся: {{ promo1_win2 }}</h4>
+
+  {% endif %}
+
+  {% if promo2_win1 != "" %}  
+
+    <h4>Главный приз "ложки для мёда" достаются: {{ promo2_win1 }}</h4>
+
+  {% endif %}
+
+
+  {% if promo2_win2 != "" %}  
+
+    <h4>Утешительный приз достаётся: {{ promo2_win2 }}</h4>
+
+  {% endif %}
+
+  <br>
+  <br>
+
+  <p>Вернуться <a class="btn btn-outline-primary" href="/promo/result">назад</a></p>
+
+  <p>Все возникающие вопросы направляйте в <a class="btn btn-outline-warning" href="/support">тех.поддержку</a></p>  
+ 
+  <br>
+  <hr>
+  
+  <p>Следите за обновлениями в новостной ленте телеграм канала <a class="btn btn-primary" href="https://t.me/hutor_yanin" target="_blank">ХуторянинЪ</a></p>
+  
+  <p>А такж же на ютуб-канале <a class="btn btn-danger"  href="https://youtube.com/c/ХуторянинЪ" target="_blank">ХуторянинЪ</a></p>
+  
+</div>
+
+{% endblock %}
+
+{% block content %}
+ 
+<div class="image">	
+        <img class="img50" src="{% static 'logo.png'%}" alt="">		
+        <h4 class="caption-two">Акция /<br> Promo</h4>		
+</div>	
+
+
+{% endblock %}
+
+
+
+
+

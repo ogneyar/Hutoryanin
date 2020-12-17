@@ -9,10 +9,7 @@
     font-family: 'NaturalMono';
     src: url('/static/fonts/NaturalMono.ttf');
 }
-@font-face {
-    font-family: 'mr_AfronikG';
-    src: url('/static/fonts/mr_AfronikG.ttf');
-}
+
 @font-face {
     font-family: 'Verdana';
     src: url('/static/fonts/Verdana.ttf');
@@ -28,11 +25,10 @@ $padding-bottom: 20px;
 ::-moz-selection {background: red; color: white;}
 
 html {
-	/*font-family: sans-serif;*/
-	// font-family: "Courier New", Courier, monospace;
+	// font-family: NaturalMono, Courier, sans-serif;
 	font-family: Verdana, Courier, sans-serif;
 	font-size: 1rem;
-	/*font-size: 14px;*/
+	font-weight: 500;
 }
 @media (min-width: 768px) {
 	html {
@@ -306,3 +302,7 @@ input {
 	padding: 10px;
 }
 
+.form_input {	
+	font-size: 1.2rem;	
+	width: 210px;
+}

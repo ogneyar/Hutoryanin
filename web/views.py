@@ -279,9 +279,106 @@ def android(request):
 
 
 
+
 def promo(request):
 
-    return render(request, "promo.html")
+    return render(request, "promo/promo.html")
+
+
+def promo_result(request):
+
+    all_users = Users.objects.all()
+    promo1 = []
+    promo2 = []
+    i_promo1 = 0
+    i_promo2 = 0
+
+    for user in all_users:
+        if user.info != "not":
+            promo1.append(user)
+            i_promo1 = i_promo1 + 1
+        if user.info == "yes":
+            promo2.append(user)
+            i_promo2 = i_promo2 + 1
+    
+    if (i_promo1 > 1):
+        promo1_win1 = random.randint(1,i_promo1)
+        promo1_win2 = random.randint(1,i_promo1)
+        while (promo1_win1 == promo1_win2):
+            promo1_win2 = random.randint(1,i_promo1)
+    elif (i_promo1 == 1):
+        promo1_win1 = 1
+        promo1_win2 = 0
+    else:
+        promo1_win1 = 0
+        promo1_win2 = 0
+
+    if (i_promo2 > 1):
+        promo2_win1 = random.randint(1,i_promo2)
+        promo2_win2 = random.randint(1,i_promo2)
+        while (promo2_win2 == promo2_win1):
+            promo2_win2 = random.randint(1,i_promo2)
+    elif (i_promo2 == 1):
+        promo2_win1 = 1
+        promo2_win2 = 0
+    else:
+        promo2_win1 = 0
+        promo2_win2 = 0
+    
+    i = 1
+    for pr1 in promo1:
+        if (i == promo1_win1):
+            promo1_win1 = pr1.login
+        if (i == promo1_win2):
+            promo1_win2 = pr1.login
+        i = i + 1
+    
+    i = 1
+    for pr2 in promo2:
+        if (i == promo2_win1):
+            promo2_win1 = pr2.login
+        if (i == promo2_win2):
+            promo2_win2 = pr2.login
+        i = i + 1
+
+    data = {
+        "promo1": promo1,
+        "promo1_win1": promo1_win1,
+        "promo1_win2": promo1_win2,
+        "promo2": promo2,
+        "promo2_win1": promo2_win1,
+        "promo2_win2": promo2_win2
+    }
+
+    return render(request, "promo/promo_result.html", data)
+
+
+def promo_winner(request):
+
+    promo1_win1 = ""
+    promo1_win2 = ""
+    promo2_win1 = ""
+    promo2_win2 = ""
+    if request.method == "POST":
+        if "promo1_win1" in request.POST:
+            promo1_win1 = request.POST["promo1_win1"]
+        if "promo1_win2" in request.POST:
+            promo1_win2 = request.POST["promo1_win2"]
+        
+        if "promo2_win1" in request.POST:
+            promo2_win1 = request.POST["promo2_win1"]
+        if "promo2_win2" in request.POST:
+            promo2_win2 = request.POST["promo2_win2"]
+    
+    data = {
+        "promo1_win1": promo1_win1,
+        "promo1_win2": promo1_win2,
+        "promo2_win1": promo2_win1,
+        "promo2_win2": promo2_win2
+    }
+
+    return render(request, "promo/promo_winner.html", data)
+    
 
 
 

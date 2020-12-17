@@ -47,6 +47,9 @@ urlpatterns = [
     path("products/applications/android", web.views.android, name="android"),
 
     path("promo/", web.views.promo, name="promo"),
+    path("promo/result", web.views.promo_result, name="promo_result"),
+    path("promo/winner", web.views.promo_winner, name="promo_winner"),
+    
 
     path("support/", web.views.support, name="support"),
     path("sendmail/", web.templates.support.sendmail.send, name="send"),

@@ -5,8 +5,8 @@ var autoprefixer = require('gulp-autoprefixer');
 var browsersync = require('browser-sync').create();
 var reload  = browsersync.reload;
 
-function css(cb) {        
-    gulp.src('./web/scss/style.scss')
+function css(cb) {
+    gulp.src('./web/scss/style1.scss')
         .pipe(sass({
             errorLogToConsole: true
         }))
