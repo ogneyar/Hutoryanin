@@ -96,7 +96,7 @@
 	
 	<h3>Вопросы и предложения.</h3>
 	<br>
-	<form method="post" action="/sendmail/">
+	<form method="post" action="/sendmail/" id='form'>
 		<input type="hidden" name="login" id="login" value="test">
 			
 		<label>Ваш Email:</label><br>
@@ -110,12 +110,10 @@
 			
 		<div align="center">
 			<!-- <button type="submit" class="btn btn-primary submit_sendmail">Отправить</button> -->
-			<button type="submit"
-				class="btn btn-primary submit_sendmail g-recaptcha" 
+			<button class="btn btn-primary submit_sendmail g-recaptcha" 
 				data-sitekey="6LfZqBEaAAAAAHJaSJOIgdCHfShi3Va6YrWcljlF" 
 				data-callback='onSubmit' 
-				data-action='submit'
-				id='d-form'>Отправить</button>
+				data-action='submit'>Отправить</button>
 		</div>
 	</form>
 
@@ -126,7 +124,7 @@
 
 <script>
 	function onSubmit(token) {
-	  document.getElementById("d-form").submit();
+	  document.getElementById("form").submit();
 	}
   </script>
 
