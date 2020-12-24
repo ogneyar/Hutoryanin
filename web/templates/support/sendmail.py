@@ -55,7 +55,12 @@ def send(request):
                         
                         response += mailing(request.POST["email"], request.POST["message"], product)
                     else:
-                        response += mailing(request.POST["email"], request.POST["message"])
+                        msg = request.POST["message"]
+                        index = msg.find("http") # функция возвращает -1 если совпадения не найдены
+                        if index == -1:
+                            response += mailing(request.POST["email"], request.POST["message"])
+                        else:
+                            response = "Письмо отправленно в СПАМ!"
 
                 else:                    
                     response += "Письмо уже отправленно!"
@@ -75,7 +80,12 @@ def send(request):
                                 product += "\n\nПромо-код: " + request.POST["promo"]
                         response += mailing(request.POST["email"], request.POST["message"], product)
                     else:
-                        response += mailing(request.POST["email"], request.POST["message"])
+                        msg = request.POST["message"]
+                        index = msg.find("http") # функция возвращает -1 если совпадения не найдены
+                        if index == -1:
+                            response += mailing(request.POST["email"], request.POST["message"])
+                        else:
+                            response = "Письмо отправленно в СПАМ!"
 
                 else:                    
                     response += "Письмо уже отправленно!"
