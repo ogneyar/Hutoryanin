@@ -13,6 +13,10 @@ from email.mime.text import MIMEText
 from classes.tg.botApi import Bot
 
 
+discount = 10
+discount_until = "01.02.2021"
+
+
 def index(request):
 
     return render(request, "index.html")
@@ -143,21 +147,38 @@ def creating_an_order(request, category, product):
     return render(request, "products/creating_an_order.html", parameters)
 
 
+
+
 def knives(request):
 
     return render(request, "products/knives/knives.html")
 
 def low_knife(request):
 
-    return render(request, "products/knives/low_knife.html")
+    data = {
+        "discount": discount,
+        "discount_until": discount_until
+    }
+
+    return render(request, "products/knives/low_knife.html", data)
 
 def middle_knife(request):
 
-    return render(request, "products/knives/middle_knife.html")
+    data = {
+        "discount": discount,
+        "discount_until": discount_until
+    }
+
+    return render(request, "products/knives/middle_knife.html", data)
 
 def high_knife(request):
 
-    return render(request, "products/knives/high_knife.html")
+    data = {
+        "discount": discount,
+        "discount_until": discount_until
+    }
+
+    return render(request, "products/knives/high_knife.html", data)
 
 
 
@@ -203,7 +224,9 @@ def getParameters(request):
     parameters = {
         'color':color,
         'colorInRussian':colorInRussian,
-        'colorInRussianMen':colorInRussianMen
+        'colorInRussianMen':colorInRussianMen,
+        "discount": discount,
+        "discount_until": discount_until
     }
     return parameters
 
@@ -230,15 +253,32 @@ def spoons(request):
 
 def low_spoon(request):
 
-    return render(request, "products/spoons/low_spoon.html")
+    data = {
+        "discount": discount,
+        "discount_until": discount_until
+    }
+
+    return render(request, "products/spoons/low_spoon.html", data)
 
 def middle_spoon(request):
 
-    return render(request, "products/spoons/middle_spoon.html")
+    data = {
+        "discount": discount,
+        "discount_until": discount_until
+    }
+
+    return render(request, "products/spoons/middle_spoon.html", data)
 
 def high_spoon(request):
 
-    return render(request, "products/spoons/high_spoon.html")
+    data = {
+        "discount": discount,
+        "discount_until": discount_until
+    }
+
+    return render(request, "products/spoons/high_spoon.html", data)
+
+
 
 def candlesticks(request):
 
@@ -246,15 +286,31 @@ def candlesticks(request):
 
 def low_candlestick(request):
 
-    return render(request, "products/candlesticks/low_candlestick.html")
+    data = {
+        "discount": discount,
+        "discount_until": discount_until
+    }
+
+    return render(request, "products/candlesticks/low_candlestick.html", data)
 
 def middle_candlestick(request):
 
-    return render(request, "products/candlesticks/middle_candlestick.html")
+    data = {
+        "discount": discount,
+        "discount_until": discount_until
+    }
+
+    return render(request, "products/candlesticks/middle_candlestick.html", data)
 
 def high_candlestick(request):
 
-    return render(request, "products/candlesticks/high_candlestick.html")
+    data = {
+        "discount": discount,
+        "discount_until": discount_until
+    }
+
+    return render(request, "products/candlesticks/high_candlestick.html", data)
+
 
 
 def applications(request):
@@ -439,7 +495,9 @@ def lk(request):
     data = {
         "user": user,
         "fail": fail,
-        "login": login
+        "login": login,
+        "discount": discount,
+        "discount_until": discount_until
     }
 
     return render(request, "lk/lk.html", data)

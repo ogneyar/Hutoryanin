@@ -10,7 +10,11 @@
 	<p><a class="btn btn-outline-danger" href="{% url 'low_candlestick' %}/creating_an_order">ОФОРМИТЬ ЗАКАЗ</a></p>    
      
 	<p>Стоимость подсвечника - 400 рублей.</p>
-    
+	
+	<p>Действует <span class="r">скидка в {{ discount }}%</span> по Промо-коду, для этого <a href="/registration">зарегистрируйтесь</a> на нашем сайте.</p>
+	<p>Скидка действует до {{ discount_until }}. Не упустите свой шанс!</p>
+	<br>
+
 	<p>Доставка почтой России оплачивается отдельно.</p>
   
 	<br>
