@@ -345,17 +345,17 @@ def promo_result(request):
 
     all_users = Users.objects.all()
     promo1 = []
-    promo2 = []
+    # promo2 = []
     i_promo1 = 0
-    i_promo2 = 0
+    # i_promo2 = 0
 
     for user in all_users:
-        if user.info != "not":
+        if user.info != "none":
             promo1.append(user)
             i_promo1 = i_promo1 + 1
-        if user.info == "yes":
-            promo2.append(user)
-            i_promo2 = i_promo2 + 1
+        # if user.info == "yes":
+        #     promo2.append(user)
+        #     i_promo2 = i_promo2 + 1
     
     if (i_promo1 > 1):
         promo1_win1 = random.randint(1,i_promo1)
@@ -369,17 +369,17 @@ def promo_result(request):
         promo1_win1 = 0
         promo1_win2 = 0
 
-    if (i_promo2 > 1):
-        promo2_win1 = random.randint(1,i_promo2)
-        promo2_win2 = random.randint(1,i_promo2)
-        while (promo2_win2 == promo2_win1):
-            promo2_win2 = random.randint(1,i_promo2)
-    elif (i_promo2 == 1):
-        promo2_win1 = 1
-        promo2_win2 = 0
-    else:
-        promo2_win1 = 0
-        promo2_win2 = 0
+    # if (i_promo2 > 1):
+    #     promo2_win1 = random.randint(1,i_promo2)
+    #     promo2_win2 = random.randint(1,i_promo2)
+    #     while (promo2_win2 == promo2_win1):
+    #         promo2_win2 = random.randint(1,i_promo2)
+    # elif (i_promo2 == 1):
+    #     promo2_win1 = 1
+    #     promo2_win2 = 0
+    # else:
+    #     promo2_win1 = 0
+    #     promo2_win2 = 0
     
     i = 1
     for pr1 in promo1:
@@ -389,21 +389,21 @@ def promo_result(request):
             promo1_win2 = pr1.login
         i = i + 1
     
-    i = 1
-    for pr2 in promo2:
-        if (i == promo2_win1):
-            promo2_win1 = pr2.login
-        if (i == promo2_win2):
-            promo2_win2 = pr2.login
-        i = i + 1
+    # i = 1
+    # for pr2 in promo2:
+    #     if (i == promo2_win1):
+    #         promo2_win1 = pr2.login
+    #     if (i == promo2_win2):
+    #         promo2_win2 = pr2.login
+    #     i = i + 1
 
     data = {
         "promo1": promo1,
         "promo1_win1": promo1_win1,
         "promo1_win2": promo1_win2,
-        "promo2": promo2,
-        "promo2_win1": promo2_win1,
-        "promo2_win2": promo2_win2
+        # "promo2": promo2,
+        # "promo2_win1": promo2_win1,
+        # "promo2_win2": promo2_win2
     }
 
     return render(request, "promo/promo_result.html", data)
