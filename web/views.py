@@ -357,17 +357,29 @@ def promo_result(request):
         #     promo2.append(user)
         #     i_promo2 = i_promo2 + 1
     
-    if (i_promo1 > 1):
+    if (i_promo1 > 2):
         promo1_win1 = random.randint(1,i_promo1)
         promo1_win2 = random.randint(1,i_promo1)
+        promo1_win3 = random.randint(1,i_promo1)
         while (promo1_win1 == promo1_win2):
             promo1_win2 = random.randint(1,i_promo1)
+        while ((promo1_win3 == promo1_win2)or(promo1_win3 == promo1_win1)):
+            promo1_win3 = random.randint(1,i_promo1)
+    elif (i_promo1 == 2):
+        promo1_win1 = random.randint(1,i_promo1)
+        if (promo1_win1 == 2):
+            promo1_win2 = 1
+        else:
+            promo1_win2 = 2       
+        promo1_win3 = 0
     elif (i_promo1 == 1):
         promo1_win1 = 1
         promo1_win2 = 0
+        promo1_win3 = 0
     else:
         promo1_win1 = 0
         promo1_win2 = 0
+        promo1_win3 = 0
 
     # if (i_promo2 > 1):
     #     promo2_win1 = random.randint(1,i_promo2)
@@ -387,6 +399,8 @@ def promo_result(request):
             promo1_win1 = pr1.login
         if (i == promo1_win2):
             promo1_win2 = pr1.login
+        if (i == promo1_win3):
+            promo1_win3 = pr1.login
         i = i + 1
     
     # i = 1
@@ -401,6 +415,7 @@ def promo_result(request):
         "promo1": promo1,
         "promo1_win1": promo1_win1,
         "promo1_win2": promo1_win2,
+        "promo1_win3": promo1_win3,
         # "promo2": promo2,
         # "promo2_win1": promo2_win1,
         # "promo2_win2": promo2_win2
@@ -413,6 +428,8 @@ def promo_winner(request):
 
     promo1_win1 = ""
     promo1_win2 = ""
+    promo1_win3 = ""
+
     promo2_win1 = ""
     promo2_win2 = ""
     if request.method == "POST":
@@ -420,6 +437,8 @@ def promo_winner(request):
             promo1_win1 = request.POST["promo1_win1"]
         if "promo1_win2" in request.POST:
             promo1_win2 = request.POST["promo1_win2"]
+        if "promo1_win3" in request.POST:
+            promo1_win3 = request.POST["promo1_win3"]
         
         if "promo2_win1" in request.POST:
             promo2_win1 = request.POST["promo2_win1"]
@@ -429,6 +448,7 @@ def promo_winner(request):
     data = {
         "promo1_win1": promo1_win1,
         "promo1_win2": promo1_win2,
+        "promo1_win3": promo1_win3,
         "promo2_win1": promo2_win1,
         "promo2_win2": promo2_win2
     }

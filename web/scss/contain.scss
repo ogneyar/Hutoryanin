@@ -1,39 +1,4 @@
 ﻿
-/* --------------- */
-/* моргающий смайл */
-.creature {
-	width:  50px; 
-	height: 50px; 
-	border-radius: 50%; 
-	background: rgb(255, 217, 0); 
-	position: absolute;
-	top: 10px;
-	left: 30px;
-	z-index: 1000;
-} 
-.creature::before, 
-.creature::after { 
-	content: ''; 
-	position: absolute; 
-	width: 7px; 
-	height: 10px; 
-	border-radius: 50%; 
-	background: #000; 
-	top: 14px; 
-	animation: eye 3s ease-in-out infinite;
-}
-.creature::before { 
-	left: 12.5px; 
-} 
-.creature::after { 
-	right: 12.5px; 
-} 
-@keyframes eye { 
-	90% { transform: none; } 
-	95% { transform: scaleY(0.1); }
-}
-/* -------------- */
-
 
 /* vanilla effect */
 .contain {
