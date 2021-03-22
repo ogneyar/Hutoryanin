@@ -1,5 +1,5 @@
 *.pyc
 staticfiles
-*.env*
-/db.sqlite3
+.env
+db.sqlite3
 /node_modules
