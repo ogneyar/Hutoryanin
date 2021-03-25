@@ -747,7 +747,6 @@ html {
     font-size: 16px; } }
 
 body {
-  cursor: url("/static/favicons/favicon-32x32.png"), auto;
   background: #f7f7f7;
   width: 100%;
   margin: 0;
@@ -1061,8 +1060,8 @@ input {
   border-radius: 50%;
   background: #ffd900;
   position: relative;
-  bottom: 30px;
-  left: 30px;
+  bottom: 15px;
+  left: 10px;
   z-index: 1000; }
 
 .creature::before,

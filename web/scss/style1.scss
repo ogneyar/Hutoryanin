@@ -37,7 +37,7 @@ html {
 }
 
 body {	
-	cursor: url("/static/favicons/favicon-32x32.png"), auto;
+	// cursor: url("/static/favicons/favicon-32x32.png"), auto;
 	background: $background-color;	
 	width: 100%;
 	margin: 0;
@@ -320,8 +320,8 @@ input {
 	border-radius: 50%; 
 	background: rgb(255, 217, 0); 
 	position: relative;
-	bottom: 30px;
-	left: 30px;
+	bottom: 15px;
+	left: 10px;
 	z-index: 1000;
 } 
 .creature::before, 
