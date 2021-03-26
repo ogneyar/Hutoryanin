@@ -104,24 +104,8 @@ db_url = db_url.replace(port+"/", "")
 
 name = db_url
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'OPTIONS': {'sslmode': 'require'},
-        'NAME': name,
-        'USER': user,
-        'PASSWORD': passw,
-        'HOST': host,
-        'PORT': port,
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     },
-#     base: {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'OPTIONS': {'sslmode': 'require'},
 #         'NAME': name,
@@ -131,6 +115,22 @@ DATABASES = {
 #         'PORT': port,
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    base: {
+        'ENGINE': 'django.db.backends.postgresql',
+        'OPTIONS': {'sslmode': 'require'},
+        'NAME': name,
+        'USER': user,
+        'PASSWORD': passw,
+        'HOST': host,
+        'PORT': port,
+    }
+}
 
 
 CACHES = {
