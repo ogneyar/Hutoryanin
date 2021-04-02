@@ -1,4 +1,5 @@
 *.pyc
 staticfiles
 .env
+*.env
 /node_modules

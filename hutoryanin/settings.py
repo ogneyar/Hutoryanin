@@ -3,14 +3,14 @@ from pathlib import Path
 import os
 import django_heroku
 
-# from dotenv import load_dotenv
-# dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
-# if os.path.exists(dotenv_path):
-#     load_dotenv(dotenv_path)
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+from dotenv import load_dotenv
+dotenv_path = os.path.join(BASE_DIR, '.env')
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -19,10 +19,14 @@ SECRET_KEY = 'secretsecretkeY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 debug = os.getenv("DEBUG")
+
+# print("DEBUG",debug)
+
 if debug is None:
     debug = "Да"
-else:
-    SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+# else:
+#     SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
 
 if debug == "Да":
     DEBUG = True
