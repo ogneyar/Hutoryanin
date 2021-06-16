@@ -13,13 +13,16 @@ from email.mime.text import MIMEText
 from classes.tg.botApi import Bot
 
 
-discount = 10
-discount_until = "01.02.2021"
+discount = 20
+discount_until = "01.08.2021"
 
 
 def index(request):
-
-    return render(request, "index.html")
+    parameters = {
+        'discount':discount,
+        'discount_until':discount_until
+    }
+    return render(request, "index.html", parameters)
 
 
 def privacy(request):
