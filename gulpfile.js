@@ -20,7 +20,7 @@ function css(cb) {
             outputStyle: 'compressed'
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./web/static/css/'));        
+        .pipe(gulp.dest('./web/static/css/'));
     cb();
 }
 

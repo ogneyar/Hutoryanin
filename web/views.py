@@ -13,8 +13,8 @@ from email.mime.text import MIMEText
 from classes.tg.botApi import Bot
 
 
-discount = 20
-discount_until = "01.08.2021"
+discount = 10
+discount_until = "31.12.2021"
 
 
 def index(request):
@@ -341,7 +341,12 @@ def android(request):
 
 def promo(request):
 
-    return render(request, "promo/promo.html")
+    parameters = {
+        'discount':discount,
+        'discount_until':discount_until
+    }
+
+    return render(request, "promo/promo.html", parameters)
 
 
 def promo_result(request):
