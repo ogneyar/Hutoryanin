@@ -36,10 +36,15 @@
     // функция для показа заставки во время отправки сообщения на почту
     for (let i = 0; i < submit_sendmail.length; i++) {
         submit_sendmail[i].onclick = function() {
+            section.style.opacity = "0.7";
             section.style.display = "block";
         }
-        // console.log('i:',i);
     }
+
+    
+    doc.fonts.ready.then(() => {
+        section.style.display = "none";
+    });
 
 
 })();
