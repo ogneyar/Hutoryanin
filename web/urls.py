@@ -14,6 +14,8 @@ import bots.urls
 urlpatterns = [
     path("", web.views.index, name="index"),
     
+    path("temp/", web.views.temp, name="temp"),
+
     path("privacy/", web.views.privacy, name="privacy"),
 
     path("public/", web.views.public, name="public"),

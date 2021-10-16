@@ -25,6 +25,11 @@ def index(request):
     return render(request, "index.html", parameters)
 
 
+def temp(request):
+
+    return render(request, "temp/temp.html")
+
+
 def privacy(request):
 
     return render(request, "privacy.html")

@@ -1,0 +1,48 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/static/css/style1.css" rel="stylesheet">
+</head>
+<body>
+    <div class="head_image">
+        <a href="/"><img src="logo.png" alt="Логотип Руна Йера"></a>
+    </div>
+    
+    <div class="menu">
+        <div class="line-menu logo">
+            <a class="btn btn-danger home" href="/">ХуторянинЪ</a>
+        </div>
+        <nav class="line-menu nav">
+            <a class="btn btn-outline-dark" href="/public/1">Публикации</a>
+            <a class="btn btn-outline-primary" href="/products">Товары</a> 
+            <a class="btn btn-outline-success" href="/promo">Акции</a>
+            <a class="btn btn-outline-warning" href="/support">Тех.поддержка</a>
+            <a class="btn btn-outline-violet" href="/lk">Л.К.</a>
+        </nav>
+    </div>
+
+    <!---------------------->
+    <div class="title">
+    {% block header %}{% endblock %}
+    </div>
+    
+    <div class="main">
+    
+        <div class="content">
+    
+            {% block content %}{% endblock %}
+    
+        </div> <!--/* CONTENT */-->
+        
+    
+    </div> <!--/* MAIN */-->
+
+</body>
+</html>

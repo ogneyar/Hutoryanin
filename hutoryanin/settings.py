@@ -110,6 +110,13 @@ name = db_url
 
 # DATABASES = {
 #     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'OPTIONS': {'sslmode': 'require'},
 #         'NAME': name,
