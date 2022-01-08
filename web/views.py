@@ -13,8 +13,8 @@ from email.mime.text import MIMEText
 from classes.tg.botApi import Bot
 
 
-discount = 10
-discount_until = "31.12.2021"
+discount = 15
+discount_until = "1.03.2022"
 
 
 def index(request):
