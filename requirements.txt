@@ -11,3 +11,4 @@ psycopg2-binary
 secure-smtplib
 email-to
 python-dotenv
+pyttsx3
