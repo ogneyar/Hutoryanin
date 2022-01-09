@@ -26,6 +26,30 @@ def index(request):
 
 
 def temp(request):
+    # import speech_recognition as sr
+    import pyttsx3
+
+    # r = sr.Recognizer()
+    # with sr.Microphone() as sourse:
+    #     audio = r.listen(sourse)
+    #     order = r.recognize_google(audio, language="ru-ru")
+    
+    # print("get me order and please say my name")
+
+    engine = pyttsx3.init()
+
+    engine.setProperty("rate", 50) # количество слов в минуту
+    engine.setProperty("volume", 1.0) # от 0.1 до 1.0
+
+    voices = engine.getProperty("voices") 
+    # print(voices)
+    for voice in voices:
+        engine.setProperty('voice', voice.id)
+        engine.say('The quick brown fox jumped over the lazy dog.')
+    
+    # engine.say("здравствуйте, как дела?")
+    engine.runAndWait()
+
 
     return render(request, "temp/temp.html")
 
