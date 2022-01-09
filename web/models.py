@@ -3,10 +3,12 @@ from django.db import models
 
 
 class Greeting(models.Model):
+    # id = models.BigAutoField(primary_key=True)
     when = models.DateTimeField("date created", auto_now_add=True)
 
 
 class Url(models.Model):
+    # id = models.BigAutoField(primary_key=True)
     title = models.CharField("Название видео", max_length=200)
     url = models.CharField("Ссылка на видео", max_length=200)
     file_id = models.CharField("Номер файла в телеграм", max_length=200)
@@ -20,6 +22,7 @@ class Url(models.Model):
 
 
 class Messages(models.Model):
+    # id = models.BigAutoField(primary_key=True)
     email = models.CharField("email", max_length=200)
     text = models.TextField("Текст сообщения")
 
@@ -32,6 +35,7 @@ class Messages(models.Model):
 
 
 class Users(models.Model):
+    # id = models.BigAutoField(primary_key=True)
     login = models.CharField("login", max_length=200)
     password = models.CharField("password", max_length=200)
     email = models.CharField("email", max_length=200)
