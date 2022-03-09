@@ -18,8 +18,12 @@
 
 # ХуторянинЪ
 
-## test site one - https://hutor-test.herokuapp.com
-## test site two - https://hutoryanin.herokuapp.com
+## origin site - https://hutoryanin.ru
+
+### test site one - https://hutor-test.herokuapp.com
+
+### test site two - https://hutoryanin.herokuapp.com
+
 
 Описание:
 
