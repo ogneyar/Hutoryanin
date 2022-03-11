@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://hutoryanin.ru/">
-    <img src="https://github.com/ogneyar/Hutoryanin/raw/master/web/static/logo.png" width="400" height="400">
+    <img src="https://github.com/ogneyar/Hutoryanin/raw/master/web/static/logo.png" width="200" height="200">
   </a>
   <br>
   <br>
