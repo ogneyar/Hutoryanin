@@ -454,7 +454,8 @@ def bot(request):
                 # ссылка для скачивания файла - https://api.telegram.org/file/bot<token>/<file_path>
                 response = tg.getFile("AgACAgIAAxkBAAIGqV9McYDHPPhFOUJs7q3nrUmaIOARAALBrTEbUjRgSjcmazkxR4UJ_ZZJli4AAwEAAwIAA3gAA1luAQABGwQ")
 
-                tg.sendMessage(chat_id, "https://api.telegram.org/file/bot{0}/{1}".format(tg.token, response['file_path']))
+                if (chat_id == master):
+                    tg.sendMessage(chat_id, "https://api.telegram.org/file/bot{0}/{1}".format(tg.token, response['file_path']))
 
 
             elif (text == "/kickChatMember"):
