@@ -18,8 +18,8 @@ urlpatterns = [
 
     path("privacy/", web.views.privacy, name="privacy"),
 
-    path("public/", web.views.public, name="public"),
-    path("public/<int:page_id>/", web.views.public_page, name="public_page"),
+    # path("public/", web.views.public, name="public"),
+    # path("public/<int:page_id>/", web.views.public_page, name="public_page"),
 
     path("products/", web.views.products, name="products"),
     path("products/<str:category>/<str:product>/creating_an_order", web.views.creating_an_order, name="creating_an_order"),
